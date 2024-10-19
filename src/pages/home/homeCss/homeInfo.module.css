@@ -1,0 +1,11 @@
+.homeInfo_section{
+    padding: 100px 0;
+    gap: 60px;
+}
+.homeInfo_text{
+    padding-top: 54px;
+}
+.img{
+    width: 100%;
+    max-width: 282.5px;
+}

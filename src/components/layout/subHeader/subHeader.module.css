@@ -1,0 +1,69 @@
+.subHeader{
+    padding: 30px 0 0;
+}
+.subHeader_section{
+    border-bottom: 1px solid rgba(217, 216, 214, 1);
+    padding-bottom: 20px;
+}
+.subHeader_buttons{
+    gap: 10px;
+}
+.button, .subHeader_buttons a{
+    cursor: pointer;
+    padding: 9px;
+    transition: .2s ease-in-out;
+}
+.button:hover, .subHeader_buttons a:hover{
+    background-color: #61C4BF;
+}
+.profile_links a:hover{
+    transition: .2s ease-in-out;
+    color: #61C4BF
+}
+.button svg{
+    width: 18px;
+    height: 18px;
+}
+.button svg path{
+    fill: white;
+}
+.product_count{
+    padding-left: 10px;
+}
+.profile_links{
+    gap: 10px;
+    margin-left: 40px;
+}
+.subHeader-info{
+    gap: 16px;
+}
+.subHeader-info span{
+    font-size: 14px;
+    font-weight: 500;
+}
+.subHeader-inner{
+    gap: 15px;
+}
+.subHeader-socials{
+    gap: 8px;
+}
+.subHeader-socials span{
+    cursor: pointer;
+}
+.subHeader-langs{
+    gap: 4px;
+}
+.subHeader-langs span{
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 2px 8px;
+    cursor: pointer;
+    border-radius: 16px;
+    background: #F3F4F6;
+}
+@media screen and (max-width: 768px) {
+    .subHeader{
+        display: none;
+    }
+}

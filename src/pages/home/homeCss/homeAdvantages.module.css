@@ -1,0 +1,12 @@
+.homeAdvantages_section{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 100px 0;
+}
+.advantage_head h4{
+    padding-left: 20px;
+}
+.advantage_body{
+    padding-top: 20px;
+}

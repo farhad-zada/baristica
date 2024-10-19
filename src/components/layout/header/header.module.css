@@ -1,0 +1,21 @@
+.header_section{
+    padding: 20px 0;
+}
+.menu{
+    gap: 15px;
+}
+.menu_item{
+    transition: .2s ease-in-out;
+}
+.menu_item:hover{
+    color: #61C4BF;
+}
+.languages{
+    gap: 10px;
+}
+.languages span{
+    cursor: pointer;
+}
+.active{
+    color: #61C4BF !important;
+}

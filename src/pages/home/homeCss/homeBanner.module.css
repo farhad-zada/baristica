@@ -1,0 +1,31 @@
+.homeBanner_dark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;  
+}
+.homeBanner_section{
+    position: relative;
+    height: 100%;
+    z-index: 2;
+}
+.menu{
+    gap: 20px;
+    padding-top: 100px;
+}
+.menu_elem{
+    padding: 16px 32px;
+    border: 1px solid white;
+    transition: .2s ease-in-out;
+}
+.menu_elem:hover{
+    background: #61C4BF;
+}
+.menu_elem svg{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}

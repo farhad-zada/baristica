@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   pageHead: "",
+  lang: "az"
 };
 
 const baristicaSlice = createSlice({
@@ -11,8 +12,11 @@ const baristicaSlice = createSlice({
     setPageHead: (state, action) => {
       state.pageHead = action.payload;
     },
+    setLang: (state, action) => {
+      state.lang = action.payload;
+    }
   },
 });
 
-export const { setPageHead } = baristicaSlice.actions;
+export const { setPageHead, setLang } = baristicaSlice.actions;
 export default baristicaSlice.reducer;
