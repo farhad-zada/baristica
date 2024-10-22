@@ -24,9 +24,9 @@ export default function Header() {
     <header>
       <div className="container flex j-between a-center">
         <div className={`${style.header_section} flex a-center j-between w-100`}>
-          <div className={`${style.header_logo}`}>
+          <Link to="/" className={`${style.header_logo}`}>
             {Logo}
-          </div>
+          </Link>
           <ul className={`${style.menu} flex a-center`}>
             {headerPageLinks[lang].map((elem, index) => (
               <li key={index}>

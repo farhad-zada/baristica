@@ -212,6 +212,10 @@ input {
     color: #54565A;
 }
 
+.tifanny_color {
+    color: rgba(97, 196, 191, 1);
+}
+
 .blueAccent {
     color: #61C4BF;
 }

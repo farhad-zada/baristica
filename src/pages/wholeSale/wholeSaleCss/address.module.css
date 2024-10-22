@@ -1,0 +1,42 @@
+.wholesale_section{
+    margin: 100px 0 50px;
+}
+.wholesale_subscribe{
+    width: 95%;
+    padding: 50px;
+}
+.wholesale_socials{
+    gap: 10px;
+}
+.wholesale_social{
+    padding: 20px;
+    transition: .2s ease-in-out;
+}
+.wholesale_social:hover{
+    background-color: #61C4BF;
+}
+.wholesale_social svg{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+.wholesale_social svg path{
+    fill: white;
+}
+.wholesale_description{
+    padding-top: 33px;
+    width: 60%;
+}
+.wholesale_contact{
+    margin-bottom: 100px;
+}
+.wholesale_getInTouch{
+    width: 100%;
+}
+.wholesale_getInTouch_address{
+    padding-top: 30px;
+}
+.wholesale_workTime{
+    padding: 20px 0;
+}

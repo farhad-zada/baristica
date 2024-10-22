@@ -1,0 +1,38 @@
+.homeContact_section{
+    margin: 100px 0 50px;
+}
+.homeContact_subscribe{
+    width: 95%;
+    padding: 50px;
+}
+.homeContact_socials{
+    gap: 10px;
+}
+.homeContact_social{
+    padding: 20px;
+}
+.homeContact_social svg{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+.homeContact_social svg path{
+    fill: white;
+}
+.homeContact_description{
+    padding-top: 33px;
+    width: 60%;
+}
+.homeContact_contact{
+    margin-bottom: 100px;
+}
+.homeContact_getInTouch{
+    width: 100%;
+}
+.homeContact_getInTouch_address{
+    padding-top: 30px;
+}
+.homeContact_workTime{
+    padding: 20px 0;
+}
