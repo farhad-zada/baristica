@@ -1,0 +1,38 @@
+footer{
+    padding: 50px 0;
+}
+.footer_top{
+    border-bottom: 1px solid #54565A;
+    padding-bottom: 25px;
+}
+.footer_topLeft{
+    gap: 80px;
+}
+.footer_num{
+    margin-top: 25px;
+}
+.footer_socials{
+    gap: 10px;
+    margin-top: 25px;
+}
+.footer_social{
+    padding: 10px;
+}
+.footer_social svg{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+.footer_social svg path{
+    fill: white;
+}
+.menu_links{
+    padding-top: 15px;
+}
+.menu_link{
+    margin: 4px 0;
+}
+.footer_bottom{
+    padding-top: 25px;
+}

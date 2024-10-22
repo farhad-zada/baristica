@@ -6,6 +6,7 @@ import SubHeader from "./components/layout/subHeader/SubHeader"
 import Header from './components/layout/header/Header';
 import AppRoutes from './AppRoutes';
 import "./assets/css/main.css"
+import Footer from './components/layout/footer/Footer';
 
 const App = () => {
   const dispatch = useDispatch()
@@ -26,6 +27,7 @@ const App = () => {
       <SubHeader/>
       <Header/>
       <AppRoutes/>
+      <Footer/>
     </div>
   )
 }
