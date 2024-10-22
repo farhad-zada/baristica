@@ -1,0 +1,25 @@
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .decrement,
+  .increment {
+    background-color: #fff;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .count {
+    margin: 0 10px;
+  }
+  
+  .decrement:disabled,
+  .increment:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  

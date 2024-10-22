@@ -1,0 +1,14 @@
+.progress_bar {
+    width: 100%; /* Ширина всей полоски */
+    height: 4px; /* Высота полоски */
+    background: #D9D8D6;
+    border-radius: 10px; /* Закругление углов */
+    overflow: hidden; /* Для предотвращения выхода содержимого за границы */
+  }
+  
+  .progress {
+    height: 100%;
+    background: #54565A;
+    border-radius: 10px; /* Закругление углов заполненной части */
+  }
+  

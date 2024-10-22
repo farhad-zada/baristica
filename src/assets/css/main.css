@@ -110,6 +110,9 @@ input {
     text-align: center;
 }
 
+.g5{
+    gap: 5px;
+}
 .g8 {
     gap: 8px;
 }
