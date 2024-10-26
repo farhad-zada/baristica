@@ -2,6 +2,7 @@
   "name": "baristica",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://farhad-zada.github.io/baristica.az",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "@testing-library/jest-dom": "^5.17.0",
@@ -17,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
