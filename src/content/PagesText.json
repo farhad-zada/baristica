@@ -357,7 +357,7 @@
                     "title": "GANJLIK FILIAL",
                     "address": "Jeyhun Hajibeyli 28B",
                     "workTime": {
-                        "title": "Working Hours:",  
+                        "title": "Working Hours:",
                         "weekday": "Weekdays:",
                         "saturday": "Saturday:"
                     },
@@ -507,6 +507,109 @@
                 }
             ],
             "privacy_policy": "User Agreement"
+        }
+    },
+    "productsSection": {
+        "az": {
+            "coffeeHeading": "QƏHVƏ",
+            "coffeeMachineHeading": "QƏHVƏ APARATI VƏ QƏHVƏ ÜYÜDƏN",
+            "accesories": "Aksesuarlar",
+            "coffeeOrAccesories": [
+                {
+                    "label": "Yeni",
+                    "value": "new"
+                },
+                {
+                    "label": "Ən çox satılan",
+                    "value": "popular"
+                }
+            ],
+            "coffeeMachine": [
+                {
+                    "label": "Qəhvə aparatı",
+                    "value": "coffeeMachines"
+                },
+                {
+                    "label": "Qəhvə üyüdən",
+                    "value": "grinders"
+                }
+            ],
+            "seeAll": "Hamısına bax"
+        },
+        "ru": {
+            "coffeeHeading": "Кофе",
+            "coffeeMachineHeading": "Кофе аппараты и гриндеры",
+            "accesories": "Аксессуары",
+            "coffeeOrAccesories": [
+                {
+                    "label": "Новое",
+                    "value": "new"
+                },
+                {
+                    "label": "Популярное",
+                    "value": "popular"
+                }
+            ],
+            "coffeeMachine": [
+                {
+                    "label": "Кофе аппараты",
+                    "value": "coffeeMachines"
+                },
+                {
+                    "label": "Гриндеры",
+                    "value": "grinders"
+                }
+            ],
+            "seeAll": "Посмотреть все"
+        },
+        "en": {
+            "coffeeHeading": "COFFEE",
+            "coffeeMachineHeading": "COFFEE MACHINES AND GRINDERS",
+            "accesories": "ACCESSORIES",
+            "coffeeOrAccesories": [
+                {
+                    "label": "New",
+                    "value": "new"
+                },
+                {
+                    "label": "Best seller",
+                    "value": "popular"
+                }
+            ],
+            "coffeeMachine": [
+                {
+                    "label": "Coffee Machine",
+                    "value": "coffeeMachines"
+                },
+                {
+                    "label": "Grinder",
+                    "value": "grinders"
+                }
+            ],
+            "seeAll": "See all"
+        }
+    },
+    "productCard": {
+        "az": {
+            "density": "Dolğunluq",
+            "acidity": "Turşuluq",
+            "sweetness": "Şirinlik",
+            "weightValue":"g",
+            "buyBtn":"Səbətə at"
+        },
+        "ru": {
+            "density": "Плотность",
+            "acidity": "Кислотность",
+            "sweetness": "Сладость",
+            "weightValue":"г",
+            "buyBtn":"Купить"
+        },
+        "en": {
+            "density": "Density",
+            "acidity": "Acidity",
+            "sweetness": "Sweetness",
+            "weightValue":"g",
+            "buyBtn":"Buy"
         }
     }
 }

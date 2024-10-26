@@ -12,7 +12,7 @@ const { body } = home;
 const HomeInfo = () => {
   const { lang } = useSelector((state) => state.baristica);
   return (
-    <div className='homeInfo gray'>
+    <div className='homeInfo gray flex j-center'>
       <div className='container'>
         <div className={`${style.homeInfo_section} flex a-end j-between`}>
           <div className={`${style.homeInfo_left} w-100 flex column`}>

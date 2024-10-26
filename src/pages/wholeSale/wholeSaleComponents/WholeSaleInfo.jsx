@@ -9,7 +9,7 @@ const { wholesale } = PagesText;
 const WholeSaleInfo = () => {
   const { lang } = useSelector((state) => state.baristica);
   return (
-    <div className={`${style.wholeSaleInfo}`}>
+    <div className={`${style.wholeSaleInfo}` + ' flex j-center'}>
         <div className='container'>
             <div className={`${style.wholeSaleInfo_section}`}>
                 <h1 className='f96 fw400'>BARISTICA <span className='tifanny_color fw700'>COFFEE SHOP</span></h1>

@@ -12,7 +12,7 @@ export default function Footer() {
   const { lang } = useSelector((state) => state.baristica)
 
   return (
-    <footer className="gray">
+    <footer className="gray flex j-center">
       <div className="container">
         <div className={`${style.footer}`}>
           <div className={`${style.footer_top} flex a-center j-between`}>

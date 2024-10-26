@@ -12,7 +12,7 @@ const { body } = home;
 const HomeContact = () => {
   const { lang } = useSelector((state) => state.baristica);
   return (
-    <div className='homeContact'>
+    <div className='homeContact flex j-center'>
       <div className='container'>
         <div className={`${style.homeContact_section} flex a-center j-center`}>
           <div className={`${style.homeContact_subscribe} gray`}>

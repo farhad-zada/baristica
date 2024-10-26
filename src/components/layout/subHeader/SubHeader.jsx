@@ -23,7 +23,7 @@ export default function SubHeader() {
 
 
   return (
-    <div className={style.subHeader}>
+    <div className={style.subHeader + ' flex j-center'}>
       <div className="container flex">
         <div className={`${style.subHeader_section} flex a-center j-end w-100`}>
           <div className={`${style.subHeader_buttons} flex a-center j-end`}>

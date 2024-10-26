@@ -7,7 +7,7 @@
   
   .decrement,
   .increment {
-    background-color: #fff;
+    background:none;
     border: none;
     font-size: 20px;
     cursor: pointer;

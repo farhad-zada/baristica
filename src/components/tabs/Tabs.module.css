@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Adjust this for vertical spacing */
+    margin-right: 40px;
+    /* Adjust the gap between tabs and content */
+}
+
+.tabsHeadings {
+    display: flex;
+    gap: 50px;
+}
+
+.tab {
+    font-size: 32px;
+    /* Adjust the size as needed */
+    color: #cfcfcf;
+    /* Default gray color */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.selectedTab{
+    font-size: 32px;
+    color: #00c1c1;
+    cursor: pointer;
+}
+.active {
+    color: #00c1c1;
+    /* Highlight color */
+    font-weight: bold;
+}
+
+.tab:hover {
+    color: #00c1c1;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    /* To align content such as cards in a grid */
+    gap: 20px;
+    /* Adjust spacing between content cards */
+}

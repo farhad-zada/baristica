@@ -1,0 +1,23 @@
+.productsSection{
+    margin: 50px 0;
+}
+.productsSection_heading h2{
+    padding-bottom: 30px;
+    border-bottom: 1px solid #54565A;
+    margin-bottom: 50px;
+}
+.navigateTo{
+    margin: 50px 0;
+}
+.navigateTo span{
+    transition: .3s;
+}
+.navigateTo:hover span{
+    color: #61C4BF !important;
+}
+.navigateTo svg path{
+    transition: .3s;
+}
+.navigateTo:hover svg path{
+    fill: #61C4BF;
+}

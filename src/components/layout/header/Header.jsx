@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLang } from "../../../redux/slice";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import style from "./header.module.css";
 
 import PagesText from "../../../content/PagesText.json";
@@ -21,7 +21,7 @@ export default function Header() {
   };
 
   return (
-    <header>
+    <header className="flex j-center">
       <div className="container flex j-between a-center">
         <div className={`${style.header_section} flex a-center j-between w-100`}>
           <Link to="/" className={`${style.header_logo}`}>
@@ -30,7 +30,13 @@ export default function Header() {
           <ul className={`${style.menu} flex a-center`}>
             {headerPageLinks[lang].map((elem, index) => (
               <li key={index}>
-                  <Link to={elem.link} className={`${style.menu_item} darkGrey_color`}>{elem.title}</Link>
+                <NavLink
+                  to={elem.link}
+                  className={({ isActive }) => `${style.menu_item} darkGrey_color ${isActive ? style.active : ''}`}
+
+                >
+                  {elem.title}
+                </NavLink>
               </li>
             ))}
           </ul>

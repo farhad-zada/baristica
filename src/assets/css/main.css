@@ -47,7 +47,13 @@ input {
 }
 
 .container {
-    padding: 0 40px;
+    width: 80%;
+}
+
+@media screen and (max-width: 1450px) {
+    .container{
+        width: 90%;
+    }
 }
 
 .container .container {
@@ -109,14 +115,18 @@ input {
 .text-center {
     text-align: center;
 }
-
+.text-upperCase{
+    text-transform: uppercase;
+}
 .g5{
     gap: 5px;
 }
 .g8 {
     gap: 8px;
 }
-
+.g12{
+    gap: 12px;
+}
 .g16 {
     gap: 16px;
 }

@@ -7,37 +7,40 @@ import CustomSelect from "../customSelect/CustomSelect"
 import { useState } from "react"
 import Counter from "../counter/Counter"
 
+import pageText from '../../content/PagesText.json'
+const { productCard } = pageText
 const ProductCard = (props) => {
-    const {product, width = '33%'} = props
-    const {token} = useSelector(state => state.baristica)
-    const [weightOptions,setWeightOptions] = useState([200,1000])
+    const { product, width = '100%' } = props
+    const { token, lang } = useSelector(state => state.baristica)
+
+    const [weightOptions, setWeightOptions] = useState([200, 1000])
     const [defaultWeight, setDefaultWeight] = useState(200)
 
-    const [grindingOptions,setGrindingOptions] = useState(['grinding', 'grinding'])
-    const [defaultGrinding,setDefaultGrinding] = useState('grinding')
+    const [grindingOptions, setGrindingOptions] = useState(['grinding', 'grinding'])
+    const [defaultGrinding, setDefaultGrinding] = useState('grinding')
 
-    const [cartCount,setCartCount] = useState(1)
+    const [cartCount, setCartCount] = useState(1)
 
-    return(
-        <div className={style.productCard} style={{width: width}}>
+    return (
+        <div className={style.productCard} style={{ width: width }}>
             <div className={style.productCard_head + " flex j-between"}>
-                <div className="productCard-head_left flex a-center g8">
+                <div className="productCard-head_left flex g8">
                     {
                         token
-                        ?
-                        <span>
-                            {Favorited}
-                        </span>
-                        :
-                        <></>
+                            ?
+                            <span>
+                                {Favorited}
+                            </span>
+                            :
+                            <></>
                     }
-                    <span className="flex g8 a-center f16 darkGrey_color fw400">
+                    <span className="flex g8  f16 darkGrey_color fw400">
                         {Star}
                         <span>10.0</span>
                     </span>
-                    <span className="flex g8 a-center f16 darkGrey_color fw400"> 
+                    <span className="flex g8  f16 darkGrey_color fw400">
                         {Feedback}
-                        <span>{product?.feedbacks ? product.feedbacks : 0 }</span>
+                        <span>{product?.feedbacks ? product.feedbacks : 0}</span>
                     </span>
                 </div>
                 <span className="productCard-head_right blueAccent fw400">
@@ -55,13 +58,13 @@ const ProductCard = (props) => {
                 <p className="text-center f16 fw400 darkGrey_color">{product?.compound ? product.compound : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
 
                 <div className="productCard_characteristics flex j-between">
-                    <Characteristic />
-                    <Characteristic />
-                    <Characteristic />
+                    <Characteristic content={{ text: lang ? productCard[lang].density : '', progress: 30 }} />
+                    <Characteristic content={{ text: lang ? productCard[lang].acidity : '', progress: 60 }} />
+                    <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: 90 }} />
                 </div>
 
                 <div className={style.productCard_selects + " flex j-between"}>
-                    <CustomSelect options={weightOptions} defaultValue={defaultWeight} additionalText={'gr'} />
+                    <CustomSelect options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} />
                     <CustomSelect options={grindingOptions} defaultValue={defaultGrinding} />
                     <Counter count={cartCount} setCount={setCartCount} />
                 </div>
@@ -70,7 +73,7 @@ const ProductCard = (props) => {
                     <span>{product?.price ? product.price : 20} ₼</span>
                     <button className={style.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
                         {Bag}
-                        <span>Buy</span>
+                        <span>{lang ? productCard[lang].buyBtn : ''}</span>
                     </button>
                 </div>
             </div>

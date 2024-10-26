@@ -29,7 +29,7 @@ const HomeAdvantages = () => {
   };
   
   return (
-    <div className='homeAdvantages darkGray'>
+    <div className='homeAdvantages darkGray flex j-center'>
       <div className='container'>
         <div className={`${style.homeAdvantages_section}`}>
           {body[lang].advantages?.map((advantage) => (
