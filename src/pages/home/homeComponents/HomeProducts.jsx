@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import pagesText from '../../../content/PagesText.json'
-import ProductSlider from '../../../components/productsSlider/ProductsSlider';
+import HomeProductsList from '../../../components/productsSlider/HomeProductsList';
 import ProductsSection from '../../../components/productsSection/ProductsSection';
 const { productsSection } = pagesText
 
@@ -16,28 +16,28 @@ export default function HomeProducts() {
         {
             heading: lang ? productsSection[lang].coffeeHeading : '',
             tabs: lang ? productsSection[lang].coffeeOrAccesories : [],
-            navigateTo: '/',
+            navigateTo: '/products/coffee',
             content: {
-                [productsSection[lang].coffeeOrAccesories[0].label]: <ProductSlider products={newCoffe} />,
-                [productsSection[lang].coffeeOrAccesories[1].label]: <ProductSlider products={popularCoffee} />
+                [productsSection[lang].coffeeOrAccesories[0].label]: <HomeProductsList products={newCoffe} />,
+                [productsSection[lang].coffeeOrAccesories[1].label]: <HomeProductsList products={popularCoffee} />
             }
         },
         {
             heading: lang ? productsSection[lang].coffeeMachineHeading : '',
             tabs: lang ? productsSection[lang].coffeeMachine : [],
-            navigateTo: '/',
+            navigateTo: '/products/coffeeMachines',
             content: {
-                [productsSection[lang].coffeeMachine[0].label]: <ProductSlider products={newCoffe} />,
-                [productsSection[lang].coffeeMachine[1].label]: <ProductSlider products={popularCoffee} />
+                [productsSection[lang].coffeeMachine[0].label]: <HomeProductsList products={newCoffe} />,
+                [productsSection[lang].coffeeMachine[1].label]: <HomeProductsList products={popularCoffee} />
             }
         },
         {
             heading: lang ? productsSection[lang].accesories : '',
             tabs: lang ? productsSection[lang].coffeeOrAccesories : [],
-            navigateTo: '/',
+            navigateTo: '/products/accesories',
             content: {
-                [productsSection[lang].coffeeOrAccesories[0].label]: <ProductSlider products={newCoffe} />,
-                [productsSection[lang].coffeeOrAccesories[1].label]: <ProductSlider products={popularCoffee} />
+                [productsSection[lang].coffeeOrAccesories[0].label]: <HomeProductsList products={newCoffe} />,
+                [productsSection[lang].coffeeOrAccesories[1].label]: <HomeProductsList products={popularCoffee} />
             }
         }
     ]

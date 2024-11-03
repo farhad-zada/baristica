@@ -21,6 +21,7 @@
   }
   
   .dropdown_list {
+    width: max-content;
     position: absolute;
     top: 100%;
     left: 0;

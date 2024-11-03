@@ -1,0 +1,28 @@
+.productsList {
+    display: grid;
+    gap: 100px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 100px;
+    max-width: 1200px; /* Ограничиваем ширину */
+    margin: 0 auto; /* Центрируем контейнер */
+}
+
+@media (max-width: 1441px) {
+    .productsList {
+        gap: 80px;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0 50px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .productsList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .productsList {
+        grid-template-columns: 1fr;
+    }
+}

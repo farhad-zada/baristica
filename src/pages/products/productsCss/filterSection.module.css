@@ -1,0 +1,13 @@
+.filterSection{
+    margin: 20px 0;
+}
+.filterSection_head{
+    padding: 13px 0;
+    border-bottom: 1px solid #D9D8D6;
+}
+.filterBtn{
+    padding: 7px 20px;
+    background: #D9D8D6;
+    border-radius: 14px;
+    cursor: pointer;
+}

@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, memo, useEffect } from 'react';
 import styles from './customSelect.module.css'
 import { useRefClickOutside } from '../../hooks/useRefClickOutside';
 import { Select } from '../../icons';
 
-const CustomSelect = ({ options, defaultValue, additionalText }) => {
+const CustomSelect = ({ options, defaultValue, additionalText, fontSize, textColor, type }) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue || options[0]);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -16,9 +16,12 @@ const CustomSelect = ({ options, defaultValue, additionalText }) => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    setSelectedValue(defaultValue)
+  }, [defaultValue])
   return (
     <div className={styles.custom_select}>
-      <div className={styles.selected_value + ' f16 fw400'} onClick={() => setIsOpen(!isOpen)}>
+      <div className={styles.selected_value + fontSize ? fontSize : 'f16' + textColor ? textColor : '' + ' fw400'} onClick={() => setIsOpen(!isOpen)}>
         {selectedValue} {additionalText ? additionalText : ''}
         <span className={`${styles.dropdown_arrow} ${isOpen ? 'open' : ''}`}>{Select}</span>
       </div>
@@ -40,4 +43,4 @@ const CustomSelect = ({ options, defaultValue, additionalText }) => {
   );
 };
 
-export default CustomSelect;
+export default memo(CustomSelect);

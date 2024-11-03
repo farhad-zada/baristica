@@ -1,0 +1,10 @@
+.productsFilter {
+    display: none;
+}
+.productsFilterActive{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 40px 50px;
+    background: #F2F2F2;
+}
