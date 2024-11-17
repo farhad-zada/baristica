@@ -133,7 +133,9 @@ input {
 .g16 {
     gap: 16px;
 }
-
+.g23{
+    gap: 23px;
+}
 .w-16 {
     width: 16%;
 }
@@ -158,7 +160,9 @@ input {
 .h-100 {
     height: 100%;
 }
-
+.ptb58{
+    padding: 58px 0;
+}
 .pb48 {
     padding-bottom: 48px;
 }

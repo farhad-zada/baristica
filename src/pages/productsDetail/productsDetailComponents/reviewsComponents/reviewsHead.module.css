@@ -1,3 +1,6 @@
+.reviewsHead{
+    padding-bottom: 50px;
+}
 .reviewForm input{
     font-size: 20px;
     font-weight: 400;
@@ -7,4 +10,27 @@
     outline: none;
     border: none;
     width: 100%;
+}
+.sendBtn{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 56px;
+    /* text-align: center; */
+    /* width: 181px; */
+    background: #61C4BF;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    text-transform: uppercase;
+    margin-top: 24px;
+}
+.unregisteredUser {
+    font: 20px;
+    font-weight: 400;
+    margin-top: 24px;
+    color: #54565A;
+}
+.unregisteredUser a{
+    color: #54565A;
+    text-decoration: underline;
 }

@@ -9,10 +9,13 @@ import Counter from "../counter/Counter"
 
 import pageText from '../../content/PagesText.json'
 import { useNavigate } from "react-router-dom"
+import ProductAddedModal from "../productAddedModal/ProductAddedModal"
 const { productCard } = pageText
 const ProductCard = (props) => {
     const { product, width = 'auto' } = props
     const { token, lang } = useSelector(state => state.baristica)
+
+    
 
     const [weightOptions, setWeightOptions] = useState([200, 1000])
     const [defaultWeight, setDefaultWeight] = useState(200)
@@ -26,6 +29,8 @@ const ProductCard = (props) => {
 
     return (
         <div className={style.productCard +' pointer'} style={{width: width}} onClick={() => {navigate(`/product/${product?.id}`)}}>
+                <ProductAddedModal  />
+
             <div className={style.productCard_head + " flex j-between"}>
                 <div className="productCard-head_left flex g8">
                     {
