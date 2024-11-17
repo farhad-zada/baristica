@@ -2,18 +2,18 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { InstagramIcon, YoutubeIcon } from '../../../icons';
-import style from "../wholeSaleCss/address.module.css";
+import style from "../contactsCss/address.module.css";
 import PagesText from '../../../content/PagesText.json';
 
-const { wholesale } = PagesText;
+const { contacts } = PagesText;
 
-const WholeSaleAddress = () => {
+const ContactsAddress = () => {
   const { lang } = useSelector((state) => state.baristica);
 
   return (
     <div className="flex j-center">
       <div className='container'>
-        {wholesale[lang].contact?.map((elem) => {
+        {contacts[lang].contact?.map((elem) => {
           const [firstWord, ...rest] = elem.title.split(" ")
           return (
             <div key={elem.title} className={`${style.wholesale_contact} flex a-center j-center`}>
@@ -49,4 +49,4 @@ const WholeSaleAddress = () => {
   );
 };
 
-export default WholeSaleAddress;
+export default ContactsAddress;

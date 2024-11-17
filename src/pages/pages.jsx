@@ -1,7 +1,7 @@
 import React from 'react'
 // pages
 import Home from './home/Home'
-import WholeSale from './wholeSale/WholeSale'
+import Contacts from './contacts/Contacts'
 import Products from './products/Products'
 import ProductsDetail from './productsDetail/ProductsDetail'
 
@@ -11,9 +11,9 @@ export const HomePage = () => {
     )
 }
 
-export const WholeSalePage = () => {
+export const ContactsPage = () => {
     return (
-        <WholeSale />
+        <Contacts />
     )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import style from "../wholeSaleCss/gallery.module.css"
+import style from "../contactsCss/gallery.module.css"
 
 import img1 from '../../../assets/img/img1.jpeg'
 import img2 from '../../../assets/img/img2.jpeg'
@@ -7,7 +7,7 @@ import img3 from '../../../assets/img/img3.jpeg'
 import img4 from '../../../assets/img/img4.jpeg'
 import img5 from '../../../assets/img/img5.jpeg'
 
-const WholeSaleGallery = () => {
+const ContactsGallery = () => {
     const images = [
         { id: 1, src: img1, alt: "Coffee Shop 1" },
         { id: 2, src: img2, alt: "Coffee Shop 2" },
@@ -29,4 +29,4 @@ const WholeSaleGallery = () => {
       );
 }
 
-export default WholeSaleGallery
+export default ContactsGallery

@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, WholeSalePage, ProductsPage, ProductDetailPage } from "./pages/pages";
+import { HomePage, ContactsPage, ProductsPage, ProductDetailPage } from "./pages/pages";
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/wholesalesite" element={<WholeSalePage />} />
+      <Route path="/contacts" element={<ContactsPage />} />
       <Route path="/products/:type" element={<ProductsPage />} />
       <Route path="/product/:id" element={<ProductDetailPage />} />
       {/* <Route path="/catalog" element={<CatalogPage />} />
