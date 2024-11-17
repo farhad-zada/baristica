@@ -15,7 +15,7 @@ const ProductCard = (props) => {
     const { product, width = 'auto' } = props
     const { token, lang } = useSelector(state => state.baristica)
 
-    
+    const [productAdded, setProductAdded] = useState(true)
 
     const [weightOptions, setWeightOptions] = useState([200, 1000])
     const [defaultWeight, setDefaultWeight] = useState(200)
@@ -25,11 +25,11 @@ const ProductCard = (props) => {
 
     const [cartCount, setCartCount] = useState(1)
 
-    const navigate =useNavigate()
+    const navigate = useNavigate()
 
     return (
-        <div className={style.productCard +' pointer'} style={{width: width}} onClick={() => {navigate(`/product/${product?.id}`)}}>
-                <ProductAddedModal  />
+        <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${product?.id}`) }}>
+            <ProductAddedModal status={productAdded} setStatus={setProductAdded} />
 
             <div className={style.productCard_head + " flex j-between"}>
                 <div className="productCard-head_left flex g8">
@@ -37,7 +37,7 @@ const ProductCard = (props) => {
                         token
                             ?
                             <span>
-                                {Favorited} 
+                                {Favorited}
                             </span>
                             :
                             <></>
@@ -63,7 +63,7 @@ const ProductCard = (props) => {
                 <div className={`${style.productCard_img} w-100 flex j-center`}>
                     <img src={MockImg} alt="" />
                 </div>
-                <p className="text-center f16 fw400 darkGrey_color" style={{maxWidth:"350px"}}>{product?.compound ? product.compound : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
+                <p className="text-center f16 fw400 darkGrey_color" style={{ maxWidth: "350px" }}>{product?.compound ? product.compound : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
 
                 <div className="productCard_characteristics flex j-between">
                     <Characteristic content={{ text: lang ? productCard[lang].density : '', progress: 30 }} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Delete } from '../../icons'
+import { Delete, Close } from '../../icons'
 
 export default function ProductAddedModal({ status, setStatus, product }) {
     return (
