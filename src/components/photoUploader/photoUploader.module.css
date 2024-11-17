@@ -1,0 +1,55 @@
+.photoUploader {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .uploadButton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    border: 1px solid #D9D8D6;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: transparent;
+    font-weight: 400;
+    color: #54565A;
+    cursor: pointer;
+  }
+  
+  .fileInput {
+    display: none;
+  }
+  
+  .photoGrid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .photoItem {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .deleteButton {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: red;
+  }
+  

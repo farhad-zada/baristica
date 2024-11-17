@@ -1191,21 +1191,48 @@
             "tabs":["Təsvir", "Xüsusiyyətlər","Rəylər"],
             "reviews":{
                 "headerHeading":"Rəy əlavə edin",
-                "inputPlaceHolder":"Mətni yazın"
+                "inputPlaceHolder":"Mətni yazın",
+                "sendBtn":"GÖNDƏR",
+                "addImg": "Şəkil yükləyin",
+                "noReviews":"Təəssüf ki bu məhsul üçün rəy yoxdur",
+                 "unregisteredUser":{
+                    "text1":"Rəy saxlamaq üçün kabinetə ",
+                    "link1":"daxil olun",
+                    "text2":" və ya ",
+                    "link2":"qeydiyyatdan keçin."
+                }
             }
         },
         "ru":{
             "tabs":["Описание", "Характеристики","Отзывы"],
             "reviews":{
                 "headerHeading":"Добавить отзыв",
-                "inputPlaceHolder":"Напишите текст"
+                "inputPlaceHolder":"Напишите текст",
+                "sendBtn":"ОТПРАВИТЬ",
+                "addImg": "Загрузить фото",
+                "noReviews":"К сожалению на данный товар отзывов нет",
+                "unregisteredUser":{
+                    "text1":"Чтобы оставить отзыв, ",
+                    "link1":"войдите",
+                    "text2":" в кабинет или ",
+                    "link2":"зарегистрируйтесь."
+                }
             }
         },
         "en":{
             "tabs":["About", "Characteristics","Reviews"],
             "reviews":{
                 "headerHeading":"Add a review",
-                "inputPlaceHolder":"Write the text"
+                "inputPlaceHolder":"Write the text",
+                "sendBtn":"Send",
+                "addImg": "Upload image",
+                "noReviews":"Sorry, there are no reviews for this product",
+                "unregisteredUser":{
+                    "text1":"For write the comment ",
+                    "link1":"login",
+                    "text2":" to your cabinet or ",
+                    "link2":"register."
+                }
             }
         }
     }
