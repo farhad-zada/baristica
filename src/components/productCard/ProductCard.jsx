@@ -8,6 +8,7 @@ import { useState } from "react"
 import Counter from "../counter/Counter"
 
 import pageText from '../../content/PagesText.json'
+import { useNavigate } from "react-router-dom"
 const { productCard } = pageText
 const ProductCard = (props) => {
     const { product, width = 'auto' } = props
@@ -21,8 +22,10 @@ const ProductCard = (props) => {
 
     const [cartCount, setCartCount] = useState(1)
 
+    const navigate =useNavigate()
+
     return (
-        <div className={style.productCard} style={{width: width}}>
+        <div className={style.productCard +' pointer'} style={{width: width}} onClick={() => {navigate(`/product/${product?.id}`)}}>
             <div className={style.productCard_head + " flex j-between"}>
                 <div className="productCard-head_left flex g8">
                     {
@@ -63,7 +66,7 @@ const ProductCard = (props) => {
                     <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: 90 }} />
                 </div>
 
-                <div className={style.productCard_selects + " flex j-between"}>
+                <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
                     <CustomSelect options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} />
                     <CustomSelect options={grindingOptions} defaultValue={defaultGrinding} />
                     <Counter count={cartCount} setCount={setCartCount} />
@@ -73,7 +76,7 @@ const ProductCard = (props) => {
                     <span>{product?.price ? product.price : 20} ₼</span>
                     <button className={style.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
                         {Bag}
-                        <span>{lang ? productCard[lang].buyBtn : ''}</span>
+                        <span onClick={(e) => e.stopPropagation()}>{lang ? productCard[lang].buyBtn : ''}</span>
                     </button>
                 </div>
             </div>

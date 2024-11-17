@@ -1,0 +1,28 @@
+.rating_container {
+    display: flex;
+    gap: 8px; /* Расстояние между звёздами */
+    margin: 16px 0;
+}
+
+.star {
+    cursor: pointer;
+    width: 24px; /* Ширина звезды */
+    height: 24px; /* Высота звезды */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.2s ease; /* Анимация при смене цвета */
+}
+
+.star svg {
+    width: 100%; /* Звёзды автоматически растягиваются */
+    height: 100%;
+}
+
+.active svg {
+    fill: #f4c542; /* Цвет активной звезды (жёлтый) */
+}
+
+.inactive svg path{
+    fill: #ccc; /* Цвет неактивной звезды (серый) */
+}

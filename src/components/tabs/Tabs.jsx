@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from 'react';
 import styles from './Tabs.module.css'; // Твой CSS-модуль
 
-const Tabs = ({ tabs, children }) => {
+const Tabs = ({ tabs, children, additionalHeadingStyles='', additionalTabStyle='' }) => {
     const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
     useEffect(() => {
@@ -10,8 +10,8 @@ const Tabs = ({ tabs, children }) => {
         }
     }, [tabs])
     return (
-        <div className={styles.tabs}>
-            <div className={styles.tabsHeadings}>
+        <div className={styles.tabs + additionalTabStyle}>
+            <div className={styles.tabsHeadings + additionalHeadingStyles}>
                 {tabs.map((tab, index) => (
                     <div
                         key={index}

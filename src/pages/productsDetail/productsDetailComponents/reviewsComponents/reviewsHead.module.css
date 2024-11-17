@@ -1,0 +1,10 @@
+.reviewForm input{
+    font-size: 20px;
+    font-weight: 400;
+    color: #54565A;
+    padding: 10px;
+    background: #F2F2F2;
+    outline: none;
+    border: none;
+    width: 100%;
+}

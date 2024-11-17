@@ -1,0 +1,46 @@
+.color_picker {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  
+  .title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #54565A;
+  }
+  
+  .options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .option {
+    width: 50px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #D9D8D6;
+    padding: 8px 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    opacity: 0.5; /* Полупрозрачный, если не выбран */
+  }
+  
+  .option.selected {
+    border-color: #000; /* Черная рамка для выбранного */
+    opacity: 1; /* Полная непрозрачность */
+  }
+  
+  .option:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+  }
+  
+  .image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  

@@ -595,21 +595,39 @@
             "acidity": "Turşuluq",
             "sweetness": "Şirinlik",
             "weightValue": "g",
-            "buyBtn": "Səbətə at"
+            "buyBtn": "Səbətə at",
+            "profile":"Profil:",
+            "grindity":"Taşlama dərəcəsini seçin:",
+            "weight":"Çəki:",
+            "groups":"Qrupların sayı:",
+            "color":"Rəngi seçin:",
+            "machineBuy":"Əlaqə saxla"
         },
         "ru": {
             "density": "Плотность",
             "acidity": "Кислотность",
             "sweetness": "Сладость",
             "weightValue": "г",
-            "buyBtn": "Купить"
+            "buyBtn": "Купить",
+            "profile":"Профиль:",
+            "grindity":"Выбери степень помола:",
+            "weight":"Вес:",
+            "groups":"Количество групп:",
+            "color":"Выберите цвет:",
+            "machineBuy":"Связаться"
         },
         "en": {
             "density": "Density",
             "acidity": "Acidity",
             "sweetness": "Sweetness",
             "weightValue": "g",
-            "buyBtn": "Buy"
+            "buyBtn": "Buy",
+            "profile":"Profile:",
+            "grindity":"Select grinding degree:",
+            "weight":"Weight:",
+            "groups":"Number of groups:",
+            "color":"Choose the color:",
+            "machineBuy":"Contact"
         }
     },
     "productsPage": {
@@ -1166,6 +1184,29 @@
                     "value": "teapots"
                 }
             ]
+        }
+    },
+    "productDetail":{
+        "az":{
+            "tabs":["Təsvir", "Xüsusiyyətlər","Rəylər"],
+            "reviews":{
+                "headerHeading":"Rəy əlavə edin",
+                "inputPlaceHolder":"Mətni yazın"
+            }
+        },
+        "ru":{
+            "tabs":["Описание", "Характеристики","Отзывы"],
+            "reviews":{
+                "headerHeading":"Добавить отзыв",
+                "inputPlaceHolder":"Напишите текст"
+            }
+        },
+        "en":{
+            "tabs":["About", "Characteristics","Reviews"],
+            "reviews":{
+                "headerHeading":"Add a review",
+                "inputPlaceHolder":"Write the text"
+            }
         }
     }
 }
