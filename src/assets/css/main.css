@@ -446,3 +446,18 @@ input {
 .rounded{
     border-radius: 100px;
 }
+
+.modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.modal.active{
+    display: flex;
+}
+.modal .modalContent{
+    max-width: 70%;
+}
