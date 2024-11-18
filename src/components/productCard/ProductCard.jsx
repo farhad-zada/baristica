@@ -15,7 +15,7 @@ const ProductCard = (props) => {
     const { product, width = 'auto' } = props
     const { token, lang } = useSelector(state => state.baristica)
 
-    const [productAdded, setProductAdded] = useState(true)
+    const [productAdded, setProductAdded] = useState(false)
 
     const [weightOptions, setWeightOptions] = useState([200, 1000])
     const [defaultWeight, setDefaultWeight] = useState(200)
@@ -27,9 +27,13 @@ const ProductCard = (props) => {
 
     const navigate = useNavigate()
 
+    const addToCart = () => {
+        setProductAdded(true)
+    }
+
     return (
         <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${product?.id}`) }}>
-            <ProductAddedModal status={productAdded} setStatus={setProductAdded} />
+            <ProductAddedModal product={product} status={productAdded} setStatus={setProductAdded} />
 
             <div className={style.productCard_head + " flex j-between"}>
                 <div className="productCard-head_left flex g8">
@@ -79,9 +83,15 @@ const ProductCard = (props) => {
 
                 <div className="productCard_foot flex j-between a-center">
                     <span>{product?.price ? product.price : 20} ₼</span>
-                    <button className={style.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
+                    <button
+                        onClick={(e) => {
+                            addToCart();
+                            e.stopPropagation()
+                        }}
+                        className={style.addToCart + " flex g8 a-center border8 f20 fw400 white"}
+                    >
                         {Bag}
-                        <span onClick={(e) => e.stopPropagation()}>{lang ? productCard[lang].buyBtn : ''}</span>
+                        <span >{lang ? productCard[lang].buyBtn : ''}</span>
                     </button>
                 </div>
             </div>

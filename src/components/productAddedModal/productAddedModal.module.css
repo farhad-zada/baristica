@@ -1,0 +1,42 @@
+
+.product img{
+    width: 103px;
+    height: 155px;
+}
+.product span{
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: #F2F2F2;
+    margin-top: 17px;
+}
+.final{
+    padding: 10px 40px;
+    background: #F2F2F2;
+}
+.final svg{
+    width: 25px;
+    height: 25px;
+}
+
+.buttons{
+    margin-top: 29px;
+}
+.buttons button{
+    display: inline-block;
+    padding: 10px 0;
+    text-align: center;
+    outline: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 40px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.greenBtn{
+    border: none;
+    background: #61C4BF;
+}
+.whiteBtn{
+    background: #fff;
+    border: 2px solid #54565A;
+}

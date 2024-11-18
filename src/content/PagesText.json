@@ -596,12 +596,12 @@
             "sweetness": "Şirinlik",
             "weightValue": "g",
             "buyBtn": "Səbətə at",
-            "profile":"Profil:",
-            "grindity":"Taşlama dərəcəsini seçin:",
-            "weight":"Çəki:",
-            "groups":"Qrupların sayı:",
-            "color":"Rəngi seçin:",
-            "machineBuy":"Əlaqə saxla"
+            "profile": "Profil:",
+            "grindity": "Taşlama dərəcəsini seçin:",
+            "weight": "Çəki:",
+            "groups": "Qrupların sayı:",
+            "color": "Rəngi seçin:",
+            "machineBuy": "Əlaqə saxla"
         },
         "ru": {
             "density": "Плотность",
@@ -609,12 +609,12 @@
             "sweetness": "Сладость",
             "weightValue": "г",
             "buyBtn": "Купить",
-            "profile":"Профиль:",
-            "grindity":"Выбери степень помола:",
-            "weight":"Вес:",
-            "groups":"Количество групп:",
-            "color":"Выберите цвет:",
-            "machineBuy":"Связаться"
+            "profile": "Профиль:",
+            "grindity": "Выбери степень помола:",
+            "weight": "Вес:",
+            "groups": "Количество групп:",
+            "color": "Выберите цвет:",
+            "machineBuy": "Связаться"
         },
         "en": {
             "density": "Density",
@@ -622,12 +622,12 @@
             "sweetness": "Sweetness",
             "weightValue": "g",
             "buyBtn": "Buy",
-            "profile":"Profile:",
-            "grindity":"Select grinding degree:",
-            "weight":"Weight:",
-            "groups":"Number of groups:",
-            "color":"Choose the color:",
-            "machineBuy":"Contact"
+            "profile": "Profile:",
+            "grindity": "Select grinding degree:",
+            "weight": "Weight:",
+            "groups": "Number of groups:",
+            "color": "Choose the color:",
+            "machineBuy": "Contact"
         }
     },
     "productsPage": {
@@ -697,57 +697,57 @@
                             }
                         ]
                     },
-                    "processing":{
-                        "header":"Emal üsulu",
-                        "options":[
+                    "processing": {
+                        "header": "Emal üsulu",
+                        "options": [
                             {
-                                "text":"Yuyulmuş emal",
-                                "value":"washed"
+                                "text": "Yuyulmuş emal",
+                                "value": "washed"
                             },
                             {
-                                "text":"Təbii emal",
-                                "value":"natural"
+                                "text": "Təbii emal",
+                                "value": "natural"
                             },
                             {
-                                "text":"Anaerobik yuyulmuş",
-                                "value":"anaerobik"
+                                "text": "Anaerobik yuyulmuş",
+                                "value": "anaerobik"
                             },
                             {
-                                "text":"Karbonik maserasiya",
-                                "value":"karbonik"
+                                "text": "Karbonik maserasiya",
+                                "value": "karbonik"
                             }
                         ]
                     },
-                    "country":{
-                        "header":"Country",
-                        "options":[
+                    "country": {
+                        "header": "Country",
+                        "options": [
                             {
-                                "text":"Kolumbiya",
-                                "value":"columbia"
+                                "text": "Kolumbiya",
+                                "value": "columbia"
                             },
                             {
-                                "text":"Efiopiya",
-                                "value":"ephiopia"
+                                "text": "Efiopiya",
+                                "value": "ephiopia"
                             },
                             {
-                                "text":"Costa Rica",
-                                "value":"costaRica"
+                                "text": "Costa Rica",
+                                "value": "costaRica"
                             },
                             {
-                                "text":"Brazilya",
-                                "value":"brazil"
+                                "text": "Brazilya",
+                                "value": "brazil"
                             },
                             {
-                                "text":"Rwanda",
-                                "value":"rwanda"
+                                "text": "Rwanda",
+                                "value": "rwanda"
                             },
                             {
-                                "text":"Kenya",
-                                "value":"kenya"
+                                "text": "Kenya",
+                                "value": "kenya"
                             },
                             {
-                                "text":"Guatemala",
-                                "value":"guatemala"
+                                "text": "Guatemala",
+                                "value": "guatemala"
                             }
                         ]
                     },
@@ -837,57 +837,57 @@
                             }
                         ]
                     },
-                    "processing":{
-                        "header":"Способ обработки",
-                        "options":[
+                    "processing": {
+                        "header": "Способ обработки",
+                        "options": [
                             {
-                                "text":"Мытая",
-                                "value":"washed"
+                                "text": "Мытая",
+                                "value": "washed"
                             },
                             {
-                                "text":"Натуральная",
-                                "value":"natural"
+                                "text": "Натуральная",
+                                "value": "natural"
                             },
                             {
-                                "text":"Анаэробная мытая",
-                                "value":"anaerobik"
+                                "text": "Анаэробная мытая",
+                                "value": "anaerobik"
                             },
                             {
-                                "text":"Углекислотная мацерация",
-                                "value":"karbonik"
+                                "text": "Углекислотная мацерация",
+                                "value": "karbonik"
                             }
                         ]
                     },
-                    "country":{
-                        "header":"Страна",
-                        "options":[
+                    "country": {
+                        "header": "Страна",
+                        "options": [
                             {
-                                "text":"Колумбия",
-                                "value":"columbia"
+                                "text": "Колумбия",
+                                "value": "columbia"
                             },
                             {
-                                "text":"Эфиопия",
-                                "value":"ephiopia"
+                                "text": "Эфиопия",
+                                "value": "ephiopia"
                             },
                             {
-                                "text":"Коста Рика",
-                                "value":"costaRica"
+                                "text": "Коста Рика",
+                                "value": "costaRica"
                             },
                             {
-                                "text":"Бразилия",
-                                "value":"brazil"
+                                "text": "Бразилия",
+                                "value": "brazil"
                             },
                             {
-                                "text":"Руанда",
-                                "value":"rwanda"
+                                "text": "Руанда",
+                                "value": "rwanda"
                             },
                             {
-                                "text":"Кения",
-                                "value":"kenya"
+                                "text": "Кения",
+                                "value": "kenya"
                             },
                             {
-                                "text":"Гватемала",
-                                "value":"guatemala"
+                                "text": "Гватемала",
+                                "value": "guatemala"
                             }
                         ]
                     },
@@ -977,57 +977,57 @@
                             }
                         ]
                     },
-                    "processing":{
-                        "header":"Processing method",
-                        "options":[
+                    "processing": {
+                        "header": "Processing method",
+                        "options": [
                             {
-                                "text":"Washed",
-                                "value":"washed"
+                                "text": "Washed",
+                                "value": "washed"
                             },
                             {
-                                "text":"Natural",
-                                "value":"natural"
+                                "text": "Natural",
+                                "value": "natural"
                             },
                             {
-                                "text":"Anaerobic washing",
-                                "value":"anaerobik"
+                                "text": "Anaerobic washing",
+                                "value": "anaerobik"
                             },
                             {
-                                "text":"Carbonic maceration",
-                                "value":"karbonik"
+                                "text": "Carbonic maceration",
+                                "value": "karbonik"
                             }
                         ]
                     },
-                    "country":{
-                        "header":"Country",
-                        "options":[
+                    "country": {
+                        "header": "Country",
+                        "options": [
                             {
-                                "text":"Columbia",
-                                "value":"columbia"
+                                "text": "Columbia",
+                                "value": "columbia"
                             },
                             {
-                                "text":"Ethiopia",
-                                "value":"ephiopia"
+                                "text": "Ethiopia",
+                                "value": "ephiopia"
                             },
                             {
-                                "text":"Costa Rica",
-                                "value":"costaRica"
+                                "text": "Costa Rica",
+                                "value": "costaRica"
                             },
                             {
-                                "text":"Brazil",
-                                "value":"brazil"
+                                "text": "Brazil",
+                                "value": "brazil"
                             },
                             {
-                                "text":"Rwanda",
-                                "value":"rwanda"
+                                "text": "Rwanda",
+                                "value": "rwanda"
                             },
                             {
-                                "text":"Kenya",
-                                "value":"kenya"
+                                "text": "Kenya",
+                                "value": "kenya"
                             },
                             {
-                                "text":"Guatemala",
-                                "value":"guatemala"
+                                "text": "Guatemala",
+                                "value": "guatemala"
                             }
                         ]
                     },
@@ -1186,54 +1186,92 @@
             ]
         }
     },
-    "productDetail":{
-        "az":{
-            "tabs":["Təsvir", "Xüsusiyyətlər","Rəylər"],
-            "reviews":{
-                "headerHeading":"Rəy əlavə edin",
-                "inputPlaceHolder":"Mətni yazın",
-                "sendBtn":"GÖNDƏR",
+    "productDetail": {
+        "az": {
+            "tabs": [
+                "Təsvir",
+                "Xüsusiyyətlər",
+                "Rəylər"
+            ],
+            "reviews": {
+                "headerHeading": "Rəy əlavə edin",
+                "inputPlaceHolder": "Mətni yazın",
+                "sendBtn": "GÖNDƏR",
                 "addImg": "Şəkil yükləyin",
-                "noReviews":"Təəssüf ki bu məhsul üçün rəy yoxdur",
-                 "unregisteredUser":{
-                    "text1":"Rəy saxlamaq üçün kabinetə ",
-                    "link1":"daxil olun",
-                    "text2":" və ya ",
-                    "link2":"qeydiyyatdan keçin."
+                "noReviews": "Təəssüf ki bu məhsul üçün rəy yoxdur",
+                "unregisteredUser": {
+                    "text1": "Rəy saxlamaq üçün kabinetə ",
+                    "link1": "daxil olun",
+                    "text2": " və ya ",
+                    "link2": "qeydiyyatdan keçin."
                 }
             }
         },
-        "ru":{
-            "tabs":["Описание", "Характеристики","Отзывы"],
-            "reviews":{
-                "headerHeading":"Добавить отзыв",
-                "inputPlaceHolder":"Напишите текст",
-                "sendBtn":"ОТПРАВИТЬ",
+        "ru": {
+            "tabs": [
+                "Описание",
+                "Характеристики",
+                "Отзывы"
+            ],
+            "reviews": {
+                "headerHeading": "Добавить отзыв",
+                "inputPlaceHolder": "Напишите текст",
+                "sendBtn": "ОТПРАВИТЬ",
                 "addImg": "Загрузить фото",
-                "noReviews":"К сожалению на данный товар отзывов нет",
-                "unregisteredUser":{
-                    "text1":"Чтобы оставить отзыв, ",
-                    "link1":"войдите",
-                    "text2":" в кабинет или ",
-                    "link2":"зарегистрируйтесь."
+                "noReviews": "К сожалению на данный товар отзывов нет",
+                "unregisteredUser": {
+                    "text1": "Чтобы оставить отзыв, ",
+                    "link1": "войдите",
+                    "text2": " в кабинет или ",
+                    "link2": "зарегистрируйтесь."
                 }
             }
         },
-        "en":{
-            "tabs":["About", "Characteristics","Reviews"],
-            "reviews":{
-                "headerHeading":"Add a review",
-                "inputPlaceHolder":"Write the text",
-                "sendBtn":"Send",
+        "en": {
+            "tabs": [
+                "About",
+                "Characteristics",
+                "Reviews"
+            ],
+            "reviews": {
+                "headerHeading": "Add a review",
+                "inputPlaceHolder": "Write the text",
+                "sendBtn": "Send",
                 "addImg": "Upload image",
-                "noReviews":"Sorry, there are no reviews for this product",
-                "unregisteredUser":{
-                    "text1":"For write the comment ",
-                    "link1":"login",
-                    "text2":" to your cabinet or ",
-                    "link2":"register."
+                "noReviews": "Sorry, there are no reviews for this product",
+                "unregisteredUser": {
+                    "text1": "For write the comment ",
+                    "link1": "login",
+                    "text2": " to your cabinet or ",
+                    "link2": "register."
                 }
             }
+        }
+    },
+    "productAdded": {
+        "az": {
+            "heading": "MƏHSUL SƏBƏTƏ ƏLAVƏ OLUNUB",
+            "weightAdding": "q",
+            "countAdding": "əd",
+            "total":"Cəmi:",
+            "greenBtn":"Səbətə keç",
+            "whiteBtn":"ALIŞVERİŞƏ DAVAM EDİN"
+        },
+        "ru": {
+            "heading": "ТОВАР ДОБАВЛЕН В КОРЗИНУ",
+            "weightAdding": "г",
+            "countAdding": "шт",
+            "total":"Итого:",
+            "greenBtn": "ПЕРЕЙТИ В КОРЗИНУ",
+            "whiteBtn":"ПРОДОЛЖИТЬ ПОКУПКИ"
+        },
+        "en": {
+            "heading": "PRODUCT ADDED TO CART",
+            "weightAdding": "g",
+            "countAdding": "p",
+            "total":"Total:",
+            "greenBtn":"Go to cart",
+            "whiteBtn":"CONTINUE SHOPPING"
         }
     }
 }
