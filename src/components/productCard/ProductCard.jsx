@@ -40,7 +40,7 @@ const ProductCard = (props) => {
                     {
                         token
                             ?
-                            <span>
+                            <span className={style.favorited}>
                                 {Favorited}
                             </span>
                             :
@@ -50,7 +50,7 @@ const ProductCard = (props) => {
                         {Star}
                         <span>10.0</span>
                     </span>
-                    <span className="flex g8  f16 darkGrey_color fw400">
+                    <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"}>
                         {Feedback}
                         <span>{product?.feedbacks ? product.feedbacks : 0}</span>
                     </span>

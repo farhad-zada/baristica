@@ -10,9 +10,9 @@ import { Link } from 'react-router-dom'
 const { productDetail } = PageText
 
 export default function ReviewsHead() {
-    const [selectedRating, setSelectedRating] = useState(0);
     const { lang, token } = useSelector((state) => state.baristica);
-
+    const [selectedRating, setSelectedRating] = useState(0);
+    const [commentText, setCommentText] = useState('')
     const [uploadedPhotos, setUploadedPhotos] = useState([]);
 
     const handlePhotosUpdate = (photos) => {
@@ -23,6 +23,19 @@ export default function ReviewsHead() {
         setSelectedRating(rating);
         console.log(`Выбранный рейтинг: ${rating}`);
     };
+
+    const onSubmit = () => {
+        const formData = {
+            text: commentText,
+            rating: selectedRating,
+            images: uploadedPhotos
+        }
+        try {
+
+        } catch (error) {
+
+        }
+    }
 
     const unregisteredUserContent = () => {
         return (
@@ -46,11 +59,15 @@ export default function ReviewsHead() {
                 token
                     ?
                     <form action="" className={styles.reviewForm + ' mt24'}>
-                        <input type="text" placeholder={lang ? productDetail[lang].reviews.inputPlaceHolder : ''} />
+                        <input
+                            type="text"
+                            placeholder={lang ? productDetail[lang].reviews.inputPlaceHolder : ''}
+                            onChange={(e) => setCommentText(e.target.value)}
+                        />
 
                         <Rating totalStars={5} Star={Star} onChange={handleRatingChange} />
 
-                        <PhotoUploader onPhotosUpdate={handlePhotosUpdate}  text={lang ? productDetail[lang].reviews.addImg : ''}/>
+                        <PhotoUploader onPhotosUpdate={handlePhotosUpdate} text={lang ? productDetail[lang].reviews.addImg : ''} />
 
                         <ul>
                             {uploadedPhotos.map((url, index) => (
