@@ -60,6 +60,10 @@ input {
     padding: 0 !important;
 }
 
+.italic{
+    font-style: italic !important;
+}
+
 .flex {
     display: flex;
 }
@@ -135,6 +139,9 @@ input {
 }
 .g23{
     gap: 23px;
+}
+.g26{
+    gap: 26px;
 }
 .w-16 {
     width: 16%;
@@ -472,4 +479,8 @@ input {
     background-color: #fff;
     border-radius: 16px;
     padding: 40px 20px;
+}
+.error{
+    margin: 20px 0;
+    color: red;
 }

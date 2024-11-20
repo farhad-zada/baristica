@@ -1,34 +1,31 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, ContactsPage, ProductsPage, ProductDetailPage } from "./pages/pages";
+import { HomePage, ContactsPage, ProductsPage, ProductDetailPage, RegisterPage, ProfilePage } from "./pages/pages";
+import { useSelector } from "react-redux";
+import Login from "./pages/login/Login";
 
 export default function AppRoutes() {
+  const { lang, token } = useSelector((state) => state.baristica);
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/contacts" element={<ContactsPage />} />
       <Route path="/products/:type" element={<ProductsPage />} />
       <Route path="/product/:id" element={<ProductDetailPage />} />
-      {/* <Route path="/catalog" element={<CatalogPage />} />
-      <Route path="/products/:id" element={<ProductDetailPage />} />
-      <Route path="/blogs" element={<BlogsPage />} />
-      <Route path="/blog" element={<BlogPage />} />
-      <Route path="/compare" element={<ComparePage />} />
-      <Route path="/cart" element={<CartPage />} />
-      <Route path="/cancel" element={<CancelPage />} />
-      <Route path="/success" element={<SuccessPage />} />
-      <Route path="/quiz" element={<QuizPage />} />
-      <Route path="/personal_orders" element={<ProfileOrderPage />} />
-      <Route path="/personal_address" element={<ProfileAddressPage />} /> */}
-      {/* {
-        token ? <Route path="/favorites" element={<FavoritesPage />} /> : <></>
+      {
+        token
+          ?
+          <></>
+          :
+          <Route path="/login" element={<Login />} />
       }
       {
         token
           ?
           <></>
           :
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
       }
 
       {
@@ -38,13 +35,7 @@ export default function AppRoutes() {
           :
           <></>
       }
-      {
-        token
-          ?
-          <Route path="/profileInner" element={<ProfileInnerPage />} />
-          :
-          <></>
-      } */}
+
     </Routes>
   );
 }

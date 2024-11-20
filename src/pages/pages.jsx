@@ -4,6 +4,9 @@ import Home from './home/Home'
 import Contacts from './contacts/Contacts'
 import Products from './products/Products'
 import ProductsDetail from './productsDetail/ProductsDetail'
+import Login from './login/Login'
+import Register from './register/Register'
+import Profile from './profile/Profile'
 
 export const HomePage = () => {
     return (
@@ -26,5 +29,23 @@ export const ProductsPage = () => {
 export const ProductDetailPage = () => {
     return (
         <ProductsDetail />
+    )
+}
+
+export const LoginPage = () => {
+    return (
+        <Login />
+    )
+}
+
+export const RegisterPage = () => {
+    return (
+        <Register />
+    )
+}
+
+export const ProfilePage = () => {
+    return (
+        <Profile />
     )
 }

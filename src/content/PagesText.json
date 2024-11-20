@@ -1253,25 +1253,171 @@
             "heading": "MƏHSUL SƏBƏTƏ ƏLAVƏ OLUNUB",
             "weightAdding": "q",
             "countAdding": "əd",
-            "total":"Cəmi:",
-            "greenBtn":"Səbətə keç",
-            "whiteBtn":"ALIŞVERİŞƏ DAVAM EDİN"
+            "total": "Cəmi:",
+            "greenBtn": "Səbətə keç",
+            "whiteBtn": "ALIŞVERİŞƏ DAVAM EDİN"
         },
         "ru": {
             "heading": "ТОВАР ДОБАВЛЕН В КОРЗИНУ",
             "weightAdding": "г",
             "countAdding": "шт",
-            "total":"Итого:",
+            "total": "Итого:",
             "greenBtn": "ПЕРЕЙТИ В КОРЗИНУ",
-            "whiteBtn":"ПРОДОЛЖИТЬ ПОКУПКИ"
+            "whiteBtn": "ПРОДОЛЖИТЬ ПОКУПКИ"
         },
         "en": {
             "heading": "PRODUCT ADDED TO CART",
             "weightAdding": "g",
             "countAdding": "p",
-            "total":"Total:",
-            "greenBtn":"Go to cart",
-            "whiteBtn":"CONTINUE SHOPPING"
+            "total": "Total:",
+            "greenBtn": "Go to cart",
+            "whiteBtn": "CONTINUE SHOPPING"
+        }
+    },
+    "login": {
+        "az": {
+            "heading": "Giriş",
+            "subHeading": "Daxil olmaq üçün e-poçt və şifrənizi daxil edin:",
+            "emailInput": "E-poçt",
+            "passwordInput": "Şifrə",
+            "submitBtn": "Giriş et",
+            "registerBtn": "Qeydiyyatdan keç",
+            "resetPassword": "Şifrəni sıfırla"
+        },
+        "ru": {
+            "heading": "ВХОД",
+            "subHeading": "Введите e-mail и пароль для входа:",
+            "emailInput": "Электронная почта",
+            "passwordInput": "Пароль",
+            "submitBtn": "ВОЙТИ",
+            "registerBtn": "Зарегистрироваться",
+            "resetPassword": "Сбросить пароль"
+        },
+        "en": {
+            "heading": "Log in",
+            "subHeading": "Enter your email and password to log in:",
+            "emailInput": "Email",
+            "passwordInput": "Password",
+            "submitBtn": "Log in",
+            "registerBtn": "Register",
+            "resetPassword": "Reset password"
+        }
+    },
+    "register": {
+        "az": {
+            "heading": "Qeydiyyat",
+            "subHeading": "Formu doldurun:",
+            "personalInfoHeading": "Şəxsi məlumatlar:",
+            "nameInput": "Adınız",
+            "phoneInput": "Telefon nomrəniz",
+            "emailInput": "E-poçt",
+            "passwordHeading": "Şifrənizi yazın:",
+            "passwordInput": "Şifrə",
+            "repeatPasswordInput": "Şifrəni təkrarla",
+            "termsConditionsHint": "“Qeydiyyatdan keç” düyməsini klikləməklə, siz şirkətin şəxsi məlumatların emalı siyasəti ilə razılaşırsınız",
+            "submitBtn": "Qeydiyyatdan keç",
+            "loginHint": "Artıq hesabınız var?",
+            "loginBtn": "Giriş edin",
+            "passwordMismatch": "Passwords do not match"
+        },
+        "ru": {
+            "heading": "РЕГИСТРАЦИЯ",
+            "subHeading": "Заполните форму:",
+            "personalInfoHeading": "Личные данные:",
+            "nameInput": "Ваше имя",
+            "phoneInput": "Телефон",
+            "emailInput": "Электронная почта",
+            "passwordHeading": "Введите пароль:",
+            "passwordInput": "Пароль",
+            "repeatPasswordInput": "Повторите пароль",
+            "termsConditionsHint": "Нажимая на кнопку «Зарегистрироваться», вы соглашаетесь с политикой обработки персональных данных компании",
+            "submitBtn": "ЗАРЕГИСТРИРОВАТЬСЯ",
+            "loginHint": "Уже есть аккаунт?",
+            "loginBtn": "Войдите",
+            "passwordMismatch": "Пароли не совпадают"
+        },
+        "en": {
+            "heading": "Register",
+            "subHeading": "Fill the form:",
+            "personalInfoHeading": "Personal information:",
+            "nameInput": "Your name",
+            "phoneInput": "Phone number",
+            "emailInput": "Email",
+            "passwordHeading": "Write your password:",
+            "passwordInput": "Password",
+            "repeatPasswordInput": "Repeat password",
+            "termsConditionsHint": "By clicking on the “Register” button, you agree to the company’s personal data processing policy",
+            "submitBtn": "Register",
+            "loginHint": "Already have an account?",
+            "loginBtn": "Log in",
+            "passwordMismatch": "Şifrələr uyğun gəlmir"
+        }
+    },
+    "profileTabs": {
+        "az": {
+            "personalData": "Şəxsi məlumatlar",
+            "addresses": "Mənim ünvanlarım",
+            "orders": "Mənim sifarişlərim",
+            "comments": "Mənim şərhlərim",
+            "cart": "Mənim səbətim"
+        },
+        "ru": {
+            "personalData": "Личные данные",
+            "addresses": "Мои адреса",
+            "orders": "Мои заказы",
+            "comments": "Мои комментарии",
+            "cart": "Моя корзина"
+        },
+        "en": {
+            "personalData": "Personal Data",
+            "addresses": "My Addresses",
+            "orders": "My Orders",
+            "comments": "My Comments",
+            "cart": "My Cart"
+        }
+    },
+    "profile": {
+        "az": {
+            "heading": "Şəxsi kabinet",
+            "personalData": {
+                "personalInfoHeading": "Şəxsi məlumatlar:",
+                "nameInput": "Adınız",
+                "phoneInput": "Telefon nomrəniz",
+                "emailInput": "E-poçt",
+                "passwordHeading": "Şifrəni dəyiş:",
+                "oldPasswordInput": "Köhnə şifrə",
+                "newPasswordInput": "Təzə şifrə",
+                "repeatPasswordInput": "Şifrəni təkrarla",
+                "submitBtn": "Yadda saxla"
+            }
+        },
+        "ru": {
+            "heading": "ЛИЧНЫЙ КАБИНЕТ",
+            "personalData": {
+                "personalInfoHeading": "Личные данные:",
+                "nameInput": "Ваше имя",
+                "phoneInput": "Телефон",
+                "emailInput": "Электронная почта",
+                "passwordHeading": "Изменить пароль:",
+                "oldPasswordInput": "Старый пароль",
+                "newPasswordInput": "Новый пароль",
+                "repeatPasswordInput": "Повторите пароль",
+                "submitBtn": "Сохранить изменения"
+            }
+        },
+        "en": {
+            "heading": "Personal Account",
+            "personalData": {
+                "personalInfoHeading": "Personal information:",
+                "nameInput": "Your name",
+                "phoneInput": "Phone number",
+                "emailInput": "Email",
+                "passwordHeading": "Change password:",
+                "oldPasswordInput": "Old password",
+                "newPasswordInput": "New password",
+                "repeatPasswordInput": "Repeat password",
+                "submitBtn": "Save changes"
+            }
         }
     }
 }

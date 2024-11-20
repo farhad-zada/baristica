@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import style from "./subHeader.module.css";
 
-import { setLang } from "../../../redux/slice";
+import { setLang, setProfileActiveTab } from "../../../redux/slice";
 
 import PagesText from "../../../content/PagesText.json";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,12 +15,17 @@ export default function SubHeader() {
   const { lang } = useSelector((state) => state.baristica)
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const changeLang = (lang) => {
     localStorage.setItem("lang", lang);
     dispatch(setLang(lang));
   };
 
+  const goToCart = () => {
+    dispatch(setProfileActiveTab('cart'))
+    navigate('/profile')
+  }
 
   return (
     <div className={style.subHeader + ' flex j-center'}>
@@ -33,17 +38,17 @@ export default function SubHeader() {
             <Link to="/" className={`${style.button} darkGray defaultBtn border32 flex a-center`}>
               {Favourites}
             </Link>
-            <Link to="/" className={`${style.button} darkGray defaultBtn border32 flex a-center`}>
+            <span className={`${style.button} darkGray defaultBtn border32 flex a-center`} onClick={goToCart}>
               {CartIcon}
-            </Link>
+            </span>
           </div>
           <div className={`${style.product_count} flex column a-start`}>
             <h6 className="f16">0 {subHeader && subHeader[lang].products}</h6>
             <h6 className="f16">0 ₼</h6>
           </div>
           <div className={`${style.profile_links} flex a-center`}>
-            <Link to="/" className="black fw400">{subHeader && subHeader[lang].registration}</Link>
-            <Link to="/" className="black fw400">{subHeader && subHeader[lang].login}</Link>
+            <Link to="/register" className="black fw400">{subHeader && subHeader[lang].registration}</Link>
+            <Link to="/login" className="black fw400">{subHeader && subHeader[lang].login}</Link>
           </div>
         </div>
       </div>
