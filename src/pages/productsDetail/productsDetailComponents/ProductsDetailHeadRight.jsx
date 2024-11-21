@@ -53,7 +53,7 @@ export default function ProductsDetailHeadRight({ product }) {
             <h2 className="darkGrey_color fw600 f36">{product?.name ? product.name : 'BLEND NIGHTHAWK'}</h2>
             <p className="darkGrey_color f20 fw400 mt24">{product?.description ? product.description : 'Это изысканный эспрессо-бленд, состоящий на 60% из кофе из Бразилии и на 40% из Коста-Рики. Каждая чашка дарит богатый, насыщенный вкус, идеальный как для утреннего пробуждения, так и для вечернего наслаждения.'}</p>
             {
-                setByType(product?.type ? product.type : 'accesories')
+                setByType(product?.type ? product.type : 'machine')
             }
         </div>
     )

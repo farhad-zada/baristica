@@ -43,3 +43,6 @@
 .feedback:hover svg path{
     fill: #61C4BF;
 }
+.productCard_characteristics{
+    margin-bottom: 20px;
+}

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from './profileBody.module.css'
 import PersonalData from "./personalData/PersonalData";
 import { setProfileActiveTab } from "../../../redux/slice";
+import Cart from './cart/Cart'
 
 const ProfileBody = () => {
     const { lang, profileActiveTab } = useSelector((state) => state.baristica);
@@ -33,12 +34,12 @@ const ProfileBody = () => {
                 lang={lang}
             />
             {/* Рендер компонента для выбранного таба */}
-            <div className="tab-content">
+            <div className={styles.tab_content}>
                 {profileActiveTab === "personalData" && <div> <PersonalData /> </div>}
                 {profileActiveTab === "addresses" && <div>Мои адреса</div>}
                 {profileActiveTab === "orders" && <div>Мои заказы</div>}
                 {profileActiveTab === "comments" && <div>Мои комментарии</div>}
-                {profileActiveTab === "cart" && <div>Моя корзина</div>}
+                {profileActiveTab === "cart" && <div><Cart /></div>}
             </div>
         </div>
     );

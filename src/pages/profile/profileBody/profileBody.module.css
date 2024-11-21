@@ -2,3 +2,10 @@
     margin-top: 40px;
     width: 100%;
 }
+.tab_content{
+    padding-left: 45px;
+    border-left: 1px solid #000000;
+    width: 100%;
+    min-height: 60%;
+    /* height: 100%; */
+}

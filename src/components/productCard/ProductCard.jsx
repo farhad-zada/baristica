@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import style from './productCard.module.css'
 import { Bag, CartIcon, Favorited, Feedback, Star } from "../../icons"
 import MockImg from '../../assets/img/coffe_mock.png'
@@ -10,6 +10,7 @@ import Counter from "../counter/Counter"
 import pageText from '../../content/PagesText.json'
 import { useNavigate } from "react-router-dom"
 import ProductAddedModal from "../productAddedModal/ProductAddedModal"
+import { addProductToCart } from "../../redux/slice"
 const { productCard } = pageText
 const ProductCard = (props) => {
     const { product, width = 'auto' } = props
@@ -26,9 +27,41 @@ const ProductCard = (props) => {
     const [cartCount, setCartCount] = useState(1)
 
     const navigate = useNavigate()
-
+    const dispatch = useDispatch()
     const addToCart = () => {
         setProductAdded(true)
+        setCartCount(1)
+        dispatch(addProductToCart({ ...product, cartCount }))
+    }
+
+
+
+    const setSelectContent = (type) => {
+        if (type === 'coffee') {
+            return (
+                <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
+                    <CustomSelect options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} />
+                    <CustomSelect options={grindingOptions} defaultValue={defaultGrinding} />
+                    <Counter count={cartCount} setCount={setCartCount} />
+                </div>
+            )
+        } else if (type === 'machine') {
+            if (product?.group?.length) {
+                return (
+                    <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
+                        <CustomSelect options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].grindityValue : 'g'} />
+                    </div>
+                )
+            }
+        } else if (type === 'accesories') {
+            return (
+                <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
+                    <span></span>
+                    <span></span>
+                    <Counter count={cartCount} setCount={setCartCount} />
+                </div>
+            )
+        }
     }
 
     return (
@@ -67,19 +100,29 @@ const ProductCard = (props) => {
                 <div className={`${style.productCard_img} w-100 flex j-center`}>
                     <img src={MockImg} alt="" />
                 </div>
-                <p className="text-center f16 fw400 darkGrey_color" style={{ maxWidth: "350px" }}>{product?.compound ? product.compound : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
+                {
+                    product.type === 'machine'
+                    ?
+                    <></>
+                    :
+                    <p className="text-center f16 fw400 darkGrey_color" style={{ maxWidth: "350px" }}>{product?.compound ? product.compound : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
+                }
 
-                <div className="productCard_characteristics flex j-between">
+                {
+                    product?.type === 'coffee'
+                    ?
+                    <div className={style.productCard_characteristics + " flex j-between"}>
                     <Characteristic content={{ text: lang ? productCard[lang].density : '', progress: 30 }} />
                     <Characteristic content={{ text: lang ? productCard[lang].acidity : '', progress: 60 }} />
                     <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: 90 }} />
                 </div>
+                :
+                <></>
+                }
 
-                <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
-                    <CustomSelect options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} />
-                    <CustomSelect options={grindingOptions} defaultValue={defaultGrinding} />
-                    <Counter count={cartCount} setCount={setCartCount} />
-                </div>
+                {
+                    setSelectContent(product.type)
+                }
 
                 <div className="productCard_foot flex j-between a-center">
                     <span>{product?.price ? product.price : 20} ₼</span>
@@ -91,7 +134,13 @@ const ProductCard = (props) => {
                         className={style.addToCart + " flex g8 a-center border8 f20 fw400 white"}
                     >
                         {Bag}
-                        <span >{lang ? productCard[lang].buyBtn : ''}</span>
+                        {
+                            product.type === 'machine'
+                                ?
+                                <span >{lang ? productCard[lang].machineBuy : ''}</span>
+                                :
+                                <span >{lang ? productCard[lang].buyBtn : ''}</span>
+                        }
                     </button>
                 </div>
             </div>

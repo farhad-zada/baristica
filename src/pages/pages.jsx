@@ -7,6 +7,7 @@ import ProductsDetail from './productsDetail/ProductsDetail'
 import Login from './login/Login'
 import Register from './register/Register'
 import Profile from './profile/Profile'
+import Order from './order/Order'
 
 export const HomePage = () => {
     return (
@@ -47,5 +48,11 @@ export const RegisterPage = () => {
 export const ProfilePage = () => {
     return (
         <Profile />
+    )
+}
+
+export const OrderPage = () => {
+    return (
+        <Order />
     )
 }

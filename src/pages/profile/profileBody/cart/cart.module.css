@@ -1,0 +1,13 @@
+.cartHeading{
+    margin-bottom: 20px;
+}
+.submitBtn{
+    padding: 10px 24px;
+    font-size: 24px;
+    font-weight: 600;
+    background: #61C4BF;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

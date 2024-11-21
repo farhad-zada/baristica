@@ -137,6 +137,9 @@ input {
 .g16 {
     gap: 16px;
 }
+.g20{
+    gap: 20px;
+}
 .g23{
     gap: 23px;
 }

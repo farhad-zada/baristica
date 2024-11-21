@@ -595,6 +595,7 @@
             "acidity": "Turşuluq",
             "sweetness": "Şirinlik",
             "weightValue": "g",
+            "grindityValue":"qrup",
             "buyBtn": "Səbətə at",
             "profile": "Profil:",
             "grindity": "Taşlama dərəcəsini seçin:",
@@ -608,6 +609,7 @@
             "acidity": "Кислотность",
             "sweetness": "Сладость",
             "weightValue": "г",
+            "grindityValue":"группа",
             "buyBtn": "Купить",
             "profile": "Профиль:",
             "grindity": "Выбери степень помола:",
@@ -621,6 +623,7 @@
             "acidity": "Acidity",
             "sweetness": "Sweetness",
             "weightValue": "g",
+            "grindityValue":"group",
             "buyBtn": "Buy",
             "profile": "Profile:",
             "grindity": "Select grinding degree:",
@@ -1389,6 +1392,13 @@
                 "newPasswordInput": "Təzə şifrə",
                 "repeatPasswordInput": "Şifrəni təkrarla",
                 "submitBtn": "Yadda saxla"
+            },
+            "cart":{
+                "cartHeading":"SƏBƏT:",
+                "emptyCart":"Səbət boşdur",
+                "submitBtn":"SİFARİŞƏ KEÇ",
+                "grindity":"Üyüdülmə:",
+                "weight":"Çəki:"
             }
         },
         "ru": {
@@ -1403,6 +1413,13 @@
                 "newPasswordInput": "Новый пароль",
                 "repeatPasswordInput": "Повторите пароль",
                 "submitBtn": "Сохранить изменения"
+            },
+            "cart":{
+                "cartHeading":"КОРЗИНА:",
+                "emptyCart":"Корзина пуста",
+                "submitBtn":"ПЕРЕЙТИ К ЗАКАЗУ",
+                "grindity":"Помол:",
+                "weight":"Вес:"
             }
         },
         "en": {
@@ -1417,7 +1434,25 @@
                 "newPasswordInput": "New password",
                 "repeatPasswordInput": "Repeat password",
                 "submitBtn": "Save changes"
+            },
+            "cart":{
+                "cartHeading":"CART:",
+                "emptyCart":"Cart is empty",
+                "submitBtn":"GO TO ORDER",
+                "grindity":"Grinding:",
+                "weight":"Weight:"
             }
+        }
+    },
+    "order":{
+        "az":{
+            "heading":"SİFARIŞİN TƏSDİQİ"
+        },
+        "ru":{
+            "heading":"ОФОРМЛЕНИЕ ЗАКАЗА"
+        },
+        "en":{
+            "heading":"PLACE YOUR ORDER"
         }
     }
 }

@@ -4,17 +4,22 @@ import { Delete, Close } from '../../icons'
 
 import pageText from '../../content/PagesText.json'
 import { useNavigate } from "react-router-dom"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useRefClickOutside } from '../../hooks/useRefClickOutside'
 import useBodyScrollLock from '../../hooks/useBodyScrollLock'
+import { deleteFromCart, setProfileActiveTab } from '../../redux/slice'
 const { productAdded } = pageText
 
 export default function ProductAddedModal({ status, setStatus, product }) {
     const { lang } = useSelector(state => state.baristica)
     const navigate = useNavigate()
-
+    const dispatch = useDispatch()
     const modalRef = useRef(null);
 
+    const deleteProduct = (id) => {
+        dispatch(deleteFromCart(id))
+        setStatus(false)
+    }
 
     // Закрытие при клике вне компонента
     useRefClickOutside(modalRef, () => setStatus(false));
@@ -48,13 +53,14 @@ export default function ProductAddedModal({ status, setStatus, product }) {
                     <h2 className='f36 fw400'>
                         {lang ? productAdded[lang].total : ''} {product?.finalPrice ? product.finalPrice : 84} ₼
                     </h2>
-                    <span className='pointer'>{Delete}</span>
+                    <span className='pointer' onClick={() => deleteProduct(product.id)}>{Delete}</span>
                 </div>
 
                 <div className={styles.buttons + " flex j-between"}>
                     <button onClick={() => {
                         setStatus(false)
-                        navigate('/cart')
+                        dispatch(setProfileActiveTab('cart'))
+                        navigate('/profile')
                     }} className={styles.greenBtn + ' w-48'}>{lang ? productAdded[lang].greenBtn : ''}</button>
                     <button onClick={() => setStatus(false)} className={styles.whiteBtn + ' w-48'}>{lang ? productAdded[lang].whiteBtn : ''}</button>
                 </div>
