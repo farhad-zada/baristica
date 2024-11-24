@@ -12,7 +12,7 @@ const { subHeader } = header;
 
 export default function SubHeader() {
 
-  const { lang } = useSelector((state) => state.baristica)
+  const { lang, user, token } = useSelector((state) => state.baristica)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -46,10 +46,25 @@ export default function SubHeader() {
             <h6 className="f16">0 {subHeader && subHeader[lang].products}</h6>
             <h6 className="f16">0 ₼</h6>
           </div>
-          <div className={`${style.profile_links} flex a-center`}>
-            <Link to="/register" className="black fw400">{subHeader && subHeader[lang].registration}</Link>
-            <Link to="/login" className="black fw400">{subHeader && subHeader[lang].login}</Link>
-          </div>
+
+          {
+            token
+              ?
+              <div className={style.profile_links}>
+                <h2 className="f16 fw600">
+                  {user?.name ? user.name : 'Narmina'}
+                </h2>
+                <h2 className="pointer f16 fw400">
+                    {lang ? subHeader[lang].logoutBtn : ''}
+                </h2>
+              </div>
+              :
+              <div className={`${style.profile_links} flex a-center`}>
+                <Link to="/register" className="black fw400">{subHeader && subHeader[lang].registration}</Link>
+                <Link to="/login" className="black fw400">{subHeader && subHeader[lang].login}</Link>
+              </div>
+          }
+
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, ContactsPage, ProductsPage, ProductDetailPage, RegisterPage, ProfilePage, OrderPage } from "./pages/pages";
+import { HomePage, ContactsPage, ProductsPage, ProductDetailPage, RegisterPage, ProfilePage, OrderPage, FavoritesPage } from "./pages/pages";
 import { useSelector } from "react-redux";
 import Login from "./pages/login/Login";
 
@@ -39,6 +39,14 @@ export default function AppRoutes() {
         token
           ?
           <Route path="/order" element={<OrderPage />} />
+          :
+          <></>
+      }
+
+{
+        token
+          ?
+          <Route path="/favorites" element={<FavoritesPage />} />
           :
           <></>
       }

@@ -8,6 +8,7 @@ import Login from './login/Login'
 import Register from './register/Register'
 import Profile from './profile/Profile'
 import Order from './order/Order'
+import Favorites from './favorites/Favorites'
 
 export const HomePage = () => {
     return (
@@ -54,5 +55,11 @@ export const ProfilePage = () => {
 export const OrderPage = () => {
     return (
         <Order />
+    )
+}
+
+export const FavoritesPage = () => {
+    return(
+        <Favorites />
     )
 }

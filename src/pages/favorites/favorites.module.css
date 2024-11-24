@@ -1,0 +1,20 @@
+.favorites{
+    padding: 40px 0;
+}
+.addAll{
+    margin-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #D9D8D6;
+    margin-bottom: 60px;
+}
+.addAll button{
+    padding: 6px 24px;
+    background: #D9D8D6;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 24px;
+    font-weight: 700;
+    color: #54565A;
+}

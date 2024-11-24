@@ -9,17 +9,20 @@
             "az": {
                 "products": "məhsul",
                 "login": "Giriş",
-                "registration": "Qeydiyyat"
+                "registration": "Qeydiyyat",
+                "logoutBtn":"Çıxış et"
             },
             "ru": {
                 "products": "товаров",
                 "login": "Вход",
-                "registration": "Регистрация"
+                "registration": "Регистрация",
+                "logoutBtn":"Выйти"
             },
             "en": {
                 "products": "products",
                 "login": "Login",
-                "registration": "Registration"
+                "registration": "Registration",
+                "logoutBtn":"Logout"
             }
         },
         "headerPageLinks": {
@@ -1550,6 +1553,20 @@
             "priceDeliveryHeading":"DELIVERY",
             "discountHeading":"DISCOUNT",
             "total":"ÜMUMİ"
+        }
+    },
+    "favorites":{
+        "az":{
+            "heading":"SEÇİLMİŞ MƏHSULLAR",
+            "addBtn":"Hamısını səbətə əlavə et"
+        },
+        "ru":{
+            "heading":"ИЗБРАННЫЕ ТОВАРЫ",
+            "addBtn": "Добавить всё в корзину"
+        },
+        "en":{
+            "heading":"FAVORITE PRODUCTS",
+            "addBtn":"Add all to cart"
         }
     }
 }
