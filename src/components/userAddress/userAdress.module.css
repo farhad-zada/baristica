@@ -1,0 +1,30 @@
+.address{
+    padding: 10px 30px;
+    background: #F2F2F2;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.active svg path{
+    fill: #61C4BF;
+}
+
+.circle{
+    width: 12px;
+    height: 12px;
+    border: 1px solid #54565A;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blueCircle{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #54565A;
+}

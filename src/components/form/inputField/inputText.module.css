@@ -6,6 +6,8 @@
     border-bottom: 0.5px solid #54565A;
     outline: none;
     margin: 26px 0;
+    color: #54565A;
+  }
+  .input::placeholder{
     color: #D9D8D6;
   }
-  

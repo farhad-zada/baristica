@@ -1,0 +1,15 @@
+.heading{
+    margin-bottom: 26px;
+}
+.addBtn{
+    font-size: 24px;
+    font-weight: 400;
+    outline: none;
+    padding: 6px 15px;
+    color: #54565A;
+    border: none;
+    background: #D9D8D6;
+    border-radius: 8px;
+    margin-top: 30px;
+    cursor: pointer;
+}

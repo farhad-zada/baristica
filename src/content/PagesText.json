@@ -1399,6 +1399,19 @@
                 "submitBtn":"SİFARİŞƏ KEÇ",
                 "grindity":"Üyüdülmə:",
                 "weight":"Çəki:"
+            },
+            "addresses":{
+                "heading":"Mənim ünvanlarım",
+                "changeAddress":"Ünvanı dəyiş:",
+                "cityInput":"Şəhər",
+                "streetInput":"Küçə",
+                "houseInput":"Ev",
+                "doMain":"Əsas et?",
+                "yes":"Hə",
+                "no":"Yox",
+                "saveBtn":"Yadda saxla",
+                "addBtn":"Ünvan əlavə et",
+                "newAddress":"Təzə ünvan:"
             }
         },
         "ru": {
@@ -1420,6 +1433,19 @@
                 "submitBtn":"ПЕРЕЙТИ К ЗАКАЗУ",
                 "grindity":"Помол:",
                 "weight":"Вес:"
+            },
+            "addresses":{
+                "heading":"Мои адреса",
+                "changeAddress":"Изменить адрес:",
+                "cityInput":"Город",
+                "streetInput":"Улица",
+                "houseInput":"Дом",
+                "doMain":"Сделать основным?",
+                "yes":"Да",
+                "no":"Нет",
+                "saveBtn":"Сохранить",
+                "addBtn":"Добавить адрес",
+                "newAddress":"Новый адрес:"
             }
         },
         "en": {
@@ -1441,18 +1467,70 @@
                 "submitBtn":"GO TO ORDER",
                 "grindity":"Grinding:",
                 "weight":"Weight:"
+            },
+            "addresses":{
+                "heading":"My Addresses",
+                "changeAddress":"Change address:",
+                "cityInput":"City",
+                "streetInput":"Street",
+                "houseInput":"House",
+                "doMain":"Make it the main?",
+                "yes":"Yes",
+                "no":"No",
+                "saveBtn":"Save",
+                "addBtn":"Add address",
+                "newAddress":"New address:"
             }
         }
     },
     "order":{
         "az":{
-            "heading":"SİFARIŞİN TƏSDİQİ"
+            "heading":"SİFARIŞİN TƏSDİQİ",
+            "nameInput": "Adınız",
+            "phoneInput": "Telefon nomrəniz",
+            "personalInfoHeading": "ŞƏXSİ MƏLUMATLAR:",
+            "timeHeading":"ÇATDIRILMA MÜDDƏTİ:",
+            "placeHeading":"ÇATDIRILMA ÜNVANI:",
+            "commentHeading":"ŞƏRH ƏLAVƏ EDİN:",
+            "paymentHeading":"ÖDƏNİŞ:",
+            "commentInput":"Şərh",
+            "deliveryInput":"ÜNVANA ÇATDIRILMA",
+            "pickupInput":"PICK UP",
+            "byCash":"Nəğd",
+            "byCard":"Kartla",
+            "submitBtn":"TƏSDİQLƏ"
         },
         "ru":{
-            "heading":"ОФОРМЛЕНИЕ ЗАКАЗА"
+            "heading":"ОФОРМЛЕНИЕ ЗАКАЗА",
+            "nameInput": "Ваше имя",
+            "phoneInput": "Телефон",
+            "personalInfoHeading": "ЛИЧНЫЕ ДАННЫЕ:",
+            "timeHeading":"ВРЕМЯ ДОСТАВКИ:",
+            "placeHeading":"АДРЕС ДОСТАВКИ:",
+            "commentHeading":"ДОБАВИТЬ КОММЕНТАРИЙ:",
+            "paymentHeading":"ОПЛАТА:",
+            "commentInput":"Комментарий",
+            "deliveryInput":"ДОСТАВКА ПО АДРЕСУ",
+            "pickupInput":"САМОВЫЗОВ",
+            "byCash":"Наличными",
+            "byCard":"Картой",
+            "submitBtn":"ПОДТВЕРДИТЬ"
         },
         "en":{
-            "heading":"PLACE YOUR ORDER"
+            "heading":"PLACE YOUR ORDER",
+            "nameInput": "Your name",
+            "phoneInput": "Phone number",
+            "personalInfoHeading": "PERSONAL INFORMATION:",
+            "timeHeading":"DELIVERY TIME:",
+            "placeHeading":"DELIVERY ADDRESS:",
+            "commentHeading":"ADD COMMENT:",
+            "paymentHeading":"PAYMENT:",
+            "commentInput":"Comment",
+            "deliveryInput":"DELIVERY TO ADDRESS",
+            "pickupInput":"PICK UP",
+            "byCash":"By cash",
+            "byCard":"By card",
+            "submitBtn":"SUBMIT"
         }
     }
 }

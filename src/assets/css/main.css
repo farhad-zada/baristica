@@ -195,6 +195,9 @@ input {
 .mt20{
     margin-top: 20px;
 }
+.mt50{
+    margin-top: 50px;
+}
 .mt24{
     margin-top: 24px !important;
 }
@@ -486,4 +489,11 @@ input {
 .error{
     margin: 20px 0;
     color: red;
+}
+
+.orderInfo_component{
+    padding: 20px;
+    border: 1px solid #54565A;
+    border-radius: 8px;
+    margin-bottom: 50px;
 }
