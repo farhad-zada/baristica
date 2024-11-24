@@ -1,0 +1,15 @@
+.priceComponent{
+    padding: 10px 30px;
+    border-radius: 8px;
+    background: #F2F2F2;
+}
+.products{
+    padding: 24px 30px;
+}
+.products div{
+    margin-bottom: 8px;
+}
+.total{
+    padding-top: 24px;
+    border-top: 0.5px solid #54565A;
+}

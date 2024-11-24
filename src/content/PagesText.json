@@ -1398,7 +1398,8 @@
                 "emptyCart":"Səbət boşdur",
                 "submitBtn":"SİFARİŞƏ KEÇ",
                 "grindity":"Üyüdülmə:",
-                "weight":"Çəki:"
+                "weight":"Çəki:",
+                "codeText":"Məhsulun kodu:"
             },
             "addresses":{
                 "heading":"Mənim ünvanlarım",
@@ -1432,7 +1433,8 @@
                 "emptyCart":"Корзина пуста",
                 "submitBtn":"ПЕРЕЙТИ К ЗАКАЗУ",
                 "grindity":"Помол:",
-                "weight":"Вес:"
+                "weight":"Вес:",
+                "codeText":"Код продукта:"
             },
             "addresses":{
                 "heading":"Мои адреса",
@@ -1466,7 +1468,9 @@
                 "emptyCart":"Cart is empty",
                 "submitBtn":"GO TO ORDER",
                 "grindity":"Grinding:",
-                "weight":"Weight:"
+                "weight":"Weight:",
+                "codeText":"Product code:"
+
             },
             "addresses":{
                 "heading":"My Addresses",
@@ -1498,7 +1502,12 @@
             "pickupInput":"PICK UP",
             "byCash":"Nəğd",
             "byCard":"Kartla",
-            "submitBtn":"TƏSDİQLƏ"
+            "submitBtn":"TƏSDİQLƏ",
+            "hint":"Şəxsi məlumatların emalı şərtləri, İstifadəçi müqaviləsi və İctimai təkliflə razıyam",
+            "priceHeading": "TOTAL AMOUNT",
+            "priceDeliveryHeading":"ÇATDIRILMA",
+            "discountHeading":"ENDIRIM",
+            "total":"TOTAL"
         },
         "ru":{
             "heading":"ОФОРМЛЕНИЕ ЗАКАЗА",
@@ -1514,7 +1523,12 @@
             "pickupInput":"САМОВЫЗОВ",
             "byCash":"Наличными",
             "byCard":"Картой",
-            "submitBtn":"ПОДТВЕРДИТЬ"
+            "submitBtn":"ПОДТВЕРДИТЬ",
+            "hint":"Согласен с условиями обработки персональных данных, Пользовательского соглашения и Публичной оферты",
+            "priceHeading": "ОБЩАЯ СУММА ЗА ТОВАРЫ",
+            "priceDeliveryHeading":"ДОСТАВКА",
+            "discountHeading":"СКИДКА",
+            "total":"ВСЕГО"
         },
         "en":{
             "heading":"PLACE YOUR ORDER",
@@ -1530,7 +1544,12 @@
             "pickupInput":"PICK UP",
             "byCash":"By cash",
             "byCard":"By card",
-            "submitBtn":"SUBMIT"
+            "submitBtn":"SUBMIT",
+            "hint":"I agree with the terms of processing of personal data, User Agreement and Public Offer",
+            "priceHeading": "ÜMUMİ MƏBLƏĞ",
+            "priceDeliveryHeading":"DELIVERY",
+            "discountHeading":"DISCOUNT",
+            "total":"ÜMUMİ"
         }
     }
 }

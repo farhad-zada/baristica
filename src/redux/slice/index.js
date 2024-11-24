@@ -6,7 +6,7 @@ const initialState = {
   profileActiveTab: "personalData",
   token: true,
   cart: [],
-  finalCart: []
+  finalCart: [1,2,3]
 };
 
 const baristicaSlice = createSlice({

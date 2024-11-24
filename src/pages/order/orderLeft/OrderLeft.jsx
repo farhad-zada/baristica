@@ -186,6 +186,7 @@ export default function OrderLeft({content}) {
                 
             </div>
             <AuthButton text={content ? content.submitBtn : ''}  />
+            <p className="mt20 f20 fw400 darkGrey_color">{content ? content.hint : ''}</p>
         </div >
     )
 }

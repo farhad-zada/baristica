@@ -1,0 +1,12 @@
+.product{
+    padding: 2px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #F2F2F2;
+    margin-bottom: 10px;
+}
+.productImg img{
+    width: 60px;
+     height: 100px;
+}
