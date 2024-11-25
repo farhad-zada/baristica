@@ -27,7 +27,7 @@ export default function Login() {
 
     const onSubmit = async () => {
         try {
-            const response = await authService.login(formData)
+            const response = await authService.login({creds: {...formData}})
             const token = response?.data?.token || true
             if (token) {
                 dispatch(setToken(token))

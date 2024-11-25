@@ -4,7 +4,7 @@ const initialState = {
   pageHead: "",
   lang: "az",
   profileActiveTab: "personalData",
-  token: true,
+  token: false,
   cart: [],
   finalCart: [1,2,3]
 };
