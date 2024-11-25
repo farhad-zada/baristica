@@ -1,14 +1,15 @@
 .cooperation{
     padding: 100px 0;
 }
-.cooperation_title{
-    padding-bottom: 40px;
-}
 .cooperations{
     gap: 30px;
+    padding-top: 40px;
 }
 .cooperation_item{
     width: 100%
+}
+.cooperation_title:nth-child(1){
+    font-weight: 300;
 }
 .cooperation_item:nth-child(1){
     display: flex;

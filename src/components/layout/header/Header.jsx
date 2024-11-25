@@ -21,7 +21,7 @@ export default function Header() {
   };
 
   return (
-    <header className="flex j-center">
+    <header className="flex j-center" style={{backgroundColor: "#F2F2F2"}}>
       <div className="container flex j-between a-center">
         <div className={`${style.header_section} flex a-center j-between w-100`}>
           <Link to="/" className={`${style.header_logo}`}>
@@ -29,16 +29,26 @@ export default function Header() {
           </Link>
           <ul className={`${style.menu} flex a-center`}>
             {headerPageLinks[lang].map((elem, index) => (
-              <li key={index}>
-                <NavLink
-                  to={elem.link}
-                  className={({ isActive }) => `${style.menu_item} darkGrey_color ${isActive ? style.active : ''}`}
-
-                >
-                  {elem.title}
-                </NavLink>
-              </li>
-            ))}
+                <li key={index} className={`${style.menu_item} relative`}>
+                  <NavLink
+                    to={elem.link}
+                    className={({ isActive }) =>
+                      `darkGrey_color ${isActive ? style.active : ""}`
+                    }
+                  >
+                    {elem.title}
+                  </NavLink>
+                  {elem.list && elem.list.length > 0 && (
+                    <ul className={style.dropdown}>
+                      {elem.list.map((subItem, subIndex) => (
+                        <li key={subIndex} className={style.dropdown_item}>
+                          <NavLink to={subItem.link}>{subItem.title}</NavLink>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
           </ul>
           <div className={`${style.languages} flex a-center`}>
             {["az", "en", "ru"].map((langCode) => (

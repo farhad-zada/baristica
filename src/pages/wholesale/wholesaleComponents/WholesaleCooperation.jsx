@@ -13,7 +13,8 @@ const WholesaleCooperation = () => {
   return (
     <div className={`${style.cooperation} flex j-center`}>
         <div className='container'>
-            <h1 className={`${style.cooperation_title} f64`}>{wholesale[lang]?.cooperation?.title}</h1>
+            {wholesale[lang]?.cooperation?.title?.split('\n\n')?.map((paragraph, index) => (<h1 className={`${style.cooperation_title} f64`} key={index}>{paragraph}</h1>))}
+            {/* <h1 className={`${style.cooperation_title} f64`}>{wholesale[lang]?.cooperation?.title}</h1> */}
             <div className={`${style.cooperations} flex`}>
                 {wholesale[lang]?.cooperation?.elems?.map((elem) => (
                     <div className={`${style.cooperation_item} flex a-start j-start border16`} key={elem.title}>

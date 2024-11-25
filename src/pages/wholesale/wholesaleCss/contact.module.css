@@ -1,10 +1,11 @@
 .contact{
     padding: 50px 0;
 }
-.contact_title{
-    padding-bottom: 40px;
+.contact_title:nth-child(2){
+    color: #61C4BF;
 }
 .contact_item{
+    margin-top: 40px;
     padding: 35px 24px;
     background-color: #D9D8D6;
 }
