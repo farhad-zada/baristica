@@ -1,0 +1,29 @@
+.faq{
+    padding: 50px 0 100px;
+}
+.faqs{
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    grid-template-rows: auto auto; /* Two rows */
+    gap: 30px; 
+}
+.faq_elem{
+    padding: 60px 30px;
+}
+.faq_elem:nth-child(2n){
+    background-color: #fff;
+}
+.faq_elem:nth-child(2n-1){
+    color: white;
+    background-color: #54565A;
+}
+.faq_elem h1{
+    padding-bottom: 60px;
+}
+.label{
+    padding-bottom: 20px;
+}
+.label_num{
+    padding: 0 21px 0 0 !important;
+}

@@ -355,12 +355,28 @@ input {
     font-size: 48px !important;
 }
 
+.f56 {
+    font-size: 56px !important;
+}
+
+.f60 {
+    font-size: 60px !important;
+}
+
 .f64 {
     font-size: 64px !important;
 }
 
 .f72 {
     font-size: 72px !important;
+}
+
+.f80 {
+    font-size: 80px !important;
+}
+
+.f84 {
+    font-size: 84px !important;
 }
 
 .f96 {
@@ -449,6 +465,10 @@ input {
 
 .border36 {
     border-radius: 36px;
+}
+
+.border40{
+    border-radius: 40px;
 }
 
 .border50 {

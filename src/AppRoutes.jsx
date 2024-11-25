@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, ContactsPage, ProductsPage, ProductDetailPage, RegisterPage, ProfilePage, OrderPage, FavoritesPage } from "./pages/pages";
+import { HomePage, ContactsPage, ProductsPage, ProductDetailPage, RegisterPage, ProfilePage, OrderPage, FavoritesPage, WholesalePage } from "./pages/pages";
 import { useSelector } from "react-redux";
 import Login from "./pages/login/Login";
 
@@ -13,6 +13,7 @@ export default function AppRoutes() {
       <Route path="/contacts" element={<ContactsPage />} />
       <Route path="/products/:type" element={<ProductsPage />} />
       <Route path="/product/:id" element={<ProductDetailPage />} />
+      <Route path="/wholesale" element={<WholesalePage />} />
       {
         token
           ?

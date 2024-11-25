@@ -1,0 +1,16 @@
+.contact{
+    padding: 50px 0;
+}
+.contact_title{
+    padding-bottom: 40px;
+}
+.contact_item{
+    padding: 35px 24px;
+    background-color: #D9D8D6;
+}
+.contact_item h3{
+    text-transform: uppercase;
+}
+.link{
+    padding: 10px 56px;
+}

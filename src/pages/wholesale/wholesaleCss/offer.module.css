@@ -1,0 +1,16 @@
+.offer{
+    padding-bottom: 50px;
+}
+.offer_title{
+    padding-bottom: 40px;
+}
+.offer_item{
+    padding: 35px 24px;
+    background-color: #D9D8D6;
+}
+.offer_item h3{
+    text-transform: uppercase;
+}
+.link{
+    padding: 10px 56px;
+}

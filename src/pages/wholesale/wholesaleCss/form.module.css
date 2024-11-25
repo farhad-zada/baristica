@@ -1,0 +1,26 @@
+.form{
+    padding: 100px 0;
+}
+.form_section{
+    gap: 66px;
+}
+.form_elem h1{
+    padding-bottom: 35px;
+}
+.elem{
+    padding: 14px 28px;
+    margin-bottom: 17px;
+    background-color: white;
+}
+.price_form{
+    padding: 40px 20px;
+    background-color: white;
+}
+.price_form p{
+    padding-top: 26px;
+}
+.button{
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+}

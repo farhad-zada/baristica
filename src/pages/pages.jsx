@@ -9,6 +9,7 @@ import Register from './register/Register'
 import Profile from './profile/Profile'
 import Order from './order/Order'
 import Favorites from './favorites/Favorites'
+import Wholesale from './wholesale/Wholesale'
 
 export const HomePage = () => {
     return (
@@ -61,5 +62,11 @@ export const OrderPage = () => {
 export const FavoritesPage = () => {
     return(
         <Favorites />
+    )
+}
+
+export const WholesalePage = () => {
+    return(
+        <Wholesale />
     )
 }
