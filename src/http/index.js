@@ -9,7 +9,7 @@ class HttpRequest {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers":
       "Authorization,Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers",
-     "Content-Type": 'multipart/form-data'
+    "Content-Type": 'application/json'
   };
 
   get headers() {
@@ -60,7 +60,7 @@ class HttpRequest {
   };
 
   updateOne = async (urlRoute, formData, id) => {
-    const response = await Axios.put(this.constructUrl(urlRoute,id), formData, {
+    const response = await Axios.put(this.constructUrl(urlRoute, id), formData, {
       headers: this._headers,
     });
     return response.data;
@@ -78,6 +78,13 @@ class HttpRequest {
     });
     return response.data;
   };
+
+  patch = async (urlRoute) => {
+    const response = await Axios.patch(this.constructUrl(urlRoute), {
+      headers: this._headers,
+    });
+    return response.data;
+  }
 }
 
 export default new HttpRequest();

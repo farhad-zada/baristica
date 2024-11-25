@@ -3,9 +3,12 @@ import AuthorizationHeading from '../../components/authorizationHeading/Authoriz
 import InputText from '../../components/form/inputField/InputText';
 import AuthButton from '../../components/form/button/AuthButton';
 import styles from './register.module.css';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import PageText from '../../content/PagesText.json';
+import AuthService from '../../services/auth.service';
+import { setToken } from '../../redux/slice';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 const { register } = PageText;
 
@@ -15,22 +18,29 @@ export default function Register() {
         email: "",
         phone: "",
         password: "",
-        repeatPassword: ""
+        passwordConfirm: ""
     });
     const [errorMessage, setErrorMessage] = useState(""); // Для вывода ошибки
     const { lang } = useSelector((state) => state.baristica);
 
+    const { setItemToStorage } = useLocalStorage('baristicaToken')
+
+    const authService = new AuthService()
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const handleInputChange = (name, value) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
-        if(errorMessage){
+        if (errorMessage) {
             setErrorMessage('')
         }
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
 
         // Проверка совпадения паролей
-        if (formData.password !== formData.repeatPassword) {
+        if (formData.password !== formData.passwordConfirm) {
             const errorText = lang ? register[lang].passwordMismatch : "Passwords do not match";
             setErrorMessage(errorText); // Установить сообщение об ошибке
             return;
@@ -38,6 +48,19 @@ export default function Register() {
 
         // Очистить сообщение об ошибке, если пароли совпадают
         setErrorMessage("");
+
+        try {
+            const response = await authService.register(formData)
+            const token = response.data.token
+            if (token) {
+                dispatch(setToken(token))
+                setItemToStorage(token)
+                navigate('/')
+            }
+        } catch (error) {
+
+        }
+
         console.log(formData); // Отправка данных
     };
 
@@ -78,9 +101,9 @@ export default function Register() {
                             placeholder={lang ? register[lang].passwordInput : ''}
                         />
                         <InputText
-                            name="repeatPassword"
+                            name="passwordConfirm"
                             type='password'
-                            value={formData.repeatPassword}
+                            value={formData.passwordConfirm}
                             onChange={handleInputChange}
                             placeholder={lang ? register[lang].repeatPasswordInput : ''}
                         />
@@ -91,7 +114,7 @@ export default function Register() {
 
                         <p className="f16 fw400">{lang ? register[lang].termsConditionsHint : ''}</p>
 
-                        <AuthButton text={lang ? register[lang].submitBtn : ''} onClick={onSubmit}/>
+                        <AuthButton text={lang ? register[lang].submitBtn : ''} onClick={onSubmit} />
                     </form>
                 </div>
                 <div className={styles.links}>
