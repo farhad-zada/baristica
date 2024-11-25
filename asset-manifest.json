@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/baristica.az/static/css/main.70c44d2f.css",
-    "main.js": "/baristica.az/static/js/main.7f9bd6d9.js",
+    "main.js": "/baristica.az/static/js/main.0b382bb7.js",
     "static/media/banner.jpeg": "/baristica.az/static/media/banner.219e9357827baf53e325.jpeg",
     "static/media/beans2.jpeg": "/baristica.az/static/media/beans2.d564fa781469e6e811c6.jpeg",
     "static/media/beans.jpeg": "/baristica.az/static/media/beans.04794303491ab93731c3.jpeg",
@@ -14,10 +14,10 @@
     "static/media/coffe_mock.png": "/baristica.az/static/media/coffe_mock.046c2506dea6b122e214.png",
     "index.html": "/baristica.az/index.html",
     "main.70c44d2f.css.map": "/baristica.az/static/css/main.70c44d2f.css.map",
-    "main.7f9bd6d9.js.map": "/baristica.az/static/js/main.7f9bd6d9.js.map"
+    "main.0b382bb7.js.map": "/baristica.az/static/js/main.0b382bb7.js.map"
   },
   "entrypoints": [
     "static/css/main.70c44d2f.css",
-    "static/js/main.7f9bd6d9.js"
+    "static/js/main.0b382bb7.js"
   ]
 }
