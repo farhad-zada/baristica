@@ -11,8 +11,13 @@ const WholesaleInformation = () => {
     <div className={style.info} style={{backgroundImage: `url(${infoBanner})`}}>
       <div className={`${style.info_section}`}>
         <div className='flex'>
-          <h1 className='white f84'>{wholesale[lang]?.info?.title}</h1>
-          <p className='white f28'>{wholesale[lang]?.info?.description}</p>
+          <div>
+            {wholesale[lang]?.info?.title?.split('\n\n')?.map((paragraph, index) => (<h1 className={`${style.title} white f84`} key={index}>{paragraph}</h1>))}
+          </div>
+          {/* <h1 className='white f84'>{wholesale[lang]?.info?.title}</h1> */}
+          <div style={{paddingLeft: "30px"}}>
+            {wholesale[lang]?.info?.description?.split('\n\n')?.map((paragraph, index) => (<p className='white f28' key={index}>{paragraph}</p>))}
+          </div>
         </div>
         <div className={`${style.info_grid}`}>
           {wholesale[lang]?.info?.list?.map((elem) => (

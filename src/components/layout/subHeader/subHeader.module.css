@@ -1,5 +1,6 @@
 .subHeader{
     padding: 30px 0 0;
+    background-color: #F2F2F2;
 }
 .subHeader_section{
     border-bottom: 1px solid rgba(217, 216, 214, 1);
@@ -7,6 +8,18 @@
 }
 .subHeader_buttons{
     gap: 10px;
+}
+.button{
+    position: relative;
+}
+.clear{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0 14px;
+    cursor: pointer;
 }
 .button, .subHeader_buttons a{
     cursor: pointer;
@@ -61,6 +74,19 @@
     cursor: pointer;
     border-radius: 16px;
     background: #F3F4F6;
+}
+.searchInput {
+  background-color: white !important;
+  width: 200px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 32px;
+  outline: none;
+  transition: width 0.3s ease-in-out;
+}
+.searchInput:focus {
+  width: 250px;
+  border-color: #000;
 }
 @media screen and (max-width: 768px) {
     .subHeader{

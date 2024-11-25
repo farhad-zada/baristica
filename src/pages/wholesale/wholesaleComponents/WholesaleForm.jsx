@@ -20,8 +20,8 @@ const WholesaleForm = () => {
             <div className={`${style.form_list}`}>
               {wholesale[lang]?.form?.list?.map((elem) => (
                 <div className={`${style.elem} border16 f20 flex a-center`}>
-                  <img src={elem?.icon}/>
-                  <p>{elem?.title}</p>
+                  <div dangerouslySetInnerHTML={{ __html: elem?.icon }} />
+                  <p style={{paddingLeft: "28px"}}>{elem?.title}</p>
                 </div>
               ))}
             </div>

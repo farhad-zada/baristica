@@ -12,7 +12,7 @@ const WholesaleFAQ = () => {
         <div className='container'>
             <div className='flex j-center column'>
                 <h1 className='f96 fw700'>{wholesale[lang]?.faq?.title}</h1>
-                <h1 className='f32 fw700'>{wholesale[lang]?.faq?.lable}</h1>
+                <p className='f32 fw400' style={{paddingTop: "30px"}}>{wholesale[lang]?.faq?.lable}</p>
                 <div className={`${style.faqs}`}>
                     {wholesale[lang]?.faq?.list?.map((elem) => (
                         <div className={`${style.faq_elem} border16`}>
