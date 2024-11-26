@@ -67,7 +67,7 @@ const ProductCard = (props) => {
     }
 
     return (
-        <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${product?.id}`) }}>
+        <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${product?._id}`) }}>
             <ProductAddedModal product={product} status={productAdded} setStatus={setProductAdded} />
 
             <div className={style.productCard_head + " flex j-between"}>
