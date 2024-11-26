@@ -1,68 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import pagesText from '../../../content/PagesText.json'
 import HomeProductsList from '../../../components/productsSlider/HomeProductsList';
 import ProductsSection from '../../../components/productsSection/ProductsSection';
+import ProductsService from '../../../services/products.service';
+import Loading from '../../../components/loading/Loading';
 const { productsSection } = pagesText
 
 export default function HomeProducts() {
-    const { lang, cart } = useSelector((state) => state.baristica);
-    console.log(cart)
-    const [newCoffe, setNewCoffee] = useState([
-        {
-            id: 1,
-            type:'coffee'
-        },
-        {
-            id: 2,
-            type:'coffee'
-        },
-        {
-            id: 3,
-            type:'coffee'
-        }
-    ])
-    const [popularCoffee, setPopularCoffee] = useState([
-        {
-            id: 1,
-            type:'coffee'
-        },
-        {
-            id: 2,
-            type:'coffee'
-        }
-    ])
+    const { lang, token } = useSelector((state) => state.baristica);
 
-    const [newMachines, setNewMachines] = useState([
-        {
-            id: 1,
-            type:'machine'
-        },
-        {
-            id: 2,
-            type:'machine'
-        },
-        {
-            id: 3,
-            type:'machine'
-        }
-    ])
+    const [newCoffe, setNewCoffee] = useState([])
+    const [popularCoffee, setPopularCoffee] = useState([])
 
-    const [newAccesories, setNewAccesories] = useState([
-        {
-            id: 1,
-            type:'accesories'
-        },
-        {
-            id: 2,
-            type:'accesories'
-        },
-        {
-            id: 3,
-            type:'accesories'
-        }
-    ])
+    const [newMachines, setNewMachines] = useState([])
+    const [popularMachines, setPopularMachines] = useState([])
+
+    const [newAccesories, setNewAccesories] = useState([])
+    const [popularAccesories, setPopularAccesories] = useState([])
+
+    const [loading,setLoading] = useState(false)
 
     const sectionsContent = [
         {
@@ -89,14 +47,49 @@ export default function HomeProducts() {
             navigateTo: '/products/accesories',
             content: {
                 [productsSection[lang].coffeeOrAccesories[0].label]: <HomeProductsList products={newAccesories} />,
-                [productsSection[lang].coffeeOrAccesories[1].label]: <HomeProductsList products={popularCoffee} />
+                [productsSection[lang].coffeeOrAccesories[1].label]: <HomeProductsList products={popularAccesories} />
             }
         }
     ]
 
+    const productsService = new ProductsService
 
+    const setProducts = async (token) => {
+        setLoading(true)
+        try {
+            const [newCoffe, popularCoffee, newAccesory, popularAccesory, newMachines, popularMachines] = await Promise.all([
+                productsService.getProductsByType(token, 'Coffee', 'new'),
+                productsService.getProductsByType(token, 'Coffee', 'popular'),
+                productsService.getProductsByType(token, 'Accessory', 'new'),
+                productsService.getProductsByType(token, 'Accessory', 'popular'),
+                productsService.getProductsByType(token, 'Machine', 'new'),
+                productsService.getProductsByType(token, 'Machine', 'popular'),
+            ]);
+            // coffee
+            setNewCoffee(newCoffe.data);
+            setPopularCoffee(popularCoffee.data); // Assuming you want to set popular coffee data as well
+            //accesories
+            setNewAccesories(newAccesory.data)
+            setPopularAccesories(popularAccesory.data)
+            // machines
+            setNewMachines(newMachines.data)
+            setPopularMachines(popularMachines.data)
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        } finally{
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+
+        if (token) {
+            setProducts(token)
+        }
+    }, [token])
     return (
         <>
+        <Loading status={loading} />
             {sectionsContent.map((section) => (
                 <ProductsSection
                     heading={section.heading}

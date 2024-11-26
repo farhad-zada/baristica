@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { CartIcon, Favourites, Search } from "../../../icons";
 import AuthService from "../../../services/auth.service";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import Loading from "../../loading/Loading";
+import { useRefClickOutside } from "../../../hooks/useRefClickOutside";
 
 const { header } = PagesText;
 const { subHeader } = header;
@@ -18,6 +20,7 @@ export default function SubHeader() {
 
   const [isSearchActive, setIsSearchActive] = useState(false); // State for toggling search input
   const [searchInput, setSearchInput] = useState(""); 
+  const [loading,setLoading] = useState(false)
   const searchRef = useRef(null); // Ref for click outside handling
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,6 +41,7 @@ export default function SubHeader() {
   };
 
   const logout = async () => {
+    setLoading(true)
     try {
       const response = await authService.logout(token)
       dispatch(setToken(false))
@@ -45,6 +49,8 @@ export default function SubHeader() {
       removeItemFromStorage()
     } catch (error) {
       
+    } finally{
+      setLoading(false)
     }
   }
 
@@ -59,21 +65,12 @@ export default function SubHeader() {
     }
   };
   
-  useEffect(() => {
-    if (isSearchActive) {
-      document.addEventListener("click", handleClickOutside);
-    } else {
-      document.removeEventListener("click", handleClickOutside);
-    }
-  
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [isSearchActive]);
+  useRefClickOutside(searchRef, handleClickOutside)
 
 
   return (
     <div className={style.subHeader + " flex j-center"}>
+      <Loading  status={loading}/>
       <div className="container flex">
         <div className={`${style.subHeader_section} flex a-center j-end w-100`}>
           <div className={`${style.subHeader_buttons} flex a-center j-end`} ref={searchRef}>

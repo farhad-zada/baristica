@@ -9,11 +9,13 @@ import PageText from '../../content/PagesText.json'
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import AuthService from '../../services/auth.service';
 import { setToken, setUser } from '../../redux/slice';
+import Loading from '../../components/loading/Loading';
 
 const { login } = PageText
 
 export default function Login() {
     const [formData, setFormData] = useState({ email: "", password: "" });
+    const [loading, setLoading] = useState(false)
     const { lang } = useSelector((state) => state.baristica);
 
     const { setItemToStorage } = useLocalStorage('baristicaToken')
@@ -26,8 +28,9 @@ export default function Login() {
     };
 
     const onSubmit = async () => {
+        setLoading(true)
         try {
-            const response = await authService.login({creds: {...formData}})
+            const response = await authService.login({ creds: { ...formData } })
             const token = response?.data?.token || true
             const user = response.data.user
             if (token) {
@@ -38,12 +41,16 @@ export default function Login() {
             }
         } catch (error) {
             console.log(error)
+        } finally {
+            setLoading(false)
         }
     }
 
 
     return (
         <div className={styles.login + ' flex j-center'}>
+            <Loading status={loading} />
+
             <div className="container">
                 <AuthorizationHeading
                     heading={lang ? login[lang].heading : ''}

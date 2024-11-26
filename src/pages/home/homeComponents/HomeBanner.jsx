@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 // Import your icons here or define them as components
 import { Accessories, CoffeeDevice, CoffeeIcon, Present } from '../../../icons';
+import Loading from '../../../components/loading/Loading';
 // You can import other icons similarly
 
 const { home } = PagesText;
@@ -47,6 +48,7 @@ const HomeBanner = () => {
 
   return (
     <div className={style.homeBanner + ' flex j-center'} style={bannerStyle}>
+
       <div className={`${style.homeBanner_dark}`}></div>
       <div className='container h-100'>
         <div className={`${style.homeBanner_section} flex column a-start j-center`}>

@@ -9,6 +9,7 @@ import PageText from '../../content/PagesText.json';
 import AuthService from '../../services/auth.service';
 import { setToken, setUser } from '../../redux/slice';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import Loading from '../../components/loading/Loading';
 
 const { register } = PageText;
 
@@ -21,6 +22,7 @@ export default function Register() {
         passwordConfirm: ""
     });
     const [errorMessage, setErrorMessage] = useState(""); // Для вывода ошибки
+    const [loading, setLoading] = useState(false)
     const { lang } = useSelector((state) => state.baristica);
 
     const { setItemToStorage } = useLocalStorage('baristicaToken')
@@ -48,7 +50,7 @@ export default function Register() {
 
         // Очистить сообщение об ошибке, если пароли совпадают
         setErrorMessage("");
-
+        setLoading(true)
         try {
             const response = await authService.register(formData)
             const token = response.data.token
@@ -61,6 +63,8 @@ export default function Register() {
             }
         } catch (error) {
 
+        } finally {
+            setLoading(false)
         }
 
         console.log(formData); // Отправка данных
@@ -68,6 +72,7 @@ export default function Register() {
 
     return (
         <div className={styles.register + ' flex j-center'}>
+            <Loading status={loading} />
             <div className="container">
                 <AuthorizationHeading
                     heading={lang ? register[lang].heading : ''}

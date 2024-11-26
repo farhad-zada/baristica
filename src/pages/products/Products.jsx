@@ -8,6 +8,7 @@ import ProductTypes from './productsComponents/ProductTypes';
 import ProductsList from './productsComponents/ProductsList';
 import FilterSection from './productsComponents/FilterSection';
 import ProductsService from '../../services/products.service';
+import Loading from '../../components/loading/Loading';
 const { productsPage } = pageText
 export default function Products() {
   const { lang, token } = useSelector((state) => state.baristica);
@@ -16,6 +17,7 @@ export default function Products() {
   const [types, setTypes] = useState([])
   const [currentType, setCurrentType] = useState('')
   const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(false)
   const { pathname } = useLocation();
 
   const productsService = new ProductsService()
@@ -31,6 +33,7 @@ export default function Products() {
   const navigate = useNavigate()
 
   const getProducts = async (type) => {
+    setLoading(true)
     try {
       const response = await productsService.getProducts(token, type)
       const products = response.data
@@ -38,6 +41,8 @@ export default function Products() {
       console.log(response)
     } catch (error) {
 
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -75,6 +80,7 @@ export default function Products() {
 
   return (
     <div className={`${style.productsPage}  flex j-center`}>
+      <Loading status={loading} />
       <div className="container">
         <ProductsHead heading={heading} />
         <ProductTypes content={types?.length ? types : []} />
