@@ -2,6 +2,7 @@ import React from 'react'
 import ProductCard from '../../../components/productCard/ProductCard'
 import styles from '../productsCss/productsList.module.css'
 export default function ProductsList({products}) {
+
   return (
     <div className={`${styles.productsList}`}>
         {

@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PageText from '../../content/PagesText.json'
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import AuthService from '../../services/auth.service';
-import { setToken } from '../../redux/slice';
+import { setToken, setUser } from '../../redux/slice';
 
 const { login } = PageText
 
@@ -29,8 +29,10 @@ export default function Login() {
         try {
             const response = await authService.login({creds: {...formData}})
             const token = response?.data?.token || true
+            const user = response.data.user
             if (token) {
                 dispatch(setToken(token))
+                dispatch(setUser(user))
                 setItemToStorage(token)
                 navigate('/')
             }

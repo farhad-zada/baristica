@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PageText from '../../content/PagesText.json';
 import AuthService from '../../services/auth.service';
-import { setToken } from '../../redux/slice';
+import { setToken, setUser } from '../../redux/slice';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 const { register } = PageText;
@@ -52,8 +52,10 @@ export default function Register() {
         try {
             const response = await authService.register(formData)
             const token = response.data.token
+            const user = response.data.user
             if (token) {
                 dispatch(setToken(token))
+                dispatch(setUser(user))
                 setItemToStorage(token)
                 navigate('/')
             }

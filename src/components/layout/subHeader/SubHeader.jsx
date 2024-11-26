@@ -2,11 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import style from "./subHeader.module.css";
 
-import { setLang, setProfileActiveTab } from "../../../redux/slice";
+import { setLang, setProfileActiveTab, setToken, setUser } from "../../../redux/slice";
 
 import PagesText from "../../../content/PagesText.json";
 import { useDispatch, useSelector } from "react-redux";
 import { CartIcon, Favourites, Search } from "../../../icons";
+import AuthService from "../../../services/auth.service";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 
 const { header } = PagesText;
 const { subHeader } = header;
@@ -17,9 +19,13 @@ export default function SubHeader() {
   const [isSearchActive, setIsSearchActive] = useState(false); // State for toggling search input
   const [searchInput, setSearchInput] = useState(""); 
   const searchRef = useRef(null); // Ref for click outside handling
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const {removeItemFromStorage} = useLocalStorage('baristicaToken')
+
+  const authService = new AuthService()
+
 
   const changeLang = (lang) => {
     localStorage.setItem("lang", lang);
@@ -30,6 +36,17 @@ export default function SubHeader() {
     dispatch(setProfileActiveTab("cart"));
     navigate("/profile");
   };
+
+  const logout = async () => {
+    try {
+      const response = await authService.logout(token)
+      dispatch(setToken(false))
+      dispatch(setUser({}))
+      removeItemFromStorage()
+    } catch (error) {
+      
+    }
+  }
 
   const handleSearchToggle = (event) => {
     event.stopPropagation(); // Prevent the event from bubbling up to the document
@@ -54,7 +71,6 @@ export default function SubHeader() {
     };
   }, [isSearchActive]);
 
-  console.log(isSearchActive, "isSearchActive")
 
   return (
     <div className={style.subHeader + " flex j-center"}>
@@ -99,7 +115,7 @@ export default function SubHeader() {
           {token ? (
             <div className={style.profile_links}>
               <h2 className="f16 fw600">{user?.name ? user.name : "Narmina"}</h2>
-              <h2 className="pointer f16 fw400">{lang ? subHeader[lang].logoutBtn : ""}</h2>
+              <h2 className="pointer f16 fw400" onClick={logout}>{lang ? subHeader[lang].logoutBtn : ""}</h2>
             </div>
           ) : (
             <div className={`${style.profile_links} flex a-center`}>

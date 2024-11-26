@@ -14,7 +14,9 @@ import { addProductToCart } from "../../redux/slice"
 const { productCard } = pageText
 const ProductCard = (props) => {
     const { product, width = 'auto' } = props
+    
     const { token, lang } = useSelector(state => state.baristica)
+    
 
     const [productAdded, setProductAdded] = useState(false)
 
@@ -81,51 +83,51 @@ const ProductCard = (props) => {
                     }
                     <span className="flex g8  f16 darkGrey_color fw400">
                         {Star}
-                        <span>10.0</span>
+                        <span>{product?.statistics?.ratings ? product.statistics.ratings : 2}</span>
                     </span>
                     <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"}>
                         {Feedback}
                         <span>{product?.feedbacks ? product.feedbacks : 0}</span>
                     </span>
                 </div>
-                <span className="productCard-head_right blueAccent fw400">
-                    {product?.type ? product.type : 'Espresso'}
+                <span className="productCard-head_right blueAccent fw400 text-upperCase">
+                    {product?.category ? product.category : 'Espresso'}
                 </span>
             </div>
             <div className={style.productCard_body}>
                 <h3 className="text-center darkGrey_color f16 fw400">{product?.code ? product.code : 'BFC-02002'}</h3>
-                <h2 className="text-center darkGrey_color f24 fw600">{product?.name ? product.name : 'COLOMBIA GESHA ANCESTRO'}</h2>
+                <h2 className="text-center darkGrey_color f24 fw600">{product?.name ? product.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
                 <p className="text-center darkGrey_color f16 fw400">{product?.processing ? product.processing : 'мытая ОБРАБОТКА'}</p>
 
                 <div className={`${style.productCard_img} w-100 flex j-center`}>
-                    <img src={MockImg} alt="" />
+                    <img src={product?.images?.length ? product.images[0] : MockImg} alt="" />
                 </div>
                 {
-                    product.type === 'machine'
+                    product.productType === 'machine' || !product?.profile
                     ?
                     <></>
                     :
-                    <p className="text-center f16 fw400 darkGrey_color" style={{ maxWidth: "350px" }}>{product?.compound ? product.compound : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
+                    <p className="text-center f16 fw400 darkGrey_color" style={{ maxWidth: "350px" }}>{product?.profile ? product.profile[lang] : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
                 }
 
                 {
-                    product?.type === 'coffee'
+                    product?.productType === 'Coffee'
                     ?
                     <div className={style.productCard_characteristics + " flex j-between"}>
-                    <Characteristic content={{ text: lang ? productCard[lang].density : '', progress: 30 }} />
-                    <Characteristic content={{ text: lang ? productCard[lang].acidity : '', progress: 60 }} />
-                    <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: 90 }} />
+                    <Characteristic content={{ text: lang ? productCard[lang].density : '', progress: product?.viscosity }} />
+                    <Characteristic content={{ text: lang ? productCard[lang].acidity : '', progress: product?.acidity }} />
+                    <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: product?.sweetness }} />
                 </div>
                 :
                 <></>
                 }
 
                 {
-                    setSelectContent(product.type)
+                    setSelectContent(product.productType)
                 }
 
                 <div className="productCard_foot flex j-between a-center">
-                    <span>{product?.price ? product.price : 20} ₼</span>
+                    <span>{product?.price ? product.price/100 : 20} ₼</span>
                     <button
                         onClick={(e) => {
                             addToCart();

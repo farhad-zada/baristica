@@ -15,7 +15,7 @@ class AuthService {
         httpRequest.headers = {
             Authorization: "Bearer " + token,
         };
-        return await httpRequest.post(`${this.#requestUrl}/login`, {})
+        return await httpRequest.post(`${this.#requestUrl}/logout`, {})
     }
 
     forgotPassword = async (formData) => {
@@ -24,7 +24,7 @@ class AuthService {
 
     resetPassword = async (formData, token) => {
         // ask about reset token ( should it be in bearer or in query )
-        return await httpRequest.post(`${this.#requestUrl}/forgot-password`, formData)
+        return await httpRequest.post(`${this.#requestUrl}/reset-password`, formData)
     }
 
     updatePassword = async (formData, token) => {

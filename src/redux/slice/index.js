@@ -5,8 +5,9 @@ const initialState = {
   lang: "az",
   profileActiveTab: "personalData",
   token: false,
+  user: {},
   cart: [],
-  finalCart: [1,2,3]
+  finalCart: [1, 2, 3]
 };
 
 const baristicaSlice = createSlice({
@@ -21,6 +22,9 @@ const baristicaSlice = createSlice({
     },
     setToken: (state, action) => {
       state.token = action.payload
+    },
+    setUser: (state, action) => {
+      state.user = action.payload
     },
     setProfileActiveTab: (state, action) => {
       state.profileActiveTab = action.payload
@@ -40,15 +44,24 @@ const baristicaSlice = createSlice({
       state.cart = state.cart.filter((product) => product.id !== id)
     },
     setFinalCart: (state, action) => {
-      const {product, checked} = action.payload
-      if(checked){
+      const { product, checked } = action.payload
+      if (checked) {
         state.finalCart.push(product)
-      } else{
+      } else {
         state.finalCart = state.finalCart.filter((el) => el.id !== product.id)
       }
     }
   },
 });
 
-export const { setPageHead, setLang, setToken, setProfileActiveTab, addProductToCart, deleteFromCart, setFinalCart} = baristicaSlice.actions;
+export const { 
+  setPageHead,
+  setLang,
+  setToken,
+  setProfileActiveTab,
+  addProductToCart,
+  deleteFromCart,
+  setFinalCart,
+  setUser
+} = baristicaSlice.actions;
 export default baristicaSlice.reducer;
