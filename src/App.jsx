@@ -50,7 +50,7 @@ const App = () => {
       getUser(token)
       dispatch(setToken(token))
     }
-  }, [dispatch, getItemFromStorage, setItemToStorage, getTokenFromStorage]);
+  }, []);
 
   return (
     <div>
