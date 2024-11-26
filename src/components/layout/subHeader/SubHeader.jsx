@@ -111,7 +111,7 @@ export default function SubHeader() {
           </div>
           {token ? (
             <div className={style.profile_links}>
-              <h2 className="f16 fw600">{user?.name ? user.name : "Narmina"}</h2>
+              <h2 className="f16 fw600 pointer" onClick={() => navigate('/profile')}>{user?.name ? user.name : "Narmina"}</h2>
               <h2 className="pointer f16 fw400" onClick={logout}>{lang ? subHeader[lang].logoutBtn : ""}</h2>
             </div>
           ) : (
