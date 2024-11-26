@@ -52,7 +52,7 @@ export default function Register() {
         setErrorMessage("");
         setLoading(true)
         try {
-            const response = await authService.register(formData)
+            const response = await authService.register({ creds: { ...formData } })
             const token = response.data.token
             const user = response.data.user
             if (token) {
