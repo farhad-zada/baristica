@@ -10,7 +10,7 @@ const { productDetail } = PageText
 
 export default function ProductsDetailBody({ product }) {
     const { lang } = useSelector((state) => state.baristica);
-
+    console.log(product)
     const sectionsContent = [
         {
             tabs: lang ? productDetail[lang].tabs : [],

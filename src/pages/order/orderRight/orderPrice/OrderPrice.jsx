@@ -1,21 +1,21 @@
 import React from 'react'
 import styles from './orderPrice.module.css'
+import { calculateTotalPrice } from '../../../../utils/price.util'
 
 export default function OrderPrice({ finalCart, text, lang }) {
 
-    const calculateFinalPrice = (finalCart) => {
-        return 100
-    }
-
     const calculateProductPrice = (product) => {
-        return 32
+        return product.price / 100 * product.cartCount
     }
 
+    const calculateTotal = (products, discount) => {
+        return calculateTotalPrice(products) + discount
+    }
     return (
         <div className={styles.priceComponent}>
             <div className="flex j-between a-center">
                 <h2 className="f24 fw700">{lang ? text[lang].priceHeading : ''}</h2>
-                <span className='f24 fw400 darkGrey_color'>{calculateFinalPrice(finalCart)} ₼</span>
+                <span className='f24 fw400 darkGrey_color'>{calculateTotalPrice(finalCart)} ₼</span>
             </div>
 
             <div className={styles.products}>
@@ -28,7 +28,7 @@ export default function OrderPrice({ finalCart, text, lang }) {
                             <p className="flex g8 f16 fw400 darkGrey_color">
                                 <span>{product?.cartCount ? product.cartCount : '1'}</span>
                                 <span>X</span>
-                                <span>{product?.name ? product.name : 'COLOMBIA GESHA ANCESTRO'}</span>
+                                <span>{product?.name ? product.name[lang] || product.name['az'] : 'COLOMBIA GESHA ANCESTRO'}</span>
                             </p>
                             <p className="f24 fw400 darkGrey_color">
                                 {calculateProductPrice(product)} ₼
@@ -61,7 +61,7 @@ export default function OrderPrice({ finalCart, text, lang }) {
                     {lang ? text[lang].total : ''}
                 </h2>
                 <p className="f24 fw400 darkGrey_color">
-                    87 ₼
+                    {calculateTotal(finalCart, 3)} ₼
                 </p>
             </div>
         </div>

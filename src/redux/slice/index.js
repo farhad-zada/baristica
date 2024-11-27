@@ -7,7 +7,7 @@ const initialState = {
   token: false,
   user: {},
   cart: [],
-  finalCart: [1, 2, 3]
+  finalCart: []
 };
 
 const baristicaSlice = createSlice({
@@ -31,7 +31,7 @@ const baristicaSlice = createSlice({
     },
     addProductToCart: (state, action) => {
       const product = action.payload;
-      const existingProduct = state.cart.find(item => item.id === product.id);
+      const existingProduct = state.cart.find(item => item._id === product._id);
 
       if (existingProduct) {
         existingProduct.cartCount += product.cartCount
@@ -41,14 +41,14 @@ const baristicaSlice = createSlice({
     },
     deleteFromCart: (state, action) => {
       const id = action.payload
-      state.cart = state.cart.filter((product) => product.id !== id)
+      state.cart = state.cart.filter((product) => product._id !== id)
     },
     setFinalCart: (state, action) => {
       const { product, checked } = action.payload
       if (checked) {
         state.finalCart.push(product)
       } else {
-        state.finalCart = state.finalCart.filter((el) => el.id !== product.id)
+        state.finalCart = state.finalCart.filter((el) => el._id !== product._id)
       }
     }
   },

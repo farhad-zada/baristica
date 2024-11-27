@@ -9,7 +9,7 @@ const { profile } = PageText
 export default function Cart() {
   const { cart, finalCart, lang } = useSelector((state) => state.baristica);
   const navigate = useNavigate()
-  console.log(finalCart)
+  console.log(finalCart, cart)
   return (
     <div className={styles.cart}>
       <h2 className={styles.cartHeading + " f28 fw600 darkGrey_color"}>{lang ? profile[lang].cart.cartHeading : ''}</h2>
