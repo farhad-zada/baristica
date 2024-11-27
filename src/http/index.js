@@ -9,7 +9,7 @@ class HttpRequest {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers":
       "Authorization,Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers",
-    "Content-Type": 'application/json'
+    // "Content-Type": 'application/json'
   };
 
   get headers() {
@@ -17,7 +17,12 @@ class HttpRequest {
   }
 
   set headers(config) {
+    // Merge headers
     this._headers = { ...this._headers, ...config };
+    // Default to application/json if Content-Type is not explicitly provided
+    if (!config["Content-Type"]) {
+      this._headers["Content-Type"] = "application/json";
+    }
   }
 
   constructUrl = (urlRoute, id = "") =>
@@ -65,13 +70,6 @@ class HttpRequest {
     });
     return response.data;
   };
-
-  updateByPatch = async (urlRoute,id, formData) => {
-    const response = await Axios.patch(this.constructUrl(urlRoute, id), formData, {
-      headers: this._headers,
-    });
-    return response.data;
-  }
 
   deleteOne = async (urlRoute, id) => {
     const response = await Axios.delete(this.constructUrl(urlRoute, id), {

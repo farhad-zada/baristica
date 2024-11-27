@@ -54,7 +54,6 @@ export default function OrderLeft({content}) {
                 })
             }
         }
-        console.log(data)
         try {
             
         } catch (error) {

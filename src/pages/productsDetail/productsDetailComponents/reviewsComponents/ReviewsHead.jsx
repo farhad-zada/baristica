@@ -6,14 +6,22 @@ import PageText from '../../../../content/PagesText.json'
 import { useSelector } from 'react-redux'
 import PhotoUploader from '../../../../components/photoUploader/PhotoUploader'
 import { Link } from 'react-router-dom'
+import CommentsService from '../../../../services/comments.service'
+import Loading from '../../../../components/loading/Loading'
+import ProductsService from '../../../../services/products.service'
 
 const { productDetail } = PageText
 
-export default function ReviewsHead() {
+export default function ReviewsHead({ getComments,product }) {
     const { lang, token } = useSelector((state) => state.baristica);
     const [selectedRating, setSelectedRating] = useState(0);
     const [commentText, setCommentText] = useState('')
     const [uploadedPhotos, setUploadedPhotos] = useState([]);
+    const [loading, setLoading] = useState(false)
+    const [submitted,setSubmitted] = useState(false)
+
+    const commentsService = new CommentsService()
+    const productsService = new ProductsService()
 
     const handlePhotosUpdate = (photos) => {
         setUploadedPhotos(photos);
@@ -21,19 +29,45 @@ export default function ReviewsHead() {
 
     const handleRatingChange = (rating) => {
         setSelectedRating(rating);
-        console.log(`Выбранный рейтинг: ${rating}`);
     };
-
-    const onSubmit = () => {
+    const addRating = async () => {
         const formData = {
-            text: commentText,
-            rating: selectedRating,
-            images: uploadedPhotos
+            rating: selectedRating
         }
+
         try {
+            const response = await productsService.rateProduct(token, product._id, formData)
+            setCommentText('')
+            setUploadedPhotos([])
+            handleRatingChange(0)
+            setSubmitted(true)
+            await getComments()
+        } catch (error) {
+
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    const onSubmit = async () => {
+        const formData = {
+            comment: {
+                text: commentText,
+                // rating: selectedRating,  
+                photourls: uploadedPhotos,
+                productId: product._id
+            }
+        }
+
+        setLoading(true)
+        try {
+            const response = await commentsService.createComment(token, formData)
+            await addRating()
 
         } catch (error) {
 
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -53,6 +87,7 @@ export default function ReviewsHead() {
 
     return (
         <div className={styles.reviewsHead}>
+            <Loading status={loading} />
             <h2 className="f28 darkGrey_color fw500">{lang ? productDetail[lang].reviews.headerHeading : ''} </h2>
 
             {
@@ -61,21 +96,28 @@ export default function ReviewsHead() {
                     <form action="" className={styles.reviewForm + ' mt24'}>
                         <input
                             type="text"
+                            value={commentText}
                             placeholder={lang ? productDetail[lang].reviews.inputPlaceHolder : ''}
                             onChange={(e) => setCommentText(e.target.value)}
                         />
 
-                        <Rating totalStars={5} Star={Star} onChange={handleRatingChange} />
+                        <Rating submitted={submitted} setSubmitted={setSubmitted} totalStars={5} Star={Star} onChange={handleRatingChange} />
 
-                        <PhotoUploader onPhotosUpdate={handlePhotosUpdate} text={lang ? productDetail[lang].reviews.addImg : ''} />
+                        <PhotoUploader photos={uploadedPhotos} setPhotos={setUploadedPhotos} onPhotosUpdate={handlePhotosUpdate} text={lang ? productDetail[lang].reviews.addImg : ''} />
 
                         <ul>
-                            {uploadedPhotos.map((url, index) => (
-                                <img src={url} alt="" key={index} />
-                            ))}
+                            {
+                                uploadedPhotos.length
+                                    ?
+                                    uploadedPhotos.map((url, index) => (
+                                        <img src={url} alt="" key={index} />
+                                    ))
+                                    :
+                                    <></>
+                            }
                         </ul>
 
-                        <button className={styles.sendBtn}>
+                        <button className={styles.sendBtn} type='button' onClick={onSubmit}>
                             {lang ? productDetail[lang].reviews.sendBtn : ''}
                         </button>
                     </form>

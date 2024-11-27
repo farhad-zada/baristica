@@ -67,7 +67,6 @@ export default function Register() {
             setLoading(false)
         }
 
-        console.log(formData); // Отправка данных
     };
 
     return (

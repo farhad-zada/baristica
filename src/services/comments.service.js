@@ -10,6 +10,14 @@ class CommentsService {
         };
         return await httpRequest.getAll(`${this.#requestUrl}`)
     }
+    getProductComments = async (token, id) => {
+        if (token) {
+            httpRequest.headers = {
+                Authorization: "Bearer " + token,
+            };
+        }
+        return await httpRequest.getOne(`${this.#requestUrl}`, id)
+    }
     createComment = async (token, formData) => {
         httpRequest.headers = {
             Authorization: "Bearer " + token,

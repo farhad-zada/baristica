@@ -5,14 +5,14 @@ class ProductsService {
     #requestUrl = "products";
 
     getProducts = async (token, type) => {
-        if(token){
+        if (token) {
             httpRequest.headers = {
                 Authorization: "Bearer " + token,
             };
         }
         return await httpRequest.getAll(`${this.#requestUrl}?ptp=${type}`)
     }
-    getProductsByType = async (token,type, key) => {
+    getProductsByType = async (token, type, key) => {
         httpRequest.headers = {
             Authorization: "Bearer " + token,
         };
@@ -20,12 +20,21 @@ class ProductsService {
     }
 
     getOneProduct = async (token, id) => {
-        if(token){
+        if (token) {
             httpRequest.headers = {
                 Authorization: "Bearer " + token,
             };
         }
         return await httpRequest.getOne(`${this.#requestUrl}`, id)
+    }
+
+    rateProduct = async (token, id, formData) => {
+        if (token) {
+            httpRequest.headers = {
+                Authorization: "Bearer " + token,
+            };
+        }
+        return await httpRequest.createOne(`${this.#requestUrl}/${id}/rate`, formData)
     }
 }
 
