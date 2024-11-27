@@ -21,9 +21,9 @@ export default function Review({ review }) {
         <div className={styles.review}>
             <div className="reviewHead flex j-between">
                 <div className="reviewHead_left flex g23 a-center">
-                    <span className={styles.profileImg}>
+                    {/* <span className={styles.profileImg}>
                         <img src="" alt="profileImg" />
-                    </span>
+                    </span> */}
                     <div>
                         <p className='f16 fw400 darkGrey_color'>{Star} {review?.rating ? review.rating : '4.0'}</p>
                         <p className='f24 fw400 mt4'>{review?.holder ? review.holder : 'Name Surname'}</p>

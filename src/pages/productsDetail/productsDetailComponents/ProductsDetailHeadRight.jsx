@@ -37,7 +37,7 @@ export default function ProductsDetailHeadRight({ product }) {
                 }
                 <span className="flex g8  f16 darkGrey_color fw400">
                     {Star}
-                    <span>10.0</span>
+                    <span>{product?.statistics?.ratings.toFixed(1)}</span>
                 </span>
                 <span className="flex g8  f16 darkGrey_color fw400">
                     {Feedback}
@@ -46,8 +46,8 @@ export default function ProductsDetailHeadRight({ product }) {
             </div>
 
             <div className="flex j-between mt36">
-                <span className="f14 darkGrey_color fw400">{product?.type ? product.type : 'Espresso'}</span>
-                <span className="f14 darkGrey_color fw400">{product?.model ? product.model : 'E10001'}</span>
+                <span className="f14 darkGrey_color fw400">{product?.category ? product.category : 'Espresso'}</span>
+                <span className="f14 darkGrey_color fw400">{product?.code ? product.code : 'E10001'}</span>
             </div>
 
             <h2 className="darkGrey_color fw600 f36">{product?.name ? product.name[lang] || product.name['az'] : 'BLEND NIGHTHAWK'}</h2>
