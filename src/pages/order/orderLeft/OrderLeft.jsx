@@ -38,9 +38,29 @@ export default function OrderLeft({content}) {
 
     const [add, setAdd] = useState(false)
 
-    const { lang } = useSelector((state) => state.baristica);
+    const { lang, finalCart } = useSelector((state) => state.baristica);
 
-
+    const onSubmit = async () => {
+        const data = {
+            language: lang,
+            order:{
+                customer: {
+                    name: formData.name,
+                    phone: formData.phone
+                },
+                deliveryMethod: delivery ? 'delivery' : 'pickup',
+                items: finalCart.map((product) => {
+                    return {product: product._id, quantity: product.cartCount}
+                })
+            }
+        }
+        console.log(data)
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
 
     const handleInputChange = (name, value) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
@@ -185,7 +205,7 @@ export default function OrderLeft({content}) {
                 </div>
                 
             </div>
-            <AuthButton text={content ? content.submitBtn : ''}  />
+            <AuthButton text={content ? content.submitBtn : ''} onClick={onSubmit} />
             <p className="mt20 f20 fw400 darkGrey_color">{content ? content.hint : ''}</p>
         </div >
     )
