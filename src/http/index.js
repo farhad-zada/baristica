@@ -52,6 +52,13 @@ class HttpRequest {
     return response.data;
   };
 
+  postOne = async (urlRoute, id) => {
+    const response = await Axios.post(this.constructUrl(urlRoute, id), {
+      headers: this._headers,
+    });
+    return response.data;
+  }
+
   createOne = async (urlRoute, formData) => {
     const response = await Axios.post(this.constructUrl(urlRoute), formData, {
       headers: this._headers,

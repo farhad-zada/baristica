@@ -21,13 +21,14 @@ const App = () => {
   const userService = new UserService()
 
   const getUser = async (token) => {
-    setLoading(true)
+    // setLoading(true)
     try {
       const response = await userService.getUser(token)
       dispatch(setUser(response.data))
     } catch (error) {
       console.log(error)
-    } finally {
+    } 
+    finally {
       setLoading(false)
     }
   }

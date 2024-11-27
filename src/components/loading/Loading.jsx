@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './loading.module.css'
 import useBodyScrollLock from '../../hooks/useBodyScrollLock'
 export default function Loading({ status }) {
+    console.log(status, "status")
     useBodyScrollLock(status)
     return (
         <div className={status ? styles.loaderActive : styles.loader}>

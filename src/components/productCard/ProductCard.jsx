@@ -11,14 +11,16 @@ import pageText from '../../content/PagesText.json'
 import { useNavigate } from "react-router-dom"
 import ProductAddedModal from "../productAddedModal/ProductAddedModal"
 import { addProductToCart } from "../../redux/slice"
+import FavoritesService from "../../services/favorites.service"
+import Loading from "../loading/Loading"
 const { productCard } = pageText
 const ProductCard = (props) => {
     const { product, width = 'auto' } = props
     
     const { token, lang } = useSelector(state => state.baristica)
-    
 
     const [productAdded, setProductAdded] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const [weightOptions, setWeightOptions] = useState([200, 1000])
     const [defaultWeight, setDefaultWeight] = useState(200)
@@ -27,6 +29,7 @@ const ProductCard = (props) => {
     const [defaultGrinding, setDefaultGrinding] = useState('grinding')
 
     const [cartCount, setCartCount] = useState(1)
+    const favoriteService = new FavoritesService()
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -36,7 +39,17 @@ const ProductCard = (props) => {
         dispatch(addProductToCart({ ...product, cartCount }))
     }
 
-
+    const addFavorite = async (id) => {
+        setLoading(true)
+        try {
+            const response = await favoriteService.addFavorite(token, id)
+        } catch (error) {
+            console.log(error)
+        }
+        finally{
+            setLoading(false)
+        }
+    }
 
     const setSelectContent = (type) => {
         if (type === 'coffee') {
@@ -69,13 +82,13 @@ const ProductCard = (props) => {
     return (
         <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${product?.id}`) }}>
             <ProductAddedModal product={product} status={productAdded} setStatus={setProductAdded} />
-
+            <Loading status={loading}/>
             <div className={style.productCard_head + " flex j-between"}>
                 <div className="productCard-head_left flex g8">
                     {
                         token
                             ?
-                            <span className={style.favorited}>
+                            <span className={style.favorited} onClick={(e) => {e.stopPropagation();addFavorite(product?._id)}}>
                                 {Favorited}
                             </span>
                             :
