@@ -17,6 +17,8 @@ export default function ProductDetailsReviews({ product }) {
     setLoading(true)
     try {
       const response = await commentsService.getProductComments(token, product._id)
+      const comments = response.data.comments
+      setReviews(comments)
     } catch (error) {
 
     } finally {

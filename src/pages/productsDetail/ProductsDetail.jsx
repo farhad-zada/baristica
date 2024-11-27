@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ProductsDetailHead from './productsDetailComponents/ProductsDetailHead'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import ProductsDetailBody from './productsDetailComponents/ProductsDetailBody'
 import Loading from '../../components/loading/Loading'
 import ProductsService from '../../services/products.service'
@@ -11,6 +11,8 @@ export default function ProductsDetail() {
     const [product, setProduct] = useState({})
     const [loading, setLoading] = useState(false)
     const { id } = useParams()
+  const { pathname } = useLocation();
+
 
     const productsService = new ProductsService()
     const getProduct = async (id) => {
@@ -27,7 +29,7 @@ export default function ProductsDetail() {
 
     useEffect(() => {
         getProduct(id)
-    }, [])
+    }, [pathname])
     return (
         <div className='flex j-center'>
             <Loading status={loading} />
