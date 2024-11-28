@@ -4,9 +4,8 @@ import Review from './Review'
 import pagesText from '../../../../content/PagesText.json'
 import { useSelector } from 'react-redux'
 const {productDetail} = pagesText
-export default function ReviewsBody({product}) {
+export default function ReviewsBody({reviews}) {
     // const [reviews,setReviews] = useState([{photourls: [1,2,3]},{photourls: [1,2,3]},{photourls: [1,2,3]}])
-    const [reviews,setReviews] = useState([])
     const { lang } = useSelector((state) => state.baristica);
 
   return (

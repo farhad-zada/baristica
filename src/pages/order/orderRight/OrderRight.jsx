@@ -15,7 +15,7 @@ export default function OrderRight() {
             {
                 finalCart.length && finalCart.map((product, index) => (
                     <OrderProduct
-                        key={product?.id ? product.id : index}
+                        key={product?._id ? product._id : index}
                         product={product}
                         weightText={lang ? profile[lang].cart.weight : ''}
                         grindityText={lang ? profile[lang].cart.grindity : ''}

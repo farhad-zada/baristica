@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './productAddedModal.module.css'
 import { Delete, Close } from '../../icons'
 
@@ -10,7 +10,7 @@ import useBodyScrollLock from '../../hooks/useBodyScrollLock'
 import { deleteFromCart, setProfileActiveTab } from '../../redux/slice'
 const { productAdded } = pageText
 
-export default function ProductAddedModal({ status, setStatus, product }) {
+export default function ProductAddedModal({ status, setStatus, product, cartCount, setCartCount }) {
     const { lang } = useSelector(state => state.baristica)
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -19,11 +19,13 @@ export default function ProductAddedModal({ status, setStatus, product }) {
     const deleteProduct = (id) => {
         dispatch(deleteFromCart(id))
         setStatus(false)
+        setCartCount(1)
     }
 
     // Закрытие при клике вне компонента
     useRefClickOutside(modalRef, () => setStatus(false));
     useBodyScrollLock(status);
+    
     
     return (
         <div className={status ? 'modal active' : 'modal'} onClick={(e) => e.stopPropagation()}>
@@ -32,6 +34,7 @@ export default function ProductAddedModal({ status, setStatus, product }) {
                     <h2 className="f32 fw700">{lang ? productAdded[lang].heading : ''}</h2>
                     <span className='pointer' onClick={() => {
                         setStatus(false)
+                        setCartCount(1)
                     }}>{Close}</span>
                 </div>
 
@@ -51,9 +54,9 @@ export default function ProductAddedModal({ status, setStatus, product }) {
 
                 <div className={styles.final + " flex j-between a-center mt24"}>
                     <h2 className='f36 fw400'>
-                        {lang ? productAdded[lang].total : ''} {product?.finalPrice ? product.finalPrice : 84} ₼
+                        {lang ? productAdded[lang].total : ''} {product?.price ? product.price/100 * cartCount : 84} ₼
                     </h2>
-                    <span className='pointer' onClick={() => deleteProduct(product.id)}>{Delete}</span>
+                    <span className='pointer' onClick={() => deleteProduct(product._id)}>{Delete}</span>
                 </div>
 
                 <div className={styles.buttons + " flex j-between"}>
@@ -62,7 +65,7 @@ export default function ProductAddedModal({ status, setStatus, product }) {
                         dispatch(setProfileActiveTab('cart'))
                         navigate('/profile')
                     }} className={styles.greenBtn + ' w-48'}>{lang ? productAdded[lang].greenBtn : ''}</button>
-                    <button onClick={() => setStatus(false)} className={styles.whiteBtn + ' w-48'}>{lang ? productAdded[lang].whiteBtn : ''}</button>
+                    <button onClick={() => {setCartCount(1);setStatus(false)}} className={styles.whiteBtn + ' w-48'}>{lang ? productAdded[lang].whiteBtn : ''}</button>
                 </div>
             </div>
         </div>

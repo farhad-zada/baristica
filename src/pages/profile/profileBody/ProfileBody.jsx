@@ -8,6 +8,7 @@ import { setProfileActiveTab } from "../../../redux/slice";
 import Cart from './cart/Cart'
 import Addresses from "./addresses/Addresses";
 import Orders from "./orders/Orders";
+import Comments from "./comments/Comments";
 
 const ProfileBody = () => {
     const { lang, profileActiveTab } = useSelector((state) => state.baristica);
@@ -40,7 +41,7 @@ const ProfileBody = () => {
                 {profileActiveTab === "personalData" && <PersonalData />}
                 {profileActiveTab === "addresses" && <Addresses />}
                 {profileActiveTab === "orders" && <Orders/>}
-                {profileActiveTab === "comments" && "Мои комментарии"}
+                {profileActiveTab === "comments" && <Comments/>}
                 {profileActiveTab === "cart" && <Cart />}
             </div>
         </div>

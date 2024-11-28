@@ -62,3 +62,6 @@
 .amount, .price{
     width: 20%;
 }
+.empty{
+    height: 30vh;
+}

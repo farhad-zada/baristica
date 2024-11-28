@@ -11,21 +11,22 @@ import AuthService from "../../../services/auth.service";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import Loading from "../../loading/Loading";
 import { useRefClickOutside } from "../../../hooks/useRefClickOutside";
+import { calculateTotalPrice } from "../../../utils/price.util";
 
 const { header } = PagesText;
 const { subHeader } = header;
 
 export default function SubHeader() {
-  const { lang, user, token } = useSelector((state) => state.baristica);
+  const { lang, user, token, cart } = useSelector((state) => state.baristica);
 
   const [isSearchActive, setIsSearchActive] = useState(false); // State for toggling search input
-  const [searchInput, setSearchInput] = useState(""); 
-  const [loading,setLoading] = useState(false)
+  const [searchInput, setSearchInput] = useState("");
+  const [loading, setLoading] = useState(false)
   const searchRef = useRef(null); // Ref for click outside handling
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const {removeItemFromStorage} = useLocalStorage('baristicaToken')
+  const { removeItemFromStorage } = useLocalStorage('baristicaToken')
 
   const authService = new AuthService()
 
@@ -34,6 +35,8 @@ export default function SubHeader() {
     localStorage.setItem("lang", lang);
     dispatch(setLang(lang));
   };
+
+  
 
   const goToCart = () => {
     dispatch(setProfileActiveTab("cart"));
@@ -48,8 +51,8 @@ export default function SubHeader() {
       dispatch(setUser({}))
       removeItemFromStorage()
     } catch (error) {
-      
-    } finally{
+
+    } finally {
       setLoading(false)
     }
   }
@@ -58,29 +61,29 @@ export default function SubHeader() {
     event.stopPropagation(); // Prevent the event from bubbling up to the document
     setIsSearchActive(true);
   };
-  
+
   const handleClickOutside = (event) => {
     if (searchRef.current && !searchRef.current.contains(event.target)) {
       setIsSearchActive(false); // Close search input if clicked outside
     }
   };
-  
+
   useRefClickOutside(searchRef, handleClickOutside)
 
 
   return (
     <div className={style.subHeader + " flex j-center"}>
-      <Loading  status={loading}/>
+      <Loading status={loading} />
       <div className="container flex">
         <div className={`${style.subHeader_section} flex a-center j-end w-100`}>
           <div className={`${style.subHeader_buttons} flex a-center j-end`} ref={searchRef}>
-            {isSearchActive ? (
-              <div style={{position: "relative"}}>
+            {/* {isSearchActive ? (
+              <div style={{ position: "relative" }}>
                 <input
                   type="text"
                   value={searchInput}
                   className={`${style.searchInput} darkGray defaultBtn border32`}
-                  onChange={(e)=>setSearchInput(e.target.value)}
+                  onChange={(e) => setSearchInput(e.target.value)}
                   placeholder={subHeader && subHeader[lang].searchPlaceholder}
                 />
                 <button className={style.clear} onClick={() => setSearchInput("")}>
@@ -94,7 +97,7 @@ export default function SubHeader() {
               >
                 {Search}
               </button>
-            )}
+            )} */}
             <Link to="/" className={`${style.button} darkGray defaultBtn border32 flex a-center`}>
               {Favourites}
             </Link>
@@ -106,12 +109,12 @@ export default function SubHeader() {
             </span>
           </div>
           <div className={`${style.product_count} flex column a-start`}>
-            <h6 className="f16">0 {subHeader && subHeader[lang].products}</h6>
-            <h6 className="f16">0 ₼</h6>
+            <h6 className="f16">{cart.length} {subHeader && subHeader[lang].products}</h6>
+            <h6 className="f16">{calculateTotalPrice(cart)} ₼</h6>
           </div>
           {token ? (
             <div className={style.profile_links}>
-              <h2 className="f16 fw600 pointer" onClick={() => navigate('/profile')}>{user?.name ? user.name : "Narmina"}</h2>
+              <h2 className="f16 fw600 pointer" onClick={() => navigate('/profile')}>{user?.name ? user.name : ""}</h2>
               <h2 className="pointer f16 fw400" onClick={logout}>{lang ? subHeader[lang].logoutBtn : ""}</h2>
             </div>
           ) : (

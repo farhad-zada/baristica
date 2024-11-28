@@ -5,31 +5,12 @@ import { useSelector } from 'react-redux';
 export default function ProductDetailsCharacteristics({ product }) {
     const { lang } = useSelector((state) => state.baristica);
     const [chars, setChars] = useState([
-        {
-            name: { ru: 'Профиль:' },
-            value: { ru: 'Тёмный шоколад - мёд - слива - специи' }
-        },
-        {
-            name: { ru: 'Профиль:' },
-            value: { ru: 'Тёмный шоколад' }
-        },
-        {
-            name: { ru: 'Профиль:' },
-            value: { ru: 'Тёмный шоколад - мёд - слива - специи' }
-        },
-        {
-            name: { ru: 'Профиль:' },
-            value: { ru: 'Тёмный шоколад - мёд - слива - специи' }
-        },
-        {
-            name: { ru: 'Профиль:' },
-            value: { ru: 'Тёмный шоколад - мёд - слива - специи' }
-        },
-        {
-            name: { ru: 'Профиль:' },
-            value: { ru: 'Тёмный шоколад - мёд - слива - специи' }
-        },
     ])
+    useEffect(() => {
+        if (JSON.stringify(product) !== '{}') {
+            setChars(product.attributes)
+        }
+    }, [product])
     return (
         <div className={styles.productDetails_characteristics + ' flex column a-center'}>
             {

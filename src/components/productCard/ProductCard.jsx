@@ -4,7 +4,7 @@ import { Bag, CartIcon, Favorited, Feedback, Star } from "../../icons"
 import MockImg from '../../assets/img/coffe_mock.png'
 import Characteristic from "../characteristic/Characteristic"
 import CustomSelect from "../customSelect/CustomSelect"
-import { useState } from "react"
+import { memo, useState } from "react"
 import Counter from "../counter/Counter"
 
 import pageText from '../../content/PagesText.json'
@@ -35,8 +35,8 @@ const ProductCard = (props) => {
     const dispatch = useDispatch()
     const addToCart = () => {
         setProductAdded(true)
-        setCartCount(1)
-        dispatch(addProductToCart({ ...product, cartCount }))
+        // setCartCount(1)
+        dispatch(addProductToCart({ ...product, cartCount: cartCount }))
     }
 
     const addFavorite = async (id) => {
@@ -52,7 +52,7 @@ const ProductCard = (props) => {
     }
 
     const setSelectContent = (type) => {
-        if (type === 'coffee') {
+        if (type === 'Coffee') {
             return (
                 <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
                     <CustomSelect options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} />
@@ -60,7 +60,7 @@ const ProductCard = (props) => {
                     <Counter count={cartCount} setCount={setCartCount} />
                 </div>
             )
-        } else if (type === 'machine') {
+        } else if (type === 'Machine') {
             if (product?.group?.length) {
                 return (
                     <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
@@ -68,7 +68,7 @@ const ProductCard = (props) => {
                     </div>
                 )
             }
-        } else if (type === 'accesories') {
+        } else if (type === 'Accessory') {
             return (
                 <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
                     <span></span>
@@ -80,9 +80,8 @@ const ProductCard = (props) => {
     }
 
     return (
-        <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${product?.id}`) }}>
-            <ProductAddedModal product={product} status={productAdded} setStatus={setProductAdded} />
-            <Loading status={loading}/>
+        <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${product?._id}`) }}>
+            <ProductAddedModal product={product} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />
             <div className={style.productCard_head + " flex j-between"}>
                 <div className="productCard-head_left flex g8">
                     {
@@ -140,7 +139,7 @@ const ProductCard = (props) => {
                 }
 
                 <div className="productCard_foot flex j-between a-center">
-                    <span>{product?.price ? product.price/100 : 20} ₼</span>
+                    <span>{product?.price ? product.price/100 * cartCount : 20} ₼</span>
                     <button
                         onClick={(e) => {
                             addToCart();
@@ -163,4 +162,4 @@ const ProductCard = (props) => {
     )
 }
 
-export default ProductCard
+export default memo(ProductCard)

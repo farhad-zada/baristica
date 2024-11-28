@@ -38,7 +38,7 @@ export default function HomeProducts() {
             navigateTo: '/products/coffeeMachines',
             content: {
                 [productsSection[lang].coffeeMachine[0].label]: <HomeProductsList products={newMachines} />,
-                [productsSection[lang].coffeeMachine[1].label]: <HomeProductsList products={popularCoffee} />
+                [productsSection[lang].coffeeMachine[1].label]: <HomeProductsList products={popularMachines} />
             }
         },
         {
@@ -82,7 +82,6 @@ export default function HomeProducts() {
     }
 
     useEffect(() => {
-
         if (token) {
             setProducts(token)
         }

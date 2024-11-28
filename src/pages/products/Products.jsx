@@ -38,7 +38,6 @@ export default function Products() {
       const response = await productsService.getProducts(token, type)
       const products = response.data
       setProducts(products)
-      console.log(response)
     } catch (error) {
 
     } finally {

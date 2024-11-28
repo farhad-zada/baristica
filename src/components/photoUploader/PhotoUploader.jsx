@@ -2,31 +2,26 @@ import React, { useState } from "react";
 import styles from "./photoUploader.module.css";
 import { Camera } from "../../icons"; // Предполагается, что вы установили react-feather
 import Loading from "../loading/Loading";
+import MediaService from "../../services/media.service";
+import { useSelector } from "react-redux";
 
-const PhotoUploader = ({ onPhotosUpdate, text }) => {
-  const [photos, setPhotos] = useState([]);
+const PhotoUploader = ({ photos, setPhotos ,onPhotosUpdate, text }) => {
   const [loading, setLoading] = useState(false)
+  const {token} = useSelector(state => state.baristica)
+
+  const mediaService = new MediaService()
+
+
   const handlePhotoUpload = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
 
     const formData = new FormData();
-    formData.append("photo", file);
+    formData.append("photos", file);
     setLoading(true)
     try {
-      // Пример запроса на сервер
-      //   const response = await fetch("https://example.com/upload", {
-      //     method: "POST",
-      //     body: formData,
-      //   });
-
-      //   if (!response.ok) {
-      //     throw new Error("Ошибка загрузки файла");
-      //   }
-
-      //   const data = await response.json(); // Предполагаем, что сервер возвращает JSON с URL
-      //   const newPhotoUrl = data.url;
-      const newPhotoUrl = '';
+      const response = await mediaService.createImg(token, formData)
+      const newPhotoUrl = response.data[0].photourl;
 
 
       const updatedPhotos = [...photos, newPhotoUrl];

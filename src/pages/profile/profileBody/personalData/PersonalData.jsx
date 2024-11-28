@@ -28,10 +28,10 @@ export default function PersonalData() {
     }
 
     useEffect(() => {
-        if(JSON.stringify(user) !== '{}'){
+        if (JSON.stringify(user) !== '{}') {
             setFormData(user)
         }
-    },[user])
+    }, [user])
     return (
         <div className={styles.personalData}>
             <form className={styles.form}>

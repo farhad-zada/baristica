@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './rating.module.css';
 
-const Rating = ({ totalStars = 5, Star, onChange }) => {
+const Rating = ({ submitted, setSubmitted ,totalStars = 5, Star, onChange }) => {
     const [rating, setRating] = useState(0);
 
     const handleRating = (index) => {
@@ -11,6 +11,13 @@ const Rating = ({ totalStars = 5, Star, onChange }) => {
             onChange(newRating); // Отправляем в родительский компонент
         }
     };
+
+    useEffect(() => {
+        if(submitted){
+            setRating(0)
+            setSubmitted(false)
+        }
+    },[submitted])
 
     return (
         <div className={styles.rating_container}>
