@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/baristica/static/css/main.458b32fe.css",
-    "main.js": "/baristica/static/js/main.2b4e9003.js",
+    "main.css": "/baristica/static/css/main.d0ecb20a.css",
+    "main.js": "/baristica/static/js/main.086474ca.js",
     "static/media/banner.jpeg": "/baristica/static/media/banner.219e9357827baf53e325.jpeg",
     "static/media/coop.jpeg": "/baristica/static/media/coop.ee54473f57f55b6a0d88.jpeg",
     "static/media/infoBanner.png": "/baristica/static/media/infoBanner.6fbe2b4a72ab8c4d0534.png",
@@ -17,11 +17,11 @@
     "static/media/detailMock.png": "/baristica/static/media/detailMock.f515e088e6168302d97e.png",
     "static/media/coffe_mock.png": "/baristica/static/media/coffe_mock.046c2506dea6b122e214.png",
     "index.html": "/baristica/index.html",
-    "main.458b32fe.css.map": "/baristica/static/css/main.458b32fe.css.map",
-    "main.2b4e9003.js.map": "/baristica/static/js/main.2b4e9003.js.map"
+    "main.d0ecb20a.css.map": "/baristica/static/css/main.d0ecb20a.css.map",
+    "main.086474ca.js.map": "/baristica/static/js/main.086474ca.js.map"
   },
   "entrypoints": [
-    "static/css/main.458b32fe.css",
-    "static/js/main.2b4e9003.js"
+    "static/css/main.d0ecb20a.css",
+    "static/js/main.086474ca.js"
   ]
 }
