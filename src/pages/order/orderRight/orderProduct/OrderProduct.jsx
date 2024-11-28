@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './orderProduct.module.css'
 import Counter from '../../../../components/counter/Counter'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteFromCart } from '../../../../redux/slice'
+import { deleteFromCart, changeCartCount, finalSelectProduct } from '../../../../redux/slice'
 import { Delete } from '../../../../icons'
 export default function OrderProduct({ product, grindityText, weightText, codeText }) {
     const [cartCount, setCartCount] = useState(1)
@@ -10,7 +10,11 @@ export default function OrderProduct({ product, grindityText, weightText, codeTe
     const dispatch = useDispatch()
 
     const deleteProduct = (id) => {
-        dispatch(deleteFromCart(id))
+        dispatch(finalSelectProduct({id: id, selected: false}))
+    }
+
+    const changeCount = (type) => {
+        dispatch(changeCartCount({ id: product._id, type: type }))
     }
 
     useEffect(() => {
@@ -21,7 +25,7 @@ export default function OrderProduct({ product, grindityText, weightText, codeTe
     return (
         <div className={styles.product}>
             <div className={styles.productImg}>
-                <img src={product?.img ? product.img : ''} alt="" />
+                <img src={product?.images?.length ? product.images[0] : ''} alt="" />
             </div>
 
             <div className="textContent">
@@ -35,10 +39,10 @@ export default function OrderProduct({ product, grindityText, weightText, codeTe
                 <h3 className="f16 fw400 mt4 darkGrey_color">{weightText} {product?.selectedWeight ? product.selectedWeight : '1000'} g</h3>
             </div>
 
-            <Counter count={cartCount} setCount={setCartCount} />
+            <Counter count={product.cartCount}  callBack={changeCount} />
 
             <div className="right flex a-center g20">
-                <span className='f24 fw400 darkGrey_color'>{product?.price ? product.price / 100 * product.cartCount : '49'} ₼</span>
+                <span className='f24 fw400 darkGrey_color'>{product?.price ? (product.price / 100 * product.cartCount).toFixed(2) : '49'} ₼</span>
                 <span className='pointer' onClick={() => deleteProduct(product._id)}>{Delete}</span>
             </div>
         </div>

@@ -3,7 +3,7 @@ import styles from './customSelect.module.css'
 import { useRefClickOutside } from '../../hooks/useRefClickOutside';
 import { Select } from '../../icons';
 
-const CustomSelect = ({ options, defaultValue, additionalText, fontSize, textColor, type }) => {
+const CustomSelect = ({ field, options, defaultValue, additionalText, fontSize, textColor, callBack }) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue || options[0]);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -12,6 +12,9 @@ const CustomSelect = ({ options, defaultValue, additionalText, fontSize, textCol
   useRefClickOutside(dropdownRef, setIsOpen)
 
   const handleSelect = (value) => {
+    if (callBack) {
+      callBack(field, value)
+    }
     setSelectedValue(value);
     setIsOpen(false);
   };

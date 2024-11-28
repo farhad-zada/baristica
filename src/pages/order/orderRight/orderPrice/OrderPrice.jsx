@@ -5,7 +5,7 @@ import { calculateTotalPrice } from '../../../../utils/price.util'
 export default function OrderPrice({ finalCart, text, lang }) {
 
     const calculateProductPrice = (product) => {
-        return product.price / 100 * product.cartCount
+        return (product.price / 100 * product.cartCount)
     }
 
     const calculateTotal = (products, discount) => {
@@ -15,7 +15,7 @@ export default function OrderPrice({ finalCart, text, lang }) {
         <div className={styles.priceComponent}>
             <div className="flex j-between a-center">
                 <h2 className="f24 fw700">{lang ? text[lang].priceHeading : ''}</h2>
-                <span className='f24 fw400 darkGrey_color'>{calculateTotalPrice(finalCart)} ₼</span>
+                <span className='f24 fw400 darkGrey_color'>{calculateTotalPrice(finalCart).toFixed(2)} ₼</span>
             </div>
 
             <div className={styles.products}>
@@ -31,7 +31,7 @@ export default function OrderPrice({ finalCart, text, lang }) {
                                 <span>{product?.name ? product.name[lang] || product.name['az'] : 'COLOMBIA GESHA ANCESTRO'}</span>
                             </p>
                             <p className="f24 fw400 darkGrey_color">
-                                {calculateProductPrice(product)} ₼
+                                {calculateProductPrice(product).toFixed(2)} ₼
                             </p>
                         </div>
                     ))
@@ -61,7 +61,7 @@ export default function OrderPrice({ finalCart, text, lang }) {
                     {lang ? text[lang].total : ''}
                 </h2>
                 <p className="f24 fw400 darkGrey_color">
-                    {calculateTotal(finalCart, 3)} ₼
+                    {calculateTotal(finalCart, 3).toFixed(2)} ₼
                 </p>
             </div>
         </div>

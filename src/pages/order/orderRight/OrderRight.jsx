@@ -9,7 +9,6 @@ import OrderPrice from './orderPrice/OrderPrice';
 const { profile, order } = PageText
 export default function OrderRight() {
     const { lang, finalCart } = useSelector((state) => state.baristica);
-
     return (
         <div className={styles.orderRight}>
             {

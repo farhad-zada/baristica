@@ -29,4 +29,4 @@ const Tabs = ({ tabs, children, additionalHeadingStyles='', additionalTabStyle='
     );
 };
 
-export default Tabs;
+export default memo(Tabs);

@@ -4,7 +4,7 @@ import { Bag, CartIcon, Favorited, Feedback, Star } from "../../icons"
 import MockImg from '../../assets/img/coffe_mock.png'
 import Characteristic from "../characteristic/Characteristic"
 import CustomSelect from "../customSelect/CustomSelect"
-import { memo, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import Counter from "../counter/Counter"
 
 import pageText from '../../content/PagesText.json'
@@ -13,16 +13,19 @@ import ProductAddedModal from "../productAddedModal/ProductAddedModal"
 import { addProductToCart } from "../../redux/slice"
 import FavoritesService from "../../services/favorites.service"
 import Loading from "../loading/Loading"
+import ProductsService from "../../services/products.service"
 const { productCard } = pageText
 const ProductCard = (props) => {
     const { product, width = 'auto' } = props
-    
+
     const { token, lang } = useSelector(state => state.baristica)
 
+    const [activeProduct, setActiveProduct] = useState({})
     const [productAdded, setProductAdded] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [linked, setLinked] = useState()
 
-    const [weightOptions, setWeightOptions] = useState([200, 1000])
+    const [weightOptions, setWeightOptions] = useState([])
     const [defaultWeight, setDefaultWeight] = useState(200)
 
     const [grindingOptions, setGrindingOptions] = useState(['grinding', 'grinding'])
@@ -30,15 +33,16 @@ const ProductCard = (props) => {
 
     const [cartCount, setCartCount] = useState(1)
     const favoriteService = new FavoritesService()
+    const productsService = new ProductsService()
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const addToCart = () => {
-        setProductAdded(true)
-        // setCartCount(1)
-        dispatch(addProductToCart({ ...product, cartCount: cartCount }))
-    }
 
+    const addToCart = () => {
+        // setCartCount(1)
+        setProductAdded(true)
+        dispatch(addProductToCart({ ...activeProduct, cartCount: cartCount }))
+    }
     const addFavorite = async (id) => {
         setLoading(true)
         try {
@@ -46,16 +50,44 @@ const ProductCard = (props) => {
         } catch (error) {
             console.log(error)
         }
-        finally{
+        finally {
             setLoading(false)
         }
     }
 
+    const changeProduct = (field, value) => {
+        if (field === 'weight') {
+            setDefaultWeight(value)
+        }
+        if (product[field] === value) {
+            return
+        } else {
+            const newProduct = linked.find((link) => link.field === field && link.fieldValue === value)
+            if (newProduct) {
+                getProduct(newProduct.product)
+                // navigate(`/product/${newProduct.product}`)
+            }
+        }
+    }
+
+    const getProduct = async (id) => {
+        setLoading(true)
+        try {
+            const response = await productsService.getOneProduct(token, id)
+            setActiveProduct(response?.data || {})
+        } catch (error) {
+
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    
     const setSelectContent = (type) => {
         if (type === 'Coffee') {
             return (
                 <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
-                    <CustomSelect options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} />
+                    <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} callBack={changeProduct} />
                     <CustomSelect options={grindingOptions} defaultValue={defaultGrinding} />
                     <Counter count={cartCount} setCount={setCartCount} />
                 </div>
@@ -79,15 +111,39 @@ const ProductCard = (props) => {
         }
     }
 
+    useEffect(() => {
+        if (JSON.stringify(product) !== '{}') {
+            setActiveProduct(product)
+        }
+    }, [product])
+
+    useEffect(() => {
+        if (JSON.stringify(activeProduct) !== '{}') {
+            setLinked(activeProduct.linked)
+            const weightFields = activeProduct.linked.filter((link) => link.field === 'weight')
+            const linkedWeights = weightFields.map((field) => field.fieldValue)
+            setWeightOptions([activeProduct.weight, ...linkedWeights])
+            setDefaultWeight(activeProduct.weight)
+            setCartCount(1)
+        }
+    }, [activeProduct])
+
+    useEffect(() => {
+        return () => {
+            setActiveProduct({})
+        }
+    },[])
+
     return (
-        <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${product?._id}`) }}>
-            <ProductAddedModal product={product} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />
+        <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${activeProduct?._id}`) }}>
+            <Loading status={loading} />
+            <ProductAddedModal product={activeProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />
             <div className={style.productCard_head + " flex j-between"}>
                 <div className="productCard-head_left flex g8">
                     {
                         token
                             ?
-                            <span className={style.favorited} onClick={(e) => {e.stopPropagation();addFavorite(product?._id)}}>
+                            <span className={style.favorited} onClick={(e) => { e.stopPropagation(); addFavorite(activeProduct?._id) }}>
                                 {Favorited}
                             </span>
                             :
@@ -95,51 +151,51 @@ const ProductCard = (props) => {
                     }
                     <span className="flex g8  f16 darkGrey_color fw400">
                         {Star}
-                        <span>{product?.statistics?.ratings ? product.statistics.ratings : 2}</span>
+                        <span>{activeProduct?.statistics?.ratings ? activeProduct.statistics.ratings.toFixed(1) : 0}</span>
                     </span>
                     <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"}>
                         {Feedback}
-                        <span>{product?.feedbacks ? product.feedbacks : 0}</span>
+                        <span>{activeProduct?.feedbacks ? activeProduct.feedbacks : 0}</span>
                     </span>
                 </div>
                 <span className="productCard-head_right blueAccent fw400 text-upperCase">
-                    {product?.category ? product.category : 'Espresso'}
+                    {activeProduct?.category ? activeProduct.category : 'Espresso'}
                 </span>
             </div>
             <div className={style.productCard_body}>
-                <h3 className="text-center darkGrey_color f16 fw400">{product?.code ? product.code : 'BFC-02002'}</h3>
-                <h2 className="text-center darkGrey_color f24 fw600">{product?.name ? product.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
-                <p className="text-center darkGrey_color f16 fw400">{product?.processing ? product.processing : 'мытая ОБРАБОТКА'}</p>
+                <h3 className="text-center darkGrey_color f16 fw400">{activeProduct?.code ? activeProduct.code : 'BFC-02002'}</h3>
+                <h2 className="text-center darkGrey_color f24 fw600">{activeProduct?.name ? activeProduct.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
+                <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processing ? activeProduct.processing : 'мытая ОБРАБОТКА'}</p>
 
                 <div className={`${style.productCard_img} w-100 flex j-center`}>
-                    <img src={product?.images?.length ? product.images[0] : MockImg} alt="" />
+                    <img src={activeProduct?.images?.length ? activeProduct.images[0] : MockImg} alt="" />
                 </div>
                 {
-                    product.productType === 'machine' || !product?.profile
-                    ?
-                    <></>
-                    :
-                    <p className="text-center f16 fw400 darkGrey_color" style={{ maxWidth: "350px" }}>{product?.profile ? product.profile[lang] : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
+                    activeProduct.productType === 'machine' || !product?.profile
+                        ?
+                        <></>
+                        :
+                        <p className="text-center f16 fw400 darkGrey_color" style={{ maxWidth: "350px" }}>{activeProduct?.profile ? activeProduct.profile[lang] : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
                 }
 
                 {
-                    product?.productType === 'Coffee'
-                    ?
-                    <div className={style.productCard_characteristics + " flex j-between"}>
-                    <Characteristic content={{ text: lang ? productCard[lang].density : '', progress: product?.viscosity }} />
-                    <Characteristic content={{ text: lang ? productCard[lang].acidity : '', progress: product?.acidity }} />
-                    <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: product?.sweetness }} />
-                </div>
-                :
-                <></>
+                    activeProduct?.productType === 'Coffee'
+                        ?
+                        <div className={style.productCard_characteristics + " flex j-between"}>
+                            <Characteristic content={{ text: lang ? productCard[lang].density : '', progress: activeProduct?.viscocity * 20 }} />
+                            <Characteristic content={{ text: lang ? productCard[lang].acidity : '', progress: activeProduct?.acidity *20 }} />
+                            <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: activeProduct?.sweetness *20 }} />
+                        </div>
+                        :
+                        <></>
                 }
 
                 {
-                    setSelectContent(product.productType)
+                    setSelectContent(activeProduct.productType)
                 }
 
                 <div className="productCard_foot flex j-between a-center">
-                    <span>{product?.price ? product.price/100 * cartCount : 20} ₼</span>
+                    <span>{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
                     <button
                         onClick={(e) => {
                             addToCart();

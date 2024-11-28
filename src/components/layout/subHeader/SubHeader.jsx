@@ -110,7 +110,7 @@ export default function SubHeader() {
           </div>
           <div className={`${style.product_count} flex column a-start`}>
             <h6 className="f16">{cart.length} {subHeader && subHeader[lang].products}</h6>
-            <h6 className="f16">{calculateTotalPrice(cart)} ₼</h6>
+            <h6 className="f16">{calculateTotalPrice(cart).toFixed(2)} ₼</h6>
           </div>
           {token ? (
             <div className={style.profile_links}>

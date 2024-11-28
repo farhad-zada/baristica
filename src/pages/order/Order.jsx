@@ -9,17 +9,23 @@ import OrderRight from './orderRight/OrderRight';
 const { order } = PageText
 
 export default function Order() {
-    const { lang } = useSelector((state) => state.baristica);
+    const { lang, finalCart } = useSelector((state) => state.baristica);
 
     return (
         <div className={styles.order + ' flex j-center'}>
             <div className="container">
                 <AuthorizationHeading heading={lang ? order[lang].heading : ''} />
-
-                <div className="flex mt50 j-between g20">
+                {
+                    finalCart.length
+                    ?
+                    <div className="flex mt50 j-between g20">
                     <OrderLeft content={lang? order[lang] : {}} />
                     <OrderRight />
                 </div>
+                :
+                <p className="f24 fw400 darkGrey_color mt50">{lang ? order[lang].zeroProducts : ''}</p>
+                }
+                
             </div>
         </div>
     )

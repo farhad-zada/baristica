@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Characteristic from '../../../../components/characteristic/Characteristic'
 import Counter from '../../../../components/counter/Counter'
 import pageText from '../../../../content/PagesText.json'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from './coffeeDetails.module.css'
 import CustomSelectBordered from '../../../../components/customSelectBordered/CustomSelectBordered'
 import { Bag } from '../../../../icons'
 import { useNavigate } from 'react-router-dom'
+import { addProductToCart } from '../../../../redux/slice'
 const { productCard } = pageText
 
 export default function CoffeeDetails({ product }) {
@@ -20,6 +21,13 @@ export default function CoffeeDetails({ product }) {
     const [linked, setLinked] = useState([])
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const addToCart = () => {
+        // setCartCount(1)
+        // setProductAdded(true)
+        dispatch(addProductToCart({ ...product, cartCount: cartCount }))
+    }
 
     const changeProduct = (field, value) => {
         if(field === 'weight'){
@@ -47,6 +55,7 @@ export default function CoffeeDetails({ product }) {
     }, [product])
     return (
         <div className='mt24'>
+            
             <h3 className='f16 fw700 darkGrey_color'>{lang ? productCard[lang].profile : ''}</h3>
             <p className='f20 fw400 darkGrey_color'>{product?.profile[lang] ? product.profile[lang] || product.profile['az'] : 'ТЁМНЫЙ ШОКОЛАД - МЁД - СЛИВА - СПЕЦИИ'}</p>
 
@@ -79,10 +88,10 @@ export default function CoffeeDetails({ product }) {
             <Counter count={cartCount} setCount={setCartCount} />
 
             <div className="flex j-between a-center mt20">
-                <span className='f32 fw400'>{product?.price ? product.price / 100 * cartCount : 20} ₼</span>
+                <span className='f32 fw400'>{product?.price ? (product.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
                 <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
                     {Bag}
-                    <span onClick={(e) => e.stopPropagation()}>{lang ? productCard[lang].buyBtn : ''}</span>
+                    <span onClick={(e) => {addToCart();e.stopPropagation()}}>{lang ? productCard[lang].buyBtn : ''}</span>
                 </button>
             </div>
         </div>

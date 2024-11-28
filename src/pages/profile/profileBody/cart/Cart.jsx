@@ -19,6 +19,7 @@ export default function Cart() {
             {
               cart.map((product, key) => (
                 <CartProduct
+                key={key}
                   product={product}
                   weightText={lang ? profile[lang].cart.weight : ''}
                   grindityText={lang ? profile[lang].cart.grindity : ''}
