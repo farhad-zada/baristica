@@ -19,6 +19,8 @@ jobs:
         env:
           REACT_APP_API_URL: ${{ vars.REACT_APP_BASE_URL }}
         run: npm run build
+      - name: Create 404.html for React routing
+        run: cp build/index.html build/404.html
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
         with:
