@@ -48,7 +48,7 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
                         </div>
                     </div>
                     <div className="img">
-                        <img src={product?.img ? product.img : ''} alt="" />
+                        <img src={product?.images?.length ? product.images[0] : ''} alt="" />
                     </div>
                 </div>
 

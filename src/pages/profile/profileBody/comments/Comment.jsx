@@ -42,9 +42,6 @@ const Comment = ({ comment, getComments }) => {
 
     useEffect(() => {
         setCommentField(comment.text);
-    }, [comment]);
-
-    useEffect(() => {
         setUploadedPhotos(comment.photourls);
     }, [comment]);
 

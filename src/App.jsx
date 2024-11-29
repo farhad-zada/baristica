@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { setLang, setToken, setUser } from './redux/slice';
-import { useDispatch, UseDispatch } from 'react-redux';
+import { setCart, setFinalCart, setLang, setToken, setUser } from './redux/slice';
+import { useDispatch, UseDispatch, useSelector } from 'react-redux';
 import HeadBanner from "./components/layout/headBanner/HeadBanner"
 import SubHeader from "./components/layout/subHeader/SubHeader"
 import Header from './components/layout/header/Header';
@@ -14,9 +14,11 @@ import Loading from './components/loading/Loading';
 
 const App = () => {
   const [loading, setLoading] = useState(false)
+  const { cart, finalCart } = useSelector(state => state.baristica)
   const dispatch = useDispatch()
   const { setItemToStorage, getItemFromStorage } = useLocalStorage('lang');
   const { getItemFromStorage: getTokenFromStorage } = useLocalStorage('baristicaToken'); // Для токена
+  const { getItemFromStorage: getObjectFromStorage, setItemToStorage: setObjectToStorage } = useLocalStorage('baristica')
 
   const userService = new UserService()
 
@@ -27,7 +29,7 @@ const App = () => {
       dispatch(setUser(response.data))
     } catch (error) {
       console.log(error)
-    } 
+    }
     finally {
       setLoading(false)
     }
@@ -35,6 +37,26 @@ const App = () => {
 
   useScrollToTop()
 
+  useEffect(() => {
+    const baristicaObj = getObjectFromStorage();
+    if (baristicaObj && cart.length > 0) {
+      setObjectToStorage({ ...baristicaObj, cart });
+    } else if (cart.length > 0) {
+      // Сохраняем объект только если cart не пустой
+      setObjectToStorage({ cart });
+    }
+  }, [cart]);
+
+  useEffect(() => {
+    const baristicaObj = getObjectFromStorage();
+    if (baristicaObj && finalCart.length > 0) {
+      setObjectToStorage({ ...baristicaObj, finalCart });
+    } else if (finalCart.length > 0) {
+      // Сохраняем объект только если cart не пустой
+      setObjectToStorage({ finalCart });
+    }
+  }, [finalCart]);
+  
   useEffect(() => {
     const lang = getItemFromStorage(); // Получаем язык из локального хранилища
     const token = getTokenFromStorage(); // Получаем токен
@@ -46,6 +68,14 @@ const App = () => {
     }
 
     dispatch(setLang(lang)); // Устанавливаем язык в redux store
+    const baristicaObj = getObjectFromStorage();
+    if (baristicaObj?.cart?.length) {
+      dispatch(setCart(baristicaObj.cart))
+    }
+
+    if (baristicaObj?.finalCart?.length) {
+      dispatch(setFinalCart(baristicaObj.finalCart))
+    }
 
     if (token) {
       getUser(token)

@@ -58,7 +58,7 @@ class HttpRequest {
   };
 
   postOne = async (urlRoute, id) => {
-    const response = await Axios.post(this.constructUrl(urlRoute, id), {
+    const response = await Axios.post(this.constructUrl(urlRoute, id),{} ,{
       headers: this._headers,
     });
     return response.data;

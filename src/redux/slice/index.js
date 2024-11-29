@@ -29,6 +29,9 @@ const baristicaSlice = createSlice({
     setProfileActiveTab: (state, action) => {
       state.profileActiveTab = action.payload
     },
+    setCart:(state,action) =>{
+        state.cart=action.payload
+    },
     addProductToCart: (state, action) => {
       const product = action.payload;
       const existingProduct = state.cart.find(item => item._id === product._id);
@@ -96,6 +99,7 @@ export const {
   deleteFromCart,
   finalSelectProduct,
   changeCartCount,
+  setCart,
   setFinalCart,
   setUser
 } = baristicaSlice.actions;
