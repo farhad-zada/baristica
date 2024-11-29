@@ -3,34 +3,53 @@ import pageText from '../../../content/PagesText.json'
 import { useSelector } from 'react-redux';
 import styles from './editAddress.module.css'
 import InputText from '../../form/inputField/InputText';
+import Loading from '../../loading/Loading';
+import UserService from '../../../services/user.service';
 const { profile } = pageText
 
 export default function EditAddress({ address, setAddresses, setEdit }) {
-    const { lang } = useSelector((state) => state.baristica);
+    const { lang, token } = useSelector((state) => state.baristica);
 
     const [formData, setFormData] = useState({})
+    const [loading, setLoading] = useState(false)
+
+    const userService = new UserService()
 
     const handleInputChange = (name, value) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleUpdateAddress = (id, formData) => {
-        setAddresses((prevAddresses) =>
-            prevAddresses.map((address) =>
-                address.id === id ? { id: address.id, ...formData } : address
-            )
-        );
+    const handleUpdateAddress = async (id, formData) => {
+        const data = {
+            "address": {
+                ...formData
+            }
+        }
+        setLoading(true)
+        try {
+            const response = await userService.editAddress(token, id, data)
+            setAddresses((prevAddresses) =>
+                prevAddresses.map((address) =>
+                    address._id === id ? { id: address._id, ...formData } : address
+                )
+            );
+            setEdit(false)
+
+        } catch (error) {
+
+        } finally {
+            setLoading(false)
+        }
     };
 
     const checkBoxChange = (bool) => {
-        setFormData({ ...formData, main: bool })
+        setFormData({ ...formData, isPrimary: bool })
     }
 
-    const onSubmit = () => {
-        handleUpdateAddress(formData.id, formData)
-        setEdit(false)
+    const onSubmit = async () => {
+        await handleUpdateAddress(formData._id, formData)
     }
-    
+
     useEffect(() => {
         if (address) {
             setFormData(address)
@@ -46,7 +65,7 @@ export default function EditAddress({ address, setAddresses, setEdit }) {
 
     return (
         <div className={styles.edit}>
-
+            <Loading status={loading} />
             <h2 className={styles.heading + " f28 fw600 darkGrey_color"}>{lang ? profile[lang].addresses.changeAddress : ''}</h2>
 
             <form action="">
@@ -65,8 +84,8 @@ export default function EditAddress({ address, setAddresses, setEdit }) {
                 />
 
                 <InputText
-                    name="house"
-                    value={formData.house}
+                    name="apartment"
+                    value={formData.apartment}
                     onChange={handleInputChange}
                     placeholder={lang ? profile[lang].addresses.houseInput : ''}
                 />

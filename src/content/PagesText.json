@@ -1593,7 +1593,8 @@
                     "link1": "daxil olun",
                     "text2": " və ya ",
                     "link2": "qeydiyyatdan keçin."
-                }
+                },
+                "saveBtn":"YADDA SAXLA"
             }
         },
         "ru": {
@@ -1613,7 +1614,8 @@
                     "link1": "войдите",
                     "text2": " в кабинет или ",
                     "link2": "зарегистрируйтесь."
-                }
+                },
+                "saveBtn":"СОХРАНИТЬ"
             }
         },
         "en": {
@@ -1633,7 +1635,8 @@
                     "link1": "login",
                     "text2": " to your cabinet or ",
                     "link2": "register."
-                }
+                },
+                "saveBtn":"SAVE"
             }
         }
     },
@@ -1777,7 +1780,8 @@
                 "oldPasswordInput": "Köhnə şifrə",
                 "newPasswordInput": "Təzə şifrə",
                 "repeatPasswordInput": "Şifrəni təkrarla",
-                "submitBtn": "Yadda saxla"
+                "submitBtn": "Yadda saxla",
+                "changePassword":"Şifrəni dəyiş"
             },
             "cart": {
                 "cartHeading": "SƏBƏT:",
@@ -1886,7 +1890,8 @@
                 "oldPasswordInput": "Старый пароль",
                 "newPasswordInput": "Новый пароль",
                 "repeatPasswordInput": "Повторите пароль",
-                "submitBtn": "Сохранить изменения"
+                "submitBtn": "Сохранить изменения",
+                "changePassword":"Изменить пароль"
             },
             "cart": {
                 "cartHeading": "КОРЗИНА:",
@@ -2003,7 +2008,8 @@
                 "oldPasswordInput": "Old password",
                 "newPasswordInput": "New password",
                 "repeatPasswordInput": "Repeat password",
-                "submitBtn": "Save changes"
+                "submitBtn": "Save changes",
+                "changePassword":"Change Password"
             },
             "cart": {
                 "cartHeading": "CART:",

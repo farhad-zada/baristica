@@ -30,6 +30,7 @@ export default function ReviewsHead({ getComments,product }) {
     const handleRatingChange = (rating) => {
         setSelectedRating(rating);
     };
+    
     const addRating = async () => {
         const formData = {
             rating: selectedRating

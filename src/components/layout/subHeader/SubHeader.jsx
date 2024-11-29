@@ -50,6 +50,7 @@ export default function SubHeader() {
       dispatch(setToken(false))
       dispatch(setUser({}))
       removeItemFromStorage()
+      navigate('/')
     } catch (error) {
 
     } finally {

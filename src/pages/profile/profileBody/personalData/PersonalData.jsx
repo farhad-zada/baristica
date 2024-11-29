@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import InputText from '../../../../components/form/inputField/InputText'
 import AuthButton from '../../../../components/form/button/AuthButton';
+import AuthService from '../../../../services/auth.service'
 import styles from './personalData.module.css'
 import { useSelector } from 'react-redux';
 
 import PageText from '../../../../content/PagesText.json'
+import Loading from '../../../../components/loading/Loading';
 
-const { profile } = PageText
+const { profile,register } = PageText
 
 export default function PersonalData() {
     const [formData, setFormData] = useState({
@@ -17,14 +19,51 @@ export default function PersonalData() {
         newPassword: "",
         repeatPassword: ""
     });
-    const { lang, user } = useSelector((state) => state.baristica);
+    const [errorMessage, setErrorMessage] = useState(""); // Для вывода ошибки
+    const [loading,setLoading] = useState(false)
+
+    const { lang, user, token } = useSelector((state) => state.baristica);
+    const authService = new AuthService()
 
     const handleInputChange = (name, value) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
+        if (errorMessage) {
+            setErrorMessage('')
+        }
     };
 
     const onSubmit = () => {
 
+    }
+
+    const changePassword = async () => {
+        if (formData.newPassword !== formData.repeatPassword) {
+            const errorText = lang ? register[lang].passwordMismatch : "Passwords do not match";
+            setErrorMessage(errorText); // Установить сообщение об ошибке
+            return;
+        }
+
+        // Очистить сообщение об ошибке, если пароли совпадают
+        setErrorMessage("");
+
+        const data = {
+            creds: {
+                "oldPassword": formData.oldPassword,
+                "password": formData.newPassword,
+                "passwordConfirm": formData.repeatPassword
+            }
+        }
+        setLoading(true)
+        try {
+            const response = await authService.updatePassword(token, data)
+            handleInputChange('oldPassword','')
+            handleInputChange('newPassword','')
+            handleInputChange('repeatPassword','')
+        } catch (error) {
+
+        } finally{
+            setLoading(false)
+        }
     }
 
     useEffect(() => {
@@ -34,6 +73,7 @@ export default function PersonalData() {
     }, [user])
     return (
         <div className={styles.personalData}>
+            <Loading status={loading} />
             <form className={styles.form}>
                 <div className="flex j-between g26">
                     <div className="left">
@@ -56,6 +96,9 @@ export default function PersonalData() {
                             onChange={handleInputChange}
                             placeholder={lang ? profile[lang].personalData.emailInput : ''}
                         />
+
+                        <AuthButton text={lang ? profile[lang].personalData.submitBtn : ''} onClick={onSubmit} />
+
                     </div>
                     <div className="right">
                         <h2 className="f32 fw600 darkGrey_color">{lang ? profile[lang].personalData.passwordHeading : ''}</h2>
@@ -84,12 +127,16 @@ export default function PersonalData() {
                             onChange={handleInputChange}
                             placeholder={lang ? profile[lang].personalData.repeatPasswordInput : ''}
                         />
+                        {errorMessage && ( // Условный рендеринг ошибки
+                            <p className="f26 fw400 error">{errorMessage}</p>
+                        )}
+                        <AuthButton text={lang ? profile[lang].personalData.changePassword : ''} onClick={changePassword} />
+
                     </div>
                 </div>
 
-                <div className="w-48">
-                    <AuthButton text={lang ? profile[lang].personalData.submitBtn : ''} onClick={onSubmit} />
-                </div>
+                {/* <div className="w-48">
+                </div> */}
             </form>
         </div>
     )

@@ -78,6 +78,13 @@ class HttpRequest {
     return response.data;
   };
 
+  patchOne = async (urlRoute, id, formData) => {
+    const response = await Axios.patch(this.constructUrl(urlRoute, id), formData, {
+      headers: this._headers,
+    });
+    return response.data;
+  }
+
   deleteOne = async (urlRoute, id) => {
     const response = await Axios.delete(this.constructUrl(urlRoute, id), {
       headers: this._headers,

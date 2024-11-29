@@ -30,7 +30,20 @@
     padding: 10px;
     border: none;
     margin-top: 20px;
+    margin-bottom: 16px;
 }
 .comment_section textarea{
     outline: none;
+}
+
+.saveBtn{
+    font-size: 24px;
+    font-weight: 400;
+    color: #54565A;
+    border: none;
+    outline: none;
+    padding: 4px 15px;
+    border-radius: 8px;
+    background: #D9D8D6;
+    margin-top: 24px;
 }

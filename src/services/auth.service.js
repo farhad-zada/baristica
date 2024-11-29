@@ -27,11 +27,11 @@ class AuthService {
         return await httpRequest.post(`${this.#requestUrl}/reset-password`, formData)
     }
 
-    updatePassword = async (formData, token) => {
+    updatePassword = async (token,formData ) => {
         httpRequest.headers = {
             Authorization: "Bearer " + token,
         };
-        return await httpRequest.patch(`${this.#requestUrl}/update-password`, formData)
+        return await httpRequest.patchOne(`${this.#requestUrl}/update-password`,'',formData)
     }
 
 
