@@ -2,6 +2,7 @@ name: Deploy shop.baristica.az
 on:
   push:
     branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,10 +15,14 @@ jobs:
           node-version: "20"
       - name: Install dependencies
         run: npm install
+      - name: Debug Environment Variable
+        run: echo "REACT_APP_BASE_URL=${{ vars.REACT_APP_BASE_URL }}"
       - name: Build React app
         env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          REACT_APP_BASE_URL: ${{ vars.REACT_APP_BASE_URL }}
         run: npm run build
+      - name: Create 404.html for React routing
+        run: cp build/index.html build/404.html
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
         with:
