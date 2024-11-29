@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/baristica/static/css/main.541208bd.css",
-    "main.js": "/baristica/static/js/main.6b85c0e5.js",
-    "static/media/banner.jpeg": "/baristica/static/media/banner.219e9357827baf53e325.jpeg",
-    "static/media/coop.jpeg": "/baristica/static/media/coop.ee54473f57f55b6a0d88.jpeg",
-    "static/media/infoBanner.png": "/baristica/static/media/infoBanner.6fbe2b4a72ab8c4d0534.png",
-    "static/media/coop2.jpeg": "/baristica/static/media/coop2.ffafd13fbe5b213dd9c4.jpeg",
-    "static/media/bannerWholesale.jpeg": "/baristica/static/media/bannerWholesale.d564fa781469e6e811c6.jpeg",
-    "static/media/beans2.jpeg": "/baristica/static/media/beans2.d564fa781469e6e811c6.jpeg",
-    "static/media/beans.jpeg": "/baristica/static/media/beans.04794303491ab93731c3.jpeg",
-    "static/media/img3.jpeg": "/baristica/static/media/img3.9b56ee538e523f38a246.jpeg",
-    "static/media/img5.jpeg": "/baristica/static/media/img5.e87507ec4b26a73c2024.jpeg",
-    "static/media/img1.jpeg": "/baristica/static/media/img1.8fc3dc099bfbf0d155dd.jpeg",
-    "static/media/img2.jpeg": "/baristica/static/media/img2.9006770ab288764c617e.jpeg",
-    "static/media/img4.jpeg": "/baristica/static/media/img4.7678305c198f148f8d6f.jpeg",
-    "static/media/detailMock.png": "/baristica/static/media/detailMock.f515e088e6168302d97e.png",
-    "static/media/coffe_mock.png": "/baristica/static/media/coffe_mock.046c2506dea6b122e214.png",
-    "index.html": "/baristica/index.html",
-    "main.541208bd.css.map": "/baristica/static/css/main.541208bd.css.map",
-    "main.6b85c0e5.js.map": "/baristica/static/js/main.6b85c0e5.js.map"
+    "main.css": "/static/css/main.541208bd.css",
+    "main.js": "/static/js/main.bf93394b.js",
+    "static/media/banner.jpeg": "/static/media/banner.219e9357827baf53e325.jpeg",
+    "static/media/coop.jpeg": "/static/media/coop.ee54473f57f55b6a0d88.jpeg",
+    "static/media/infoBanner.png": "/static/media/infoBanner.6fbe2b4a72ab8c4d0534.png",
+    "static/media/coop2.jpeg": "/static/media/coop2.ffafd13fbe5b213dd9c4.jpeg",
+    "static/media/bannerWholesale.jpeg": "/static/media/bannerWholesale.d564fa781469e6e811c6.jpeg",
+    "static/media/beans2.jpeg": "/static/media/beans2.d564fa781469e6e811c6.jpeg",
+    "static/media/beans.jpeg": "/static/media/beans.04794303491ab93731c3.jpeg",
+    "static/media/img3.jpeg": "/static/media/img3.9b56ee538e523f38a246.jpeg",
+    "static/media/img5.jpeg": "/static/media/img5.e87507ec4b26a73c2024.jpeg",
+    "static/media/img1.jpeg": "/static/media/img1.8fc3dc099bfbf0d155dd.jpeg",
+    "static/media/img2.jpeg": "/static/media/img2.9006770ab288764c617e.jpeg",
+    "static/media/img4.jpeg": "/static/media/img4.7678305c198f148f8d6f.jpeg",
+    "static/media/detailMock.png": "/static/media/detailMock.f515e088e6168302d97e.png",
+    "static/media/coffe_mock.png": "/static/media/coffe_mock.046c2506dea6b122e214.png",
+    "index.html": "/index.html",
+    "main.541208bd.css.map": "/static/css/main.541208bd.css.map",
+    "main.bf93394b.js.map": "/static/js/main.bf93394b.js.map"
   },
   "entrypoints": [
     "static/css/main.541208bd.css",
-    "static/js/main.6b85c0e5.js"
+    "static/js/main.bf93394b.js"
   ]
 }
