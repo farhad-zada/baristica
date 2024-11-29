@@ -50,6 +50,7 @@ export default function SubHeader() {
       dispatch(setToken(false))
       dispatch(setUser({}))
       removeItemFromStorage()
+      navigate('/')
     } catch (error) {
 
     } finally {
@@ -77,7 +78,7 @@ export default function SubHeader() {
       <div className="container flex">
         <div className={`${style.subHeader_section} flex a-center j-end w-100`}>
           <div className={`${style.subHeader_buttons} flex a-center j-end`} ref={searchRef}>
-            {isSearchActive ? (
+            {/* {isSearchActive ? (
               <div style={{ position: "relative" }}>
                 <input
                   type="text"
@@ -97,7 +98,7 @@ export default function SubHeader() {
               >
                 {Search}
               </button>
-            )}
+            )} */}
             <Link to="/" className={`${style.button} darkGray defaultBtn border32 flex a-center`}>
               {Favourites}
             </Link>
@@ -110,11 +111,11 @@ export default function SubHeader() {
           </div>
           <div className={`${style.product_count} flex column a-start`}>
             <h6 className="f16">{cart.length} {subHeader && subHeader[lang].products}</h6>
-            <h6 className="f16">{calculateTotalPrice(cart)} ₼</h6>
+            <h6 className="f16">{calculateTotalPrice(cart).toFixed(2)} ₼</h6>
           </div>
           {token ? (
             <div className={style.profile_links}>
-              <h2 className="f16 fw600 pointer" onClick={() => navigate('/profile')}>{user?.name ? user.name : "Narmina"}</h2>
+              <h2 className="f16 fw600 pointer" onClick={() => navigate('/profile')}>{user?.name ? user.name : ""}</h2>
               <h2 className="pointer f16 fw400" onClick={logout}>{lang ? subHeader[lang].logoutBtn : ""}</h2>
             </div>
           ) : (

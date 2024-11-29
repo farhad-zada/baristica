@@ -7,11 +7,11 @@ import ProductsService from '../../services/products.service'
 import { useSelector } from 'react-redux'
 
 export default function ProductsDetail() {
-    const {token} = useSelector(state => state.baristica)
+    const { token } = useSelector(state => state.baristica)
     const [product, setProduct] = useState({})
     const [loading, setLoading] = useState(false)
     const { id } = useParams()
-  const { pathname } = useLocation();
+    const { pathname } = useLocation();
 
 
     const productsService = new ProductsService()

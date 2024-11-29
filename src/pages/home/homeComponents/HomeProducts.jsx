@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import pagesText from '../../../content/PagesText.json'
@@ -20,9 +20,8 @@ export default function HomeProducts() {
     const [newAccesories, setNewAccesories] = useState([])
     const [popularAccesories, setPopularAccesories] = useState([])
 
-    const [loading,setLoading] = useState(false)
-
-    const sectionsContent = [
+    const [loading, setLoading] = useState(false)
+    const sectionsContent = useMemo(() => [
         {
             heading: lang ? productsSection[lang].coffeeHeading : '',
             tabs: lang ? productsSection[lang].coffeeOrAccesories : [],
@@ -50,11 +49,11 @@ export default function HomeProducts() {
                 [productsSection[lang].coffeeOrAccesories[1].label]: <HomeProductsList products={popularAccesories} />
             }
         }
-    ]
+    ],[lang, newCoffe, popularCoffee, newMachines, popularMachines, newAccesories, popularAccesories])
 
-    const productsService = new ProductsService
+    const productsService = new ProductsService()
 
-    const setProducts = async (token) => {
+    const setProducts = useCallback( async (token) => {
         setLoading(true)
         try {
             const [newCoffe, popularCoffee, newAccesory, popularAccesory, newMachines, popularMachines] = await Promise.all([
@@ -76,21 +75,23 @@ export default function HomeProducts() {
             setPopularMachines(popularMachines.data)
         } catch (error) {
             console.error('Error fetching products:', error);
-        } finally{
+        } finally {
             setLoading(false)
         }
-    }
+    },[productsService])
 
     useEffect(() => {
         if (token) {
             setProducts(token)
         }
     }, [token])
+
     return (
         <>
-        <Loading status={loading} />
-            {sectionsContent.map((section) => (
+            <Loading status={loading} />
+            {sectionsContent.map((section, key) => (
                 <ProductsSection
+                    key={key}
                     heading={section.heading}
                     tabs={section.tabs}
                     navigateTo={section.navigateTo}

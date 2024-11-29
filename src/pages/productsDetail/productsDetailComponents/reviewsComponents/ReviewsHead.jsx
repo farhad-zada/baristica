@@ -30,6 +30,7 @@ export default function ReviewsHead({ getComments,product }) {
     const handleRatingChange = (rating) => {
         setSelectedRating(rating);
     };
+    
     const addRating = async () => {
         const formData = {
             rating: selectedRating
@@ -105,17 +106,6 @@ export default function ReviewsHead({ getComments,product }) {
 
                         <PhotoUploader photos={uploadedPhotos} setPhotos={setUploadedPhotos} onPhotosUpdate={handlePhotosUpdate} text={lang ? productDetail[lang].reviews.addImg : ''} />
 
-                        <ul>
-                            {
-                                uploadedPhotos.length
-                                    ?
-                                    uploadedPhotos.map((url, index) => (
-                                        <img src={url} alt="" key={index} />
-                                    ))
-                                    :
-                                    <></>
-                            }
-                        </ul>
 
                         <button className={styles.sendBtn} type='button' onClick={onSubmit}>
                             {lang ? productDetail[lang].reviews.sendBtn : ''}

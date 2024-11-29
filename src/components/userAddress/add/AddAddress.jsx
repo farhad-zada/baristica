@@ -3,30 +3,50 @@ import pageText from '../../../content/PagesText.json'
 import { useSelector } from 'react-redux';
 import styles from './addAddress.module.css'
 import InputText from '../../form/inputField/InputText';
+import UserService from '../../../services/user.service';
+import Loading from '../../../components/loading/Loading'
 const { profile } = pageText
 
 export default function AddAddress({ setAddresses, setAdd }) {
-    const { lang } = useSelector((state) => state.baristica);
+    const { lang, token } = useSelector((state) => state.baristica);
 
     // ask Farhad to return me object or entire array in response of adding address to set live
     const [formData, setFormData] = useState({
         id: 3,
         city: "",
         street: "",
-        house: "",
+        apartment: "",
     })
+    const [loading, setLoading] = useState(false)
+
+    const userService = new UserService()
 
     const handleInputChange = (name, value) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleUpdateAddress = (formData) => {
-        setAddresses((prevState) => [...prevState, formData]);
+    const handleUpdateAddress = async (formData) => {
+        setLoading(true)
+        try {
+            const data = {
+                "address": {
+                    ...formData,
+                    "isPrimary": false
+                }
+            }
+            const response = await userService.addAddress(token, data)
+            setAddresses((prevState) => [...prevState, formData]);
+            setAdd(false)
+
+        } catch (error) {
+
+        } finally {
+            setLoading(false)
+        }
     };
 
-    const onSubmit = () => {
-        handleUpdateAddress(formData)
-        setAdd(false)
+    const onSubmit = async () => {
+        await handleUpdateAddress(formData)
     }
 
     useEffect(() => {
@@ -35,14 +55,14 @@ export default function AddAddress({ setAddresses, setAdd }) {
                 id: 3,
                 city: "",
                 street: "",
-                house: "",
+                apartment: "",
             })
         }
     }, [])
 
     return (
         <div className={styles.add}>
-
+            <Loading status={loading} />
             <h2 className={styles.heading + " f28 fw600 darkGrey_color"}>{lang ? profile[lang].addresses.newAddress : ''}</h2>
 
             <form action="">
@@ -61,8 +81,8 @@ export default function AddAddress({ setAddresses, setAdd }) {
                 />
 
                 <InputText
-                    name="house"
-                    value={formData.house}
+                    name="apartment"
+                    value={formData.apartment}
                     onChange={handleInputChange}
                     placeholder={lang ? profile[lang].addresses.houseInput : ''}
                 />

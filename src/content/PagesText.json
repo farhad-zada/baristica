@@ -30,102 +30,105 @@
                 {
                     "title": "Kataloq",
                     "link": "/catalog",
-                    "list":[{
-                        "title": "Qəhvə",
-                        "link": "/products/coffee"
-                    },{
-                        "title": "Apparatlar",
-                        "link": "/products/coffeeMachines"
-                    },{
-                        "title": "Aksessuarlar",
-                        "link": "/products/accesories"
-                    },{
-                        "title": "Hədiyyə dəstləri",
-                        "link": "/presents"
-                    }]
+                    "list": [
+                        {
+                            "title": "Qəhvə",
+                            "link": "/products/coffee"
+                        },
+                        {
+                            "title": "Apparatlar",
+                            "link": "/products/coffeeMachines"
+                        },
+                        {
+                            "title": "Aksessuarlar",
+                            "link": "/products/accesories"
+                        }
+                    ]
                 },
                 {
                     "title": "Əlaqə",
                     "link": "/contacts",
-                    "list":[]
+                    "list": []
                 },
                 {
                     "title": "Çoxsatıcı sayt",
                     "link": "/wholesale",
-                    "list":[]
+                    "list": []
                 },
                 {
                     "title": "Tez-tez verilən suallar",
                     "link": "/faq",
-                    "list":[]
+                    "list": []
                 }
             ],
             "ru": [
                 {
                     "title": "Каталог",
                     "link": "/catalog",
-                    "list":[{
-                        "title": "Кофе",
-                        "link": "/products/coffee"
-                    },{
-                        "title": "Аппараты",
-                        "link": "/products/coffeeMachines"
-                    },{
-                        "title": "Аксессуары",
-                        "link": "/products/accesories"
-                    },{
-                        "title": "Подарочные наборы",
-                        "link": "/presents"
-                    }]
+                    "list": [
+                        {
+                            "title": "Кофе",
+                            "link": "/products/coffee"
+                        },
+                        {
+                            "title": "Аппараты",
+                            "link": "/products/coffeeMachines"
+                        },
+                        {
+                            "title": "Аксессуары",
+                            "link": "/products/accesories"
+                        }
+                    ]
                 },
                 {
                     "title": "Контакты",
                     "link": "/contacts",
-                    "list":[]
+                    "list": []
                 },
                 {
                     "title": "Оптовый сайт",
                     "link": "/wholesale",
-                    "list":[]
+                    "list": []
                 },
                 {
                     "title": "Частые вопросы",
                     "link": "/faq",
-                    "list":[]
+                    "list": []
                 }
             ],
             "en": [
                 {
                     "title": "Catalog",
                     "link": "/catalog",
-                    "list":[{
-                        "title": "Coffee",
-                        "link": "/products/coffee"
-                    },{
-                        "title": "Coffee Machines",
-                        "link": "/products/coffeeMachines"
-                    },{
-                        "title": "Accessories",
-                        "link": "/products/accesories"
-                    },{
-                        "title": "Presents",
-                        "link": "/presents"
-                    }]
+                    "list": [
+                        {
+                            "title": "Coffee",
+                            "link": "/products/coffee"
+                        },
+                        {
+                            "title": "Coffee Machines",
+                            "link": "/products/coffeeMachines"
+                        },
+                        {
+                            "title": "Accessories",
+                            "link": "/products/accesories"
+                        }
+                    ]
                 },
                 {
                     "title": "Contacts",
                     "link": "/contacts",
-                    "list":[]
+                    "list": []
                 },
                 {
                     "title": "Wholesale Site",
                     "link": "/wholesale",
-                    "list":[]
+                    "list": []
                 },
                 {
                     "title": "FAQ",
                     "link": "/faq",
-                    "list":[]
+                    "list": []
                 }
             ]
         }
@@ -149,11 +152,6 @@
                         "title": "Сihazlar",
                         "link": "/products/coffeeMachines",
                         "icon": "CoffeeDevice"
-                    },
-                    {
-                        "title": "Hədiyyə dəstləri",
-                        "link": "/presents",
-                        "icon": "Present"
                     }
                 ]
             },
@@ -174,11 +172,6 @@
                         "title": "Аппараты",
                         "link": "/products/coffeeMachines",
                         "icon": "CoffeeDevice"
-                    },
-                    {
-                        "title": "Подарочные наборы",
-                        "link": "/presents",
-                        "icon": "Present"
                     }
                 ]
             },
@@ -199,11 +192,6 @@
                         "title": "Devices",
                         "link": "/products/coffeeMachines",
                         "icon": "CoffeeDevice"
-                    },
-                    {
-                        "title": "Gift sets",
-                        "link": "/presents",
-                        "icon": "Present"
                     }
                 ]
             }
@@ -1605,7 +1593,8 @@
                     "link1": "daxil olun",
                     "text2": " və ya ",
                     "link2": "qeydiyyatdan keçin."
-                }
+                },
+                "saveBtn":"YADDA SAXLA"
             }
         },
         "ru": {
@@ -1625,7 +1614,8 @@
                     "link1": "войдите",
                     "text2": " в кабинет или ",
                     "link2": "зарегистрируйтесь."
-                }
+                },
+                "saveBtn":"СОХРАНИТЬ"
             }
         },
         "en": {
@@ -1645,7 +1635,8 @@
                     "link1": "login",
                     "text2": " to your cabinet or ",
                     "link2": "register."
-                }
+                },
+                "saveBtn":"SAVE"
             }
         }
     },
@@ -1789,7 +1780,8 @@
                 "oldPasswordInput": "Köhnə şifrə",
                 "newPasswordInput": "Təzə şifrə",
                 "repeatPasswordInput": "Şifrəni təkrarla",
-                "submitBtn": "Yadda saxla"
+                "submitBtn": "Yadda saxla",
+                "changePassword":"Şifrəni dəyiş"
             },
             "cart": {
                 "cartHeading": "SƏBƏT:",
@@ -1811,6 +1803,80 @@
                 "saveBtn": "Yadda saxla",
                 "addBtn": "Ünvan əlavə et",
                 "newAddress": "Təzə ünvan:"
+            },
+            "orders": {
+                "tabs": [
+                    {
+                        "title": "Sifariş olunanlar",
+                        "amount": 17
+                    },
+                    {
+                        "title": "Çatdırılanlar",
+                        "amount": 8
+                    }
+                ],
+                "title": "Sifərişlər",
+                "amount_string": "əd.",
+                "button": "Ətraflı",
+                "grind": "Üyüdülmə",
+                "weight": "Çəki",
+                "empty": "Sizin hələ sifarişiniz yoxdur.",
+                "list": [
+                    {
+                        "id": "12547001",
+                        "date": "27.01.2012 17:54",
+                        "location": "Ул. Зарифа Алиева 17",
+                        "price": "84 ₼",
+                        "coffees": [
+                            {
+                                "id": "coffee_3",
+                                "img": "",
+                                "name": "COLOMBIA GESHA ANCESTRO",
+                                "grind": "эспрессо",
+                                "weight": "1000 г",
+                                "amount": "1",
+                                "price": "49 ₼"
+                            },
+                            {
+                                "id": "coffee_4",
+                                "img": "",
+                                "name": "COLOMBIA GESHA ANCESTRO",
+                                "grind": "эспрессо",
+                                "weight": "1000 г",
+                                "amount": "1",
+                                "price": "59 ₼"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "comments": {
+                "title": "МƏNİM ŞƏRHLƏRİM",
+                "list": [
+                    {
+                        "id": "comment_1",
+                        "product_img": "",
+                        "name": "COLOMBIA GESHA ANCESTRO",
+                        "date": "27.01.2012 17:54",
+                        "comment": "Кофе с нотами бергамота, розы, жасмина и маракуйи, жасмина и маракуйи, жасмина…",
+                        "imgs": [
+                            "s",
+                            "sa"
+                        ]
+                    },
+                    {
+                        "id": "comment_2",
+                        "product_img": "",
+                        "name": "COLOMBIA GESHA ANCESTRO 2",
+                        "date": "27.01.2012 17:55",
+                        "comment": "Кофе с нотами бергамота, розы, жасмина и маракуйи, жасмина и маракуйи, жасмина…",
+                        "imgs": [
+                            "s",
+                            "sas",
+                            "auye"
+                        ]
+                    }
+                ]
             }
         },
         "ru": {
@@ -1824,7 +1890,8 @@
                 "oldPasswordInput": "Старый пароль",
                 "newPasswordInput": "Новый пароль",
                 "repeatPasswordInput": "Повторите пароль",
-                "submitBtn": "Сохранить изменения"
+                "submitBtn": "Сохранить изменения",
+                "changePassword":"Изменить пароль"
             },
             "cart": {
                 "cartHeading": "КОРЗИНА:",
@@ -1846,6 +1913,88 @@
                 "saveBtn": "Сохранить",
                 "addBtn": "Добавить адрес",
                 "newAddress": "Новый адрес:"
+            },
+            "orders": {
+                "tabs": [
+                    {
+                        "title": "Текущие заказы",
+                        "amount": 17
+                    },
+                    {
+                        "title": "Доставлено",
+                        "amount": 8
+                    }
+                ],
+                "title": "Заказы",
+                "amount_string": "шт.",
+                "button": "Посмотреть",
+                "grind": "Помол",
+                "weight": "Вес",
+                "empty": "У вас ещё нет заказов",
+                "list": [
+                    {
+                        "id": "12547001",
+                        "date": "27.01.2012 17:54",
+                        "location": "Ул. Зарифа Алиева 17",
+                        "price": "84 ₼",
+                        "coffees": [
+                            {
+                                "id": "coffee_1",
+                                "img": "",
+                                "name": "COLOMBIA GESHA ANCESTRO",
+                                "grind": "эспрессо",
+                                "weight": "1000 г",
+                                "amount": "1",
+                                "price": "49 ₼"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "12547002",
+                        "date": "27.01.2012 17:54",
+                        "location": "Ул. Зарифа Алиева 17",
+                        "price": "99 ₼",
+                        "coffees": [
+                            {
+                                "id": "coffee_5",
+                                "img": "",
+                                "name": "COLOMBIA GESHA ANCESTRO",
+                                "grind": "эспрессо",
+                                "weight": "1000 г",
+                                "amount": "1",
+                                "price": "49 ₼"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "comments": {
+                "title": "МОИ КОММЕНТАРИИ",
+                "list": [
+                    {
+                        "id": "comment_1",
+                        "product_img": "",
+                        "name": "COLOMBIA GESHA ANCESTRO",
+                        "date": "27.01.2012 17:54",
+                        "comment": "Кофе с нотами бергамота, розы, жасмина и маракуйи, жасмина и маракуйи, жасмина…",
+                        "imgs": [
+                            "s",
+                            "sa"
+                        ]
+                    },
+                    {
+                        "id": "comment_2",
+                        "product_img": "",
+                        "name": "COLOMBIA GESHA ANCESTRO 2",
+                        "date": "27.01.2012 17:55",
+                        "comment": "Кофе с нотами бергамота, розы, жасмина и маракуйи, жасмина и маракуйи, жасмина…",
+                        "imgs": [
+                            "s",
+                            "sas",
+                            "auye"
+                        ]
+                    }
+                ]
             }
         },
         "en": {
@@ -1859,7 +2008,8 @@
                 "oldPasswordInput": "Old password",
                 "newPasswordInput": "New password",
                 "repeatPasswordInput": "Repeat password",
-                "submitBtn": "Save changes"
+                "submitBtn": "Save changes",
+                "changePassword":"Change Password"
             },
             "cart": {
                 "cartHeading": "CART:",
@@ -1881,6 +2031,71 @@
                 "saveBtn": "Save",
                 "addBtn": "Add address",
                 "newAddress": "New address:"
+            },
+            "orders": {
+                "tabs": [
+                    {
+                        "title": "Ordered",
+                        "amount": 17
+                    },
+                    {
+                        "title": "Delivered",
+                        "amount": 8
+                    }
+                ],
+                "title": "Orders",
+                "amount_string": "pc.",
+                "button": "More",
+                "grind": "Grinding",
+                "weight": "Weight",
+                "empty": "You don't have orders yet",
+                "list": [
+                    {
+                        "id": "12547001",
+                        "date": "27.01.2012 17:54",
+                        "location": "Ул. Зарифа Алиева 17",
+                        "price": "84 ₼",
+                        "coffees": [
+                            {
+                                "id": "coffee_2",
+                                "img": "",
+                                "name": "COLOMBIA GESHA ANCESTRO",
+                                "grind": "эспрессо",
+                                "weight": "1000 г",
+                                "amount": "1",
+                                "price": "49 ₼"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "comments": {
+                "title": "MY COMMENTS",
+                "list": [
+                    {
+                        "id": "comment_1",
+                        "product_img": "",
+                        "name": "COLOMBIA GESHA ANCESTRO",
+                        "date": "27.01.2012 17:54",
+                        "comment": "Кофе с нотами бергамота, розы, жасмина и маракуйи, жасмина и маракуйи, жасмина…",
+                        "imgs": [
+                            "s",
+                            "sa"
+                        ]
+                    },
+                    {
+                        "id": "comment_2",
+                        "product_img": "",
+                        "name": "COLOMBIA GESHA ANCESTRO 2",
+                        "date": "27.01.2012 17:55",
+                        "comment": "Кофе с нотами бергамота, розы, жасмина и маракуйи, жасмина и маракуйи, жасмина…",
+                        "imgs": [
+                            "s",
+                            "sas",
+                            "auye"
+                        ]
+                    }
+                ]
             }
         }
     },
@@ -1904,7 +2119,8 @@
             "priceHeading": "TOTAL AMOUNT",
             "priceDeliveryHeading": "ÇATDIRILMA",
             "discountHeading": "ENDIRIM",
-            "total": "TOTAL"
+            "total": "TOTAL",
+            "zeroProducts": "Siz sifariş üçün heç bir məhsul seçməmisiniz"
         },
         "ru": {
             "heading": "ОФОРМЛЕНИЕ ЗАКАЗА",
@@ -1925,7 +2141,8 @@
             "priceHeading": "ОБЩАЯ СУММА ЗА ТОВАРЫ",
             "priceDeliveryHeading": "ДОСТАВКА",
             "discountHeading": "СКИДКА",
-            "total": "ВСЕГО"
+            "total": "ВСЕГО",
+            "zeroProducts": "Вы не выбрали ни одного продукта для заказа"
         },
         "en": {
             "heading": "PLACE YOUR ORDER",
@@ -1943,10 +2160,11 @@
             "byCard": "By card",
             "submitBtn": "SUBMIT",
             "hint": "I agree with the terms of processing of personal data, User Agreement and Public Offer",
-            "priceHeading": "ÜMUMİ MƏBLƏĞ",
+            "priceHeading": "TOTAL AMOUNT",
             "priceDeliveryHeading": "DELIVERY",
             "discountHeading": "DISCOUNT",
-            "total": "ÜMUMİ"
+            "total": "TOTAL",
+            "zeroProducts": "You didn't choose any product for order"
         }
     },
     "favorites": {
@@ -1961,6 +2179,17 @@
         "en": {
             "heading": "FAVORITE PRODUCTS",
             "addBtn": "Add all to cart"
+        }
+    },
+    "hints": {
+        "az": {
+            "noProducts": "Məhsul yoxdur"
+        },
+        "ru": {
+            "noProducts": "Продуктов нет"
+        },
+        "en": {
+            "noProducts": "There are no products"
         }
     }
 }

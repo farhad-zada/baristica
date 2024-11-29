@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import PageText from '../../../../content/PagesText.json'
 import { useNavigate } from 'react-router-dom';
@@ -10,26 +10,18 @@ import AddAddress from '../../../../components/userAddress/add/AddAddress'
 const { profile } = PageText
 export default function Addresses() {
     const [addresses, setAddresses] = useState([
-        {
-            id: 0,
-            city: "Baku",
-            street: "Ул. Зарифа Алиева 12",
-            house: "кв. 14",
-            main: false
-        },
-        {
-            id: 1,
-            city: "Baku",
-            street: "Ул. Зарифа Алиева 12",
-            house: "кв. 14",
-            main: false
-        }
+       
     ])
 
     const [add,setAdd] = useState(false)
 
-    const { lang } = useSelector((state) => state.baristica);
-
+    const { lang, user } = useSelector((state) => state.baristica);
+    
+    useEffect(() => {
+        if(JSON.stringify(user) !== '{}'){
+            setAddresses(user.addresses)
+        }
+    },[user])
     return (
         <div>
             <h2 className={styles.heading + " f28 fw600 darkGrey_color"}>{lang ? profile[lang].addresses.heading : ''}:</h2>

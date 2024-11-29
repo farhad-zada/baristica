@@ -43,8 +43,8 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
                         <h2 className='f20 fw700  darkGrey_color'>{product?.name ? product.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
                         <p className="f16 fw400 darkGrey_color mt6">{product?.selectedGrinding ? product.selectedGrinding : 'Помол: для турки (мелкий)'}</p>
                         <div className="flex g8">
-                            <span>{product?.selectedWeight ? product.selectedWeight : '1000'} {lang ? productAdded[lang].weightAdding : ''}</span>
-                            <span>{product?.cartCount ? product.cartCount : '2'} {lang ? productAdded[lang].countAdding : ''}</span>
+                            <span>{product?.weight ? product.weight : '1000'} {lang ? productAdded[lang].weightAdding : ''}</span>
+                            <span>{cartCount ? cartCount : '2'} {lang ? productAdded[lang].countAdding : ''}</span>
                         </div>
                     </div>
                     <div className="img">

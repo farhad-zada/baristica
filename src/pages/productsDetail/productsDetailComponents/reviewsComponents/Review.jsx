@@ -26,7 +26,7 @@ export default function Review({ review }) {
                     </span> */}
                     <div>
                         <p className='f16 fw400 darkGrey_color'>{Star} {review?.rating ? review.rating : '4.0'}</p>
-                        <p className='f24 fw400 mt4'>{review?.holder ? review.holder : 'Name Surname'}</p>
+                        <p className='f24 fw400 mt4'>{review?.user ? review.user?.name : 'Name Surname'}</p>
                     </div>
                 </div>
                 <div className="date f16 fw400 darkGrey_color">{review?.updatedAt ? formatDate(review.updatedAt, lang) : '12 sen 2024'}</div>

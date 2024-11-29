@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './productsSection.module.css'
 import pagesText from '../../content/PagesText.json'
@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import Tabs from '../tabs/Tabs'
 import { RightArrow } from '../../icons'
 const { productsSection } = pagesText
-export default function ProductsSection(props) {
+const ProductsSection = (props) => {
     const { heading, tabs, content, navigateTo } = props
     const { lang } = useSelector((state) => state.baristica);
 
@@ -27,3 +27,5 @@ export default function ProductsSection(props) {
         </div>
     )
 }
+
+export default memo(ProductsSection)
