@@ -87,6 +87,9 @@ const baristicaSlice = createSlice({
         state.finalCart = state.finalCart.filter((el) => el._id !== product._id)
       }
     },
+    setFinalCartArr: (state,action) => {
+      state.finalCart = action.payload
+    }
   },
 });
 
@@ -101,6 +104,7 @@ export const {
   changeCartCount,
   setCart,
   setFinalCart,
+  setFinalCartArr,
   setUser
 } = baristicaSlice.actions;
 export default baristicaSlice.reducer;

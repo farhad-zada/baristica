@@ -119,11 +119,11 @@ const ProductCard = (props) => {
 
     useEffect(() => {
         if (JSON.stringify(activeProduct) !== '{}') {
-            setLinked(activeProduct.linked)
-            const weightFields = activeProduct.linked.filter((link) => link.field === 'weight')
-            const linkedWeights = weightFields.map((field) => field.fieldValue)
-            setWeightOptions([activeProduct.weight, ...linkedWeights])
-            setDefaultWeight(activeProduct.weight)
+            setLinked(activeProduct?.linked)
+            const weightFields = activeProduct?.linked?.filter((link) => link.field === 'weight')
+            const linkedWeights = weightFields?.map((field) => field.fieldValue) || []
+            setWeightOptions([activeProduct?.weight, ...linkedWeights])
+            setDefaultWeight(activeProduct?.weight || 200)
             setCartCount(1)
         }
     }, [activeProduct])

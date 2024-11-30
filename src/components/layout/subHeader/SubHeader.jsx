@@ -99,7 +99,7 @@ export default function SubHeader() {
                 {Search}
               </button>
             )} */}
-            <Link to="/" className={`${style.button} darkGray defaultBtn border32 flex a-center`}>
+            <Link to="/favorites" className={`${style.button} darkGray defaultBtn border32 flex a-center`}>
               {Favourites}
             </Link>
             <span

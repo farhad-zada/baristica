@@ -3,12 +3,19 @@ import Tabs from '../../../../components/tabs/Tabs';
 import style from "./orders.module.css";
 import PagesText from '../../../../content/PagesText.json';
 import { useSelector } from 'react-redux';
+import Pagination from '../../../../components/pagination/Pagination';
 
 const { profile } = PagesText;
 
 const Orders = () => {
   const { lang } = useSelector((state) => state.baristica);
   const [visibleCoffees, setVisibleCoffees] = useState({}); // Manage visibility of coffees by order ID
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 5;
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   const toggleCoffees = (orderId) => {
     setVisibleCoffees((prevState) => ({
@@ -89,6 +96,12 @@ const Orders = () => {
             </div>
           ))}
         </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          justify={'justify-end'}
+        />
         </>
       }
     </div>

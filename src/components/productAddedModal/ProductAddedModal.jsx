@@ -8,15 +8,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useRefClickOutside } from '../../hooks/useRefClickOutside'
 import useBodyScrollLock from '../../hooks/useBodyScrollLock'
 import { deleteFromCart, setProfileActiveTab } from '../../redux/slice'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 const { productAdded } = pageText
 
 export default function ProductAddedModal({ status, setStatus, product, cartCount, setCartCount }) {
-    const { lang } = useSelector(state => state.baristica)
+    const { lang, cart } = useSelector(state => state.baristica)
+    const { getItemFromStorage, setItemToStorage } = useLocalStorage('baristica')
+
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const modalRef = useRef(null);
 
     const deleteProduct = (id) => {
+        if (cart.length === 1) {
+            const baristicaObj = getItemFromStorage()
+            setItemToStorage({ ...baristicaObj, cart: [], finalCart: [] })
+        }
         dispatch(deleteFromCart(id))
         setStatus(false)
         setCartCount(1)
@@ -25,8 +32,8 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
     // Закрытие при клике вне компонента
     useRefClickOutside(modalRef, () => setStatus(false));
     useBodyScrollLock(status);
-    
-    
+
+
     return (
         <div className={status ? 'modal active' : 'modal'} onClick={(e) => e.stopPropagation()}>
             <div className="modalContent" ref={modalRef}>
@@ -54,7 +61,7 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
 
                 <div className={styles.final + " flex j-between a-center mt24"}>
                     <h2 className='f36 fw400'>
-                        {lang ? productAdded[lang].total : ''} {product?.price ? product.price/100 * cartCount : 84} ₼
+                        {lang ? productAdded[lang].total : ''} {product?.price ? product.price / 100 * cartCount : 84} ₼
                     </h2>
                     <span className='pointer' onClick={() => deleteProduct(product._id)}>{Delete}</span>
                 </div>
@@ -65,7 +72,7 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
                         dispatch(setProfileActiveTab('cart'))
                         navigate('/profile')
                     }} className={styles.greenBtn + ' w-48'}>{lang ? productAdded[lang].greenBtn : ''}</button>
-                    <button onClick={() => {setCartCount(1);setStatus(false)}} className={styles.whiteBtn + ' w-48'}>{lang ? productAdded[lang].whiteBtn : ''}</button>
+                    <button onClick={() => { setCartCount(1); setStatus(false) }} className={styles.whiteBtn + ' w-48'}>{lang ? productAdded[lang].whiteBtn : ''}</button>
                 </div>
             </div>
         </div>

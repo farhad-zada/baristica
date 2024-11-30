@@ -9,6 +9,7 @@ import ProductsList from './productsComponents/ProductsList';
 import FilterSection from './productsComponents/FilterSection';
 import ProductsService from '../../services/products.service';
 import Loading from '../../components/loading/Loading';
+import Pagination from '../../components/pagination/Pagination';
 const { productsPage } = pageText
 export default function Products() {
   const { lang, token } = useSelector((state) => state.baristica);
@@ -19,6 +20,13 @@ export default function Products() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
   const { pathname } = useLocation();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 20;
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   const productsService = new ProductsService()
 
@@ -85,6 +93,11 @@ export default function Products() {
         <ProductTypes content={types?.length ? types : []} />
         <FilterSection />
         <ProductsList products={products} />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
       </div>
     </div>
   )

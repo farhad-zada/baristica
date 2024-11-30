@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { setCart, setFinalCart, setLang, setToken, setUser } from './redux/slice';
+import { setCart, setFinalCart, setFinalCartArr, setLang, setToken, setUser } from './redux/slice';
 import { useDispatch, UseDispatch, useSelector } from 'react-redux';
 import HeadBanner from "./components/layout/headBanner/HeadBanner"
 import SubHeader from "./components/layout/subHeader/SubHeader"
@@ -56,7 +56,7 @@ const App = () => {
       setObjectToStorage({ finalCart });
     }
   }, [finalCart]);
-  
+
   useEffect(() => {
     const lang = getItemFromStorage(); // Получаем язык из локального хранилища
     const token = getTokenFromStorage(); // Получаем токен
@@ -74,7 +74,7 @@ const App = () => {
     }
 
     if (baristicaObj?.finalCart?.length) {
-      dispatch(setFinalCart(baristicaObj.finalCart))
+      dispatch(setFinalCartArr(baristicaObj.finalCart))
     }
 
     if (token) {
