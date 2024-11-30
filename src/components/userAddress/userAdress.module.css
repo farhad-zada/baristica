@@ -1,30 +1,29 @@
-.address{
+.address {
     padding: 10px 30px;
     background: #F2F2F2;
     margin-bottom: 10px;
     border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 2fr 1fr auto; /* Задаем фиксированные размеры колонок */
     align-items: center;
+    gap: 10px;
 }
 
-.active svg path{
+.index {
+    text-align: center; /* Центрируем индекс */
+}
+
+.city, .street, .home {
+    text-align: left; /* Текст в колонках будет выровнен влево */
+    word-wrap: break-word;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end; /* Иконки всегда справа */
+}
+
+.active svg path {
     fill: #61C4BF;
-}
-
-.circle{
-    width: 12px;
-    height: 12px;
-    border: 1px solid #54565A;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.blueCircle{
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #54565A;
 }

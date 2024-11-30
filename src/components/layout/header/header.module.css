@@ -20,6 +20,14 @@
 }
 .languages span{
     cursor: pointer;
+    transition: .3s;
+}
+.languages span:hover{
+    color: #61C4BF !important;
+    
+}
+.languages .active{
+    display: none;
 }
 .active{
     color: #61C4BF !important;

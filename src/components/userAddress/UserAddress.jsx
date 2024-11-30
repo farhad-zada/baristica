@@ -9,7 +9,7 @@ import Loading from '../loading/Loading'
 export default function UserAddress({ address, radio, index, setAddresses }) {
     const { token } = useSelector(state => state.baristica)
     const [edit, setEdit] = useState(false)
-    const [loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const userService = new UserService()
 
@@ -20,7 +20,7 @@ export default function UserAddress({ address, radio, index, setAddresses }) {
             setAddresses((prevAddresses) => prevAddresses.filter((address) => address._id !== id));
         } catch (error) {
 
-        } finally{
+        } finally {
             setLoading(false)
         }
     };
@@ -36,48 +36,50 @@ export default function UserAddress({ address, radio, index, setAddresses }) {
         );
     };
     return (
-        <div >
+        <div>
             <Loading status={loading} />
             <div className={styles.address}>
-                {
-                    index
-                        ?
-                        <span className='f20 fw400'>{index}.</span>
-                        :
-                        <></>
-                }
-                {
-                    radio
-                        ?
-                        <span className={styles.circle} onClick={() => changeSelected(address.id)}>
-                            {
-                                address.selected
-                                    ?
-                                    <span className={styles.blueCircle}></span>
-                                    :
-                                    <></>
-                            }
-                        </span>
-                        :
-                        <></>
-                }
-                <span className='f20 fw400'>{address?.city ? address.city : 'Baki'}</span>
-                <span className='f20 fw400'>{address?.street ? address.street : 'Ул. Зарифа Алиева 12'}</span>
-                <span className='f20 fw400'>{address?.home ? address.home : 'кв. 14'}</span>
+                {/* Индекс */}
+                {index && <span className={`${styles.index} f20 fw400`}>{index}.</span>}
 
-                <div className="flex g10">
-                    <span className={edit ? styles.active + ' pointer' : 'pointer'} onClick={() => setEdit(!edit)}>{Edit}</span>
-                    <span className='pointer' onClick={() => deleteAddress(address._id)}>{Delete}</span>
+                {/* Город */}
+                <span className={`${styles.city} f20 fw400`}>
+                    {address?.city || "Baki"}
+                </span>
+
+                {/* Улица */}
+                <span className={`${styles.street} f20 fw400`}>
+                    {address?.street || "Ул. Зарифа Алиева 12"}
+                </span>
+
+                {/* Квартира */}
+                <span className={`${styles.home} f20 fw400`}>
+                    {address?.home || "кв. 14"}
+                </span>
+
+                {/* Действия */}
+                <div className={styles.actions}>
+                    <span
+                        className={`${edit ? styles.active : ""} pointer`}
+                        onClick={() => setEdit(!edit)}
+                    >
+                        {Edit}
+                    </span>
+                    <span className="pointer" onClick={() => deleteAddress(address._id)}>
+                        {Delete}
+                    </span>
                 </div>
             </div>
 
-            {
-                edit
-                    ?
-                    <EditAddress address={address} setAddresses={setAddresses} setEdit={setEdit} />
-                    :
-                    <></>
-            }
+            {/* Редактирование адреса */}
+            {edit && (
+                <EditAddress
+                    address={address}
+                    setAddresses={setAddresses}
+                    setEdit={setEdit}
+                />
+            )}
         </div>
+
     )
 }

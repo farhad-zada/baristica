@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import Comment from './Comment';
 import UserService from '../../../../services/user.service';
 import Loading from '../../../../components/loading/Loading';
+import Pagination from '../../../../components/pagination/Pagination';
 
 const { profile } = PagesText;
 
@@ -12,6 +13,12 @@ const Comments = () => {
 
   const [comments, setComments] = useState([])
   const [loading, setLoading] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 20;
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   const userService = new UserService()
 
@@ -41,6 +48,12 @@ const Comments = () => {
         {comments.map((comment) => (
           <Comment comment={comment} getComments={getComments} />
         ))}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          justify={'justify-end'}
+        />
       </div>
     </div>
   )

@@ -4,20 +4,28 @@ import Counter from "../../../../../components/counter/Counter"
 import { Delete } from '../../../../../icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeCartCount, deleteFromCart, finalSelectProduct, setFinalCart } from '../../../../../redux/slice'
+import { useLocalStorage } from '../../../../../hooks/useLocalStorage'
 
 
 export default function CartProduct({ product, weightText, grindityText }) {
     const [cartCount, setCartCount] = useState(1)
-    const { lang } = useSelector(state => state.baristica)
+    const { lang, cart } = useSelector(state => state.baristica)
+    const { getItemFromStorage, setItemToStorage } = useLocalStorage('baristica')
+
     const dispatch = useDispatch()
     const onCheckbox = (e, product) => {
         const { checked } = e.target
         dispatch(setFinalCart({ checked, product }))
-        dispatch(finalSelectProduct({id: product._id, selected: checked}))
+        dispatch(finalSelectProduct({ id: product._id, selected: checked }))
     }
 
     const deleteProduct = (id) => {
+        if(cart.length === 1){
+            const baristicaObj = getItemFromStorage()
+            setItemToStorage({...baristicaObj, cart: [], finalCart: []})
+        }
         dispatch(deleteFromCart(id))
+        
     }
 
     const changeCount = (type) => {
@@ -35,7 +43,7 @@ export default function CartProduct({ product, weightText, grindityText }) {
         <div className={styles.product}>
             <div className="left flex a-center g20">
                 <input type="checkbox" checked={product.selectedForOrder} onChange={(e) => onCheckbox(e, product)} />
-                <img src={product?.images?.length ? product.images[0]: ''} alt="" />
+                <img src={product?.images?.length ? product.images[0] : ''} alt="" />
                 <div>
                     <h2 className="f20 fw700 mt4 darkGrey_color">{product?.name ? product.name[lang] || product.name['az'] : 'COLOMBIA GESHA ANCESTRO'}</h2>
                     <h3 className="f16 fw400 mt4 darkGrey_color">{grindityText} {product?.selectedGrinding ? product.selectedGrinding : 'эспрессо'}</h3>
@@ -46,7 +54,7 @@ export default function CartProduct({ product, weightText, grindityText }) {
             <Counter count={product.cartCount} callBack={changeCount} />
 
             <div className="right flex a-center g20">
-                <span className='f24 fw400 darkGrey_color'>{product?.price ? product.price/100 * cartCount : '49'} ₼</span>
+                <span className='f24 fw400 darkGrey_color'>{product?.price ? product.price / 100 * cartCount : '49'} ₼</span>
                 <span className='pointer' onClick={() => deleteProduct(product._id)}>{Delete}</span>
             </div>
         </div>
