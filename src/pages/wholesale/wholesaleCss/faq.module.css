@@ -27,3 +27,9 @@
 .label_num{
     padding: 0 21px 0 0 !important;
 }
+@media (max-width: 768px){
+    .faqs{
+        display: flex;
+        flex-direction: column;
+    }
+}
