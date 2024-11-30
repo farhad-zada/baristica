@@ -205,7 +205,7 @@ const ProductCard = (props) => {
                     >
                         {Bag}
                         {
-                            product.type === 'machine'
+                            product.productType === 'Machine'
                                 ?
                                 <span >{lang ? productCard[lang].machineBuy : ''}</span>
                                 :
