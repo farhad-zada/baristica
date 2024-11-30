@@ -9,6 +9,9 @@
     padding-bottom: 5px;
     transition: .2s ease-in-out;
 }
+.menu_item a{
+    color: #54565A !important;
+}
 .menu_item:hover{
     color: #61C4BF;
 }

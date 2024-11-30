@@ -15,3 +15,17 @@
 .link{
     padding: 10px 56px;
 }
+@media (max-width: 768px){
+}
+@media (max-width: 480px){
+    .offer_item{
+        flex-direction: column;
+    }
+    .offer_item h3{
+        padding-bottom: 30px;
+    }
+    .link{
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLang } from "../../../redux/slice";
 import { Link, NavLink } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 import style from "./header.module.css";
 
 import PagesText from "../../../content/PagesText.json";
@@ -30,6 +31,17 @@ export default function Header() {
           <ul className={`${style.menu} flex a-center`}>
             {headerPageLinks[lang].map((elem, index) => (
                 <li key={index} className={`${style.menu_item} relative`}>
+                  {elem.link === "#contacts" ? 
+                    <HashLink
+                      smooth
+                      to={elem.link === "#contacts" ? "/#contacts" : elem.link}
+                      className={({ isActive }) =>
+                        `darkGrey_color ${isActive ? style.active : ""}`
+                      }
+                    >
+                      {elem.title}
+                    </HashLink>
+                  : 
                   <NavLink
                     to={elem.link}
                     className={({ isActive }) =>
@@ -38,6 +50,7 @@ export default function Header() {
                   >
                     {elem.title}
                   </NavLink>
+                  }
                   {elem.list && elem.list.length > 0 && (
                     <ul className={style.dropdown}>
                       {elem.list.map((subItem, subIndex) => (

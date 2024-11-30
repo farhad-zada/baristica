@@ -48,3 +48,31 @@
     grid-column: 1 / -1; /* Span full width (both columns) */
     grid-row: 2; /* Second row */
 }
+@media (max-width: 768px){
+    .info_section_text{
+        flex-direction: column;
+    }
+    .info_section_description{
+        padding-left: 0 !important;
+    }
+    .info_grid_elem{
+        padding: 30px 15px;
+    }
+    .info_grid_elem h6{
+        font-size: 42px !important;
+    }
+    .info_grid_elem:nth-child(1) {
+        grid-column:auto;
+        grid-row: auto;
+    }
+    .info_grid_elem:nth-child(2) {
+        grid-column:auto;
+        grid-row: auto;
+    }
+}
+@media (max-width: 480px){
+    .info_grid{
+        display: flex;
+        flex-direction: column;
+    }
+}

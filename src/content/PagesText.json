@@ -47,7 +47,7 @@
                 },
                 {
                     "title": "Əlaqə",
-                    "link": "/contacts",
+                    "link": "#contacts",
                     "list": []
                 },
                 {
@@ -82,7 +82,7 @@
                 },
                 {
                     "title": "Контакты",
-                    "link": "/contacts",
+                    "link": "#contacts",
                     "list": []
                 },
                 {
@@ -117,7 +117,7 @@
                 },
                 {
                     "title": "Contacts",
-                    "link": "/contacts",
+                    "link": "#contacts",
                     "list": []
                 },
                 {
