@@ -36,7 +36,7 @@ export default function ProductsDetailHeadRight({ product }) {
             case 'Coffee':
                 return <CoffeeDetails product={product} />
                 break;
-            case 'Accesory':
+            case 'Accessory':
                 return <AccesoriesDetails product={product} />
                 break;
             case 'Machine':

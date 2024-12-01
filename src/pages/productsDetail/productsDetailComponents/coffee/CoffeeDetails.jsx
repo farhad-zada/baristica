@@ -27,6 +27,7 @@ export default function CoffeeDetails({ product }) {
         // setCartCount(1)
         // setProductAdded(true)
         dispatch(addProductToCart({ ...product, cartCount: cartCount }))
+        setCartCount(1)
     }
 
     const changeProduct = (field, value) => {

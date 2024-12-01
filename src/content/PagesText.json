@@ -780,20 +780,16 @@
                     "title": "KATALOQ",
                     "list": [
                         {
-                            "label": "Hədiyyə dəstləri",
-                            "link": "/presents"
-                        },
-                        {
                             "label": "Qəhvə aparatları və qəhvə üyüdücülər",
-                            "link": "/apparates"
+                            "link": "/products/coffeeMachines"
                         },
                         {
                             "label": "Aksesuarlar",
-                            "link": "/accessories"
+                            "link": "/products/accesories"
                         },
                         {
                             "label": "Qəhvə",
-                            "link": "/coffee"
+                            "link": "/products/coffee"
                         }
                     ]
                 }
@@ -827,20 +823,16 @@
                     "title": "КАТАЛОГ",
                     "list": [
                         {
-                            "label": "Подарочные наборы",
-                            "link": "/presents"
-                        },
-                        {
                             "label": "Кофе аппараты и гриндеры",
-                            "link": "/apparates"
+                            "link": "/products/coffeeMachines"
                         },
                         {
                             "label": "Аксессуары",
-                            "link": "/accessories"
+                            "link": "/products/accesories"
                         },
                         {
                             "label": "Кофе",
-                            "link": "/coffee"
+                            "link": "/products/coffee"
                         }
                     ]
                 }
@@ -874,20 +866,16 @@
                     "title": "CATALOGUE",
                     "list": [
                         {
-                            "label": "Gift Sets",
-                            "link": "/presents"
-                        },
-                        {
                             "label": "Coffee Machines and Grinders",
-                            "link": "/apparates"
+                            "link": "/products/coffeeMachines"
                         },
                         {
                             "label": "Accessories",
-                            "link": "/accessories"
+                            "link": "/products/accesories"
                         },
                         {
                             "label": "Coffee",
-                            "link": "/coffee"
+                            "link": "/products/coffee"
                         }
                     ]
                 }
