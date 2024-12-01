@@ -1,0 +1,18 @@
+.favorited{
+    cursor: pointer;
+}
+.favorited svg path{
+    transition: .3s;
+}
+.favorited:hover svg path{
+    fill: #61C4BF;
+}
+.feedback{
+    cursor: pointer;
+}
+.feedback svg path{
+    transition: .3s;
+}
+.feedback:hover svg path{
+    fill: #61C4BF;
+}

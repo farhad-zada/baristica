@@ -1,12 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Favorited, Feedback, Star } from '../../../icons'
 import CoffeeDetails from './coffee/CoffeeDetails'
 import AccesoriesDetails from './accesories/AccesoriesDetails'
 import MachineDetails from './machine/MachineDetails'
+import FavoritesService from '../../../services/favorites.service'
+import Loading from '../../../components/loading/Loading'
+import Error from '../../../components/error/Error'
+import style from '../productDetailComponentsCss/productsDetailHeadRight.module.css'
+import { useNavigate } from 'react-router-dom'
 
 export default function ProductsDetailHeadRight({ product }) {
     const { token, lang } = useSelector(state => state.baristica)
+
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
+
+    const favoriteService = new FavoritesService()
+    const navigate = useNavigate()
+
+    const addFavorite = async (id) => {
+        setLoading(true)
+        try {
+            const response = await favoriteService.addFavorite(token, id)
+        } catch (error) {
+            setError(true)
+        }
+        finally {
+            setLoading(false)
+        }
+    }
+
     const setByType = (type) => {
         switch (type) {
             case 'Coffee':
@@ -25,11 +49,13 @@ export default function ProductsDetailHeadRight({ product }) {
     }
     return (
         <div>
+            <Loading status={loading} />
+            <Error status={error} setStatus={setError} />
             <div className="flex g8">
                 {
                     token
                         ?
-                        <span>
+                        <span className={style.favorited} onClick={() => addFavorite(product._id)}>
                             {Favorited}
                         </span>
                         :
@@ -39,7 +65,7 @@ export default function ProductsDetailHeadRight({ product }) {
                     {Star}
                     <span>{product?.statistics?.ratings.toFixed(1)}</span>
                 </span>
-                <span className="flex g8  f16 darkGrey_color fw400">
+                <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"}>
                     {Feedback}
                     <span>{product?.feedbacks?.length ? product.feedbacks.length : 0}</span>
                 </span>
