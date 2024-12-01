@@ -13,7 +13,7 @@ import Pagination from '../../components/pagination/Pagination';
 import Error from '../../components/error/Error';
 const { productsPage } = pageText
 export default function Products() {
-  const { lang } = useSelector((state) => state.baristica);
+  const { lang, token } = useSelector((state) => state.baristica);
 
   const [heading, setHeading] = useState('')
   const [types, setTypes] = useState([])
@@ -47,7 +47,7 @@ export default function Products() {
   const getProducts = async (type) => {
     setLoading(true)
     try {
-      const response = await productsService.getProducts('',type, currentPage)
+      const response = await productsService.getProducts(token,type, currentPage)
       const products = response.data
       setProductsCount(response.count)
       setProducts(products)
@@ -87,7 +87,7 @@ export default function Products() {
       setTypes([])
       setCurrentType('')
     }
-  }, [pathname])
+  }, [pathname, token])
 
 
   return (

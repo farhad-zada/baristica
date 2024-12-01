@@ -56,7 +56,7 @@ export default function HomeProducts() {
 
     const productsService = new ProductsService()
 
-    const setProducts = useCallback(async () => {
+    const setProducts = useCallback(async (token) => {
         setLoading(true)
         try {
             const [newCoffe, popularCoffee, newAccesory, popularAccesory, newMachines, popularMachines] = await Promise.all([
@@ -84,8 +84,8 @@ export default function HomeProducts() {
     }, [productsService])
 
     useEffect(() => {
-        setProducts()
-    }, [])
+        setProducts(token)
+    }, [token])
 
     return (
         <>
