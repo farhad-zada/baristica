@@ -22,7 +22,9 @@ export default function Favorites() {
 
     const addAllToCart = () => {
         products.map((product) => {
-            dispatch(addProductToCart({ ...product, cartCount: 1 }))
+            if (product.productType !== 'Machine') {
+                dispatch(addProductToCart({ ...product, cartCount: 1 }))
+            }
         })
     }
 

@@ -6,9 +6,36 @@
     background: #F2F2F2;
     margin-bottom: 20px;
     width: 100%;
+    gap: 20px; /* Пространство между блоками */
 }
-.product img{
-    width: 100%;
-    max-height: 141px;
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Пространство между чекбоксом, изображением и текстом */
+}
+
+.left img {
+    width: auto;
+    max-height: 120px; /* Установить фиксированную высоту */
     object-fit: contain;
+}
+
+.left div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Расстояние между строками текста */
+}
+
+
+.right {
+    display: flex;
+    align-items: flex-end; /* Все элементы выровнены по правому краю */
+}
+
+.right span {
+    align-items: center;
+    white-space: nowrap; /* Предотвращает перенос текста на новую строку */
+    font-size: 24px;
+    line-height: 1; /* Убирает лишние отступы */
 }

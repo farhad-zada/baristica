@@ -20,12 +20,12 @@ export default function CartProduct({ product, weightText, grindityText }) {
     }
 
     const deleteProduct = (id) => {
-        if(cart.length === 1){
+        if (cart.length === 1) {
             const baristicaObj = getItemFromStorage()
-            setItemToStorage({...baristicaObj, cart: [], finalCart: []})
+            setItemToStorage({ ...baristicaObj, cart: [], finalCart: [] })
         }
         dispatch(deleteFromCart(id))
-        
+
     }
 
     const changeCount = (type) => {
@@ -41,7 +41,7 @@ export default function CartProduct({ product, weightText, grindityText }) {
 
     return (
         <div className={styles.product}>
-            <div className="left flex a-center g20">
+            <div className={styles.left + " flex a-center g20"}>
                 <input type="checkbox" checked={product.selectedForOrder} onChange={(e) => onCheckbox(e, product)} />
                 <img src={product?.images?.length ? product.images[0] : ''} alt="" />
                 <div>
@@ -53,7 +53,7 @@ export default function CartProduct({ product, weightText, grindityText }) {
 
             <Counter count={product.cartCount} callBack={changeCount} />
 
-            <div className="right flex a-center g20">
+            <div className={styles.right + " flex a-center g20"}>
                 <span className='f24 fw400 darkGrey_color'>{product?.price ? product.price / 100 * cartCount : '49'} ₼</span>
                 <span className='pointer' onClick={() => deleteProduct(product._id)}>{Delete}</span>
             </div>

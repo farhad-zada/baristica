@@ -28,7 +28,7 @@ export default function OrderProduct({ product, grindityText, weightText, codeTe
                 <img src={product?.images?.length ? product.images[0] : ''} alt="" />
             </div>
 
-            <div className="textContent">
+            <div className={styles.textContent}>
                 <p className="f12 fw400 darkGrey_color">
                     {codeText} {product?.code ? product.code : 'E10001'}
                 </p>
@@ -41,7 +41,7 @@ export default function OrderProduct({ product, grindityText, weightText, codeTe
 
             <Counter count={product.cartCount}  callBack={changeCount} />
 
-            <div className="right flex a-center g20">
+            <div className={styles.right + " flex a-center g20"}>
                 <span className='f24 fw400 darkGrey_color'>{product?.price ? (product.price / 100 * product.cartCount).toFixed(2) : '49'} ₼</span>
                 <span className='pointer' onClick={() => deleteProduct(product._id)}>{Delete}</span>
             </div>
