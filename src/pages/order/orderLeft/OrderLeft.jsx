@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InputText from '../../../components/form/inputField/InputText'
 import PageText from '../../../content/PagesText.json'
 import { useSelector } from 'react-redux'
@@ -6,66 +6,86 @@ import styles from './orderLeft.module.css'
 import UserAddress from '../../../components/userAddress/UserAddress'
 import AddAddress from '../../../components/userAddress/add/AddAddress'
 import AuthButton from '../../../components/form/button/AuthButton'
+import OrdersService from '../../../services/orders.service'
+import Loading from '../../../components/loading/Loading'
+import Error from '../../../components/error/Error'
 const { order, profile } = PageText
 
-export default function OrderLeft({content}) {
+export default function OrderLeft({ content }) {
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
         comment: ""
     })
-
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
     const [delivery, setDelivery] = useState(false)
     const [byCard, setByCard] = useState(true)
+    const [selectedAddress, setSelectedAddress] = useState({})
 
     const [addresses, setAddresses] = useState([
-        {
-            id: 0,
-            city: "Baku",
-            street: "Ул. Зарифа Алиева 12",
-            house: "кв. 14",
-            main: false,
-            selected: true
-        },
-        {
-            id: 1,
-            city: "Baku",
-            street: "Ул. Зарифа Алиева 12",
-            house: "кв. 14",
-            main: false
-        }
+
     ])
 
     const [add, setAdd] = useState(false)
 
-    const { lang, finalCart } = useSelector((state) => state.baristica);
+
+    const { lang, finalCart, user, token } = useSelector((state) => state.baristica);
+
+    const ordersService = new OrdersService()
 
     const onSubmit = async () => {
+        setLoading(true)
         const data = {
             language: lang,
-            order:{
+            order: {
                 customer: {
                     name: formData.name,
                     phone: formData.phone
                 },
                 deliveryMethod: delivery ? 'delivery' : 'pickup',
                 items: finalCart.map((product) => {
-                    return {product: product._id, quantity: product.cartCount}
-                })
+                    return { product: product._id, quantity: product.cartCount }
+                }),
+                paymentMethod: byCard ? 'byCard' : "byCash",
+                comment: formData.comment
             }
         }
         try {
-            
+            const response = await ordersService.createOrder(token, data)
+            const url = response.data.epoint.redirect_url
+            window.location.href = url
         } catch (error) {
-            
+            setError(true)
+        } finally {
+            setLoading(false)
         }
     }
 
     const handleInputChange = (name, value) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     }
+
+
+    useEffect(() => {
+        if (JSON.stringify(user) !== '{}') {
+            setAddresses(user.addresses)
+            setFormData({ name: user.name, phone: user.phone, comment: "" })
+        }
+    }, [user])
+
+    useEffect(() => {
+        if (addresses.length) {
+            const mainAddress = addresses.find((address) => address.isMain === true) || addresses[0]
+            setSelectedAddress(mainAddress)
+        }
+    }, [addresses])
+
     return (
         <div className={styles.orderLeft}>
+            <Loading status={loading} />
+            <Error status={error} setStatus={setError} />
+
             <div className="orderInfo_component">
                 <h2 className='f32 fw700'>{content ? content.personalInfoHeading : ''}</h2>
                 <InputText
@@ -130,7 +150,7 @@ export default function OrderLeft({content}) {
                                 addresses.length
                                     ?
                                     addresses.map((address, index) => (
-                                        <UserAddress address={address} radio={true} key={index} setAddresses={setAddresses} />
+                                        <UserAddress address={address} selectedAddress={selectedAddress} setSelectedAddress={setSelectedAddress} radio={true} key={index} setAddresses={setAddresses} />
                                     ))
                                     :
                                     <></>
@@ -182,7 +202,7 @@ export default function OrderLeft({content}) {
                             }
                         </span>
                         <span className='f20 fw400'>
-                        {content ? content.byCash : ''}
+                            {content ? content.byCash : ''}
                         </span>
                     </div>
 
@@ -202,7 +222,7 @@ export default function OrderLeft({content}) {
                     </div>
 
                 </div>
-                
+
             </div>
             <AuthButton text={content ? content.submitBtn : ''} onClick={onSubmit} />
             <p className="mt20 f20 fw400 darkGrey_color">{content ? content.hint : ''}</p>

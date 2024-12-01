@@ -5,6 +5,7 @@ import styles from './addAddress.module.css'
 import InputText from '../../form/inputField/InputText';
 import UserService from '../../../services/user.service';
 import Loading from '../../../components/loading/Loading'
+import Error from '../../error/Error';
 const { profile } = pageText
 
 export default function AddAddress({ setAddresses, setAdd }) {
@@ -18,6 +19,7 @@ export default function AddAddress({ setAddresses, setAdd }) {
         apartment: "",
     })
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
 
     const userService = new UserService()
 
@@ -39,7 +41,7 @@ export default function AddAddress({ setAddresses, setAdd }) {
             setAdd(false)
 
         } catch (error) {
-
+            setError(true)
         } finally {
             setLoading(false)
         }
@@ -63,6 +65,8 @@ export default function AddAddress({ setAddresses, setAdd }) {
     return (
         <div className={styles.add}>
             <Loading status={loading} />
+            <Error status={error} setStatus={setError} />
+
             <h2 className={styles.heading + " f28 fw600 darkGrey_color"}>{lang ? profile[lang].addresses.newAddress : ''}</h2>
 
             <form action="">

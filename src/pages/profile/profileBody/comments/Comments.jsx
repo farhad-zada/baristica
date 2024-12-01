@@ -5,6 +5,7 @@ import Comment from './Comment';
 import UserService from '../../../../services/user.service';
 import Loading from '../../../../components/loading/Loading';
 import Pagination from '../../../../components/pagination/Pagination';
+import Error from '../../../../components/error/Error';
 
 const { profile } = PagesText;
 
@@ -13,6 +14,8 @@ const Comments = () => {
 
   const [comments, setComments] = useState([])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
+
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 20;
 
@@ -28,7 +31,7 @@ const Comments = () => {
       const response = await userService.getComments(token)
       setComments(response.data.comments)
     } catch (error) {
-
+      setError(true)
     } finally {
       setLoading(false)
     }
@@ -43,6 +46,8 @@ const Comments = () => {
   return (
     <div className='comments'>
       <Loading status={loading} />
+      <Error status={error} setStatus={setError} />
+
       <h1>{profile[lang]?.comments?.title}:</h1>
       <div className='all_comments'>
         {comments.map((comment) => (

@@ -6,6 +6,7 @@ import HomeProductsList from '../../../components/productsSlider/HomeProductsLis
 import ProductsSection from '../../../components/productsSection/ProductsSection';
 import ProductsService from '../../../services/products.service';
 import Loading from '../../../components/loading/Loading';
+import Error from '../../../components/error/Error';
 const { productsSection } = pagesText
 
 export default function HomeProducts() {
@@ -21,6 +22,8 @@ export default function HomeProducts() {
     const [popularAccesories, setPopularAccesories] = useState([])
 
     const [loading, setLoading] = useState(false)
+    const [error,setError] = useState(false)
+
     const sectionsContent = useMemo(() => [
         {
             heading: lang ? productsSection[lang].coffeeHeading : '',
@@ -74,7 +77,7 @@ export default function HomeProducts() {
             setNewMachines(newMachines.data)
             setPopularMachines(popularMachines.data)
         } catch (error) {
-            console.error('Error fetching products:', error);
+            setError(true)
         } finally {
             setLoading(false)
         }
@@ -89,6 +92,7 @@ export default function HomeProducts() {
     return (
         <>
             <Loading status={loading} />
+            <Error status={error} setStatus={setError} />
             {sectionsContent.map((section, key) => (
                 <ProductsSection
                     key={key}

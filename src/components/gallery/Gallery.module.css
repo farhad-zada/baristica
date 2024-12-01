@@ -5,7 +5,6 @@
     max-width: 600px;
     margin: auto;
   }
-  
   .mainSlider {
     width: 100%;
     height: 300px;
@@ -13,15 +12,22 @@
     justify-content: center;
     align-items: center;
   }
+  .slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%; /* Растягиваем до размеров контейнера */
+  }
   
   .mainImage {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain; /* Отображение полного изображения */
   }
   
   .thumbnailSlider {
-    margin-top: 10px;
+    margin-top: 40px;
     width: 100%;
   }
   
@@ -30,6 +36,15 @@
     opacity: 0.5;
     transition: opacity 0.3s;
   }
+
+  .thumbnailSlide.active {
+    border: 2px solid #333; /* Цвет рамки */
+    opacity: 1; /* Полная непрозрачность */
+   /* Увеличение */
+     /* Плавный переход */
+    border-radius: 5px;
+
+  }
   
   .thumbnailSlide:hover {
     opacity: 1;
@@ -37,7 +52,7 @@
   
   .thumbnailImage {
     width: 100%;
-    height: auto;
+    height: 110px;
     object-fit: cover;
     border: 1px solid #ddd;
     border-radius: 5px;

@@ -10,12 +10,14 @@ import { useLocalStorage } from '../../hooks/useLocalStorage';
 import AuthService from '../../services/auth.service';
 import { setToken, setUser } from '../../redux/slice';
 import Loading from '../../components/loading/Loading';
+import Error from '../../components/error/Error';
 
 const { login } = PageText
 
 export default function Login() {
     const [formData, setFormData] = useState({ email: "", password: "" });
     const [loading, setLoading] = useState(false)
+    const [error,setError] = useState(false)
     const { lang } = useSelector((state) => state.baristica);
 
     const { setItemToStorage } = useLocalStorage('baristicaToken')
@@ -50,6 +52,7 @@ export default function Login() {
     return (
         <div className={styles.login + ' flex j-center'}>
             <Loading status={loading} />
+            <Error status={error} setStatus={setError} />
 
             <div className="container">
                 <AuthorizationHeading

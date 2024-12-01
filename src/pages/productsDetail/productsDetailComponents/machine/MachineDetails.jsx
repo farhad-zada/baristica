@@ -22,7 +22,10 @@ export default function MachineDetails({ product }) {
     };
     return (
         <div>
+            {product?.colors ? 
             <ColorPicker options={colors} onColorSelect={handleColorSelect} text={lang ? productCard[lang].color : ''} />
+        :
+        <></>}
             <h2 className="f16 fw700 mt20 darkGrey_color">
                 {lang ? productCard[lang].groups : ''}
             </h2>
@@ -37,7 +40,7 @@ export default function MachineDetails({ product }) {
             </div>
             
             <div className="flex j-between a-center mt20">
-                <span className='f32 fw400'>{product?.price ? product.price : 20} ₼</span>
+                <span className='f32 fw400'>{product?.price ? product.price/100 : 20} ₼</span>
                 <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
                     {Bag}
                     <span onClick={(e) => e.stopPropagation()}>{lang ? productCard[lang].machineBuy : ''}</span>

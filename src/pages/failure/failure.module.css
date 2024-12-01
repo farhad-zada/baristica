@@ -1,0 +1,17 @@
+.failure{
+    padding: 80px 0;
+}
+.failure p{
+    margin: 30px 0;
+}
+.button{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 20px 0;
+    width: 200px;
+    text-align: center;
+    background-color: #61C4BF;
+    border-radius: 40px;
+}

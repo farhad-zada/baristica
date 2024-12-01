@@ -29,8 +29,8 @@ const baristicaSlice = createSlice({
     setProfileActiveTab: (state, action) => {
       state.profileActiveTab = action.payload
     },
-    setCart:(state,action) =>{
-        state.cart=action.payload
+    setCart: (state, action) => {
+      state.cart = action.payload
     },
     addProductToCart: (state, action) => {
       const product = action.payload;
@@ -41,6 +41,14 @@ const baristicaSlice = createSlice({
       } else {
         state.cart.push(product);
       }
+
+      state.finalCart = state.finalCart.map((el) => {
+        if (el._id === product._id) {
+          return { ...el, cartCount: el.cartCount + product.cartCount }
+        } else {
+          return el
+        }
+      })
     },
     deleteFromCart: (state, action) => {
       const id = action.payload
@@ -87,7 +95,7 @@ const baristicaSlice = createSlice({
         state.finalCart = state.finalCart.filter((el) => el._id !== product._id)
       }
     },
-    setFinalCartArr: (state,action) => {
+    setFinalCartArr: (state, action) => {
       state.finalCart = action.payload
     }
   },

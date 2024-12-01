@@ -9,16 +9,19 @@ import { Link } from 'react-router-dom'
 import CommentsService from '../../../../services/comments.service'
 import Loading from '../../../../components/loading/Loading'
 import ProductsService from '../../../../services/products.service'
+import Error from '../../../../components/error/Error'
 
 const { productDetail } = PageText
 
-export default function ReviewsHead({ getComments,product }) {
+export default function ReviewsHead({ getComments, product }) {
     const { lang, token } = useSelector((state) => state.baristica);
     const [selectedRating, setSelectedRating] = useState(0);
     const [commentText, setCommentText] = useState('')
     const [uploadedPhotos, setUploadedPhotos] = useState([]);
     const [loading, setLoading] = useState(false)
-    const [submitted,setSubmitted] = useState(false)
+    const [error, setError] = useState(false)
+
+    const [submitted, setSubmitted] = useState(false)
 
     const commentsService = new CommentsService()
     const productsService = new ProductsService()
@@ -30,7 +33,7 @@ export default function ReviewsHead({ getComments,product }) {
     const handleRatingChange = (rating) => {
         setSelectedRating(rating);
     };
-    
+
     const addRating = async () => {
         const formData = {
             rating: selectedRating
@@ -44,7 +47,7 @@ export default function ReviewsHead({ getComments,product }) {
             setSubmitted(true)
             await getComments()
         } catch (error) {
-
+            setError(true)
         } finally {
             setLoading(false)
         }
@@ -66,7 +69,7 @@ export default function ReviewsHead({ getComments,product }) {
             await addRating()
 
         } catch (error) {
-
+            setError(true)
         } finally {
             setLoading(false)
         }
@@ -89,6 +92,8 @@ export default function ReviewsHead({ getComments,product }) {
     return (
         <div className={styles.reviewsHead}>
             <Loading status={loading} />
+            <Error status={error} setStatus={setError} />
+
             <h2 className="f28 darkGrey_color fw500">{lang ? productDetail[lang].reviews.headerHeading : ''} </h2>
 
             {

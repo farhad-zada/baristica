@@ -12,6 +12,7 @@ import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import Loading from "../../loading/Loading";
 import { useRefClickOutside } from "../../../hooks/useRefClickOutside";
 import { calculateTotalPrice } from "../../../utils/price.util";
+import Error from "../../error/Error";
 
 const { header } = PagesText;
 const { subHeader } = header;
@@ -22,6 +23,8 @@ export default function SubHeader() {
   const [isSearchActive, setIsSearchActive] = useState(false); // State for toggling search input
   const [searchInput, setSearchInput] = useState("");
   const [loading, setLoading] = useState(false)
+  const [error,setError] = useState(false)
+
   const searchRef = useRef(null); // Ref for click outside handling
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -52,7 +55,7 @@ export default function SubHeader() {
       removeItemFromStorage()
       navigate('/')
     } catch (error) {
-
+      setError(true)
     } finally {
       setLoading(false)
     }
@@ -75,6 +78,8 @@ export default function SubHeader() {
   return (
     <div className={style.subHeader + " flex j-center"}>
       <Loading status={loading} />
+      <Error status={error} setStatus={setError} />
+
       <div className="container flex">
         <div className={`${style.subHeader_section} flex a-center j-end w-100`}>
           <div className={`${style.subHeader_buttons} flex a-center j-end`} ref={searchRef}>

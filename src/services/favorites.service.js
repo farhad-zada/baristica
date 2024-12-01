@@ -10,12 +10,13 @@ class FavoritesService {
         return await httpRequest.postOne(`${this.#requestUrl}`, id)
     }
     
-    getFavorites = async (token, type) => {
+    getFavorites = async (token) => {
         httpRequest.headers = {
             Authorization: "Bearer " + token,
         };
-        return await httpRequest.getAll(`${this.#requestUrl}?ptp=${type}`)
+        return await httpRequest.getAll(`${this.#requestUrl}`)
     }
+    
     getFavoritesByType = async (token,type, key) => {
         httpRequest.headers = {
             Authorization: "Bearer " + token,

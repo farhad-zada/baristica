@@ -1,13 +1,41 @@
-.product{
+.product {
     padding: 2px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #F2F2F2;
     margin-bottom: 10px;
+    gap: 10px; /* Добавить немного пространства между блоками */
 }
-.productImg img{
-    /* width: 100%; */
+
+.productImg img {
     max-height: 141px;
     object-fit: contain;
+}
+
+/* Контейнер для текста */
+.textContent {
+    flex: 1; /* Дает текстовому блоку гибкость */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Расстояние между строками */
+}
+
+/* Блок для количества и цены */
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Выравнивание текста и кнопок справа */
+}
+
+.right span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px; /* Расстояние между текстом и иконкой */
+}
+
+.f24 {
+    font-size: 24px;
+    line-height: 1; /* Убирает лишние отступы */
+    white-space: nowrap; /* Предотвращает перенос текста */
 }

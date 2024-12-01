@@ -4,9 +4,11 @@ import { Camera } from "../../icons"; // Предполагается, что в
 import Loading from "../loading/Loading";
 import MediaService from "../../services/media.service";
 import { useSelector } from "react-redux";
+import Error from "../error/Error";
 
 const PhotoUploader = ({ photos, setPhotos ,onPhotosUpdate, text }) => {
   const [loading, setLoading] = useState(false)
+  const [error,setError] = useState(false)
   const {token} = useSelector(state => state.baristica)
 
   const mediaService = new MediaService()
@@ -32,7 +34,7 @@ const PhotoUploader = ({ photos, setPhotos ,onPhotosUpdate, text }) => {
         onPhotosUpdate(updatedPhotos);
       }
     } catch (error) {
-      console.error("Ошибка загрузки изображения:", error);
+        setError(true)
     } finally {
       setLoading(false)
     }
@@ -50,6 +52,8 @@ const PhotoUploader = ({ photos, setPhotos ,onPhotosUpdate, text }) => {
   return (
     <div className={styles.photoUploader}>
       <Loading status={loading} />
+      <Error status={error} setStatus={setError} />
+
       <label className={styles.uploadButton}>
         <input
           type="file"

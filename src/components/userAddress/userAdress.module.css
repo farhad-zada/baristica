@@ -27,3 +27,19 @@
 .active svg path {
     fill: #61C4BF;
 }
+.circle{
+    width: 12px;
+    height: 12px;
+    border: 1px solid #54565A;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blueCircle{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #54565A;
+}
