@@ -53,7 +53,7 @@ const HomeContact = () => {
                 </Link>
               </div>
             </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.0977763900546!2d49.837974122320546!3d40.36900629107385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307dc35d7a0fa5%3A0x91aed66ca1d34cec!2sBARISTICA%20Specialty%20coffee%20and%20Pastry!5e0!3m2!1saz!2spl!4v1729351142969!5m2!1saz!2spl" width="610" height="400" style={{border: "none"}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3039.7549779254905!2d49.83282!3d40.36995700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDIyJzExLjkiTiA0OcKwNDknNTguMiJF!5e0!3m2!1sen!2spl!4v1733025964535!5m2!1sen!2spl" width="610" height="400" style={{border:'0'}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
