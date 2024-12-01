@@ -10,6 +10,7 @@ import AuthService from '../../services/auth.service';
 import { setToken, setUser } from '../../redux/slice';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import Loading from '../../components/loading/Loading';
+import Error from '../../components/error/Error';
 
 const { register } = PageText;
 
@@ -23,6 +24,8 @@ export default function Register() {
     });
     const [errorMessage, setErrorMessage] = useState(""); // Для вывода ошибки
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
+
     const { lang } = useSelector((state) => state.baristica);
 
     const { setItemToStorage } = useLocalStorage('baristicaToken')
@@ -62,7 +65,7 @@ export default function Register() {
                 navigate('/')
             }
         } catch (error) {
-
+            setError(true)
         } finally {
             setLoading(false)
         }
@@ -72,6 +75,8 @@ export default function Register() {
     return (
         <div className={styles.register + ' flex j-center'}>
             <Loading status={loading} />
+            <Error status={error} setStatus={setError} />
+
             <div className="container">
                 <AuthorizationHeading
                     heading={lang ? register[lang].heading : ''}

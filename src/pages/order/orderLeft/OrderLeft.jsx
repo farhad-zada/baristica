@@ -8,6 +8,7 @@ import AddAddress from '../../../components/userAddress/add/AddAddress'
 import AuthButton from '../../../components/form/button/AuthButton'
 import OrdersService from '../../../services/orders.service'
 import Loading from '../../../components/loading/Loading'
+import Error from '../../../components/error/Error'
 const { order, profile } = PageText
 
 export default function OrderLeft({ content }) {
@@ -17,6 +18,7 @@ export default function OrderLeft({ content }) {
         comment: ""
     })
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
     const [delivery, setDelivery] = useState(false)
     const [byCard, setByCard] = useState(true)
     const [selectedAddress, setSelectedAddress] = useState({})
@@ -54,8 +56,8 @@ export default function OrderLeft({ content }) {
             const url = response.data.epoint.redirect_url
             window.location.href = url
         } catch (error) {
-
-        } finally{
+            setError(true)
+        } finally {
             setLoading(false)
         }
     }
@@ -68,7 +70,7 @@ export default function OrderLeft({ content }) {
     useEffect(() => {
         if (JSON.stringify(user) !== '{}') {
             setAddresses(user.addresses)
-            setFormData({name: user.name, phone: user.phone, comment: ""})
+            setFormData({ name: user.name, phone: user.phone, comment: "" })
         }
     }, [user])
 
@@ -82,6 +84,8 @@ export default function OrderLeft({ content }) {
     return (
         <div className={styles.orderLeft}>
             <Loading status={loading} />
+            <Error status={error} setStatus={setError} />
+
             <div className="orderInfo_component">
                 <h2 className='f32 fw700'>{content ? content.personalInfoHeading : ''}</h2>
                 <InputText

@@ -5,6 +5,7 @@ import styles from './editAddress.module.css'
 import InputText from '../../form/inputField/InputText';
 import Loading from '../../loading/Loading';
 import UserService from '../../../services/user.service';
+import Error from '../../error/Error';
 const { profile } = pageText
 
 export default function EditAddress({ address, setAddresses, setEdit }) {
@@ -12,6 +13,7 @@ export default function EditAddress({ address, setAddresses, setEdit }) {
 
     const [formData, setFormData] = useState({})
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
 
     const userService = new UserService()
 
@@ -36,7 +38,7 @@ export default function EditAddress({ address, setAddresses, setEdit }) {
             setEdit(false)
 
         } catch (error) {
-
+            setError(true)
         } finally {
             setLoading(false)
         }
@@ -66,6 +68,8 @@ export default function EditAddress({ address, setAddresses, setEdit }) {
     return (
         <div className={styles.edit}>
             <Loading status={loading} />
+            <Error status={error} setStatus={setError} />
+
             <h2 className={styles.heading + " f28 fw600 darkGrey_color"}>{lang ? profile[lang].addresses.changeAddress : ''}</h2>
 
             <form action="">

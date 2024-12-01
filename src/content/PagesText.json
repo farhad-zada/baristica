@@ -2191,5 +2191,19 @@
         "en": {
             "noProducts": "There are no products"
         }
+    },
+    "error":{
+        "az": {
+            "heading": "XƏTA BAŞ VERDİ!",
+            "text":"Sorğunuz yerinə yetirilmədi. Zəhmət olmasa, yenidən cəhd edin."
+        },
+        "ru": {
+            "heading": "ОШИБКА!",
+            "text":"Нам не удалось выполнить ваш запрос. Попробуйте еще раз."
+        },
+        "en": {
+            "heading": "ERROR!",
+            "text":"Your request was not executed. Please try again."
+        }
     }
 }

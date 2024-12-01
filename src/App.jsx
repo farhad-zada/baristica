@@ -11,9 +11,12 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 import useScrollToTop from './hooks/useScrollToTop';
 import UserService from './services/user.service';
 import Loading from './components/loading/Loading';
+import Error from './components/error/Error';
 
 const App = () => {
   const [loading, setLoading] = useState(false)
+  const [error,setError] = useState(false)
+
   const { cart, finalCart } = useSelector(state => state.baristica)
   const dispatch = useDispatch()
   const { setItemToStorage, getItemFromStorage } = useLocalStorage('lang');
@@ -28,7 +31,7 @@ const App = () => {
       const response = await userService.getUser(token)
       dispatch(setUser(response.data))
     } catch (error) {
-      console.log(error)
+      setError(true)
     }
     finally {
       setLoading(false)
@@ -86,6 +89,7 @@ const App = () => {
   return (
     <div>
       <Loading status={loading} />
+      <Error status={error} setStatus={setError} />
       <HeadBanner />
       <SubHeader />
       <Header />

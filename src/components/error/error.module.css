@@ -1,0 +1,14 @@
+.closeBtn{
+    color: #fff;
+    font-size: 28px;
+    padding: 5px 40px;
+    background: #E83F3F;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.errorPopup{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

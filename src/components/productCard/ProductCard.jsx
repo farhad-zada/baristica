@@ -14,6 +14,7 @@ import { addProductToCart } from "../../redux/slice"
 import FavoritesService from "../../services/favorites.service"
 import Loading from "../loading/Loading"
 import ProductsService from "../../services/products.service"
+import Error from "../error/Error"
 const { productCard } = pageText
 const ProductCard = (props) => {
     const { product, width = 'auto' } = props
@@ -23,6 +24,7 @@ const ProductCard = (props) => {
     const [activeProduct, setActiveProduct] = useState({})
     const [productAdded, setProductAdded] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
     const [linked, setLinked] = useState()
 
     const [weightOptions, setWeightOptions] = useState([])
@@ -76,7 +78,7 @@ const ProductCard = (props) => {
             const response = await productsService.getOneProduct(token, id)
             setActiveProduct(response?.data || {})
         } catch (error) {
-
+            setError(true)
         } finally {
             setLoading(false)
         }
@@ -85,9 +87,9 @@ const ProductCard = (props) => {
     const openWhatsApp = () => {
         const whatsappUrl = 'https://wa.me/+994514333003';
         window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      };
+    };
 
-    
+
     const setSelectContent = (type) => {
         if (type === 'Coffee') {
             return (
@@ -137,11 +139,13 @@ const ProductCard = (props) => {
         return () => {
             setActiveProduct({})
         }
-    },[])
+    }, [])
 
     return (
         <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${activeProduct?._id}`) }}>
             <Loading status={loading} />
+            <Error status={error} setStatus={setError} />
+
             <ProductAddedModal product={activeProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />
             <div className={style.productCard_head + " flex j-between"}>
                 <div className="productCard-head_left flex g8">
@@ -188,8 +192,8 @@ const ProductCard = (props) => {
                         ?
                         <div className={style.productCard_characteristics + " flex j-between"}>
                             <Characteristic content={{ text: lang ? productCard[lang].density : '', progress: activeProduct?.viscocity * 20 }} />
-                            <Characteristic content={{ text: lang ? productCard[lang].acidity : '', progress: activeProduct?.acidity *20 }} />
-                            <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: activeProduct?.sweetness *20 }} />
+                            <Characteristic content={{ text: lang ? productCard[lang].acidity : '', progress: activeProduct?.acidity * 20 }} />
+                            <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: activeProduct?.sweetness * 20 }} />
                         </div>
                         :
                         <></>
@@ -203,10 +207,11 @@ const ProductCard = (props) => {
                     <span>{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
                     <button
                         onClick={(e) => {
-                            if(!product?.productType === 'Machine'){
-                            addToCart();
 
+                            if (activeProduct?.productType !== 'Machine') {
+                                addToCart();
                             }
+
                             e.stopPropagation()
                         }}
                         className={style.addToCart + " flex g8 a-center border8 f20 fw400 white"}

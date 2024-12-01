@@ -7,8 +7,9 @@ import { useSelector } from 'react-redux';
 
 import PageText from '../../../../content/PagesText.json'
 import Loading from '../../../../components/loading/Loading';
+import Error from '../../../../components/error/Error';
 
-const { profile,register } = PageText
+const { profile, register } = PageText
 
 export default function PersonalData() {
     const [formData, setFormData] = useState({
@@ -20,7 +21,9 @@ export default function PersonalData() {
         repeatPassword: ""
     });
     const [errorMessage, setErrorMessage] = useState(""); // Для вывода ошибки
-    const [loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
+
 
     const { lang, user, token } = useSelector((state) => state.baristica);
     const authService = new AuthService()
@@ -56,12 +59,12 @@ export default function PersonalData() {
         setLoading(true)
         try {
             const response = await authService.updatePassword(token, data)
-            handleInputChange('oldPassword','')
-            handleInputChange('newPassword','')
-            handleInputChange('repeatPassword','')
+            handleInputChange('oldPassword', '')
+            handleInputChange('newPassword', '')
+            handleInputChange('repeatPassword', '')
         } catch (error) {
-
-        } finally{
+            setError(true)
+        } finally {
             setLoading(false)
         }
     }
@@ -74,6 +77,8 @@ export default function PersonalData() {
     return (
         <div className={styles.personalData}>
             <Loading status={loading} />
+            <Error status={error} setStatus={setError} />
+
             <form className={styles.form}>
                 <div className="flex j-between g26">
                     <div className="left">
