@@ -64,19 +64,22 @@ const Orders = () => {
               <div key={`${elem?.id}_${i}`}>
                 <div
                   id={`${elem?.id}_${i}`}
-                  className={`${style.order} flex a-center j-around border8`}
+                  className={`${style.order} flex a-center j-between border8`}
                 >
-                  <p className={`${style.id} f20 fw400`}>№{elem?.id}</p>
-                  <p className='f16 fw400'>{elem?.date}</p>
-                  <p className='f16 fw400'>{elem?.location}</p>
-                  <p className='f24 fw400'>{elem?.price}</p>
-                  <button
-                    className={`${style.button} ${visibleCoffees[elem?.id] ? `${style.active} f24 border8` : "f24 border8"}`}
-                    onClick={() => toggleCoffees(elem?.id)} // Toggle coffees on button click
-                  >
-                    {
-                      profile[lang]?.orders?.button}
-                  </button>
+                  <div className={`${style.order_row} flex a-center j-between w-100`}>
+                    <p className={`${style.id} f20 fw400 a-center j-center flex ${style.center}`}>№{elem?.id}</p>
+                    <p className={`f16 fw400 a-center j-center flex ${style.center}`}>{elem?.date}</p>
+                    <p className={`f16 fw400 a-center j-center flex ${style.center}`}>{elem?.location}</p>
+                    <p className={`f24 fw400 a-center j-center flex ${style.center} ${style.price}`}>{elem?.price}</p>
+                    <button
+                      className={`${style.button} ${style.mobile_button} ${visibleCoffees[elem?.id] ? `${style.active} f24 border8` : "f24 border8"}`}
+                      onClick={() => toggleCoffees(elem?.id)} // Toggle coffees on button click
+                    >
+                      {
+                        profile[lang]?.orders?.button}
+                    </button>
+                  </div>
+                  <p className={`f24 fw400 ${style.mobile_price}`}>{elem?.price}</p>
                 </div>
                 <div
                   className={`${style.coffees} ${visibleCoffees[elem?.id] ? style.visible : ""
@@ -86,10 +89,11 @@ const Orders = () => {
                     <div
                       key={coffee?.id}
                       id={coffee?.id}
-                      className={`${style.coffee} border8 flex a-center`}
+                      className={`${style.coffee} border8 flex a-center j-between`}
                     >
+                      <p className={`${style.mobile_index} f20 darkGrey_color`}>№ {coffeeIndex + 1}</p>
                       <div className={`${style.info} flex a-center`}>
-                        <p className='f20 darkGrey_color'>{coffeeIndex + 1}</p>
+                        <p className={`${style.index} f20 darkGrey_color`}>№ {coffeeIndex + 1}</p>
                         <div className={style.img}>
                           <img src={coffee?.img} alt="" />
                         </div>
@@ -103,12 +107,15 @@ const Orders = () => {
                           </p>
                         </div>
                       </div>
-                      <p
-                        className={`${style.amount} flex a-center j-center darkGrey_color`}
-                      >
-                        {coffee?.amount}
-                        {profile[lang]?.orders?.amount_string}
-                      </p>
+                      <div className={`${style.coffee_bottom} flex a-center j-between`}>
+                        <p
+                          className={`${style.amount} flex a-center j-center darkGrey_color`}
+                        >
+                          {coffee?.amount}
+                          {profile[lang]?.orders?.amount_string}
+                        </p>
+                        <p className={`f24 fw400 ${style.mobile_price}`}>{elem?.price}</p>
+                      </div>
                       <h4
                         className={`${style.price} flex a-center j-center darkGrey_color f24 fw400`}
                       >

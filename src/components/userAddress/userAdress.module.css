@@ -43,3 +43,16 @@
     border-radius: 50%;
     background-color: #54565A;
 }
+
+@media (max-width: 768px){
+    .address{
+        display: flex;
+    }
+    .address_row{
+        flex-direction: column;
+    }
+    .address_row span{
+        text-align: center;
+        font-size: 16px !important;
+    }
+}

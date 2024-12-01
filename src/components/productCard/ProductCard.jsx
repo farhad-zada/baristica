@@ -204,7 +204,7 @@ const ProductCard = (props) => {
                 }
 
                 <div className="productCard_foot flex j-between a-center">
-                    <span>{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
+                    <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
                     <button
                         onClick={(e) => {
 

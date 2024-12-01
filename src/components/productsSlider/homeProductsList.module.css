@@ -1,7 +1,6 @@
 .productListContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* 3 карточки в ряд по умолчанию */
   gap: 100px;
   margin: 50px 0;
 }
@@ -16,6 +15,7 @@
   .productListContainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -27,3 +27,8 @@
   }
 }
 
+@media screen and (max-width: 375px) {
+  .productListContainer {
+    padding: 0;
+  }
+}

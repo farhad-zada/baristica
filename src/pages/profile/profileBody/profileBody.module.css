@@ -13,6 +13,7 @@
     .tab_content{
         display: flex;
         flex-direction: column;
+        padding-left: 15px;
     }
 }
 @media (max-width: 480px){

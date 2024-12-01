@@ -1,22 +1,27 @@
 .tabs{
     border-bottom: 1px solid #D9D8D6;
 }
+
 .orders h1{
     margin-top: 36px;
     color: #54565A;
     text-transform: uppercase;
 }
+
 .order{
     margin: 20px 0 0 0;
     padding: 16.5px 30px;
     background-color: #F2F2F2;
 }
+
 .order p{
     color: #54565A
 }
+
 .id{
     color: black !important;
 }
+
 .button{
     cursor: pointer;
     border: none;
@@ -24,9 +29,11 @@
     color: #54565A;
     padding: 4px 16px;
 }
+
 .button.active{
     background: #61C4BF;
 }
+
 .coffees{
     margin: 0 20px;
     max-height: 0; /* Start collapsed */
@@ -34,34 +41,108 @@
     transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
     opacity: 0; /* Start transparent */
 }
+
 .coffee{
     margin: 20px 0 0;
     padding: 20px;
     background-color: #F2F2F2;
 }
+
 .coffees.visible {
     max-height: 100vh; /* Set a large enough value to accommodate content */
     opacity: 1; /* Fully visible */
 }
+
 .img{
     width: 110px;
     height: 155px;
+    margin-right: 10px;
 }
+
 .img img{
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
+
 .info{
     width: 60%;
     padding-left: 20px;
 }
+
 .info_details p{
     padding: 6px 0 0;
 }
+
 .amount, .price{
     width: 20%;
 }
+
 .empty{
     height: 30vh;
+}
+
+.mobile_price, .mobile_index{
+    display: none;
+}
+
+.center{
+    text-align: center;
+}
+
+
+@media (max-width: 768px){
+    .order{
+        padding: 14px 10px;
+    }
+}
+
+@media (max-width: 650px){
+    .price{
+        display: none !important;
+    }
+    .mobile_price{
+        width: 20%;
+        display: block;
+    }
+    .mobile_button{
+        display: block;
+        margin-top: 20px;
+    }
+    .order_row{
+        gap: 5px;
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    .info{
+        width: 100%;
+        padding: 10px 0 10px 0;
+    }
+    .img{
+        width: 38px;
+        height: 60px;
+    }
+    .info .index{
+        display: none;
+    }
+    .info_details h5{
+        font-size: 16px !important;
+    }
+    .info_details p{
+        font-size: 12px !important;
+    }
+    .coffee{
+        padding: 20px 10px;
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    .coffee_bottom{
+        width: 100%;
+    }
+    .coffee_bottom .mobile_price, .amount{
+        width: auto !important;
+    }
+    .mobile_index{
+        display: block;
+    }
 }

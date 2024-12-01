@@ -42,7 +42,7 @@ export default function UserAddress({ address, selectedAddress, setSelectedAddre
             <Loading status={loading} />
             <Error status={error} setStatus={setError} />
 
-            <div className={styles.address}>
+            <div className={`${styles.address} flex a-center j-between`}>
                 {/* Индекс */}
                 {index && <span className={`${styles.index} f20 fw400`}>{index}.</span>}
                 {radio &&
@@ -57,20 +57,21 @@ export default function UserAddress({ address, selectedAddress, setSelectedAddre
                     </span>
                 }
                 {/* Город */}
-                <span className={`${styles.city} f20 fw400`}>
-                    {address?.city || "Baki"}
-                </span>
+                <div className={`${styles.address_row} flex a-center j-around w-100`}>
+                    <span className={`${styles.city} f20 fw400`}>
+                        {address?.city || "Baki"}
+                    </span>
 
-                {/* Улица */}
-                <span className={`${styles.street} f20 fw400`}>
-                    {address?.street || "Ул. Зарифа Алиева 12"}
-                </span>
+                    {/* Улица */}
+                    <span className={`${styles.street} f20 fw400`}>
+                        {address?.street || "Ул. Зарифа Алиева 12"}
+                    </span>
 
-                {/* Квартира */}
-                <span className={`${styles.home} f20 fw400`}>
-                    {address?.home || "кв. 14"}
-                </span>
-
+                    {/* Квартира */}
+                    <span className={`${styles.home} f20 fw400`}>
+                        {address?.home || "кв. 14"}
+                    </span>
+                </div>
                 {/* Действия */}
                 <div className={styles.actions}>
                     <span

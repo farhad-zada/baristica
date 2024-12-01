@@ -9,6 +9,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 ul {
     padding-left: 0 !important;
     margin: 0;

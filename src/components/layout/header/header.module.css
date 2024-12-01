@@ -90,21 +90,20 @@
     }
     .menu{
         transition: .3s ease-in-out;
-        position: absolute;
+        position: fixed;
         right: -100%;
         top: 0;
         height: 100%;
         max-width: 300px;
         width: 100%;
         z-index: 99999999;
-        display: none !important;
         flex-direction: column;
         align-items: flex-end !important;
         background-color: #54565A;
         padding: 25px 20px;
     }
     .menu.show_menu{
-        display: flex !important;
+        right: 0;
     }
     .menu_item a{
         color: white;
