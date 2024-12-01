@@ -82,6 +82,11 @@ const ProductCard = (props) => {
         }
     }
 
+    const openWhatsApp = () => {
+        const whatsappUrl = 'https://wa.me/+994514333003';
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      };
+
     
     const setSelectContent = (type) => {
         if (type === 'Coffee') {
@@ -198,7 +203,10 @@ const ProductCard = (props) => {
                     <span>{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
                     <button
                         onClick={(e) => {
+                            if(!product?.productType === 'Machine'){
                             addToCart();
+
+                            }
                             e.stopPropagation()
                         }}
                         className={style.addToCart + " flex g8 a-center border8 f20 fw400 white"}
@@ -207,7 +215,7 @@ const ProductCard = (props) => {
                         {
                             product.productType === 'Machine'
                                 ?
-                                <span >{lang ? productCard[lang].machineBuy : ''}</span>
+                                <span onClick={openWhatsApp}>{lang ? productCard[lang].machineBuy : ''}</span>
                                 :
                                 <span >{lang ? productCard[lang].buyBtn : ''}</span>
                         }

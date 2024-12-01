@@ -17,6 +17,7 @@ export default function Products() {
   const [heading, setHeading] = useState('')
   const [types, setTypes] = useState([])
   const [currentType, setCurrentType] = useState('')
+  const [productsCount,setProductsCount] = useState(0)
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
   const { pathname } = useLocation();
@@ -43,8 +44,9 @@ export default function Products() {
   const getProducts = async (type) => {
     setLoading(true)
     try {
-      const response = await productsService.getProducts(token, type)
+      const response = await productsService.getProducts(token, type, currentPage)
       const products = response.data
+      setProductsCount(response.count)
       setProducts(products)
     } catch (error) {
 
@@ -91,7 +93,7 @@ export default function Products() {
       <div className="container">
         <ProductsHead heading={heading} />
         <ProductTypes content={types?.length ? types : []} />
-        <FilterSection />
+        <FilterSection productsCount={productsCount} />
         <ProductsList products={products} />
         <Pagination
           currentPage={currentPage}

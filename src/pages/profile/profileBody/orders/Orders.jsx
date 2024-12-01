@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Tabs from '../../../../components/tabs/Tabs';
 import style from "./orders.module.css";
 import PagesText from '../../../../content/PagesText.json';
 import { useSelector } from 'react-redux';
 import Pagination from '../../../../components/pagination/Pagination';
+import OrdersService from '../../../../services/orders.service';
 
 const { profile } = PagesText;
 
 const Orders = () => {
-  const { lang } = useSelector((state) => state.baristica);
+  const { lang, token } = useSelector((state) => state.baristica);
   const [visibleCoffees, setVisibleCoffees] = useState({}); // Manage visibility of coffees by order ID
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5;
+
+  const ordersService = new OrdersService()
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -24,6 +27,19 @@ const Orders = () => {
     }));
   };
 
+  const getOrders = async () => {
+
+    try {
+      const response = await ordersService.getOrders(token)
+      
+    } catch (error) {
+      
+    }
+  }
+
+  useEffect(() => {
+    getOrders()
+  },[])
   return (
     <div className={style.orders}>
       <div className={style.tabs}>
