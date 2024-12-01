@@ -22,7 +22,7 @@ export default function HomeProducts() {
     const [popularAccesories, setPopularAccesories] = useState([])
 
     const [loading, setLoading] = useState(false)
-    const [error,setError] = useState(false)
+    const [error, setError] = useState(false)
 
     const sectionsContent = useMemo(() => [
         {
@@ -52,11 +52,11 @@ export default function HomeProducts() {
                 [productsSection[lang].coffeeOrAccesories[1].label]: <HomeProductsList products={popularAccesories} />
             }
         }
-    ],[lang, newCoffe, popularCoffee, newMachines, popularMachines, newAccesories, popularAccesories])
+    ], [lang, newCoffe, popularCoffee, newMachines, popularMachines, newAccesories, popularAccesories])
 
     const productsService = new ProductsService()
 
-    const setProducts = useCallback( async (token) => {
+    const setProducts = useCallback(async (token) => {
         setLoading(true)
         try {
             const [newCoffe, popularCoffee, newAccesory, popularAccesory, newMachines, popularMachines] = await Promise.all([
@@ -81,12 +81,10 @@ export default function HomeProducts() {
         } finally {
             setLoading(false)
         }
-    },[productsService])
+    }, [productsService])
 
     useEffect(() => {
-        if (token) {
-            setProducts(token)
-        }
+        setProducts(token)
     }, [token])
 
     return (
