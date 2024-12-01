@@ -13,9 +13,11 @@ class ProductsService {
         return await httpRequest.getAll(`${this.#requestUrl}?ptp=${type}&lt=9&pg=${page}`)
     }
     getProductsByType = async (token, type, key) => {
-        httpRequest.headers = {
-            Authorization: "Bearer " + token,
-        };
+        if(token){
+            httpRequest.headers = {
+                Authorization: "Bearer " + token,
+            };
+        }
         return await httpRequest.getAll(`${this.#requestUrl}?ptp=${type}&key=${key}`)
     }
 
