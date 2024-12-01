@@ -57,7 +57,7 @@
                 },
                 {
                     "title": "Tez-tez verilən suallar",
-                    "link": "/faq",
+                    "link": "#faq",
                     "list": []
                 }
             ],
@@ -92,7 +92,7 @@
                 },
                 {
                     "title": "Частые вопросы",
-                    "link": "/faq",
+                    "link": "#faq",
                     "list": []
                 }
             ],
@@ -127,7 +127,7 @@
                 },
                 {
                     "title": "FAQ",
-                    "link": "/faq",
+                    "link": "#faq",
                     "list": []
                 }
             ]
@@ -136,7 +136,7 @@
     "home": {
         "head": {
             "az": {
-                "title": "HƏR ŞEY QƏHVƏ ADINA!",
+                "title": "HƏR ŞEY QƏHVƏ NAMİNƏ!",
                 "links": [
                     {
                         "title": "Qəhvə",

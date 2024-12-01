@@ -57,7 +57,19 @@ export default function Header() {
                   >
                     {elem.title}
                     {Down}
-                  </NavLink> :
+                  </NavLink> 
+                  : elem.link === '#faq'
+                  ? 
+                  <HashLink
+                      smooth
+                      to={elem.link === "#faq" ? "/wholesale/#faq" : elem.link}
+                      className={({ isActive }) =>
+                        `darkGrey_color ${isActive ? style.active : ""}`
+                      }
+                    >
+                      {elem.title}
+                    </HashLink>
+                  :
                   <NavLink
                     to={elem.link}
                     className={'darkGrey_color'}
