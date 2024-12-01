@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Pagination.module.css";
 
-const Pagination = ({ currentPage, totalPages, onPageChange, justify = "justify-center" }) => {
+const Pagination = ({ currentPage, totalPages, onPageChange, justify = "justify-center", ptb50 = "ptb50" }) => {
   const getVisiblePages = () => {
     const visiblePages = [];
     if (totalPages <= 5) {
@@ -29,7 +29,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, justify = "justify-
   };
 
   return (
-    <div className={`${styles.pagination} ${styles[justify]}`}>
+    <div className={`${styles.pagination} ${styles[justify]} ${styles[ptb50]}`}>
       {getVisiblePages().map((page, index) => (
         <button
           key={index}

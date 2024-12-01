@@ -29,3 +29,26 @@
     height: 40px;
     margin-right: 10px;
 }
+@media (max-width: 960px){
+    .homeBanner_section h1{
+        font-size: 72px !important;
+    }
+}
+@media (max-width: 768px){
+    .menu{
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+}
+@media (max-width: 480px){
+    .homeBanner_section h1{
+        font-size: 48px !important;
+    }
+    .menu_elem{
+        padding: 8px 18px;
+    }
+    .menu_elem span{
+        font-size: 20px !important;
+    }
+}

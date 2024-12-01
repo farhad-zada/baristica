@@ -96,9 +96,7 @@ export default function PersonalData() {
                             onChange={handleInputChange}
                             placeholder={lang ? profile[lang].personalData.emailInput : ''}
                         />
-
                         <AuthButton text={lang ? profile[lang].personalData.submitBtn : ''} onClick={onSubmit} />
-
                     </div>
                     <div className="right">
                         <h2 className="f32 fw600 darkGrey_color">{lang ? profile[lang].personalData.passwordHeading : ''}</h2>

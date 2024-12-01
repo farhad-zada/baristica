@@ -36,3 +36,32 @@
 .homeContact_workTime{
     padding: 20px 0;
 }
+@media (max-width: 768px){
+    .homeContact_top{
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    .homeContact_getInTouch{
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    .homeContact_getInTouch iframe{
+        margin-top: 40px;
+        width: 100%;
+    }
+}
+@media (max-width: 480px){
+    .homeContact_top h1{
+        font-size: 36px !important;
+    }
+    .homeContact_socials{
+        margin-top: 30px;
+    }
+    .homeContact_description{
+        width: 100%;
+    }
+    .homeContact_subscribe{
+        padding: 50px 10px;
+        width: 100%;
+    }
+}

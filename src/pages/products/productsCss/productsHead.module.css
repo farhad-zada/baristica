@@ -1,5 +1,24 @@
+.head{
+    padding: 0 20px;
+}
 .right{
     padding: 6px 12px;
     border-radius: 14px;
     border: 1px solid #000000;
+}
+@media (max-width: 475px){
+    .right{
+        z-index: 2;
+        position: fixed;
+        top: 50%;
+        right: 10%;
+        border: 1px solid #61C4BF;
+        background-color: #61C4BF;
+    }
+    .right h2, .right h3{
+        color: white;
+    }
+    .right svg path{
+        fill: white;
+    }
 }

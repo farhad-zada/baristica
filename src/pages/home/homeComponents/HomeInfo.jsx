@@ -22,10 +22,10 @@ const HomeInfo = () => {
             </div>
           </div>
           <div className={`${style.homeInfo_right} w-100 flex column`}>
-            <div className='flex'>
+            <div className={`${style.homeInfo_img} flex`}>
               <img src={beansImg} alt="" className={`${style.img} w-100 h-100`}/>
             </div>
-            <div className='flex a-end j-end' style={{marginRight: "80px"}}>
+            <div className={`${style.homeInfo_img} flex a-end j-end`} style={{marginRight: "80px"}}>
               <img src={beansImg2} alt="" className={`${style.img} w-100 h-100`}/>
             </div>
           </div>

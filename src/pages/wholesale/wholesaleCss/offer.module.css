@@ -15,8 +15,9 @@
 .link{
     padding: 10px 56px;
 }
-@media (max-width: 768px){
-}
+/* @media (max-width: 768px){
+
+} */
 @media (max-width: 480px){
     .offer_item{
         flex-direction: column;

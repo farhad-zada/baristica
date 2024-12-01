@@ -9,6 +9,10 @@
     justify-content: center;
 }
 
+.ptb50{
+    padding: 50px 0;
+}
+
 .justify-end {
     justify-content: end;
 }

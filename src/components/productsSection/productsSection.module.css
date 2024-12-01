@@ -21,3 +21,24 @@
 .navigateTo:hover svg path{
     fill: #61C4BF;
 }
+@media (max-width: 960px){
+    .productsSection_heading h2{
+        font-size: 56px !important;
+    }
+}
+@media (max-width: 650px){
+    .productsSection_heading h2{
+        font-size: 36px !important;
+        margin-bottom: 20px;
+        padding-bottom: 30px;
+    }
+    .navigateTo{
+        margin: 30px 0;
+        font-size: 28px !important;
+    }
+}
+@media (max-width: 480px){
+    .productsSection span{
+        font-size: 28px !important;
+    }
+}

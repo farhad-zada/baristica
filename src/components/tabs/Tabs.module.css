@@ -48,3 +48,8 @@
     gap: 20px;
     /* Adjust spacing between content cards */
 }
+@media (max-width: 480px){
+    .tabs{
+        margin-right: 0px;
+    }
+}

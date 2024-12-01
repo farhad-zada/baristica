@@ -23,3 +23,10 @@
     font-weight: 700;
     background: #F2F2F2;
 }
+
+@media (max-width: 480px){
+    .sidebar{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+}

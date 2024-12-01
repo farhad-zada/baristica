@@ -36,3 +36,16 @@ footer{
 .footer_bottom{
     padding-top: 25px;
 }
+@media (max-width: 768px){
+    .footer_top{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer_topLeft{
+        gap: 40px;
+        flex-direction: column;
+    }
+    .footer_topRight{
+        margin-top: 40px;
+    }
+}

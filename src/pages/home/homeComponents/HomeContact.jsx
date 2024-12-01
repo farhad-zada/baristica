@@ -16,7 +16,7 @@ const HomeContact = () => {
       <div className='container'>
         <div className={`${style.homeContact_section} flex a-center j-center`}>
           <div className={`${style.homeContact_subscribe} gray`}>
-            <div className="flex a-center j-between">
+            <div className={`${style.homeContact_top} flex a-center j-between`}>
               <h1 className='f48 fw700 black'>{body[lang].contact.subscribe.title}</h1>
               <div className={`${style.homeContact_socials} flex a-center`}>
                 <Link to="" className={`${style.homeContact_social} darkGray rounded`}>

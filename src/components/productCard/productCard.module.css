@@ -48,3 +48,15 @@
 .productCard_characteristics{
     margin-bottom: 20px;
 }
+@media (max-width: 960px){
+    .productCard{
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: calc(50% - 10px);
+    }
+}
+@media (max-width: 650px){
+    .productCard{
+        flex-basis:100% !important;
+    }
+}

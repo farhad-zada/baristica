@@ -10,3 +10,8 @@
 .advantage_body{
     padding-top: 20px;
 }
+@media (max-width: 768px){
+    .homeAdvantages_section{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

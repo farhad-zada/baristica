@@ -16,9 +16,7 @@ const ProductsSection = (props) => {
                 <div className={styles.productsSection_heading}>
                     <h2 className='f64 fw700 text-center text-upperCase'>{heading}</h2>
                 </div>
-
                 <Tabs tabs={tabs?.map((tab) => tab.label)} children={content} />
-
                 <Link to={navigateTo} className={styles.navigateTo + " flex j-center a-center g12"}>
                     <span className='f32 fw400 black' >{lang ? productsSection[lang].seeAll : ''}</span>
                     {RightArrow}

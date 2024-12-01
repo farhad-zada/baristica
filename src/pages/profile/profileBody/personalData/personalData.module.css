@@ -1,0 +1,16 @@
+@media (max-width: 960px){
+    .personalData .form div{
+        display: flex;
+        flex-direction: column;
+    }
+    .form h2{
+        font-size: 28px !important;
+    }
+    form input{
+        font-size: 20px !important;
+    }
+    form button{
+        font-size: 24px !important;
+    }
+}
+

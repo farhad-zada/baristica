@@ -10,7 +10,7 @@
     transition: .2s ease-in-out;
 }
 .menu_item a{
-    color: #54565A !important;
+    color: #54565A;
 }
 .menu_item:hover{
     color: #61C4BF;
@@ -65,4 +65,49 @@
 
 .menu_item:hover .dropdown {
   display: block;
+}
+
+.menu_btn{
+    display: none;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.close_menu{
+    display: none;
+    margin-bottom: 65px;
+}
+
+.show_menu{
+    transition: .3s ease-in-out;
+    right: 0 !important;
+    display: flex;
+}
+
+@media (max-width: 960px){
+    .menu_btn, .close_menu{
+        display: block;
+    }
+    .menu{
+        transition: .3s ease-in-out;
+        position: absolute;
+        right: -100%;
+        top: 0;
+        height: 100%;
+        max-width: 300px;
+        width: 100%;
+        z-index: 99999999;
+        display: none !important;
+        flex-direction: column;
+        align-items: flex-end !important;
+        background-color: #54565A;
+        padding: 25px 20px;
+    }
+    .menu.show_menu{
+        display: flex !important;
+    }
+    .menu_item a{
+        color: white;
+        font-size: 24px;
+    }
 }

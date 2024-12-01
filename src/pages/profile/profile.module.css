@@ -1,3 +1,8 @@
 .profile{
     padding: 40px 0;
 }
+@media (max-width: 768px){
+    .profile .f48{
+        font-size: 32px !important;
+    }
+}

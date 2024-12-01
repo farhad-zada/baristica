@@ -9,3 +9,18 @@
     min-height: 60%;
     /* height: 100%; */
 }
+@media (max-width: 960px){
+    .tab_content{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width: 480px){
+    .profileBody{
+        flex-direction: column;
+    }
+    .tab_content{
+        padding-left: 0;
+        border-left: none;
+    }
+}
