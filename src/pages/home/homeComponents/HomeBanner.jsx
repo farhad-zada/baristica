@@ -48,7 +48,6 @@ const HomeBanner = () => {
 
   return (
     <div className={style.homeBanner + ' flex j-center'} style={bannerStyle}>
-
       <div className={`${style.homeBanner_dark}`}></div>
       <div className='container h-100'>
         <div className={`${style.homeBanner_section} flex column a-start j-center`}>

@@ -88,6 +88,11 @@
   width: 250px;
   border-color: #000;
 }
+@media (max-width: 960px) {
+    .profile_links, .product_count{
+        display: none !important;
+    }
+}
 @media screen and (max-width: 768px) {
     .subHeader{
         display: none;
