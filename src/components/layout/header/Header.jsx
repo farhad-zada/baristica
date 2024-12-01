@@ -6,7 +6,7 @@ import { HashLink } from 'react-router-hash-link';
 import style from "./header.module.css";
 
 import PagesText from "../../../content/PagesText.json";
-import { Logo } from "../../../icons";
+import { Down, Logo } from "../../../icons";
 
 const { header } = PagesText;
 const { headerPageLinks } = header;
@@ -42,21 +42,18 @@ export default function Header() {
                     <HashLink
                       smooth
                       to={elem.link === "#contacts" ? "/#contacts" : elem.link}
-                      className={({ isActive }) =>
-                        `darkGrey_color ${isActive ? style.active : ""}`
-                      }
+                      className={`darkGrey_color`}
                     >
                       {elem.title}
                     </HashLink>
                   : elem.link === "/catalog" ? 
                   <NavLink
                     to=""
-                    className={({ isActive }) =>
-                      `darkGrey_color ${isActive ? style.active : ""}`
-                    }
+                    className={`darkGrey_color`}
                   >
                     {elem.title}
-                  </NavLink>
+                    {Down}
+                  </NavLink> 
                   : elem.link === '#faq'
                   ? 
                   <HashLink
@@ -72,7 +69,7 @@ export default function Header() {
                   <NavLink
                     to={elem.link}
                     className={({ isActive }) =>
-                      `darkGrey_color ${isActive ? style.active : ""}`
+                      `darkGrey_color`
                     }
                   >
                     {elem.title}
