@@ -10,6 +10,9 @@ import Profile from './profile/Profile'
 import Order from './order/Order'
 import Favorites from './favorites/Favorites'
 import Wholesale from './wholesale/Wholesale'
+import Success from './success/Success'
+import Failure from './failure/Failure'
+import NotFound from './notFound/NotFound'
 
 export const HomePage = () => {
     return (
@@ -68,5 +71,23 @@ export const FavoritesPage = () => {
 export const WholesalePage = () => {
     return(
         <Wholesale />
+    )
+}
+
+export const SuccessPage = () => {
+    return(
+        <Success />
+    )
+}
+
+export const FailurePage = () => {
+    return(
+        <Failure />
+    )
+}
+
+export const NotFoundPage = () => {
+    return(
+        <NotFound />
     )
 }

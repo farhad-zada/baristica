@@ -1594,7 +1594,7 @@
                     "text2": " və ya ",
                     "link2": "qeydiyyatdan keçin."
                 },
-                "saveBtn":"YADDA SAXLA"
+                "saveBtn": "YADDA SAXLA"
             }
         },
         "ru": {
@@ -1615,7 +1615,7 @@
                     "text2": " в кабинет или ",
                     "link2": "зарегистрируйтесь."
                 },
-                "saveBtn":"СОХРАНИТЬ"
+                "saveBtn": "СОХРАНИТЬ"
             }
         },
         "en": {
@@ -1636,7 +1636,7 @@
                     "text2": " to your cabinet or ",
                     "link2": "register."
                 },
-                "saveBtn":"SAVE"
+                "saveBtn": "SAVE"
             }
         }
     },
@@ -1781,7 +1781,7 @@
                 "newPasswordInput": "Təzə şifrə",
                 "repeatPasswordInput": "Şifrəni təkrarla",
                 "submitBtn": "Yadda saxla",
-                "changePassword":"Şifrəni dəyiş"
+                "changePassword": "Şifrəni dəyiş"
             },
             "cart": {
                 "cartHeading": "SƏBƏT:",
@@ -1891,7 +1891,7 @@
                 "newPasswordInput": "Новый пароль",
                 "repeatPasswordInput": "Повторите пароль",
                 "submitBtn": "Сохранить изменения",
-                "changePassword":"Изменить пароль"
+                "changePassword": "Изменить пароль"
             },
             "cart": {
                 "cartHeading": "КОРЗИНА:",
@@ -2009,7 +2009,7 @@
                 "newPasswordInput": "New password",
                 "repeatPasswordInput": "Repeat password",
                 "submitBtn": "Save changes",
-                "changePassword":"Change Password"
+                "changePassword": "Change Password"
             },
             "cart": {
                 "cartHeading": "CART:",
@@ -2192,18 +2192,66 @@
             "noProducts": "There are no products"
         }
     },
-    "error":{
+    "error": {
         "az": {
             "heading": "XƏTA BAŞ VERDİ!",
-            "text":"Sorğunuz yerinə yetirilmədi. Zəhmət olmasa, yenidən cəhd edin."
+            "text": "Sorğunuz yerinə yetirilmədi. Zəhmət olmasa, yenidən cəhd edin."
         },
         "ru": {
             "heading": "ОШИБКА!",
-            "text":"Нам не удалось выполнить ваш запрос. Попробуйте еще раз."
+            "text": "Нам не удалось выполнить ваш запрос. Попробуйте еще раз."
         },
         "en": {
             "heading": "ERROR!",
-            "text":"Your request was not executed. Please try again."
+            "text": "Your request was not executed. Please try again."
+        }
+    },
+    "success": {
+        "az": {
+            "heading": "ÖDƏNİŞ UĞURLA HƏYATA KEÇDİ",
+            "text": "Sizinlə ən qısa zamanda əlaqə saxlayacağıq!",
+            "button": "HAZIRDIR!"
+        },
+        "ru": {
+            "heading": "ОПЛАТА ПРОШЛА УСПЕШНО",
+            "text": "Мы обработаем ваш заказ и свяжемся с вами в ближайшее время!",
+            "button": "ОТЛИЧНО!"
+        },
+        "en": {
+            "heading": "PAYMENT SUCCESSFULLY PROCESSED",
+            "text": "We will process your order and contact you shortly!",
+            "button": "EXCELLENT!"
+        }
+    },
+    "failure": {
+        "az": {
+            "heading": "ÖDƏNİŞ UĞURSUZ OLDU",
+            "text": "Zəhmət olmasa məlumatları yoxlayın və ödənişi yenidən həyata keçirin.",
+            "button": "SƏBƏTƏ QAYIDIN"
+        },
+        "ru": {
+            "heading": "ОПЛАТА НЕ ПРОШЛА",
+            "text": "Просим проверить данные и провести оплату повторно",
+            "button": "ВЕРНУТЬСЯ В КОРЗИНУ"
+        },
+        "en": {
+            "heading": "PAYMENT FAILED",
+            "text": "Please check the data and make the payment again",
+            "button": "RETURN TO CART"
+        }
+    },
+    "notFound": {
+        "az": {
+            "text": "Axtardığınız səhifə tapılmadı",
+            "button": "ƏSAS SƏHİFƏYƏ QAYIT"
+        },
+        "ru": {
+            "text": "Страница, которую вы ищете не найдена!",
+            "button": "ВЕРНУТЬСЯ НА ГЛАВНУЮ"
+        },
+        "en": {
+            "text": "The page you are looking for was not found!",
+            "button": "BACK TO HOME"
         }
     }
 }
