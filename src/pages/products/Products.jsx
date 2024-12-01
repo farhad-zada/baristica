@@ -11,6 +11,7 @@ import ProductsService from '../../services/products.service';
 import Loading from '../../components/loading/Loading';
 import Pagination from '../../components/pagination/Pagination';
 import Error from '../../components/error/Error';
+import useScrollToTop from '../../hooks/useScrollToTop';
 const { productsPage } = pageText
 export default function Products() {
   const { lang, token } = useSelector((state) => state.baristica);
@@ -30,6 +31,7 @@ export default function Products() {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+    window.scrollTo(0, 0);
   };
 
   const productsService = new ProductsService()
@@ -47,7 +49,7 @@ export default function Products() {
   const getProducts = async (type) => {
     setLoading(true)
     try {
-      const response = await productsService.getProducts(token,type, currentPage)
+      const response = await productsService.getProducts(token, type, currentPage)
       const products = response.data
       setProductsCount(response.count)
       setProducts(products)
@@ -58,26 +60,24 @@ export default function Products() {
     }
   }
 
+
   useEffect(() => {
     changePageType(currentType)
   }, [lang])
 
+
   useEffect(() => {
     if (window.location.href.includes('/coffeeMachines')) {
       changePageType('coffeeMachines')
-
       getProducts('Machine')
 
     } else if (window.location.href.includes('/coffee')) {
       changePageType('coffee')
-
       getProducts('Coffee')
 
     } else if (window.location.href.includes('/accesories')) {
       changePageType('accesories')
-
       getProducts('Accessory')
-
     }
     else {
       navigate('/')
@@ -87,7 +87,7 @@ export default function Products() {
       setTypes([])
       setCurrentType('')
     }
-  }, [pathname, token])
+  }, [pathname, token, currentPage])
 
 
   return (

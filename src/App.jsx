@@ -72,11 +72,11 @@ const App = () => {
 
     dispatch(setLang(lang)); // Устанавливаем язык в redux store
     const baristicaObj = getObjectFromStorage();
-    if (baristicaObj?.cart?.length) {
+    if (baristicaObj?.cart?.length && token) {
       dispatch(setCart(baristicaObj.cart))
     }
 
-    if (baristicaObj?.finalCart?.length) {
+    if (baristicaObj?.finalCart?.length && token) {
       dispatch(setFinalCartArr(baristicaObj.finalCart))
     }
 

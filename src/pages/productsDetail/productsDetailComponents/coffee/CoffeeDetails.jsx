@@ -31,14 +31,14 @@ export default function CoffeeDetails({ product }) {
     }
 
     const changeProduct = (field, value) => {
-        if(field === 'weight'){
+        if (field === 'weight') {
             setSelectedWeight(value)
         }
         if (product[field] === value) {
             return
         } else {
             const newProduct = linked.find((link) => link.field === field && link.fieldValue === value)
-            if(newProduct){
+            if (newProduct) {
                 navigate(`/product/${newProduct.product}`)
             }
         }
@@ -47,31 +47,47 @@ export default function CoffeeDetails({ product }) {
     useEffect(() => {
         if (JSON.stringify(product) !== '{}') {
             setLinked(product.linked)
+
             const weightFields = product.linked.filter((link) => link.field === 'weight')
             const linkedWeights = weightFields.map((field) => field.fieldValue)
+
             setWeights([product.weight, ...linkedWeights])
             setSelectedWeight(product.weight)
+
+            const grindingFields = product.linked.filter((link) => link.field === 'grinding')
+            const linkedGridnings = grindingFields.map((field) => field.fieldValue)
+
+            setGrindingOptions(product?.grinding ? [product.grinding, ...linkedGridnings] : [...linkedGridnings])
+            setDefaultGrinding(product?.grinding ? product?.grinding : '')
+            
             setCartCount(1)
         }
     }, [product])
     return (
         <div className='mt24'>
-            
+
             <h3 className='f16 fw700 darkGrey_color'>{lang ? productCard[lang].profile : ''}</h3>
             <p className='f20 fw400 darkGrey_color'>{product?.profile[lang] ? product.profile[lang] || product.profile['az'] : 'ТЁМНЫЙ ШОКОЛАД - МЁД - СЛИВА - СПЕЦИИ'}</p>
 
             <div className="productCard_characteristics flex j-between mt24">
                 <Characteristic content={{ text: lang ? productCard[lang].density : '', progress: product?.viscosity * 20 }} />
                 <Characteristic content={{ text: lang ? productCard[lang].acidity : '', progress: product?.acidity * 20 }} />
-                <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: product?.sweetness * 20}} />
+                <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: product?.sweetness * 20 }} />
             </div>
 
-            <h2 className="f16 fw700 mt36 darkGrey_color">
-                {lang ? productCard[lang].grindity : ''}
-            </h2>
 
-            <CustomSelectBordered options={grindingOptions} defaultValue={defaultGrinding} />
-
+            {
+                product?.grinding
+                    ?
+                    <>
+                        <h2 className="f16 fw700 mt36 darkGrey_color">
+                            {lang ? productCard[lang].grindity : ''}
+                        </h2>
+                        <CustomSelectBordered options={grindingOptions} defaultValue={defaultGrinding} />
+                    </>
+                    :
+                    <></>
+            }
             <h2 className="f16 fw700 mt20 darkGrey_color">
                 {lang ? productCard[lang].weight : ''}
             </h2>
@@ -79,7 +95,7 @@ export default function CoffeeDetails({ product }) {
             <div className="productWeights flex g10 mt4 mb20">
                 {
                     weights?.map((weight, index) => (
-                        <div className={weight === selectedWeight ? styles.weightActive : styles.weight} key={index} onClick={() => { changeProduct('weight',weight) }}>
+                        <div className={weight === selectedWeight ? styles.weightActive : styles.weight} key={index} onClick={() => { changeProduct('weight', weight) }}>
                             {weight}
                         </div>
                     ))
@@ -92,7 +108,7 @@ export default function CoffeeDetails({ product }) {
                 <span className='f32 fw400'>{product?.price ? (product.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
                 <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
                     {Bag}
-                    <span onClick={(e) => {addToCart();e.stopPropagation()}}>{lang ? productCard[lang].buyBtn : ''}</span>
+                    <span onClick={(e) => { addToCart(); e.stopPropagation() }}>{lang ? productCard[lang].buyBtn : ''}</span>
                 </button>
             </div>
         </div>

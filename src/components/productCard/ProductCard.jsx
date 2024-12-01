@@ -30,8 +30,8 @@ const ProductCard = (props) => {
     const [weightOptions, setWeightOptions] = useState([])
     const [defaultWeight, setDefaultWeight] = useState(200)
 
-    const [grindingOptions, setGrindingOptions] = useState(['grinding', 'grinding'])
-    const [defaultGrinding, setDefaultGrinding] = useState('grinding')
+    const [grindingOptions, setGrindingOptions] = useState([])
+    const [defaultGrinding, setDefaultGrinding] = useState('')
 
     const [cartCount, setCartCount] = useState(1)
     const favoriteService = new FavoritesService()
@@ -95,7 +95,13 @@ const ProductCard = (props) => {
             return (
                 <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
                     <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} callBack={changeProduct} />
+                    {
+                        product?.grinding
+                        ?
                     <CustomSelect options={grindingOptions} defaultValue={defaultGrinding} />
+                        :
+                        <span></span>
+                    }
                     <Counter count={cartCount} setCount={setCartCount} />
                 </div>
             )
@@ -131,6 +137,13 @@ const ProductCard = (props) => {
             const linkedWeights = weightFields?.map((field) => field.fieldValue) || []
             setWeightOptions([activeProduct?.weight, ...linkedWeights])
             setDefaultWeight(activeProduct?.weight || 200)
+
+            const grindingFields = product.linked.filter((link) => link.field === 'grinding')
+            const linkedGridnings = grindingFields.map((field) => field.fieldValue)
+
+            setGrindingOptions(product?.grinding ? [product.grinding, ...linkedGridnings] : [...linkedGridnings])
+            setDefaultGrinding(product?.grinding ? product?.grinding : '')
+
             setCartCount(1)
         }
     }, [activeProduct])
@@ -204,7 +217,13 @@ const ProductCard = (props) => {
                 }
 
                 <div className="productCard_foot flex j-between a-center">
-                    <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
+                    {product?.productType !== 'Machine'
+                        ?
+                        <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
+
+                        :
+                        <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount) : 20} ₼</span>
+                    }
                     <button
                         onClick={(e) => {
 
