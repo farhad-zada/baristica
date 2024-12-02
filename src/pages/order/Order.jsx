@@ -14,14 +14,16 @@ export default function Order() {
     return (
         <div className={styles.order + ' flex j-center'}>
             <div className="container">
-                <AuthorizationHeading heading={lang ? order[lang].heading : ''} />
+                <div className={styles.order_title}>
+                    <AuthorizationHeading heading={lang ? order[lang].heading : ''} />
+                </div>
                 {
                     finalCart.length
                     ?
-                    <div className="flex mt50 j-between g20">
-                    <OrderLeft content={lang? order[lang] : {}} />
-                    <OrderRight />
-                </div>
+                    <div className={`${styles.order_row} flex mt50 j-between g20`}>
+                        <OrderLeft content={lang? order[lang] : {}} />
+                        <OrderRight />
+                    </div>
                 :
                 <p className="f24 fw400 darkGrey_color mt50">{lang ? order[lang].zeroProducts : ''}</p>
                 }

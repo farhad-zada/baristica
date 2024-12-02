@@ -4,3 +4,16 @@
 .wholeSaleInfo_section h1{
     padding-bottom: 30px;
 }
+@media (max-width: 768px){
+    .wholeSaleInfo_section h1{
+        font-size: 64px !important;
+    }
+}
+@media (max-width: 480px){
+    .wholeSaleInfo{
+        padding-bottom: 38px;
+    }
+    .wholeSaleInfo_section p{
+        font-size: 24px !important;
+    }
+}

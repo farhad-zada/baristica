@@ -39,3 +39,57 @@
     line-height: 1; /* Убирает лишние отступы */
     white-space: nowrap; /* Предотвращает перенос текста */
 }
+
+@media (max-width: 960px){
+    .product{
+        padding: 7.5px 10px;
+    }
+    .productImg{
+        min-width: 60px;
+        max-width: 60px;
+        height: 80px;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+        max-height: initial;
+        object-fit: cover !important;
+    }
+}
+
+@media (max-width: 480px){
+    .product{
+        gap: 0;
+    }
+    .textContent{
+        gap: 3px;
+    }
+    .textContent h3{
+        margin: 0;
+        font-size: 12px !important;
+    }
+    .right{
+        flex-direction: row;
+    }
+    .right span{
+        text-align: center;
+        font-weight: 400;
+        color: black;
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width: 400px){
+    .textContent{
+        flex: auto;
+    }
+    .textContent h2{
+        font-size: 12px !important;
+    }
+    .right{
+        gap: 10px;
+    }
+    .right span{
+        font-size: 16px !important;
+    }
+}

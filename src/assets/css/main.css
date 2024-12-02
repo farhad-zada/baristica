@@ -529,4 +529,7 @@ input {
     body{
         overflow-x: hidden;
     }
+    .orderInfo_component h2{
+        font-size: 24px !important;
+    }
 }
