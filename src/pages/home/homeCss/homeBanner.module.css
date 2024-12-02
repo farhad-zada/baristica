@@ -45,10 +45,21 @@
     .homeBanner_section h1{
         font-size: 48px !important;
     }
+    .menu{
+        padding-top: 70px;
+    }
     .menu_elem{
         padding: 8px 18px;
     }
     .menu_elem span{
         font-size: 20px !important;
+    }
+    .homeBanner{
+        height: 532px !important;
+    }
+}
+@media (max-width: 360px){
+    .homeBanner{
+        height: 485px !important;
     }
 }

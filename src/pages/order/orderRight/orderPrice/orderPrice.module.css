@@ -13,3 +13,17 @@
     padding-top: 24px;
     border-top: 0.5px solid #54565A;
 }
+@media (max-width: 960px){
+    .priceComponent{
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px){
+    .products{
+        padding: 24px 16px 0 16px;
+    }
+    .priceComponent h2{
+        font-size: 20px !important;
+    }
+}

@@ -2,3 +2,16 @@
     padding: 50px 0;
     gap: 30px;
 }
+@media (max-width: 960px){
+    .order .order_title h2{
+        font-size: 32px !important;
+    }
+    .order_row{
+        flex-direction: column-reverse;
+    }
+}
+@media (max-width: 480px){
+    .order_row{
+        margin-top: 40px !important;
+    }
+}

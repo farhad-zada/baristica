@@ -40,3 +40,15 @@
 .wholesale_workTime{
     padding: 20px 0;
 }
+@media (max-width: 650px){
+    .wholesale_getInTouch{
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    .wholesale_socials{
+        margin-bottom: 40px;
+    }
+    .wholesale_getInTouch iframe{
+        width: 100%;
+    }
+}

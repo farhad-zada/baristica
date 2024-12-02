@@ -22,4 +22,13 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+@media(max-width: 480px){
+  .count{
+      margin: 0 !important;
+      padding: 0;
+  }
+}
+
+  
   
