@@ -2,15 +2,19 @@ import React from 'react'
 import styles from './orderPrice.module.css'
 import { calculateTotalPrice } from '../../../../utils/price.util'
 
-export default function OrderPrice({ finalCart, text, lang }) {
+export default function OrderPrice({ finalCart, text, lang, fee }) {
+
 
     const calculateProductPrice = (product) => {
         return (product.price / 100 * product.cartCount)
     }
 
-    const calculateTotal = (products, discount) => {
-        return calculateTotalPrice(products) + discount
+    const calculateTotal = (products) => {
+        return calculateTotalPrice(products) + fee/100
     }
+
+
+
     return (
         <div className={styles.priceComponent}>
             <div className="flex j-between a-center">
@@ -43,7 +47,7 @@ export default function OrderPrice({ finalCart, text, lang }) {
                     {lang ? text[lang].priceDeliveryHeading : ''}
                 </h2>
                 <p className="f24 fw400 darkGrey_color">
-                    3 ₼
+                    {fee/100} ₼
                 </p>
             </div>
 

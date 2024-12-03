@@ -17,19 +17,21 @@ const Comments = () => {
   const [error, setError] = useState(false)
 
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 20;
+  const [totalPages, setTotalPages] = useState(1);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+    getComments(page)
   };
 
   const userService = new UserService()
 
-  const getComments = async () => {
+  const getComments = async (currentPage) => {
     setLoading(true)
     try {
-      const response = await userService.getComments(token)
+      const response = await userService.getComments(token, currentPage)
       setComments(response.data.comments)
+      setTotalPages(response.page_count ? response.page_count : 1)
     } catch (error) {
       setError(true)
     } finally {
@@ -39,7 +41,7 @@ const Comments = () => {
 
   useEffect(() => {
     if (token) {
-      getComments()
+      getComments(1)
     }
   }, [token])
 

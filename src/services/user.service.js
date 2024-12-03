@@ -28,11 +28,11 @@ class UserService {
         return await httpRequest.patchOne(`${this.#requestUrl}/me/address`, id, formData)
     }
 
-    getComments = async (token) => {
+    getComments = async (token, page) => {
         httpRequest.headers = {
             Authorization: "Bearer " + token,
         };
-        return await httpRequest.getAll(`${this.#requestUrl}/comments`)
+        return await httpRequest.getAll(`${this.#requestUrl}/comments?lt=2&pg=${page}`)
     }
 
     

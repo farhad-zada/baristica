@@ -7,7 +7,7 @@ import PageText from '../../../content/PagesText.json'
 import OrderPrice from './orderPrice/OrderPrice';
 
 const { profile, order } = PageText
-export default function OrderRight() {
+export default function OrderRight({fee}) {
     const { lang, finalCart } = useSelector((state) => state.baristica);
     return (
         <div className={styles.orderRight}>
@@ -22,7 +22,7 @@ export default function OrderRight() {
                     />
                 ))
             }
-            <OrderPrice finalCart={finalCart} text={order} lang={lang} />
+            <OrderPrice fee={fee} finalCart={finalCart} text={order} lang={lang} />
         </div>
     )
 }
