@@ -17,13 +17,14 @@ export default function Products() {
   const { lang, token } = useSelector((state) => state.baristica);
 
   const [heading, setHeading] = useState('')
+  const [filterQueryString, setFilterQueryString] = useState('')
   const [types, setTypes] = useState([])
   const [currentType, setCurrentType] = useState('')
   const [productsCount, setProductsCount] = useState(0)
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
-  const [type,setType] = useState('Coffee')
+  const [type, setType] = useState('Coffee')
 
   const { pathname } = useLocation();
 
@@ -47,10 +48,10 @@ export default function Products() {
 
   const navigate = useNavigate()
 
-  const getProducts = async (type) => {
+  const getProducts = async (type, query) => {
     setLoading(true)
     try {
-      const response = await productsService.getProducts(token, type, currentPage)
+      const response = await productsService.getProducts(token, type, currentPage, query)
       const products = response.data
       setProductsCount(response.count)
       setTotalPages(response.page_count)
@@ -94,7 +95,9 @@ export default function Products() {
     }
   }, [pathname, token, currentPage])
 
-
+  useEffect(() => {
+    getProducts(type, filterQueryString)
+  }, [filterQueryString])
   return (
     <div className={`${style.productsPage}  flex j-center`}>
       <Loading status={loading} />
@@ -103,7 +106,7 @@ export default function Products() {
       <div className="container">
         <ProductsHead heading={heading} />
         <ProductTypes content={types?.length ? types : []} />
-        <FilterSection type={type} productsCount={productsCount} />
+        <FilterSection setFilterQueryString={setFilterQueryString} type={type} productsCount={productsCount} />
         <ProductsList products={products} />
         <Pagination
           currentPage={currentPage}

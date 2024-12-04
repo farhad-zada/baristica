@@ -6,3 +6,50 @@
 .productType{
     flex: 0 1 calc(50% - 10px);
 }
+.active {
+    border: 0.5px solid #D9D8D6; /* Пример: синяя обводка */
+    background-color: #54565A; /* Пример: светло-синий фон */
+    transition: all 0.3s ease; /* Плавный переход для визуальных изменений */
+}
+
+.activeImage {
+    filter: grayscale(0%) brightness(1.2) sepia(1) hue-rotate(200deg) saturate(3);
+    transition: all 0.3s ease; /* Плавный переход */
+}
+
+
+/* Базовый стиль для изображения */
+img {
+    filter: grayscale(100%); /* Пример: начальное состояние черно-белое */
+    transition: all 0.3s ease; /* Плавный переход */
+}
+/* Базовый стиль контейнера */
+
+
+/* Стиль для активного контейнера */
+.active {
+    background-color: #4a4a4a; /* Тёмный фон */
+    color: #ffffff; /* Белый текст */
+    border: 1px solid #ffffff; /* Белая обводка */
+}
+
+/* Иконка (по умолчанию) */
+.icon {
+    filter: invert(0) brightness(1); /* Черная иконка */
+    transition: all 0.3s ease; /* Плавный переход */
+}
+
+/* Активная иконка */
+.activeIcon {
+    filter: invert(1) brightness(1.5); /* Белая иконка с увеличением яркости */
+}
+
+/* Текст в активном элементе */
+.activeText {
+    color: #ffffff; /* Белый текст */
+}
+
+/* Переходы для плавности */
+.iconWrapper {
+    transition: all 0.3s ease;
+}

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './productsFilter.module.css'
 import CustomDropdown from '../customDropdown/CustomDropdown'
 
-export default function ProductsFilter({ content, status }) {
+export default function ProductsFilter({ setFilterQueryString,content, status }) {
 
     const [selectedArr, setSelectedArr] = useState([]);
     const [selectedRating, setSelectedRating] = useState([])
@@ -45,6 +45,46 @@ export default function ProductsFilter({ content, status }) {
         }
     ]
 
+    const processFilters = () => {
+        const data = {
+            rating: selectedRating,
+            processingMethod: selectedProcessing,
+            qGrader: selectedGrader,
+            acidity: selectedAcidity,
+            viscocity: selectedDencity,
+            country: selectedCountry
+        };
+    
+        const result = Object.entries(data)
+            .filter(([_, values]) => {
+                // Исключаем ключи с пустыми массивами
+                return !(Array.isArray(values) && values.length === 0);
+            })
+            .map(([key, values]) => {
+                if (Array.isArray(values)) {
+                    return `${key}=${values.map(value => value.value).join(',')}`;
+                }
+                return `${key}=${values}`;
+            })
+            .join('&');
+    
+        setFilterQueryString((state) => {
+            let arr = state.split('&');
+    
+            // Фильтруем массив, оставляя только `price`
+            arr = arr.filter(item => item.startsWith('price='));
+    
+            // Формируем новую строку с только `price` и результатом фильтров
+            const updatedState = arr.filter(item => item).join('&'); // Убираем пустые строки
+            return updatedState ? `${updatedState}&${result}` : result;
+        });
+    
+        return result;
+    };
+    
+    
+
+
     const handleSelectionChange = (selectedOptions, type) => {
         switch (type) {
             case 'rating':
@@ -71,7 +111,9 @@ export default function ProductsFilter({ content, status }) {
         setSelectedArr(selectedOptions); // Update selectedArr with the selected options
     };
 
-
+    useEffect(() => {
+        processFilters()
+    }, [selectedArr])
     return (
         <div className={status ? styles.productsFilterActive : styles.productsFilter}>
             {
