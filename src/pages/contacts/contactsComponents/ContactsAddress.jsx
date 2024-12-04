@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { InstagramIcon, YoutubeIcon } from '../../../icons';
+import { InstagramIcon, WPIcon, YoutubeIcon } from '../../../icons';
 import style from "../contactsCss/address.module.css";
 import PagesText from '../../../content/PagesText.json';
 
@@ -35,7 +35,7 @@ const ContactsAddress = () => {
                       {InstagramIcon}
                     </Link>
                     <Link to="" className={`${style.wholesale_social} darkGray rounded`}>
-                      {YoutubeIcon}
+                      {WPIcon}
                     </Link>
                   </div>
                 </div>
