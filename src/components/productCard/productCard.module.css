@@ -4,6 +4,9 @@
     box-shadow: 0px 4px 4px 0px #00000040;
     /* min-width: max-content; */
     width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .productCard_head{
     margin-bottom: 20px;

@@ -4,11 +4,11 @@ class CommentsService {
 
     #requestUrl = "comments";
 
-    getMyComments = async (token) => {
+    getMyComments = async (token, page) => {
         httpRequest.headers = {
             Authorization: "Bearer " + token,
         };
-        return await httpRequest.getAll(`${this.#requestUrl}`)
+        return await httpRequest.getAll(`${this.#requestUrl}?lt=2&pg=${page}`)
     }
     getProductComments = async (token, id) => {
         if (token) {

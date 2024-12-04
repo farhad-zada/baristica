@@ -216,7 +216,10 @@ const ProductCard = (props) => {
                     setSelectContent(activeProduct.productType)
                 }
 
-                <div className="productCard_foot flex j-between a-center">
+                
+            </div>
+
+            <div className="productCard_foot flex j-between a-center">
                     {product?.productType !== 'Machine'
                         ?
                         <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
@@ -245,7 +248,6 @@ const ProductCard = (props) => {
                         }
                     </button>
                 </div>
-            </div>
         </div>
     )
 }
