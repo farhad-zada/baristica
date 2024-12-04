@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import Loading from '../loading/Loading'
 import Error from '../error/Error'
 
-export default function UserAddress({ address, selectedAddress, setSelectedAddress, radio, index, setAddresses }) {
+export default function UserAddress({ content,address, selectedAddress, setSelectedAddress, radio, index, setAddresses }) {
     const { token } = useSelector(state => state.baristica)
     const [edit, setEdit] = useState(false)
     const [loading, setLoading] = useState(false)
@@ -69,7 +69,7 @@ export default function UserAddress({ address, selectedAddress, setSelectedAddre
 
                     {/* Квартира */}
                     <span className={`${styles.home} f20 fw400`}>
-                        {address?.home || "кв. 14"}
+                        {content ? content.houseHint : ''} {address?.apartment || "кв. 14"}
                     </span>
                 </div>
                 {/* Действия */}

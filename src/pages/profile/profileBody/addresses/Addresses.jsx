@@ -29,7 +29,7 @@ export default function Addresses() {
                 addresses.length
                     ?
                     addresses.map((address, index) => (
-                        <UserAddress address={address} index={index + 1} key={index} setAddresses={setAddresses} />
+                        <UserAddress content={lang ? profile[lang].addresses : {}} address={address} index={index + 1} key={index} setAddresses={setAddresses} />
                     ))
                     :
                     <></>

@@ -90,7 +90,6 @@ const App = () => {
     <div>
       <Loading status={loading} />
       <Error status={error} setStatus={setError} />
-      <HeadBanner />
       <SubHeader />
       <Header />
       <AppRoutes />

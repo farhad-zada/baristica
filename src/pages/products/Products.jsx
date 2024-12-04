@@ -23,11 +23,12 @@ export default function Products() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [type,setType] = useState('Coffee')
 
   const { pathname } = useLocation();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 20;
+  const [totalPages, setTotalPages] = useState(1);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -52,6 +53,7 @@ export default function Products() {
       const response = await productsService.getProducts(token, type, currentPage)
       const products = response.data
       setProductsCount(response.count)
+      setTotalPages(response.page_count)
       setProducts(products)
     } catch (error) {
       setError(true)
@@ -70,14 +72,17 @@ export default function Products() {
     if (window.location.href.includes('/coffeeMachines')) {
       changePageType('coffeeMachines')
       getProducts('Machine')
+      setType('Machine')
 
     } else if (window.location.href.includes('/coffee')) {
       changePageType('coffee')
       getProducts('Coffee')
+      setType('Coffee')
 
     } else if (window.location.href.includes('/accesories')) {
       changePageType('accesories')
       getProducts('Accessory')
+      setType('Accessory')
     }
     else {
       navigate('/')
@@ -98,7 +103,7 @@ export default function Products() {
       <div className="container">
         <ProductsHead heading={heading} />
         <ProductTypes content={types?.length ? types : []} />
-        <FilterSection productsCount={productsCount} />
+        <FilterSection type={type} productsCount={productsCount} />
         <ProductsList products={products} />
         <Pagination
           currentPage={currentPage}
