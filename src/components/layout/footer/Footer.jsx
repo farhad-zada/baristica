@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { BaristicaLogo, FacebookIcon, InstagramIcon, YoutubeIcon } from "../../../icons"
+import { BaristicaLogo, FacebookIcon, InstagramIcon, WPIcon, YoutubeIcon } from "../../../icons"
 import style from "./footer.module.css";
 
 import PagesText from '../../../content/PagesText.json';
@@ -36,7 +36,7 @@ export default function Footer() {
                   {InstagramIcon}
                 </Link>
                 <Link to="" className={`${style.footer_social} darkGray rounded`}>
-                  {FacebookIcon}
+                  {WPIcon}
                 </Link>
                 <Link to="" className={`${style.footer_social} darkGray rounded`}>
                   {YoutubeIcon}

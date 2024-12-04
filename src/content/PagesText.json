@@ -40,7 +40,7 @@
                             "link": "/products/coffeeMachines"
                         },
                         {
-                            "title": "Aksessuar",
+                            "title": "Aksesuar",
                             "link": "/products/accesories"
                         }
                     ]
@@ -144,12 +144,12 @@
                         "icon": "CoffeeIcon"
                     },
                     {
-                        "title": "Aksessuar",
+                        "title": "Aksesuarlar",
                         "link": "/products/accesories",
                         "icon": "Accessories"
                     },
                     {
-                        "title": "Сihazlar",
+                        "title": "Aparat",
                         "link": "/products/coffeeMachines",
                         "icon": "CoffeeDevice"
                     }
@@ -200,34 +200,34 @@
             "az": {
                 "advantages": [
                     {
-                        "title": "Tez çatdırırıq",
-                        "description": "Qəhvənin hər kəsə çatmasını istəyirik, buna görə də eyni gün çatdırılma təklif edirik. Evdən çıxmadan təzə qəhvəni əylənə bilərsiniz.",
+                        "title": "Həmin gün çatdırırıq",
+                        "description": "Biz qəhvəmizin hər kəsə əlçatan olmasını təmin edirik, ona görə də sürətli və elə həmən gün çatdırılma təklif edirik. Təzə qəhvədən zövq alın, evdən çıxmadan!",
                         "icon": "TruckIcon"
                     },
                     {
-                        "title": "Dünyanın ən yaxşı avadanlığında qızışdırırıq",
-                        "description": "Qəhvəni dünyanın ən yaxşı avadanlığında — Loring maşınında qızışdırırıq ki, hər bir toxumun bütün dad xüsusiyyətlərini saxlayaq. Bu innovativ proses sabit keyfiyyət və maksimum təzəlik təmin edir.",
+                        "title": "Dünyanın ən mükəmməl avadanlığında qovururuq",
+                        "description": "Biz qəhvəni dünyanın ən yaxşı avadanlığı — Loring aparatında qovururuq, bu da hər dənənin dad notlarını qorumağa imkan verir. Bu innovativ proses, sabit keyfiyyət və maksimum təzə qovurma təmin edir.",
                         "icon": "PreparingIcon"
                     },
                     {
                         "title": "Hər gün - təzə qovurma",
-                        "description": "Hər gün yeni partiyalar qəhvə qovururuq ki, hər zaman ən təzə və ətirli içkiləri əylənə biləsiniz. Qəhvə toxumlarının təzəliyi sizin kubokunuzu zəngin dadla dolduracaq.",
+                        "description": "Hər gün yeni partiyalar qovururuq ki, siz hər zaman ən təzə və aromatik içkini dada biləsiniz. Qəhvə fincanınız, dənələrin təzəliyi sayəsində zəngin dadla dolacaq.",
                         "icon": "BeanIcon"
                     },
                     {
                         "title": "Güclü komanda",
-                        "description": "Bizim mütəxəssislərimiz qəhvə qovurma və hazırlama sahəsində dərin biliklərə və təcrübəyə malikdir. Biz hər zaman entuziazmla və peşəkar şəkildə işləyirik ki, sizə ən yaxşı qəhvə təcrübəsini təqdim edək.",
+                        "description": "Mütəxəssislərimiz qəhvə qovurma və hazırlama sahəsində dərin biliklərə və təcrübəyə malikdir. Biz həyəcanla və peşəkarlıqla çalışırıq ki, sizə ən yaxşı qəhvə təcrübəsini təqdim edək.",
                         "icon": "TeamIcon"
                     }
                 ],
                 "info": {
                     "title": "TƏZƏ QOVRULMUŞ QƏHVƏNİN İSTEHSALI VƏ ONLİNE MAĞAZA",
-                    "description": "2021-ci ildə Azərbaycanda yaradılan Baristica Coffee Roastery şirkəti, təmiz qızışdırılmış qəhvə istehsalı və satışı ilə məşğul olur.\n\nBiz 100% premium araqiləri qovurmağa yönəlirik, zəngin dad və ətir əldə etmək üçün ən yaxşı toxumları seçirik. Loring maşını kimi müasir texnologiyalardan istifadə edərək, qovurma keyfiyyətini təmin edirik və toxumların bütün təbii dad xüsusiyyətlərini saxlayırıq.\n\nİnternet mağazamız, hər bir qəhvə sevəni təzə partiyaları asanlıqla sifariş etməyə imkan verir, hansı ki, hər gün qızışdırılır və maksimum təzəlik təmin edir. Biz geniş çeşidli növlər və unikal qarışıqlar təklif edirik, hansı ki, ən tələbkar müştərilərin ehtiyaclarını qarşılayır.\n\nBaristica Coffee Roastery yalnız keyfiyyətli qəhvə istehsalına deyil, həm də qəhvə sənayesinin inkişafına aktiv dəstək olur, innovativ həllər təklif edir. Biz tərəfdaşlarımıza xüsusi xidmət, peşəkar dəstək və etibarlı məhsul təqdim etməyə çalışırıq."
+                    "description": "Baristica Coffee Roastery şirkəti 2021-ci ildə Azərbaycanda təsis edilmişdir və təzə qovrulmuş qəhvənin istehsalı və satışı ilə məşğuldur. \n\nBiz yalnız 100% premium keyfiyyətli ərəbica dənələrini seçir, onları ən yüksək dad və aroma keyfiyyətinə nail olmaq üçün qovururuq. Loring kimi qabaqcıl texnologiyalardan istifadə edərək, qovurma prosesində keyfiyyətin sabitliyini təmin edir və dənələrin təbii dadını qoruyuruq.\n\nİnternet mağazamız vasitəsilə hər bir qəhvə həvəskarı təzə partiyaları asanlıqla sifariş edə bilər. Hər gün qovrulan qəhvələrimiz təzəliyi maksimum səviyyədə saxlamaq üçün çatdırılır. Bizim geniş çeşidli qəhvə sortları və unikal qarışıqlarımız ən tələbkar müştərilərin zövqünə uyğun olacaq.\n\nBaristica Coffee Roastery yalnız yüksək keyfiyyətli qəhvə istehsal etməklə kifayətlənməyib, həm də innovativ həllər təklif edərək qəhvə sənayesinin inkişafına dəstək verir. Biz tərəfdaşlarımıza müstəsna xidmət, peşəkar dəstək və etibarlı məhsul təqdim etməyi hədəfləyirik."
                 },
                 "contact": {
                     "subscribe": {
-                        "title": "BİZƏ ABUNƏ OLUN",
-                        "description": "Burada hər gün nələr baş verdiyimizi və yeni qəhvə növləri barədə danışırıq."
+                        "title": "ABUNƏ OLUN",
+                        "description": "Bizimlə qəhvə dünyasını kəşf edin. Hekayələr, eksklüziv tədbirlər və unikal qəhvə növləri haqqında ən maraqlı yenilikləri paylaşırıq!"
                     },
                     "getInTouch": {
                         "title": "ƏLAQƏ",
@@ -330,115 +330,115 @@
     },
     "wholesale": {
         "az": {
-            "banner": "МЫ - \n\nОБЖАРЩИКИ\n\n КОФЕ ДЛЯ БИЗНЕСА\n\n И ДОМА",
+            "banner": "BİZ - \n\nBİZNES VƏ EV ÜÇÜN\n\n QƏHVƏ QOVURMAQLA\n\nMƏŞĞULUQ",
             "cooperation": {
-                "title": "ВАРИАНТЫ\n\nСОТРУДНИЧЕСТВА",
+                "title": "ƏMƏKDAŞLIQ\n\nNÖVLƏRİ",
                 "elems": [
                     {
-                        "title": "ДЛЯ БИЗНЕСА",
+                        "title": "BİZNES ÜÇÜN",
                         "list": [
-                            "Пришлем прайс-лист по запросу",
-                            "Дадим скидку 10% на первый заказ",
-                            "Проконсультируем по всем вопросам — от и до"
+                            "Sorğunuza əsasən qiymət cədvəlini göndərəcəyik",
+                            "İlk sifarişə 10% endirim təklif edəcəyik",
+                            "Bütün suallarda — başdan sona qədər — məsləhət verəcəyik"
                         ],
-                        "link": "ПОЛУЧИТЬ ПРАЙС",
+                        "link": "QİYMƏT CƏDVƏLİNİ ƏLDƏ ET",
                         "href": "#",
                         "img": "coop"
                     },
                     {
-                        "title": "ДЛЯ ДОМА",
+                        "title": "EV ÜÇÜN",
                         "list": [
-                            "В течении дня доставляем до указанного адреса",
-                            "Получите 10%-ую скидку на первый заказ"
+                            "Bir iş günü ərzində ünvana çatdırılma",
+                            "Hər gün sifarişə uyğun qovururuq"
                         ],
-                        "link": "ИНТЕРНЕТ-МАГАЗИН",
+                        "link": "KATALOQ",
                         "href": "#",
                         "img": "coop2"
                     }
                 ]
             },
             "offer": {
-                "title": "ЧТО МЫ\n\nПРЕДЛАГАЕМ?",
-                "label": "Познакомьтесь с нашими услугами, скачав презентацию",
+                "title": "BİZ NƏ\n\nTƏKLİF EDİRİK?",
+                "label": "Xidmətlərimizlə tanış olmaq üçün təqdimatı yükləyə bilərsiniz",
                 "href": "#",
-                "link": "СКАЧАТЬ"
+                "link": "YÜKLƏ"
             },
             "form": {
-                "title": "ДЛЯ СОТРУДНИЧЕСТВА",
+                "title": "ƏMƏKDAŞLIQ ÜÇÜN",
                 "list": [
                     {
                         "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44' fill='none'><path d='M34.1935 20.5697C34.2519 20.9453 34.4571 21.2823 34.7639 21.5067C35.0708 21.731 35.4542 21.8243 35.8298 21.7659C36.2054 21.7076 36.5425 21.5024 36.7668 21.1956C36.9912 20.8887 37.0844 20.5053 37.0261 20.1297C36.6924 16.7779 35.2 13.6475 32.8059 11.278C30.4119 8.90858 27.2662 7.44851 23.9112 7.14949C23.7176 7.13258 23.5226 7.15514 23.338 7.2158C23.1535 7.27645 22.9831 7.37395 22.8373 7.50238C22.6915 7.63081 22.5733 7.7875 22.4899 7.96295C22.4064 8.13841 22.3594 8.32898 22.3518 8.52312C22.3442 8.71727 22.376 8.91094 22.4454 9.09241C22.5148 9.27388 22.6204 9.43938 22.7556 9.57886C22.8909 9.71835 23.053 9.82893 23.2323 9.9039C23.4115 9.97888 23.6041 10.0167 23.7984 10.015C23.8864 10.0205 32.6453 10.4825 34.1935 20.5669V20.5697ZM37.3918 6.88549C27.6375 -2.87164 18.7328 0.552152 18.3616 0.703404C18.0257 0.856565 17.7618 1.13322 17.6245 1.47591C17.4873 1.8186 17.4874 2.20098 17.6247 2.54362C17.7621 2.88626 18.0261 3.16282 18.362 3.31586C18.698 3.4689 19.0799 3.48666 19.4286 3.36544C19.5028 3.33519 26.9362 0.480652 35.3651 8.91502C43.1312 16.6839 40.8514 24.571 40.7551 24.8982C40.6687 25.2525 40.7202 25.6264 40.8994 25.944C41.0786 26.2616 41.3719 26.4991 41.7198 26.6083C42.0677 26.7175 42.4442 26.6902 42.7727 26.532C43.1012 26.3737 43.3572 26.0964 43.4887 25.7562C43.6124 25.3575 46.4312 15.9276 37.3918 6.88549ZM34.0368 40.6725C33.8993 40.81 33.451 41.1317 32.2355 41.1317C28.2975 41.1317 20.7486 37.8179 13.4803 30.5468C3.94038 20.9959 1.77335 11.5661 3.36562 9.97378C4.39414 8.93977 6.53642 6.79474 8.56319 6.79474C9.68246 6.79474 10.7467 7.441 11.8082 8.76926C14.8745 12.5918 13.5463 13.9008 11.3462 16.0734L10.9392 16.4776C10.3892 17.0276 10.095 17.7564 10.095 18.5814C10.095 19.9014 10.7302 22.2857 16.233 27.7913C21.7386 33.2969 24.1229 33.9321 25.4374 33.9321C26.2624 33.9321 26.9857 33.6434 27.5357 33.0933L27.94 32.6863C29.1362 31.4708 30.1702 30.4231 31.4765 30.4231C32.4913 30.4231 33.759 31.0281 35.2441 32.2216C36.5063 33.2391 37.1498 34.2511 37.2048 35.3126C37.3203 37.3917 35.1038 39.6082 34.0368 40.6752V40.6725ZM31.4793 27.5548C28.9712 27.5548 27.3405 29.2103 25.8994 30.6706L25.4374 31.0638C24.9974 31.0638 23.1796 30.6816 18.2598 25.7617C12.5205 20.0197 12.966 18.5071 12.966 18.5071L13.3593 18.1139C15.6253 15.8781 18.7273 12.8146 14.0468 6.97349C12.4242 4.95221 10.5817 3.92645 8.56319 3.92645C5.35115 3.92645 2.73861 6.53898 1.33884 7.9415C-2.80546 12.0941 3.26112 24.3702 11.4562 32.5763C19.3406 40.469 27.5715 44 32.2355 44C33.9158 44 35.2056 43.56 36.0636 42.702C37.4221 41.3435 40.2491 38.5137 40.0676 35.1586C39.9659 33.2611 38.9456 31.5203 37.0371 29.9858C35.0021 28.3495 33.1815 27.5548 31.4765 27.5548H31.4793Z' fill='black'/></svg>",
-                        "title": "Наш отдел продаж свяжется с вами"
+                        "title": "Satış şöbəmiz sizinlə əlaqə saxlayacaq"
                     },
                     {
                         "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='38' height='44' viewBox='0 0 38 44' fill='none'><path d='M36.8745 10.9024L26.2351 0.263054C26.0666 0.094617 25.8383 0 25.6001 0H5.22637C2.81996 0 0.862305 1.95782 0.862305 4.36424V39.6358C0.862305 42.0422 2.82004 44 5.22646 44H32.7734C35.1798 44 37.1376 42.0423 37.1376 39.6358V11.5373C37.1375 11.2992 37.0429 11.0708 36.8745 10.9024ZM26.4984 3.06616L34.0718 10.6395H29.0666C28.3805 10.6395 27.7354 10.3723 27.2504 9.88726C26.7655 9.40232 26.4983 8.75736 26.4984 8.07132V3.06616ZM35.3416 39.6358C35.3416 41.0519 34.1895 42.204 32.7734 42.204H5.22637C3.81021 42.204 2.65814 41.0519 2.65814 39.6358V4.36424C2.65822 2.94808 3.8103 1.79592 5.22637 1.79592H24.7024V8.07115C24.7023 9.23689 25.1562 10.3328 25.9804 11.1571C26.8047 11.9814 27.9007 12.4353 29.0665 12.4353H35.3415L35.3416 39.6358Z' fill='black'/></svg>",
-                        "title": "Пришлёт прайс-лист в формате pdf"
+                        "title": "PDF formatında qiymət siyahısını göndərəcək"
                     },
                     {
                         "icon": "<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44' fill='none'><g clip-path='url(#clip0_1_135)'><path d='M40.446 6.24983C38.142 3.94583 35.0918 2.68655 31.8363 2.68655C28.5809 2.68655 25.5213 3.95515 23.2173 6.25916L22.014 7.46246L20.792 6.2405C18.488 3.9365 15.4191 2.65857 12.1637 2.65857C8.91755 2.65857 5.85798 3.92717 3.56331 6.22184C1.25931 8.52585 -0.00929212 11.5854 3.58184e-05 14.8409C3.58184e-05 18.0963 1.27796 21.1466 3.58197 23.4506L21.0998 40.9684C21.3424 41.211 21.6688 41.3415 21.986 41.3415C22.3031 41.3415 22.6296 41.2203 22.8722 40.9778L40.4273 23.4879C42.7313 21.1839 43.9999 18.1243 43.9999 14.8688C44.0093 11.6134 42.75 8.55383 40.446 6.24983ZM38.655 21.7062L21.986 38.31L5.35427 21.6782C3.526 19.85 2.51858 17.4247 2.51858 14.8409C2.51858 12.257 3.51667 9.83176 5.34495 8.01281C7.1639 6.19386 9.58916 5.18644 12.1637 5.18644C14.7475 5.18644 17.1821 6.19386 19.0104 8.02214L21.1185 10.1303C21.6129 10.6246 22.4058 10.6246 22.9001 10.1303L24.9896 8.04079C26.8179 6.21252 29.2525 5.2051 31.827 5.2051C34.4015 5.2051 36.8268 6.21252 38.655 8.03146C40.4833 9.85974 41.4814 12.285 41.4814 14.8688C41.4907 17.4527 40.4833 19.878 38.655 21.7062Z' fill='black'/></g><defs><clipPath id='clip0_1_135'><rect width='44' height='44' fill='white'/></clipPath></defs></svg>",
-                        "title": "На первый заказ получите скидку 10%"
+                        "title": "İlk sifarişə 10% endirim əldə edəcəksiniz"
                     }
                 ],
                 "form": {
-                    "name": "Ваше имя",
-                    "phone": "Телефон",
-                    "mail": "Электронная почта",
-                    "link": "ПОЛУЧИТЬ ПРАЙС",
-                    "rule": "Нажимая на кнопку «Получить прайс», вы соглашаетесь с политикой обработки персональных данных компании"
+                    "name": "Adınız",
+                    "phone": "Telefon",
+                    "mail": "Elektron poçt",
+                    "link": "QİYMƏT CƏDVƏLİNİ ƏLDƏ ET",
+                    "rule": "Qiymət siyahısını əldə et’ düyməsini basaraq, şirkətin şəxsi məlumatların emalı siyasəti ilə razılıq vermiş olursunuz"
                 }
             },
             "info": {
-                "title": "СОБСТВЕННОЕ\n\nПРОИЗВОДСТВО\n\nКОФЕ",
-                "description": "Мы вложили в него весь наш опыт\n\nработы с кофе и постарались создать\n\nлучшее производство спешелти кофе.",
+                "title": "ÖZ QƏHVƏ\n\nİSTEHSALATIMIZ",
+                "description": "Biz qəhvə ilə bağlı bütün təcrübəmizi bu\n\nistehsalata qoyduq və ən yaxşı speshəlti\n\nqəhvə istehsalatını yaratmağa çalışdıq",
                 "list": [
                     {
-                        "title": "Лучшее оборудование",
-                        "lable": "Для обжарки кофе мы используем аппарат Loring Nighthawk s7"
+                        "title": "MÜKƏMMƏL AVADANLIQ",
+                        "lable": "Qəhvə qovurmaq üçün Loring Nighthawk s7 aparatından istifadə edirik"
                     },
                     {
-                        "title": "ВСЕГДА СВЕЖАЯ ОБЖАРКА",
-                        "lable": "Откройте для себя богатство вкусов в каждой чашке!"
+                        "title": "HƏR ZAMAN TƏZƏ QOVURMA",
+                        "lable": "Hər fincanda dadların zənginliyini kəşf edin!"
                     },
                     {
-                        "title": "Собственные технологии и IT-решения",
-                        "lable": "Позволяют работать с максимальной эффективностью, качеством и прозрачностью"
+                        "title": "ÖZ TEXNOLOGIYALARIMIZ VƏ IT HƏLLƏRIMIZ",
+                        "lable": "Ən yüksək effektivlik, keyfiyyət və şəffaflıqla işləməyə imkan verir"
                     }
                 ]
             },
             "contact": {
-                "title": "РАБОТАЙТЕ С\n\nЛИДЕРОМ РЫНКА",
-                "label": "Проконсультируем по всем вопросам — от и до",
-                "link": "СВЯЗАТЬСЯ",
+                "title": "ƏMƏKDAŞLIĞI BAZARIN\n\nLİDERLƏRİ İLƏ EDİN",
+                "label": "başdan sona — Bütün suallarınızI CAVABLAYACAĞIQ",
+                "link": "ZƏNG ET",
                 "href": ""
             },
             "faq": {
-                "title": "ЧАСТЫЕ ВОПРОСЫ",
-                "lable": "Собрали самые важные вопросы, которые возникают при выборе поставщика кофе и подготовили ответы на них.",
+                "title": "TEZ-TEZ VERİLƏN SUALLAR",
+                "lable": "Qəhvə təchizatçısını seçərkən yaranan ən vacib sualları topladıq və onlara cavablar hazırladıq",
                 "list": [
                     {
-                        "title": "КАК СДЕЛАТЬ ОПТОВЫЙ ЗАКАЗ?",
+                        "title": "KORPORATİV SİFARİŞ NECƏ EDİLİR?",
                         "labels": [
-                            "Отправьте запрос",
-                            "Мы свяжемся с вами для обсуждения сотрудничества и отправим вам прайс-лист"
+                            "Sorğunu göndərin",
+                            "Biz sizinlə əməkdaşlıq məsələlərini müzakirə etmək üçün əlaqə saxlayacağıq və qiymət cədvəlini göndərəcəyik."
                         ]
                     },
                     {
-                        "title": "График работы и отправки заказов",
+                        "title": "İŞ QRAFİKİ VƏ SİFARİŞİN GÖNDƏRİLMƏSİ",
                         "labels": [
-                            "Клиентская поддержка работает по будням с 09:00 до 18:00",
-                            "Обжариваем кофе каждый день и отправляем в течение дня после получения оплаты"
+                            "Müştəri dəstəyimiz həftə içi saat 09:00-dan 18:00-dək fəaliyyət göstərir.",
+                            "Biz qəhvəni hər gün qovururuq və ödəniş alındıqdan sonra gün ərzində göndəririk."
                         ]
                     },
                     {
-                        "title": "Отправляете ли вы кофе В РЕГИОНЫ?",
+                        "title": "BÖLGƏLƏRƏ QƏHVƏ GÖNDƏRİRSİNİZ?",
                         "labels": [
-                            "Да, мы можем отправить кофе в регионы, но условия доставки обсуждаются индивидуально по заявке. Напишите нам, и мы подберём для вас удобный вариант!"
+                            "Bəli, biz qəhvəni regionlara da göndərə bilərik, lakin çatdırılma şərtləri sorğuya əsasən fərdi olaraq müzakirə edilir. Bizə yazın və sizin üçün ən əlverişli variantı seçək!"
                         ]
                     },
                     {
-                        "title": "Какая минимальная сумма заказа?",
+                        "title": "MINIMAL SIFARIŞ MƏBLƏĞI NEÇƏDIR?",
                         "labels": [
-                            "Минимальная сумма заказа в нашем оптовом отделе составляет 10 кг кофе. Это условие помогает обеспечить оптимальные поставки для вашего бизнеса."
+                            "Topdan satış şöbəmizdə minimum sifariş miqdarı 10 kq qəhvədir. Bu şərt, biznesiniz üçün optimal tədarükü təmin etməyə kömək edir."
                         ]
                     }
                 ]
@@ -756,7 +756,7 @@
         "az": {
             "menu": [
                 {
-                    "title": "HAQQIMIZDA",
+                    "title": "BİZ",
                     "list": [
                         {
                             "label": "Haqqımızda",
@@ -767,11 +767,11 @@
                             "link": "/contacts"
                         },
                         {
-                            "label": "İnternet-mağaza",
+                            "label": "Online mağaza",
                             "link": "/shop"
                         },
                         {
-                            "label": "Topdan satış saytı",
+                            "label": "Korporativ satış",
                             "link": "/wholesale"
                         }
                     ]
@@ -794,7 +794,7 @@
                     ]
                 }
             ],
-            "privacy_policy": "İstifadəçi razılaşması"
+            "privacy_policy": "İstifadəçi müqaviləsi"
         },
         "ru": {
             "menu": [

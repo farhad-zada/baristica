@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 import PagesText from '../../../content/PagesText.json';
 import { Link } from 'react-router-dom';
-import { FacebookIcon, InstagramIcon, YoutubeIcon } from '../../../icons';
+import { FacebookIcon, InstagramIcon, WPIcon, YoutubeIcon } from '../../../icons';
 
 const { home } = PagesText;
 const { body } = home;
@@ -21,6 +21,9 @@ const HomeContact = () => {
               <div className={`${style.homeContact_socials} flex a-center`}>
                 <Link to="" className={`${style.homeContact_social} darkGray rounded`}>
                   {InstagramIcon}
+                </Link>
+                <Link to="" className={`${style.homeContact_social} darkGray rounded`}>
+                  {WPIcon}
                 </Link>
                 <Link to="" className={`${style.homeContact_social} darkGray rounded`}>
                   {FacebookIcon}
@@ -46,7 +49,7 @@ const HomeContact = () => {
                   {InstagramIcon}
                 </Link>
                 <Link to="" className={`${style.homeContact_social} darkGray rounded`}>
-                  {InstagramIcon}
+                  {WPIcon}
                 </Link>
                 <Link to="" className={`${style.homeContact_social} darkGray rounded`}>
                   {YoutubeIcon}
