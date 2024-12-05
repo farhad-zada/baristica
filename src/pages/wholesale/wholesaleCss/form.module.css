@@ -36,4 +36,10 @@
     .form_section{
         flex-direction: column;
     }
+    .form_section .form_elem h1{
+        font-size: 36px !important;
+    }
+    .form_section button{
+        font-size: 28px !important;
+    }
 }

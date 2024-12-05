@@ -16,6 +16,9 @@
     padding: 10px 56px;
 }
 @media (max-width: 768px){
+    .contact .contact_title{
+        font-size: 64px !important;
+    }
     .contact_item{
         flex-direction: column;
     }
@@ -25,5 +28,17 @@
     .link{
         width: 100%;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px){
+    .contact_item{
+        padding: 35px 15px !important;
+    }
+    .contact .contact_title{
+        font-size: 48px !important;
+    }
+    .contact_item, .contact_item .link{
+        font-size: 32px !important;
     }
 }

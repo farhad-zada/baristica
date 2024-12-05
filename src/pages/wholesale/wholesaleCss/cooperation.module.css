@@ -63,4 +63,10 @@
     .cooperations{
         flex-direction: column;
     }
+    .cooperation .cooperation_title{
+        font-size: 48px !important;
+    }
+    .title{
+        font-size: 36px !important;
+    }
 }
