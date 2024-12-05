@@ -105,7 +105,7 @@ export default function Products() {
 
       <div className="container">
         <ProductsHead heading={heading} />
-        <ProductTypes content={types?.length ? types : []} />
+        <ProductTypes setFilterQueryString={setFilterQueryString} content={types?.length ? types : []} />
         <FilterSection setFilterQueryString={setFilterQueryString} type={type} productsCount={productsCount} />
         <ProductsList products={products} />
         <Pagination
