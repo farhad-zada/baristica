@@ -187,7 +187,7 @@ const ProductCard = (props) => {
             <div className={style.productCard_body}>
                 <h3 className="text-center darkGrey_color f16 fw400">{activeProduct?.code ? activeProduct.code : 'BFC-02002'}</h3>
                 <h2 className="text-center darkGrey_color f24 fw600">{activeProduct?.name ? activeProduct.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
-                <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processing ? activeProduct.processing : 'мытая ОБРАБОТКА'}</p>
+                {/* <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processing ? activeProduct.processing : 'мытая ОБРАБОТКА'}</p> */}
 
                 <div className={`${style.productCard_img} w-100 flex j-center`}>
                     <img src={activeProduct?.images?.length ? activeProduct.images[0] : MockImg} alt="" />

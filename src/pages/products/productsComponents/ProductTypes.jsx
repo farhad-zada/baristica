@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ProductType from './ProductType';
 import styles from '../productsCss/productTypes.module.css';
 
-export default function ProductTypes({ setFilterQueryString, content }) {
+export default function ProductTypes({ setFilterQueryString, content, type }) {
     const [activeIndices, setActiveIndices] = useState([]);
 
 
@@ -16,6 +16,28 @@ export default function ProductTypes({ setFilterQueryString, content }) {
             setActiveIndices([...activeIndices, index]);
         }
 
+        if(type === 'Coffee'){
+            setFilterQueryString((state) => {
+                let arr = state.split('&');
+    
+                // Удаляем существующую строку с ключом `category`
+                arr = arr.filter((item) => !item.startsWith('coffeeType='));
+    
+                // Получаем все активные значения из `content` по `activeIndices`
+                const activeValues = [...activeIndices, index] // Добавляем или убираем текущий индекс
+                    .filter((i) => activeIndices.includes(i) ? i !== index : i === index) // Обновляем активные индексы
+                    .map((i) => content[i].value); // Извлекаем значения
+    
+                // Если есть активные значения, добавляем `category` с этими значениями
+                if (activeValues.length > 0) {
+                    arr.push(`coffeeType=${activeValues.join(',')}`);
+                }
+    
+                // Формируем новую строку
+                return arr.filter((item) => item).join('&'); // Убираем пустые строки
+            });
+            return ;
+        }
         setFilterQueryString((state) => {
             let arr = state.split('&');
 

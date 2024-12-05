@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './productsFilter.module.css'
 import CustomDropdown from '../customDropdown/CustomDropdown'
 
-export default function ProductsFilter({ setFilterQueryString,content, status }) {
+export default function ProductsFilter({ setFilterQueryString, content, status }) {
 
     const [selectedArr, setSelectedArr] = useState([]);
     const [selectedRating, setSelectedRating] = useState([])
@@ -16,12 +16,14 @@ export default function ProductsFilter({ setFilterQueryString,content, status })
         {
             header: content.rating.header,
             options: content.rating.options,
-            type: 'rating'
+            type: 'rating',
+            selectionMode:'single'
         },
         {
             header: content.grader.header,
             options: content.grader.options,
-            type: 'grader'
+            type: 'grader',
+            selectionMode:'single'
         },
         {
             header: content.acidity.header,
@@ -54,7 +56,7 @@ export default function ProductsFilter({ setFilterQueryString,content, status })
             viscocity: selectedDencity,
             country: selectedCountry
         };
-    
+
         const result = Object.entries(data)
             .filter(([_, values]) => {
                 // Исключаем ключи с пустыми массивами
@@ -67,22 +69,20 @@ export default function ProductsFilter({ setFilterQueryString,content, status })
                 return `${key}=${values}`;
             })
             .join('&');
-    
+
         setFilterQueryString((state) => {
             let arr = state.split('&');
-    
+
             // Фильтруем массив, оставляя только `price`
             arr = arr.filter(item => item.startsWith('price='));
-    
+
             // Формируем новую строку с только `price` и результатом фильтров
             const updatedState = arr.filter(item => item).join('&'); // Убираем пустые строки
             return updatedState ? `${updatedState}&${result}` : result;
         });
-    
+
         return result;
     };
-    
-    
 
 
     const handleSelectionChange = (selectedOptions, type) => {
@@ -114,19 +114,44 @@ export default function ProductsFilter({ setFilterQueryString,content, status })
     useEffect(() => {
         processFilters()
     }, [selectedArr])
+
+    useEffect(() => {
+        if (!status) {
+            setSelectedRating([])
+            setSelectedGrader([])
+            setSelecteAcidity([])
+            setSelecteProcessing([])
+            setSelecteCountry([])
+            setSelecteDencity([])
+            setSelectedArr([])
+        }
+    }, [status])
     return (
         <div className={status ? styles.productsFilterActive : styles.productsFilter}>
             {
-                filters.length && filters.map((filter) => (
-                    <CustomDropdown
-                        label={filter.header}
-                        options={filter.options}
-                        onSelectionChange={handleSelectionChange}
-                        key={filter.header}
-                        type={filter.type}
-                    />
-                ))
+                filters.length && filters.map((filter) => {
+                    const selectedOptions =
+                        filter.type === 'rating' ? selectedRating :
+                            filter.type === 'grader' ? selectedGrader :
+                                filter.type === 'acidity' ? selectedAcidity :
+                                    filter.type === 'processing' ? selectedProcessing :
+                                        filter.type === 'country' ? selectedCountry :
+                                            filter.type === 'dencity' ? selectedDencity : [];
+
+                    return (
+                        <CustomDropdown
+                            label={filter.header}
+                            options={filter.options}
+                            onSelectionChange={handleSelectionChange}
+                            key={filter.header}
+                            type={filter.type}
+                            selectionMode={filter.selectionMode}
+                            selectedOptions={selectedOptions} // Передаем состояние в CustomDropdown
+                        />
+                    );
+                })
             }
+
         </div>
     )
 }

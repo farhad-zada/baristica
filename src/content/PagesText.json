@@ -1019,6 +1019,7 @@
                 "leftHeading": "Göstərilən məhsul:",
                 "leftHeadingAddition": "-dən",
                 "filterBtn": "Filtr",
+                "closeFilter":"Filtri təmizlə",
                 "priceSelect": "Qiymət",
                 "priceSelectOptions": [
                     {
@@ -1159,6 +1160,7 @@
                 "leftHeading": "Показано сортов:",
                 "leftHeadingAddition": "из",
                 "filterBtn": "Фильтры",
+                "closeFilter":"Сбросить фильтры",
                 "priceSelect": "Цена",
                 "priceSelectOptions": [
                     {
@@ -1299,6 +1301,7 @@
                 "leftHeading": "Products showed:",
                 "leftHeadingAddition": "from",
                 "filterBtn": "Filters",
+                "closeFilter":"Reset filters",
                 "priceSelect": "Price",
                 "priceSelectOptions": [
                     {
