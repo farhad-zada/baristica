@@ -128,7 +128,7 @@ export default function OrderLeft({ content }) {
                 <h2 className='f32 fw700'>{content ? content.placeHeading : ''}</h2>
                 <div className='mt20'>
                     <label className={delivery ? styles.label : styles.labelActive}>
-                        <input name='delivery' type="radio" onClick={() => setDelivery(false)} />
+                        <input name='delivery' type="radio" checked={!delivery} onClick={() => setDelivery(false)} />
                         {content ? content.pickupInput : ''}
                     </label>
 
@@ -150,7 +150,7 @@ export default function OrderLeft({ content }) {
                                 addresses.length
                                     ?
                                     addresses.map((address, index) => (
-                                        <UserAddress address={address} selectedAddress={selectedAddress} setSelectedAddress={setSelectedAddress} radio={true} key={index} setAddresses={setAddresses} />
+                                        <UserAddress content={lang ? profile[lang].addresses : {}} address={address} selectedAddress={selectedAddress} setSelectedAddress={setSelectedAddress} radio={true} key={index} setAddresses={setAddresses} />
                                     ))
                                     :
                                     <></>

@@ -7,7 +7,7 @@ import pageText from '../../../../content/PagesText.json'
 import Rating from '../../../../components/rating/Rating';
 
 const { productDetail } = pageText
-const Comment = ({ comment, getComments }) => {
+const Comment = ({ products,comment, getComments }) => {
     const [commentField, setCommentField] = useState("");
     const [uploadedPhotos, setUploadedPhotos] = useState([]);
     const [isEditing, setIsEditing] = useState(false); // New state to toggle edit mode
@@ -50,8 +50,8 @@ const Comment = ({ comment, getComments }) => {
         <div className={style.comment_section}>
             <div className={`${style.comment} gray border8`} id={comment.id} key={comment.id}>
                 <div className={`${style.comment_head} flex a-center`}>
-                    {/* <img src={comment?.product_img} alt="" /> */}
-                    <h5 className="darkGrey_color f20 fw700">{comment?.user?.name}</h5>
+                    <img src={products[comment.product].images ? products[comment.product].images[0] : ''} alt="" />
+                    <h5 className="darkGrey_color f20 fw700">{products[comment.product].name[lang] ? products[comment.product].name[lang] : products[comment.product].name['az'] }</h5>
                 </div>
                 <hr />
                 <div className={`${style.comment_body} flex a-center j-between`}>

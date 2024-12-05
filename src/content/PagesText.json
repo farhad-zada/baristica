@@ -1023,11 +1023,11 @@
                 "priceSelectOptions": [
                     {
                         "text": "Artma sırası ilə",
-                        "value": "up"
+                        "value": "asc"
                     },
                     {
                         "text": "Azalma sırası ilə",
-                        "value": "down"
+                        "value": "desc"
                     }
                 ],
                 "filters": {
@@ -1036,11 +1036,11 @@
                         "options": [
                             {
                                 "text": "Artma sırası ilə",
-                                "value": "up"
+                                "value": "asc"
                             },
                             {
                                 "text": "Azalma sırası ilə",
-                                "value": "down"
+                                "value": "desc"
                             }
                         ]
                     },
@@ -1049,11 +1049,11 @@
                         "options": [
                             {
                                 "text": "Artma sırası ilə",
-                                "value": "up"
+                                "value": "asc"
                             },
                             {
                                 "text": "Azalma sırası ilə",
-                                "value": "down"
+                                "value": "desc"
                             }
                         ]
                     },
@@ -1087,11 +1087,11 @@
                             },
                             {
                                 "text": "Anaerobik yuyulmuş",
-                                "value": "anaerobik"
+                                "value": "anaerobic washed"
                             },
                             {
-                                "text": "Karbonik maserasiya",
-                                "value": "karbonik"
+                                "text": "carbonic maceration maserasiya",
+                                "value": "carbonic maceration"
                             }
                         ]
                     },
@@ -1227,11 +1227,11 @@
                             },
                             {
                                 "text": "Анаэробная мытая",
-                                "value": "anaerobik"
+                                "value": "anaerobic washed"
                             },
                             {
                                 "text": "Углекислотная мацерация",
-                                "value": "karbonik"
+                                "value": "carbonic maceration"
                             }
                         ]
                     },
@@ -1303,11 +1303,11 @@
                 "priceSelectOptions": [
                     {
                         "text": "In ascending order",
-                        "value": "up"
+                        "value": "asc"
                     },
                     {
                         "text": "In descending order",
-                        "value": "down"
+                        "value": "desc"
                     }
                 ],
                 "filters": {
@@ -1316,11 +1316,11 @@
                         "options": [
                             {
                                 "text": "In ascending order",
-                                "value": "up"
+                                "value": "asc"
                             },
                             {
                                 "text": "In descending order",
-                                "value": "down"
+                                "value": "desc"
                             }
                         ]
                     },
@@ -1329,11 +1329,11 @@
                         "options": [
                             {
                                 "text": "In ascending order",
-                                "value": "up"
+                                "value": "asc"
                             },
                             {
                                 "text": "In descending order",
-                                "value": "down"
+                                "value": "desc"
                             }
                         ]
                     },
@@ -1367,11 +1367,11 @@
                             },
                             {
                                 "text": "Anaerobic washing",
-                                "value": "anaerobik"
+                                "value": "anaerobic washed"
                             },
                             {
                                 "text": "Carbonic maceration",
-                                "value": "karbonik"
+                                "value": "carbonic maceration"
                             }
                         ]
                     },

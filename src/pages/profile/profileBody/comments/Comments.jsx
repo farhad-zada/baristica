@@ -13,6 +13,7 @@ const Comments = () => {
   const { lang, token } = useSelector((state) => state.baristica);
 
   const [comments, setComments] = useState([])
+  const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
 
@@ -31,6 +32,7 @@ const Comments = () => {
     try {
       const response = await userService.getComments(token, currentPage)
       setComments(response.data.comments)
+      setProducts(response.data.products)
       setTotalPages(response.page_count ? response.page_count : 1)
     } catch (error) {
       setError(true)
@@ -53,7 +55,7 @@ const Comments = () => {
       <h1>{profile[lang]?.comments?.title}:</h1>
       <div className='all_comments'>
         {comments.map((comment) => (
-          <Comment comment={comment} getComments={getComments} />
+          <Comment products={products} comment={comment} getComments={getComments} />
         ))}
         <Pagination
           currentPage={currentPage}
