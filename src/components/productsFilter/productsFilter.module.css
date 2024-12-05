@@ -8,3 +8,13 @@
     padding: 40px 50px;
     background: #F2F2F2;
 }
+@media(max-width: 768px){
+    .productsFilterActive{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(max-width: 480px){
+    .productsFilterActive{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
