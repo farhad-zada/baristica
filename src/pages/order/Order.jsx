@@ -15,6 +15,8 @@ export default function Order() {
 
     const [deliveryFee, setDeliveryFee] = useState(0)
     const [loading, setLoading] = useState(false)
+    const [delivery, setDelivery] = useState(false)
+
 
     const deliveryService = new DeliveryService()
 
@@ -47,8 +49,8 @@ export default function Order() {
                     finalCart.length
                         ?
                         <div className={`${styles.order_row} flex mt50 j-between g20`}>
-                            <OrderLeft content={lang ? order[lang] : {}} />
-                            <OrderRight fee={deliveryFee} />
+                            <OrderLeft delivery={delivery} setDelivery={setDelivery} content={lang ? order[lang] : {}} />
+                            <OrderRight delivery={delivery} fee={deliveryFee} />
                         </div>
                         :
                         <p className="f24 fw400 darkGrey_color mt50">{lang ? order[lang].zeroProducts : ''}</p>

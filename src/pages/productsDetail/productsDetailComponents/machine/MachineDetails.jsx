@@ -36,10 +36,9 @@ export default function MachineDetails({ product }) {
     
     return (
         <div>
-            {product?.colors ? 
+           
             <ColorPicker options={colors} onColorSelect={handleColorSelect} text={lang ? productCard[lang].color : ''} />
-        :
-        <></>}
+        
             <h2 className="f16 fw700 mt20 darkGrey_color">
                 {lang ? productCard[lang].groups : ''}
             </h2>

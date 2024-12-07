@@ -33,6 +33,9 @@ const ProductCard = (props) => {
     const [grindingOptions, setGrindingOptions] = useState([])
     const [defaultGrinding, setDefaultGrinding] = useState('')
 
+    const [categoryGroups, setCategoryGroups] = useState([])
+    const [defaultCategory, setDefaultCategory] = useState(2)
+
     const [cartCount, setCartCount] = useState(1)
     const favoriteService = new FavoritesService()
     const productsService = new ProductsService()
@@ -43,7 +46,7 @@ const ProductCard = (props) => {
     const addToCart = () => {
         // setCartCount(1)
         setProductAdded(true)
-        dispatch(addProductToCart({ ...activeProduct, cartCount: cartCount }))
+        dispatch(addProductToCart({ ...activeProduct, cartCount: cartCount, grindingOption: defaultGrinding }))
     }
     const addFavorite = async (id) => {
         setLoading(true)
@@ -94,22 +97,19 @@ const ProductCard = (props) => {
         if (type === 'Coffee') {
             return (
                 <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
+                    {/* <CustomSelect options={grindingOptions} defaultValue={defaultGrinding} /> */}
+
                     <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} callBack={changeProduct} />
-                    {
-                        product?.grinding
-                        ?
-                    <CustomSelect options={grindingOptions} defaultValue={defaultGrinding} />
-                        :
-                        <span></span>
-                    }
+
+
                     <Counter count={cartCount} setCount={setCartCount} />
                 </div>
             )
         } else if (type === 'Machine') {
-            if (product?.group?.length) {
+            if (product?.category) {
                 return (
                     <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
-                        <CustomSelect options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].grindityValue : 'g'} />
+                        <CustomSelect options={categoryGroups} defaultValue={defaultCategory} additionalText={lang ? productCard[lang].grindityValue : 'g'} />
                     </div>
                 )
             }
@@ -138,11 +138,17 @@ const ProductCard = (props) => {
             setWeightOptions([activeProduct?.weight, ...linkedWeights])
             setDefaultWeight(activeProduct?.weight || 200)
 
-            const grindingFields = product.linked.filter((link) => link.field === 'grinding')
-            const linkedGridnings = grindingFields.map((field) => field.fieldValue)
+            // const grindingFields = product.linked.filter((link) => link.field === 'grinding')
+            // const linkedGridnings = grindingFields.map((field) => field.fieldValue)
 
-            setGrindingOptions(product?.grinding ? [product.grinding, ...linkedGridnings] : [...linkedGridnings])
-            setDefaultGrinding(product?.grinding ? product?.grinding : '')
+            // setGrindingOptions(product?.grinding ? [product.grinding, ...linkedGridnings] : [...linkedGridnings])
+            // setDefaultGrinding(product?.grinding ? product?.grinding : '')
+
+            const categoryFields = product.linked.filter((link) => link.field === 'category')
+            const linkedCategories = categoryFields.map((field) => field.fieldValue)
+
+            setCategoryGroups(product?.category ? [product.category, ...linkedCategories] : [...linkedCategories])
+            setDefaultCategory(product?.category ? product?.category : '')
 
             setCartCount(1)
         }
@@ -160,44 +166,54 @@ const ProductCard = (props) => {
             <Error status={error} setStatus={setError} />
 
             <ProductAddedModal product={activeProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />
-            <div className={style.productCard_head + " flex j-between"}>
-                <div className="productCard-head_left flex g8">
-                    {
-                        token
-                            ?
-                            <span className={style.favorited} onClick={(e) => { e.stopPropagation(); addFavorite(activeProduct?._id) }}>
-                                {Favorited}
-                            </span>
-                            :
-                            <></>
-                    }
-                    <span className="flex g8  f16 darkGrey_color fw400">
-                        {Star}
-                        <span>{activeProduct?.statistics?.ratings ? activeProduct.statistics.ratings.toFixed(1) : 0}</span>
-                    </span>
-                    <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"}>
-                        {Feedback}
-                        <span>{activeProduct?.feedbacks ? activeProduct.feedbacks : 0}</span>
+            <div className={style.productCard_head}>
+                <div className="flex j-between">
+                    <div className="productCard-head_left flex g8">
+                        {
+                            token
+                                ?
+                                <span className={style.favorited} onClick={(e) => { e.stopPropagation(); addFavorite(activeProduct?._id) }}>
+                                    {Favorited}
+                                </span>
+                                :
+                                <></>
+                        }
+                        <span className="flex g8  f16 darkGrey_color fw400">
+                            {Star}
+                            <span>{activeProduct?.statistics?.ratings ? activeProduct.statistics.ratings.toFixed(1) : 0}</span>
+                        </span>
+                        <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"}>
+                            {Feedback}
+                            <span>{activeProduct?.feedbacks ? activeProduct.feedbacks : 0}</span>
+                        </span>
+                    </div>
+                    <span className="productCard-head_right blueAccent fw400 text-upperCase">
+                        {activeProduct?.category ? activeProduct.category : 'Espresso'}
                     </span>
                 </div>
-                <span className="productCard-head_right blueAccent fw400 text-upperCase">
-                    {activeProduct?.category ? activeProduct.category : 'Espresso'}
-                </span>
+                <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : 'BFC-02002'}</h3>
+                <h2 className="text-center darkGrey_color f24 fw600">{activeProduct?.name ? activeProduct.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
             </div>
             <div className={style.productCard_body}>
-                <h3 className="text-center darkGrey_color f16 fw400">{activeProduct?.code ? activeProduct.code : 'BFC-02002'}</h3>
-                <h2 className="text-center darkGrey_color f24 fw600">{activeProduct?.name ? activeProduct.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
+
                 {/* <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processing ? activeProduct.processing : 'мытая ОБРАБОТКА'}</p> */}
 
                 <div className={`${style.productCard_img} w-100 flex j-center`}>
                     <img src={activeProduct?.images?.length ? activeProduct.images[0] : MockImg} alt="" />
                 </div>
+
+
+
+            </div>
+
+            <div className="productCard_foot">
+
                 {
                     activeProduct.productType === 'machine' || !product?.profile
                         ?
                         <></>
                         :
-                        <p className="text-center f16 fw400 darkGrey_color" style={{ maxWidth: "350px" }}>{activeProduct?.profile ? activeProduct.profile[lang] : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
+                        <p className={style.pagaraph + " text-center f16 fw400 darkGrey_color"} style={{ maxWidth: "350px" }}>{activeProduct?.profile ? activeProduct.profile[lang] : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
                 }
 
                 {
@@ -215,11 +231,7 @@ const ProductCard = (props) => {
                 {
                     setSelectContent(activeProduct.productType)
                 }
-
-                
-            </div>
-
-            <div className="productCard_foot flex j-between a-center">
+                <div className="flex j-between a-center">
                     {product?.productType !== 'Machine'
                         ?
                         <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
@@ -248,6 +260,8 @@ const ProductCard = (props) => {
                         }
                     </button>
                 </div>
+
+            </div>
         </div>
     )
 }

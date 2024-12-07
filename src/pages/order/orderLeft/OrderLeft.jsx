@@ -11,7 +11,7 @@ import Loading from '../../../components/loading/Loading'
 import Error from '../../../components/error/Error'
 const { order, profile } = PageText
 
-export default function OrderLeft({ content }) {
+export default function OrderLeft({ content, delivery, setDelivery }) {
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
@@ -19,7 +19,6 @@ export default function OrderLeft({ content }) {
     })
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
-    const [delivery, setDelivery] = useState(false)
     const [byCard, setByCard] = useState(true)
     const [selectedAddress, setSelectedAddress] = useState({})
 
@@ -29,7 +28,7 @@ export default function OrderLeft({ content }) {
 
     const [add, setAdd] = useState(false)
 
-
+console.log(selectedAddress)
     const { lang, finalCart, user, token } = useSelector((state) => state.baristica);
 
     const ordersService = new OrdersService()
@@ -44,17 +43,23 @@ export default function OrderLeft({ content }) {
                     phone: formData.phone
                 },
                 deliveryMethod: delivery ? 'delivery' : 'pickup',
+                address: selectedAddress._id,
                 items: finalCart.map((product) => {
-                    return { product: product._id, quantity: product.cartCount }
+                    const { _id, cartCount, grindingOption } = product
+                    return { product: _id, quantity: cartCount, grindingOption: grindingOption }
                 }),
-                paymentMethod: byCard ? 'byCard' : "byCash",
-                comment: formData.comment
+                paymentMethod: byCard ? 'card' : "cash",
+                notes: formData.comment,
+                deliveryHour: formData.time,
+                deliveryDate: formData.date
             }
         }
         try {
             const response = await ordersService.createOrder(token, data)
-            const url = response.data.epoint.redirect_url
-            window.location.href = url
+            const url = response.data.redirect.redirect_url
+            if(url){
+                window.location.href = url
+            }
         } catch (error) {
             setError(true)
         } finally {
@@ -103,7 +108,10 @@ export default function OrderLeft({ content }) {
                 />
             </div>
 
-            <div className="orderInfo_component">
+            {
+                delivery
+                ?
+                <div className="orderInfo_component">
                 <h2 className='f32 fw700'>{content ? content.timeHeading : ''}</h2>
                 <div className="flex g20 mt20">
                     <InputText
@@ -123,6 +131,9 @@ export default function OrderLeft({ content }) {
                     />
                 </div>
             </div>
+            :
+            <></>
+            }
 
             <div className="orderInfo_component">
                 <h2 className='f32 fw700'>{content ? content.placeHeading : ''}</h2>

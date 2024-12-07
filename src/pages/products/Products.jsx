@@ -53,6 +53,9 @@ export default function Products() {
     try {
       const response = await productsService.getProducts(token, type, currentPage, query)
       const products = response.data
+      if(productsCount !== response.count){
+        setCurrentPage(1)
+      }
       setProductsCount(response.count)
       setTotalPages(response.page_count)
       setProducts(products)
@@ -72,17 +75,17 @@ export default function Products() {
   useEffect(() => {
     if (window.location.href.includes('/coffeeMachines')) {
       changePageType('coffeeMachines')
-      getProducts('Machine')
+      getProducts('Machine', filterQueryString)
       setType('Machine')
 
     } else if (window.location.href.includes('/coffee')) {
       changePageType('coffee')
-      getProducts('Coffee')
+      getProducts('Coffee', filterQueryString)
       setType('Coffee')
 
     } else if (window.location.href.includes('/accesories')) {
       changePageType('accesories')
-      getProducts('Accessory')
+      getProducts('Accessory', filterQueryString)
       setType('Accessory')
     }
     else {
