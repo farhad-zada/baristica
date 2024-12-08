@@ -24,7 +24,7 @@ export default function Products() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
-  const [type, setType] = useState('Coffee')
+  const [type, setType] = useState('')
 
   const { pathname } = useLocation();
 
@@ -53,7 +53,7 @@ export default function Products() {
     try {
       const response = await productsService.getProducts(token, type, currentPage, query)
       const products = response.data
-      if(productsCount !== response.count){
+      if (productsCount !== response.count) {
         setCurrentPage(1)
       }
       setProductsCount(response.count)
@@ -99,8 +99,10 @@ export default function Products() {
   }, [pathname, token, currentPage])
 
   useEffect(() => {
-    getProducts(type, filterQueryString)
-  }, [filterQueryString])
+    if (type) {
+      getProducts(type, filterQueryString)
+    }
+  }, [filterQueryString, type])
   return (
     <div className={`${style.productsPage}  flex j-center`}>
       <Loading status={loading} />

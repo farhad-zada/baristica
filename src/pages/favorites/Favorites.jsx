@@ -8,6 +8,7 @@ import FavoritesService from '../../services/favorites.service'
 import Loading from '../../components/loading/Loading'
 import { addProductToCart } from '../../redux/slice'
 import Error from '../../components/error/Error'
+import Pagination from '../../components/pagination/Pagination'
 
 const { favorites } = PageText
 
@@ -15,10 +16,17 @@ export default function Favorites() {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     const { lang, token } = useSelector((state) => state.baristica);
     const dispatch = useDispatch()
     const favoritesService = new FavoritesService()
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+        window.scrollTo(0, 0);
+    };
 
     const addAllToCart = () => {
         products.map((product) => {
@@ -28,10 +36,10 @@ export default function Favorites() {
         })
     }
 
-    const getFavorites = async () => {
+    const getFavorites = async (page) => {
         setLoading(true)
         try {
-            const response = await favoritesService.getFavorites(token)
+            const response = await favoritesService.getFavorites(token, page)
             setProducts(response.data)
         } catch (error) {
             setError(true)
@@ -40,9 +48,13 @@ export default function Favorites() {
         }
     }
 
+    // useEffect(() => {
+    //     getFavorites()
+    // }, [])
+
     useEffect(() => {
-        getFavorites()
-    }, [])
+        getFavorites(currentPage)
+    }, [currentPage])
 
     return (
         <div className={styles.favorites + ' flex j-center'}>
@@ -57,6 +69,11 @@ export default function Favorites() {
                     </button>
                 </div>
                 <ProductsList products={products} />
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={handlePageChange}
+                />
             </div>
         </div>
     )
