@@ -3,6 +3,13 @@
     width: max-content;
     cursor: pointer;
   }
+  .selectText{
+    display: inline-block;
+    width: 8ch; /* Limit to 8 characters */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   
   .selected_value {
     padding: 10px;
