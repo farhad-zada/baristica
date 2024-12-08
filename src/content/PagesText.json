@@ -1019,7 +1019,7 @@
                 "leftHeading": "Göstərilən məhsul:",
                 "leftHeadingAddition": "-dən",
                 "filterBtn": "Filtr",
-                "closeFilter":"Filtri təmizlə",
+                "closeFilter": "Filtri təmizlə",
                 "priceSelect": "Qiymət",
                 "priceSelectOptions": [
                     {
@@ -1160,7 +1160,7 @@
                 "leftHeading": "Показано сортов:",
                 "leftHeadingAddition": "из",
                 "filterBtn": "Фильтры",
-                "closeFilter":"Сбросить фильтры",
+                "closeFilter": "Сбросить фильтры",
                 "priceSelect": "Цена",
                 "priceSelectOptions": [
                     {
@@ -1301,7 +1301,7 @@
                 "leftHeading": "Products showed:",
                 "leftHeadingAddition": "from",
                 "filterBtn": "Filters",
-                "closeFilter":"Reset filters",
+                "closeFilter": "Reset filters",
                 "priceSelect": "Price",
                 "priceSelectOptions": [
                     {
@@ -1794,7 +1794,7 @@
                 "saveBtn": "Yadda saxla",
                 "addBtn": "Ünvan əlavə et",
                 "newAddress": "Təzə ünvan:",
-                "houseHint":"ev"
+                "houseHint": "ev"
             },
             "orders": {
                 "tabs": [
@@ -1905,7 +1905,7 @@
                 "saveBtn": "Сохранить",
                 "addBtn": "Добавить адрес",
                 "newAddress": "Новый адрес:",
-                "houseHint":"кв"
+                "houseHint": "кв"
             },
             "orders": {
                 "tabs": [
@@ -2024,7 +2024,7 @@
                 "saveBtn": "Save",
                 "addBtn": "Add address",
                 "newAddress": "New address:",
-                "houseHint":"кв"
+                "houseHint": "кв"
             },
             "orders": {
                 "tabs": [
@@ -2247,5 +2247,81 @@
             "text": "The page you are looking for was not found!",
             "button": "BACK TO HOME"
         }
+    },
+    "categories": {
+        "az": {
+            "filter":"Filtr",
+            "espresso":"Espresso",
+            "1_group": "1-qruplu aparat",
+            "2_group": "2-qruplu aparat",
+            "3_group": "3-qruplu aparat",
+            "grinder":"Qəhvə üyüdən",
+            "scale":"Tərəzi",
+            "barista":"Barista",
+            "tableware":"Qab",
+            "teapot":"Çaydan"
+        },
+        "ru": {
+            "filter":"Фильтр",
+            "espresso":"Эспрессо",
+            "1_group": "1-группажный аппарат",
+            "2_group": "2-х группажный аппарат",
+            "3_group": "3-х группажный аппарат",
+            "grinder":"Гриндер",
+            "scale":"Весы",
+            "barista":"Бариста",
+            "tableware":"Посуда",
+            "teapot":"Чайник"
+        },
+        "en": {
+            "filter":"Filter",
+            "espresso":"Espresso",
+            "1_group": "1-group apparatus",
+            "2_group": "2-group apparatus",
+            "3_group": "3-group apparatus",
+            "grinder":"Grinder",
+            "scale":"Scale",
+            "barista":"Barista",
+            "tableware":"Tableware",
+            "teapot":"Teapot"
+        }
+    },
+    "grindingOptionsTranslate":{
+        "az":[
+            {"value":"whole-bean", "text":"dənli"},
+            {"value":"for-french-press", "text":"french press üçün"},
+            {"value":"for-drip-brewing", "text":"damcı dəmləmə üçün"},
+            {"value":"for-chemex","text":"chemex üçün"},
+            {"value":"for-pour-over", "text":"pourover üçün"},
+            {"value":"for-aeropress", "text":"aeropress üçün"},
+            {"value":"for-geyser-coffee-maker", "text":"qeyzer dəmləmə növü üçün"},
+            {"value":"for-espresso-coarse", "text":"espresso üçün (iri)"},
+            {"value":"for-espresso-fine", "text":"espresso üçün (incə)"},
+            {"value":"for-cezve-fine", "text":"cezvə üçün (incə)"}
+        ],
+        "ru":[
+            {"value":"whole-bean", "text":"в зернах"},
+            {"value":"for-french-press", "text":"для френч-пресса"},
+            {"value":"for-drip-brewing", "text":"для капелльной кофеварки"},
+            {"value":"for-chemex","text":"для кемекса"},
+            {"value":"for-pour-over", "text":"для пуровера"},
+            {"value":"for-aeropress", "text":"для аэропресса"},
+            {"value":"for-geyser-coffee-maker", "text":"для гейзерной кофеварки"},
+            {"value":"for-espresso-coarse", "text":"для эспрессо (грубо)"},
+            {"value":"for-espresso-fine", "text":"для эспрессо (тонко)"},
+            {"value":"for-cezve-fine", "text":"для турки (мелкий)"}
+        ],
+        "en":[
+            {"value":"whole-bean", "text":"in beans"},
+            {"value":"for-french-press", "text":"for French-press"},
+            {"value":"for-drip-brewing", "text":"for drip coffee maker"},
+            {"value":"for-chemex","text":"for Chemex"},
+            {"value":"for-pour-over", "text":"for pour-over"},
+            {"value":"for-aeropress", "text":"for aeropress"},
+            {"value":"for-geyser-coffee-maker", "text":"for geyser coffee maker"},
+            {"value":"for-espresso-coarse", "text":"for espresso (coarse)"},
+            {"value":"for-espresso-fine", "text":"for espresso (fine)"},
+            {"value":"for-cezve-fine", "text":"for cezve (small)"}
+        ]
     }
 }

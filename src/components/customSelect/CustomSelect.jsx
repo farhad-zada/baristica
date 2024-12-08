@@ -25,7 +25,7 @@ const CustomSelect = ({ field, options, defaultValue, additionalText, fontSize, 
   return (
     <div className={styles.custom_select}>
       <div className={styles.selected_value + fontSize ? fontSize : 'f16' + textColor ? textColor : '' + ' fw400'} onClick={() => setIsOpen(!isOpen)}>
-        {selectedValue} {additionalText ? additionalText : ''}
+        <span>{selectedValue} {additionalText ? additionalText : ''}</span>
         <span className={`${styles.dropdown_arrow} ${isOpen ? 'open' : ''}`}>{Select}</span>
       </div>
 

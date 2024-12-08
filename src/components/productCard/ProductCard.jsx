@@ -15,7 +15,7 @@ import FavoritesService from "../../services/favorites.service"
 import Loading from "../loading/Loading"
 import ProductsService from "../../services/products.service"
 import Error from "../error/Error"
-const { productCard } = pageText
+const { productCard, categories, grindingOptionsTranslate } = pageText
 const ProductCard = (props) => {
     const { product, width = 'auto' } = props
 
@@ -32,6 +32,7 @@ const ProductCard = (props) => {
 
     const [grindingOptions, setGrindingOptions] = useState([])
     const [defaultGrinding, setDefaultGrinding] = useState('')
+    const [selectedGrinding, setSelectedGrinding] = useState('')
 
     const [categoryGroups, setCategoryGroups] = useState([])
     const [defaultCategory, setDefaultCategory] = useState(2)
@@ -46,7 +47,7 @@ const ProductCard = (props) => {
     const addToCart = () => {
         // setCartCount(1)
         setProductAdded(true)
-        dispatch(addProductToCart({ ...activeProduct, cartCount: cartCount, grindingOption: defaultGrinding }))
+        dispatch(addProductToCart({ ...activeProduct, cartCount: cartCount, grindingOption: selectedGrinding }))
     }
     const addFavorite = async (id) => {
         setLoading(true)
@@ -58,6 +59,11 @@ const ProductCard = (props) => {
         finally {
             setLoading(false)
         }
+    }
+
+    const changeGrinding = (field, value) => {
+        const selected = grindingOptions.find((grinding) => grinding.text === value)
+        setSelectedGrinding(selected.value)
     }
 
     const changeProduct = (field, value) => {
@@ -97,7 +103,7 @@ const ProductCard = (props) => {
         if (type === 'Coffee') {
             return (
                 <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
-                    {/* <CustomSelect options={grindingOptions} defaultValue={defaultGrinding} /> */}
+                    <CustomSelect options={grindingOptions.map((grinding) => grinding.text)} defaultValue={defaultGrinding} callBack={changeGrinding} />
 
                     <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} callBack={changeProduct} />
 
@@ -155,6 +161,14 @@ const ProductCard = (props) => {
     }, [activeProduct])
 
     useEffect(() => {
+        if (lang) {
+            setGrindingOptions(grindingOptionsTranslate[lang])
+            setDefaultGrinding(grindingOptionsTranslate[lang][0].text)
+            setSelectedGrinding(grindingOptionsTranslate[lang][0].value)
+        }
+    }, [lang])
+
+    useEffect(() => {
         return () => {
             setActiveProduct({})
         }
@@ -188,7 +202,10 @@ const ProductCard = (props) => {
                         </span>
                     </div>
                     <span className="productCard-head_right blueAccent fw400 text-upperCase">
-                        {activeProduct?.category ? activeProduct.category : 'Espresso'}
+                        {
+                            activeProduct?.category ? categories[lang][activeProduct.category] : ''
+
+                        }
                     </span>
                 </div>
                 <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : 'BFC-02002'}</h3>

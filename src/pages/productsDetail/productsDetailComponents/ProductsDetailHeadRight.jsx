@@ -9,6 +9,8 @@ import Loading from '../../../components/loading/Loading'
 import Error from '../../../components/error/Error'
 import style from '../productDetailComponentsCss/productsDetailHeadRight.module.css'
 import { useNavigate } from 'react-router-dom'
+import pageText from '../../../content/PagesText.json'
+const { categories } = pageText
 
 export default function ProductsDetailHeadRight({ product }) {
     const { token, lang } = useSelector(state => state.baristica)
@@ -72,7 +74,7 @@ export default function ProductsDetailHeadRight({ product }) {
             </div>
 
             <div className="flex j-between mt36">
-                <span className="f14 darkGrey_color fw400">{product?.category ? product.category : 'Espresso'}</span>
+                <span className="f14 darkGrey_color fw400">{product?.category ? categories[lang][product.category] : ''}</span>
                 <span className="f14 darkGrey_color fw400">{product?.code ? product.code : 'E10001'}</span>
             </div>
 

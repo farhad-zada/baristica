@@ -28,7 +28,6 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
 
     const [add, setAdd] = useState(false)
 
-console.log(selectedAddress)
     const { lang, finalCart, user, token } = useSelector((state) => state.baristica);
 
     const ordersService = new OrdersService()
