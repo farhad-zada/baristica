@@ -1,4 +1,6 @@
 .productCard{
+    min-width: 320px;
+    max-width: 320px;
     padding: 12px 10px;
     background: #FAFAFA;
     box-shadow: 0px 4px 4px 0px #00000040;

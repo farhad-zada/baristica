@@ -1,13 +1,17 @@
 .productListContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 100px;
+  /* display: grid;*/
+  /* grid-template-columns: repeat(3, 1fr);*/
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* gap: 100px; */
   margin: 50px 0;
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1060px) {
   .productListContainer {
     gap: 80px;
+    justify-content: center;
   }
 }
 
