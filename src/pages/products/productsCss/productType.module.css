@@ -12,6 +12,7 @@
     transition: all 0.3s ease; /* Плавный переход для визуальных изменений */
 }
 
+
 .activeImage {
     filter: grayscale(0%) brightness(1.2) sepia(1) hue-rotate(200deg) saturate(3);
     transition: all 0.3s ease; /* Плавный переход */

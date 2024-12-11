@@ -3,15 +3,17 @@ import styles from './customSelectBordered.module.css';
 import { useRefClickOutside } from '../../hooks/useRefClickOutside';
 import { Select } from '../../icons';
 
-const CustomSelect = ({ options, defaultValue, additionalText, fontSize, textColor, type }) => {
+const CustomSelectBordered = ({ options, defaultValue, additionalText, fontSize, textColor, callback }) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue || options[0]);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-
   // Закрытие при клике вне компонента
   useRefClickOutside(dropdownRef, () => setIsOpen(false));
 
   const handleSelect = (value) => {
+    if(callback){
+      callback(value)
+    }
     setSelectedValue(value);
     setIsOpen(false);
   };
@@ -49,4 +51,4 @@ const CustomSelect = ({ options, defaultValue, additionalText, fontSize, textCol
   );
 };
 
-export default memo(CustomSelect);
+export default memo(CustomSelectBordered);

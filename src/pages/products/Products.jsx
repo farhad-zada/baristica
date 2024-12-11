@@ -24,7 +24,7 @@ export default function Products() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
-  const [type, setType] = useState('Coffee')
+  const [type, setType] = useState('')
 
   const { pathname } = useLocation();
 
@@ -53,6 +53,9 @@ export default function Products() {
     try {
       const response = await productsService.getProducts(token, type, currentPage, query)
       const products = response.data
+      if (productsCount !== response.count) {
+        setCurrentPage(1)
+      }
       setProductsCount(response.count)
       setTotalPages(response.page_count)
       setProducts(products)
@@ -72,17 +75,17 @@ export default function Products() {
   useEffect(() => {
     if (window.location.href.includes('/coffeeMachines')) {
       changePageType('coffeeMachines')
-      getProducts('Machine')
+      getProducts('Machine', filterQueryString)
       setType('Machine')
 
     } else if (window.location.href.includes('/coffee')) {
       changePageType('coffee')
-      getProducts('Coffee')
+      getProducts('Coffee', filterQueryString)
       setType('Coffee')
 
     } else if (window.location.href.includes('/accesories')) {
       changePageType('accesories')
-      getProducts('Accessory')
+      getProducts('Accessory', filterQueryString)
       setType('Accessory')
     }
     else {
@@ -96,8 +99,10 @@ export default function Products() {
   }, [pathname, token, currentPage])
 
   useEffect(() => {
-    getProducts(type, filterQueryString)
-  }, [filterQueryString])
+    if (type) {
+      getProducts(type, filterQueryString)
+    }
+  }, [filterQueryString, type])
   return (
     <div className={`${style.productsPage}  flex j-center`}>
       <Loading status={loading} />
@@ -105,7 +110,7 @@ export default function Products() {
 
       <div className="container">
         <ProductsHead heading={heading} />
-        <ProductTypes content={types?.length ? types : []} />
+        <ProductTypes type={type} setFilterQueryString={setFilterQueryString} content={types?.length ? types : []} />
         <FilterSection setFilterQueryString={setFilterQueryString} type={type} productsCount={productsCount} />
         <ProductsList products={products} />
         <Pagination

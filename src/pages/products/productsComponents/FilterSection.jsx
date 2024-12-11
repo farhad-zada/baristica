@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FilterIcon } from '../../../icons'
+import { CloseFilter, FilterIcon } from '../../../icons'
 import styles from '../productsCss/filterSection.module.css'
 import CustomSelect from '../../../components/customSelect/CustomSelect'
 
@@ -29,6 +29,21 @@ export default function FilterSection({ setFilterQueryString, productsCount, typ
         });
     };
 
+    const resetFilter = () => {
+        setFilterQueryString((state) => {
+            let arr = state.split('&');
+            
+            // Удаляем все элементы с ключом `price`
+            arr = arr.filter((item) => item.startsWith('price='));
+            arr = arr.filter((item) => item.startsWith('category='))
+            arr = arr.filter((item) => item.startsWith('coffeeType='))
+            
+            // Формируем строку заново и добавляем `price`
+            const updatedState = arr.filter(item => item).join('&'); // Исключаем пустые строки
+            return updatedState
+        })
+    }
+
     const showedCount = 6
     useEffect(() => {
         setDefaultOption(lang ? productsPage[lang].filterSection.priceSelect : '')
@@ -42,6 +57,13 @@ export default function FilterSection({ setFilterQueryString, productsCount, typ
                     {
                         type === 'Coffee'
                             ?
+                            filter
+                            ?
+                            <div className={`${styles.closeFilter} flex g8 a-center`} onClick={() =>{resetFilter(); setFilter(!filter)}}>
+                                <span className='f20 fw400 darkGrey_color'>{lang ? productsPage[lang].filterSection.closeFilter : ''}</span>
+                                {CloseFilter}
+                            </div>
+                            :
                             <div className={`${styles.filterBtn} flex g8 a-center`} onClick={() => setFilter(!filter)}>
                                 {FilterIcon}
                                 <span className='f20 fw400 darkGrey_color'>{lang ? productsPage[lang].filterSection.filterBtn : ''}</span>

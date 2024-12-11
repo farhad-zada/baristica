@@ -2,18 +2,16 @@ import React from 'react'
 import styles from './orderPrice.module.css'
 import { calculateTotalPrice } from '../../../../utils/price.util'
 
-export default function OrderPrice({ finalCart, text, lang, fee }) {
+export default function OrderPrice({ finalCart, delivery, text, lang, fee }) {
 
 
     const calculateProductPrice = (product) => {
         return (product.price / 100 * product.cartCount)
     }
 
-    const calculateTotal = (products) => {
+    const calculateTotal = (products, fee) => {
         return calculateTotalPrice(products) + fee/100
     }
-
-
 
     return (
         <div className={styles.priceComponent}>
@@ -42,7 +40,10 @@ export default function OrderPrice({ finalCart, text, lang, fee }) {
                 }
             </div>
 
-            <div className="flex j-between a-center">
+            {
+                delivery
+                ?
+                <div className="flex j-between a-center">
                 <h2 className="f24 fw700">
                     {lang ? text[lang].priceDeliveryHeading : ''}
                 </h2>
@@ -50,6 +51,9 @@ export default function OrderPrice({ finalCart, text, lang, fee }) {
                     {fee/100} ₼
                 </p>
             </div>
+            :
+            <> </>
+            }
 
             <div className="flex j-between a-center mt20">
                 <h2 className="f24 fw700">
@@ -65,7 +69,7 @@ export default function OrderPrice({ finalCart, text, lang, fee }) {
                     {lang ? text[lang].total : ''}
                 </h2>
                 <p className="f24 fw400 darkGrey_color">
-                    {calculateTotal(finalCart, 3).toFixed(2)} ₼
+                    {calculateTotal(finalCart, delivery ? fee : 0).toFixed(2)} ₼
                 </p>
             </div>
         </div>

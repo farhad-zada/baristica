@@ -8,12 +8,13 @@ import CustomSelectBordered from '../../../../components/customSelectBordered/Cu
 import { Bag } from '../../../../icons'
 import { useNavigate } from 'react-router-dom'
 import { addProductToCart } from '../../../../redux/slice'
-const { productCard } = pageText
+const { productCard, grindingOptionsTranslate } = pageText
 
 export default function CoffeeDetails({ product }) {
     const { lang } = useSelector(state => state.baristica)
-    const [grindingOptions, setGrindingOptions] = useState(['grinding', 'grinding2'])
-    const [defaultGrinding, setDefaultGrinding] = useState('grinding')
+    const [grindingOptions, setGrindingOptions] = useState([])
+    const [defaultGrinding, setDefaultGrinding] = useState('')
+    const [selectedGrinding, setSelectedGrinding] = useState('')
     const [selectedWeight, setSelectedWeight] = useState(product?.weight ? product.weight : '')
     const [weights, setWeights] = useState([])
     const [cartCount, setCartCount] = useState(1)
@@ -26,11 +27,11 @@ export default function CoffeeDetails({ product }) {
     const addToCart = () => {
         // setCartCount(1)
         // setProductAdded(true)
-        dispatch(addProductToCart({ ...product, cartCount: cartCount }))
+        dispatch(addProductToCart({ ...product, cartCount: cartCount, grindingOption: selectedGrinding }))
         setCartCount(1)
     }
 
-    const changeProduct = (field, value) => {
+    const changeProduct = (field,value) => {
         if (field === 'weight') {
             setSelectedWeight(value)
         }
@@ -44,6 +45,19 @@ export default function CoffeeDetails({ product }) {
         }
     }
 
+    const changeGrinding = (value) => {
+        const selected = grindingOptions.find((grinding) => grinding.text === value)
+        setSelectedGrinding(selected.value)
+    }
+
+    useEffect(() => {
+        if (lang) {
+            setGrindingOptions(grindingOptionsTranslate[lang])
+            setDefaultGrinding(grindingOptionsTranslate[lang][0].text)
+            setSelectedGrinding(grindingOptionsTranslate[lang][0].value)
+        }
+    }, [lang])
+
     useEffect(() => {
         if (JSON.stringify(product) !== '{}') {
             setLinked(product.linked)
@@ -54,15 +68,11 @@ export default function CoffeeDetails({ product }) {
             setWeights([product.weight, ...linkedWeights])
             setSelectedWeight(product.weight)
 
-            const grindingFields = product.linked.filter((link) => link.field === 'grinding')
-            const linkedGridnings = grindingFields.map((field) => field.fieldValue)
-
-            setGrindingOptions(product?.grinding ? [product.grinding, ...linkedGridnings] : [...linkedGridnings])
-            setDefaultGrinding(product?.grinding ? product?.grinding : '')
-            
             setCartCount(1)
         }
     }, [product])
+
+ 
     return (
         <div className='mt24'>
 
@@ -76,18 +86,12 @@ export default function CoffeeDetails({ product }) {
             </div>
 
 
-            {
-                product?.grinding
-                    ?
-                    <>
-                        <h2 className="f16 fw700 mt36 darkGrey_color">
-                            {lang ? productCard[lang].grindity : ''}
-                        </h2>
-                        <CustomSelectBordered options={grindingOptions} defaultValue={defaultGrinding} />
-                    </>
-                    :
-                    <></>
-            }
+
+            <h2 className="f16 fw700 mt36 darkGrey_color">
+                {lang ? productCard[lang].grindity : ''}
+            </h2>
+            <CustomSelectBordered callBack={changeGrinding} options={grindingOptions.map((option) => option.text)} defaultValue={defaultGrinding} />
+
             <h2 className="f16 fw700 mt20 darkGrey_color">
                 {lang ? productCard[lang].weight : ''}
             </h2>

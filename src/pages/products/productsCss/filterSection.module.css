@@ -11,3 +11,13 @@
     border-radius: 14px;
     cursor: pointer;
 }
+.closeFilter{
+    padding: 7px 20px;
+    background: #54565A;
+    border-radius: 14px;
+    cursor: pointer;
+}
+.closeFilter span{
+    color: #fff;
+
+}
