@@ -1,3 +1,13 @@
 <script>
-    window.location.href = "/";
+    // Get the current URL path
+    const path = window.location.pathname;
+
+    // Check if the path is `/menu.pdf`
+    if (path === "/menu.pdf") {
+        // Redirect to the desired location
+        window.location.href = "https://menu.baristica.az";
+    } else {
+        // Redirect to the home page for all other 404 cases
+        window.location.href = "/";
+    }
 </script>
