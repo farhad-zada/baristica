@@ -10,14 +10,49 @@
     background: #D9D8D6;
     border-radius: 14px;
     cursor: pointer;
+    @media(max-width:768px){
+        padding: 3px 10px !important;
+    }
 }
+.filterBtn span{
+    @media(max-width: 768px){
+        font-size: 16px !important;
+    }
+    @media(max-width: 360px){
+        font-size: 12px !important;
+    }
+}
+
+.filterSection_head .filterSection_paginationCount{
+    @media(max-width:768px){
+        font-size: 16px !important;
+    }
+    @media(max-width: 360px){
+        font-size: 12px !important;
+    }
+}
+
 .closeFilter{
     padding: 7px 20px;
     background: #54565A;
     border-radius: 14px;
     cursor: pointer;
+    @media(max-width:768px){
+        padding: 3px 10px !important;
+    }
 }
 .closeFilter span{
     color: #fff;
-
+    @media(max-width:768px){
+        font-size: 16px !important;
+    }
+    @media(max-width: 360px){
+        font-size: 12px !important;
+    }
+}
+.closeFilter svg{
+    @media(max-width:768px){
+        width: 10px;
+        height: 10px;
+    }
 }

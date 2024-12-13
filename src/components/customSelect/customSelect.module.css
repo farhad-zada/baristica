@@ -5,10 +5,15 @@
   }
   .selectText{
     display: inline-block;
-    width: 8ch; /* Limit to 8 characters */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    @media (max-width: 768px){
+      font-size: 16px !important;
+    }
+    @media(max-width: 360px){
+        font-size: 12px !important;
+    }
   }
   
   .selected_value {

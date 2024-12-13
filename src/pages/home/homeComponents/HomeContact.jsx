@@ -30,19 +30,19 @@ const HomeContact = () => {
                 </Link>
               </div>
             </div>
-            <p className={`${style.homeContact_description}`}>{body[lang].contact.subscribe.description}</p>
+            <p className={`${style.homeContact_description} f20 robotoFont`}>{body[lang].contact.subscribe.description}</p>
           </div>
         </div>
         <div className={`${style.homeContact_contact} flex a-center j-center`}>
           <div className={`${style.homeContact_getInTouch} flex a-center j-between`}>
             <div className={`${style.homeContact_left}`}>
               <h1>{body[lang].contact.getInTouch.title}</h1>
-              <p className={`${style.homeContact_getInTouch_address} f24`}>{body[lang].contact.getInTouch.address}</p>
-              <p className='f24'>+99 450 433 30 03</p>
+              <p className={`${style.homeContact_getInTouch_address} f24 robotoFont`}>{body[lang].contact.getInTouch.address}</p>
+              <p className='f24 robotoFont'>+99 450 433 30 03</p>
               <div className={`${style.homeContact_workTime}`}>
-                <h6 className='f24 fw700'>{body[lang].contact.getInTouch.workTime.title}</h6>
-                <p className='f24 darkGrey_color'>{body[lang].contact.getInTouch.workTime.weekday} 09:00 - 19:00</p>
-                <p className='f24 darkGrey_color'>{body[lang].contact.getInTouch.workTime.saturday} 10:00 - 14:00</p>
+                <h6 className='f24 fw700 robotoFont'>{body[lang].contact.getInTouch.workTime.title}</h6>
+                <p className='f24 darkGrey_color robotoFont'>{body[lang].contact.getInTouch.workTime.weekday} 09:00 - 19:00</p>
+                <p className='f24 darkGrey_color robotoFont'>{body[lang].contact.getInTouch.workTime.saturday} 10:00 - 14:00</p>
               </div>
               <div className={`${style.homeContact_socials} flex a-center`}>
                 <Link to="" className={`${style.homeContact_social} darkGray rounded`}>

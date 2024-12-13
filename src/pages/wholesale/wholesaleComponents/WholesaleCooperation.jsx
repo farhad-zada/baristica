@@ -22,7 +22,7 @@ const WholesaleCooperation = () => {
                             <h1 className={`${style.title} f48`}>{elem.title}</h1>
                             <hr style={{width: "20%", margin: "25px 0 0 0"}}/>
                             <div className={style.list}>
-                                {elem?.list?.map((item) => (<p className={`${style.elem_subtitle} f20`} key={item}>{item}</p>))}
+                                {elem?.list?.map((item) => (<p className={`${style.elem_subtitle} robotoFont f20`} key={item}>{item}</p>))}
                             </div>
                             <Link className="f24 fw700 border40" to={elem?.href}>{elem?.link}</Link>
                         </div>

@@ -51,13 +51,13 @@ const Comment = ({ products,comment, getComments }) => {
             <div className={`${style.comment} gray border8`} id={comment.id} key={comment.id}>
                 <div className={`${style.comment_head} flex a-center`}>
                     <img src={products[comment.product].images ? products[comment.product].images[0] : ''} alt="" />
-                    <h5 className="darkGrey_color f20 fw700">{products[comment.product].name[lang] ? products[comment.product].name[lang] : products[comment.product].name['az'] }</h5>
+                    <h5 className="darkGrey_color f20 fw700 robotoFont">{products[comment.product].name[lang] ? products[comment.product].name[lang] : products[comment.product].name['az'] }</h5>
                 </div>
                 <hr />
                 <div className={`${style.comment_body} flex a-center j-between`}>
                     <div className={style.comment_body_left}>
-                        <p className="darkGrey_color">{comment?.date}</p>
-                        <p className={`${style.comment_txt} darkGrey_color`}>{commentField}</p>
+                        <p className="darkGrey_color robotoFont">{comment?.date}</p>
+                        <p className={`${style.comment_txt} darkGrey_color robotoFont`}>{commentField}</p>
                         <div className={`${style.comment_imgs} flex`}>
                             {uploadedPhotos?.map((img, index) => (
                                 <img key={index} src={img} alt="" />
@@ -77,7 +77,7 @@ const Comment = ({ products,comment, getComments }) => {
             {isEditing &&
                 <>
                     <textarea
-                        className={`${style.comment_input} gray f20 fw400 darkGrey_color`}
+                        className={`${style.comment_input} gray f20 fw400 darkGrey_color robotoFont`}
                         value={commentField}
                         onChange={(e) => setCommentField(e.target.value)}
                     />

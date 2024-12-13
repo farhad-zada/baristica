@@ -39,8 +39,6 @@ export default function SubHeader() {
     dispatch(setLang(lang));
   };
 
-  
-
   const goToCart = () => {
     dispatch(setProfileActiveTab("cart"));
     navigate("/profile");

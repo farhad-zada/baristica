@@ -230,7 +230,7 @@ const ProductCard = (props) => {
                         ?
                         <></>
                         :
-                        <p className={style.pagaraph + " text-center f16 fw400 darkGrey_color"} style={{ maxWidth: "350px" }}>{activeProduct?.profile ? activeProduct.profile[lang] : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
+                        <p className={style.pagaraph + " text-center f16 fw400 darkGrey_color robotoFont"} style={{ maxWidth: "350px" }}>{activeProduct?.profile ? activeProduct.profile[lang] : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
                 }
 
                 {

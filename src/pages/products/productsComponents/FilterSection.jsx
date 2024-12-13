@@ -52,7 +52,7 @@ export default function FilterSection({ setFilterQueryString, productsCount, typ
     return (
         <div className={`${styles.filterSection}`}>
             <div className={`${styles.filterSection_head} flex j-between a-center`}>
-                <h2 className='f20 fw400 darkGrey_color'>{lang ? productsPage[lang].filterSection.leftHeading : ''} {showedCount} {lang ? productsPage[lang].filterSection.leftHeadingAddition : ''} {productsCount}</h2>
+                <h2 className={`${styles.filterSection_paginationCount} robotoFont f20 fw400 darkGrey_color`}>{lang ? productsPage[lang].filterSection.leftHeading : ''} {showedCount} {lang ? productsPage[lang].filterSection.leftHeadingAddition : ''} {productsCount}</h2>
                 <div className="filterButtons flex a-center g12">
                     {
                         type === 'Coffee'

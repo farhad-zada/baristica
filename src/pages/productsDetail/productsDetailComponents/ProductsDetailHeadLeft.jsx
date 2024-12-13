@@ -12,7 +12,7 @@ export default function ProductsDetailHeadLeft({ product }) {
         }
     }, [product])
     return (
-        <div className={styles.image}>
+        <div className={`${styles.image} flex`}>
             {
                 images.length && images.length > 1
                     ?

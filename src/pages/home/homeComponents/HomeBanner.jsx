@@ -56,7 +56,7 @@ const HomeBanner = () => {
             {head[lang].links?.map((link) => (
               <Link to={link.link} className={`${style.menu_elem} flex a-center rounded white`} key={link.title}>
                 {getIcon(link.icon)} 
-                <span className="f32 fw400">{link.title}</span>
+                <span className="f32 fw400 robotoFont">{link.title}</span>
               </Link>
             ))}
           </div>

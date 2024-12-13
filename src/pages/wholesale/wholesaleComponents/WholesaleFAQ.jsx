@@ -12,7 +12,7 @@ const WholesaleFAQ = () => {
         <div className='container'>
             <div className='flex j-center column'>
                 <h1 className='f96 fw700'>{wholesale[lang]?.faq?.title}</h1>
-                <p className='f32 fw400' style={{paddingTop: "30px"}}>{wholesale[lang]?.faq?.lable}</p>
+                <p className='f32 fw400 robotoFont' style={{paddingTop: "30px"}}>{wholesale[lang]?.faq?.lable}</p>
                 <div className={`${style.faqs}`}>
                     {wholesale[lang]?.faq?.list?.map((elem) => (
                         <div className={`${style.faq_elem} border16`}>
@@ -21,11 +21,11 @@ const WholesaleFAQ = () => {
                                 elem?.labels?.length > 1 ?
                                     <div className={`${style.label} flex a-center`}>
                                         <h1 className={`${style.label_num} f80`}>{index+1}</h1>
-                                        <p className={`${style.label_text} f32`}>{label}</p>
+                                        <p className={`${style.label_text} f32 robotoFont`}>{label}</p>
                                     </div> 
                                 : 
                                 <div className={`${style.label} flex a-center`}>
-                                    <p className={`${style.label_text} f32`}>{label}</p>
+                                    <p className={`${style.label_text} f32 robotoFont`}>{label}</p>
                                 </div> 
                             ))}
                         </div>

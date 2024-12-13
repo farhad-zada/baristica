@@ -1,3 +1,6 @@
+form input{
+    font-family: "Roboto Condensed", sans-serif;
+}
 @media (max-width: 960px){
     .personalData .form div{
         display: flex;

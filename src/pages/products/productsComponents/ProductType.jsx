@@ -19,7 +19,7 @@ export default function ProductType({ type, width, isActive, onClick }) {
                     className={`${style.icon} ${isActive ? style.activeIcon : ''}`}
                 />
             </div>
-            <h2 className={`f16 fw400 text-center ${isActive ? style.activeText : ''}`}>
+            <h2 className={`f16 fw400 text-center robotoFont ${isActive ? style.activeText : ''}`}>
                 {type?.text[lang]}
             </h2>
         </div>

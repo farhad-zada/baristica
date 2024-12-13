@@ -44,7 +44,7 @@ export default function UserAddress({ content,address, selectedAddress, setSelec
 
             <div className={`${styles.address} flex a-center j-between`}>
                 {/* Индекс */}
-                {index && <span className={`${styles.index} f20 fw400`}>{index}.</span>}
+                {index && <span className={`${styles.index} f20 fw400 robotoFont`}>{index}.</span>}
                 {radio &&
                     <span className={styles.circle} onClick={() => setSelectedAddress(address)}>
                         {
@@ -58,17 +58,17 @@ export default function UserAddress({ content,address, selectedAddress, setSelec
                 }
                 {/* Город */}
                 <div className={`${styles.address_row} flex a-center j-around w-100`}>
-                    <span className={`${styles.city} f20 fw400`}>
+                    <span className={`${styles.city} f20 fw400 robotoFont`}>
                         {address?.city || "Baki"}
                     </span>
 
                     {/* Улица */}
-                    <span className={`${styles.street} f20 fw400`}>
+                    <span className={`${styles.street} f20 fw400 robotoFont`}>
                         {address?.street || "Ул. Зарифа Алиева 12"}
                     </span>
 
                     {/* Квартира */}
-                    <span className={`${styles.home} f20 fw400`}>
+                    <span className={`${styles.home} f20 fw400 robotoFont`}>
                         {content ? content.houseHint : ''} {address?.apartment || "кв. 14"}
                     </span>
                 </div>

@@ -67,7 +67,7 @@ export default function AddAddress({ setAddresses, setAdd }) {
             <Loading status={loading} />
             <Error status={error} setStatus={setError} />
 
-            <h2 className={styles.heading + " f28 fw600 darkGrey_color"}>{lang ? profile[lang].addresses.newAddress : ''}</h2>
+            <h2 className={styles.heading + " f28 fw600 darkGrey_color robotoFont"}>{lang ? profile[lang].addresses.newAddress : ''}</h2>
 
             <form action="">
                 <InputText
