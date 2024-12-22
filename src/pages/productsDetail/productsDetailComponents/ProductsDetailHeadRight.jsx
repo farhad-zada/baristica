@@ -75,11 +75,11 @@ export default function ProductsDetailHeadRight({ product }) {
 
             <div className="flex j-between mt36">
                 <span className="f14 darkGrey_color fw400">{product?.category ? categories[lang][product.category] : ''}</span>
-                <span className="f14 darkGrey_color fw400">{product?.code ? product.code : 'E10001'}</span>
+                <span className="f14 darkGrey_color fw400">{product?.code ? product.code : ''}</span>
             </div>
 
-            <h2 className="darkGrey_color fw600 f36">{product?.name ? product.name[lang] || product.name['az'] : 'BLEND NIGHTHAWK'}</h2>
-            <p className="darkGrey_color f20 fw400 mt24">{product?.description ? product.description[lang] || product.name['az'] : 'Это изысканный эспрессо-бленд, состоящий на 60% из кофе из Бразилии и на 40% из Коста-Рики. Каждая чашка дарит богатый, насыщенный вкус, идеальный как для утреннего пробуждения, так и для вечернего наслаждения.'}</p>
+            <h2 className="darkGrey_color fw600 f36">{product?.name ? product.name[lang] || product.name['az'] : ''}</h2>
+            <p className="darkGrey_color f20 fw400 mt24">{product?.description ? product.description[lang] || product.name['az'] : ''}</p>
             {
                 setByType(product?.productType ? product.productType : 'Machine')
             }
