@@ -7,30 +7,73 @@
     margin-bottom: 20px;
     width: 100%;
     gap: 20px; /* Пространство между блоками */
+    @media (max-width: 960px){
+        padding: 10px 20px !important;
+        div{
+            padding: 0 !important;
+        }
+    }
+    @media (max-width: 480px){
+        padding: 10px !important;
+        gap: 10px !important;
+    }
 }
 
 .left {
     display: flex;
     align-items: center;
     gap: 20px; /* Пространство между чекбоксом, изображением и текстом */
+    @media (max-width: 960px){
+        gap: 10px !important
+    }
 }
 
 .left img {
     width: auto;
     max-height: 120px; /* Установить фиксированную высоту */
     object-fit: contain;
+    @media (max-width: 960px){
+        padding: 10px 20px !important;
+        height: 100px;
+        object-fit: cover;
+        max-height: 100px !important;
+        padding: 0 !important;
+        max-width: 71px !important;
+    }
+    @media (max-width: 375px){
+        max-width: 43px !important;
+        max-height: 60px !important;
+    }
 }
 
 .left div {
     display: flex;
     flex-direction: column;
     gap: 8px; /* Расстояние между строками текста */
+    @media (max-width: 960px){
+        gap: 6px !important;
+        h2, h3{
+            margin: 0;
+        }
+    }
+    @media (max-width: 480px){
+        h2,h3{
+            font-size: 16px !important;
+        }
+    }
+    @media (max-width: 375px){
+        h2,h3{
+            font-size: 12px !important;
+        }
+    }
 }
-
 
 .right {
     display: flex;
     align-items: flex-end; /* Все элементы выровнены по правому краю */
+    @media(max-width: 768px){
+        flex-direction: column;
+    }
 }
 
 .right span {
@@ -38,4 +81,7 @@
     white-space: nowrap; /* Предотвращает перенос текста на новую строку */
     font-size: 24px;
     line-height: 1; /* Убирает лишние отступы */
+    @media (max-width: 375px){
+        font-size: 16px !important;
+    }
 }

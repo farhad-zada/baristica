@@ -8,7 +8,7 @@
     flex-direction: column;
     gap: 20px;
     /* Adjust this for vertical spacing */
-    margin-right: 40px;
+    /* margin-right: 40px;
     /* Adjust the gap between tabs and content */
 }
 
@@ -24,12 +24,20 @@
     /* Default gray color */
     cursor: pointer;
     transition: color 0.3s ease;
+    @media(max-width: 480px) {
+        font-size: 20px !important;
+    }
 }
-.selectedTab{
+
+.selectedTab {
     font-size: 32px;
     color: #00c1c1;
     cursor: pointer;
+    @media(max-width: 480px){
+        font-size: 20px !important;
+    }
 }
+
 .active {
     color: #00c1c1;
     /* Highlight color */
@@ -48,8 +56,9 @@
     gap: 20px;
     /* Adjust spacing between content cards */
 }
-@media (max-width: 760px){
-    .tabs{
+
+@media (max-width: 760px) {
+    .tabs {
         margin-right: 0px;
     }
 }

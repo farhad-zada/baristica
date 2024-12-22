@@ -54,7 +54,7 @@ const PhotoUploader = ({ photos, setPhotos ,onPhotosUpdate, text }) => {
       <Loading status={loading} />
       <Error status={error} setStatus={setError} />
 
-      <label className={styles.uploadButton}>
+      <label className={`${styles.uploadButton} robotoFont`}>
         <input
           type="file"
           accept="image/*"

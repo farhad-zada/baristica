@@ -82,7 +82,7 @@ export default function PersonalData() {
             <form className={styles.form}>
                 <div className="flex j-between g26">
                     <div className="left">
-                        <h2 className="f32 fw600 darkGrey_color">{lang ? profile[lang].personalData.personalInfoHeading : ''}</h2>
+                        <h2 className="f32 fw600 darkGrey_color robotoFont">{lang ? profile[lang].personalData.personalInfoHeading : ''}</h2>
                         <InputText
                             name="name"
                             value={formData.name}
@@ -104,9 +104,7 @@ export default function PersonalData() {
                         <AuthButton text={lang ? profile[lang].personalData.submitBtn : ''} onClick={onSubmit} />
                     </div>
                     <div className="right">
-                        <h2 className="f32 fw600 darkGrey_color">{lang ? profile[lang].personalData.passwordHeading : ''}</h2>
-
-
+                        <h2 className="f32 fw600 darkGrey_color robotoFont">{lang ? profile[lang].personalData.passwordHeading : ''}</h2>
                         <InputText
                             name="oldPassword"
                             type='password'
@@ -114,7 +112,6 @@ export default function PersonalData() {
                             onChange={handleInputChange}
                             placeholder={lang ? profile[lang].personalData.oldPasswordInput : ''}
                         />
-
                         <InputText
                             name="newPassword"
                             type='password'
@@ -122,7 +119,6 @@ export default function PersonalData() {
                             onChange={handleInputChange}
                             placeholder={lang ? profile[lang].personalData.newPasswordInput : ''}
                         />
-
                         <InputText
                             name="repeatPassword"
                             type='password'
@@ -134,7 +130,6 @@ export default function PersonalData() {
                             <p className="f26 fw400 error">{errorMessage}</p>
                         )}
                         <AuthButton text={lang ? profile[lang].personalData.changePassword : ''} onClick={changePassword} />
-
                     </div>
                 </div>
 

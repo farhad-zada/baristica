@@ -1,4 +1,9 @@
 .productDetail_head{
     padding: 60px 0;
-    gap: 50px;
+    gap: 20px;
+}
+@media (max-width: 768px){
+    .productDetail_head{
+        flex-direction: column;
+    }
 }

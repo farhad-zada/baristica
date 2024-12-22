@@ -27,6 +27,46 @@
   object-fit: cover;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal_content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.modal_image {
+  width: 100%;
+  height: 80vh;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.no_scroll {
+  overflow: hidden;
+}
+
 @media (max-width: 960px){
   .gallery_container{
     padding: 0 !important;

@@ -24,7 +24,7 @@ export default function Addresses() {
     },[user])
     return (
         <div>
-            <h2 className={styles.heading + " f28 fw600 darkGrey_color"}>{lang ? profile[lang].addresses.heading : ''}:</h2>
+            <h2 className={styles.heading + " f28 fw600 darkGrey_color robotoFont"}>{lang ? profile[lang].addresses.heading : ''}:</h2>
             {
                 addresses.length
                     ?

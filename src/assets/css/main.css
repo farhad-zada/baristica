@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     box-sizing: border-box;
 }
 
@@ -389,6 +391,11 @@ input {
 
 .f96 {
     font-size: 96px !important;
+}
+
+/* Roboto font */
+.robotoFont{
+    font-family: "Roboto Condensed", sans-serif;
 }
 
 /* Font weights */

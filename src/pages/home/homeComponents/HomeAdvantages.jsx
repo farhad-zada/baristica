@@ -38,7 +38,7 @@ const HomeAdvantages = () => {
                 {getIcon(advantage.icon)}
                 <h4 className='white f24 fw600'>{advantage.title}</h4>
               </div>
-              <p className={`${style.advantage_body} grey`}>
+              <p className={`${style.advantage_body} robotoFont grey f20`}>
                 {advantage.description}
               </p>
             </div>

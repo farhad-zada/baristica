@@ -70,7 +70,7 @@ export default function EditAddress({ address, setAddresses, setEdit }) {
             <Loading status={loading} />
             <Error status={error} setStatus={setError} />
 
-            <h2 className={styles.heading + " f28 fw600 darkGrey_color"}>{lang ? profile[lang].addresses.changeAddress : ''}</h2>
+            <h2 className={styles.heading + " f28 fw600 darkGrey_color robotoFont"}>{lang ? profile[lang].addresses.changeAddress : ''}</h2>
 
             <form action="">
                 <InputText

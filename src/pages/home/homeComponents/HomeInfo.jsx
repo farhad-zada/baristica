@@ -17,8 +17,8 @@ const HomeInfo = () => {
         <div className={`${style.homeInfo_section} flex a-end j-between`}>
           <div className={`${style.homeInfo_left} w-100 flex column`}>
             <h1 className='black f64 fw700'>{body[lang].info.title}</h1>
-            <div className={`${style.homeInfo_text}`}>
-              {body[lang].info.description.split('\n\n').map((paragraph, index) => (<p style={{marginBottom: "22px"}} key={index}>{paragraph}</p>))} 
+            <div className={`${style.homeInfo_text} f20`}>
+              {body[lang].info.description.split('\n\n').map((paragraph, index) => (<p className='robotoFont' style={{marginBottom: "22px"}} key={index}>{paragraph}</p>))} 
             </div>
           </div>
           <div className={`${style.homeInfo_right} w-100 flex column`}>

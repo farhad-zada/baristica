@@ -58,7 +58,7 @@ const Orders = () => {
         <p className={`${style.empty} flex a-center j-center`}>{profile[lang]?.orders?.empty}</p>
         :
         <>
-          <h1 className='f28 fw600'>{profile[lang]?.orders?.title}:</h1>
+          <h1 className='f28 fw600 robotoFont'>{profile[lang]?.orders?.title}:</h1>
           <div className={style.all_orders}>
             {profile[lang]?.orders?.list?.map((elem, i) => (
               <div key={`${elem?.id}_${i}`}>
@@ -67,10 +67,10 @@ const Orders = () => {
                   className={`${style.order} flex a-center j-between border8`}
                 >
                   <div className={`${style.order_row} flex a-center j-between w-100`}>
-                    <p className={`${style.id} f20 fw400 a-center j-center flex ${style.center}`}>№{elem?.id}</p>
-                    <p className={`f16 fw400 a-center j-center flex ${style.center}`}>{elem?.date}</p>
-                    <p className={`f16 fw400 a-center j-center flex ${style.center}`}>{elem?.location}</p>
-                    <p className={`f24 fw400 a-center j-center flex ${style.center} ${style.price}`}>{elem?.price}</p>
+                    <p className={`${style.id}robotoFont  f20 fw400 a-center j-center flex ${style.center}`}>№{elem?.id}</p>
+                    <p className={`robotoFont f16 fw400 a-center j-center flex ${style.center}`}>{elem?.date}</p>
+                    <p className={`robotoFont f16 fw400 a-center j-center flex ${style.center}`}>{elem?.location}</p>
+                    <p className={`robotoFont f24 fw400 a-center j-center flex ${style.center} ${style.price}`}>{elem?.price}</p>
                     <button
                       className={`${style.button} ${style.mobile_button} ${visibleCoffees[elem?.id] ? `${style.active} f24 border8` : "f24 border8"}`}
                       onClick={() => toggleCoffees(elem?.id)} // Toggle coffees on button click
@@ -91,25 +91,25 @@ const Orders = () => {
                       id={coffee?.id}
                       className={`${style.coffee} border8 flex a-center j-between`}
                     >
-                      <p className={`${style.mobile_index} f20 darkGrey_color`}>№ {coffeeIndex + 1}</p>
+                      <p className={`${style.mobile_index} f20 darkGrey_color robotoFont`}>№ {coffeeIndex + 1}</p>
                       <div className={`${style.info} flex a-center`}>
-                        <p className={`${style.index} f20 darkGrey_color`}>№ {coffeeIndex + 1}</p>
+                        <p className={`${style.index} f20 darkGrey_color robotoFont`}>№ {coffeeIndex + 1}</p>
                         <div className={style.img}>
                           <img src={coffee?.img} alt="" />
                         </div>
                         <div className={style.info_details}>
-                          <h5 className='f20 fw700 darkGrey_color'>{coffee?.name}</h5>
-                          <p className='darkGrey_color f16'>
+                          <h5 className='f20 fw700 darkGrey_color robotoFont'>{coffee?.name}</h5>
+                          <p className='darkGrey_color f16 robotoFont'>
                             {profile[lang]?.orders?.grind}: {coffee?.grind}
                           </p>
-                          <p className='darkGrey_color f16'>
+                          <p className='darkGrey_color f16 robotoFont'>
                             {profile[lang]?.orders?.weight}: {coffee?.weight}
                           </p>
                         </div>
                       </div>
                       <div className={`${style.coffee_bottom} flex a-center j-between`}>
                         <p
-                          className={`${style.amount} flex a-center j-center darkGrey_color`}
+                          className={`${style.amount} flex a-center j-center darkGrey_color robotoFont`}
                         >
                           {coffee?.amount}
                           {profile[lang]?.orders?.amount_string}

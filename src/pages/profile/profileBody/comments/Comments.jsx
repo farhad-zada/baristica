@@ -52,7 +52,7 @@ const Comments = () => {
       <Loading status={loading} />
       <Error status={error} setStatus={setError} />
 
-      <h1>{profile[lang]?.comments?.title}:</h1>
+      <h1 className='robotoFont'>{profile[lang]?.comments?.title}:</h1>
       <div className='all_comments'>
         {comments.map((comment) => (
           <Comment products={products} comment={comment} getComments={getComments} />
