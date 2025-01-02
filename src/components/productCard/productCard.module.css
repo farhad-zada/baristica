@@ -19,7 +19,7 @@
 }
 .productCard_img img{
     width: 100%;
-    max-height: 131px;
+    max-height: 171px;
     object-fit: contain;
 }
 .productCard_selects{
@@ -34,6 +34,10 @@
     outline: none;
     border: none;
     cursor: pointer;
+    transition: .3s;
+}
+.addToCart:hover{
+    background: #61C4BF;
 }
 .pagaraph{
     margin: 17px 0;
@@ -42,6 +46,12 @@
     transition: .3s;
 }
 .favorited:hover svg path{
+    fill: #61C4BF;
+}
+.star svg path{
+    transition: .3s;
+}
+.star:hover svg path{
     fill: #61C4BF;
 }
 .feedback svg path{

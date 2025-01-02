@@ -36,11 +36,11 @@
                             "link": "/products/coffee"
                         },
                         {
-                            "title": "Apparatlar",
+                            "title": "Aparatlar",
                             "link": "/products/coffeeMachines"
                         },
                         {
-                            "title": "Aksesuar",
+                            "title": "Aksesuarlar",
                             "link": "/products/accesories"
                         }
                     ]
@@ -149,7 +149,7 @@
                         "icon": "Accessories"
                     },
                     {
-                        "title": "Aparat",
+                        "title": "Aparatlar",
                         "link": "/products/coffeeMachines",
                         "icon": "CoffeeDevice"
                     }
@@ -234,8 +234,8 @@
                         "address": "Nigar Refibəyli 12/14, Passage 1901",
                         "workTime": {
                             "title": "İş qrafiki:",
-                            "weekday": "Həftə içi günlər",
-                            "saturday": "Şənbə"
+                            "weekday": "Həftə içi:",
+                            "saturday": "Şənbə:"
                         }
                     }
                 }
@@ -277,8 +277,8 @@
                         "address": "Нигяр Рефибейли 12/14, Passage 1901",
                         "workTime": {
                             "title": "График работы:",
-                            "weekday": "Будние дни",
-                            "saturday": "Суббота"
+                            "weekday": "Будние дни:",
+                            "saturday": "Суббота:"
                         }
                     }
                 }
@@ -320,8 +320,8 @@
                         "address": "Nigar Refibəyli 12/14, Passage 1901",
                         "workTime": {
                             "title": "Working Hours:",
-                            "weekday": "Weekdays",
-                            "saturday": "Saturday"
+                            "weekday": "Weekdays:",
+                            "saturday": "Saturday:"
                         }
                     }
                 }
@@ -760,11 +760,11 @@
                     "list": [
                         {
                             "label": "Haqqımızda",
-                            "link": "/about"
+                            "link": "#about"
                         },
                         {
                             "label": "Əlaqə",
-                            "link": "/contacts"
+                            "link": "#contacts"
                         },
                         {
                             "label": "Online mağaza",
@@ -780,7 +780,7 @@
                     "title": "KATALOQ",
                     "list": [
                         {
-                            "label": "Qəhvə aparatları və qəhvə üyüdücülər",
+                            "label": "Qəhvə aparatları və qəhvə üyüdənlər",
                             "link": "/products/coffeeMachines"
                         },
                         {
@@ -803,11 +803,11 @@
                     "list": [
                         {
                             "label": "О нас",
-                            "link": "/about"
+                            "link": "#about"
                         },
                         {
                             "label": "Контакты",
-                            "link": "/contacts"
+                            "link": "#contacts"
                         },
                         {
                             "label": "Интернет-магазин",
@@ -846,11 +846,11 @@
                     "list": [
                         {
                             "label": "About Us",
-                            "link": "/about"
+                            "link": "#about"
                         },
                         {
                             "label": "Contacts",
-                            "link": "/contacts"
+                            "link": "#contacts"
                         },
                         {
                             "label": "Online Shop",
@@ -972,7 +972,7 @@
             "grindityValue": "qrup",
             "buyBtn": "Səbətə at",
             "profile": "Profil:",
-            "grindity": "Taşlama dərəcəsini seçin:",
+            "grindity": "Üyüdülmə dərəcəsini seçin:",
             "weight": "Çəki:",
             "groups": "Qrupların sayı:",
             "color": "Rəngi seçin:",
@@ -2323,5 +2323,26 @@
             {"value":"for-espresso-fine", "text":"for espresso (fine)"},
             {"value":"for-cezve-fine", "text":"for cezve (small)"}
         ]
+    },
+    "proccessingMethodTranslate":{
+        "az":{
+            "washed":"Yuyulmuş emal",
+            "natural":"Təbii emal",
+            "anaerobic washed":"Anaerobik yuyulmuş emal",
+            "carbonic maceration":"Karbonik maserasiya"
+        },
+        "ru":{
+            "washed":"Мытая обработка",
+            "natural":"Натуральная обработка",
+            "anaerobic washed":"Анаэробная мытая обработка",
+            "carbonic maceration":"Углекислотная мацерация"
+        }, 
+        "en":{
+            "washed":"Washed",
+            "natural":"Natural",
+            "anaerobic washed":"Anaerobic washed",
+            "carbonic maceration":"Carbonic maceration",
+            "addition":""
+        }
     }
 }

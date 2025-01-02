@@ -58,7 +58,7 @@ export default function Header() {
                 onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
                 onClick={() => setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu)}>
                 {elem.link === "#contacts" ?
-                  <HashLink
+                  <HashLink 
                     smooth
                     to={elem.link === "#contacts" ? "/#contacts" : elem.link}
                     className={`darkGrey_color`}

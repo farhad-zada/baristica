@@ -60,12 +60,12 @@ export default function HomeProducts() {
         setLoading(true)
         try {
             const [newCoffe, popularCoffee, newAccesory, popularAccesory, newMachines, popularMachines] = await Promise.all([
-                productsService.getProductsByType(token, 'Coffee', 'new'),
-                productsService.getProductsByType(token, 'Coffee', 'popular'),
-                productsService.getProductsByType(token, 'Accessory', 'new'),
-                productsService.getProductsByType(token, 'Accessory', 'popular'),
-                productsService.getProductsByType(token, 'Machine', 'new'),
-                productsService.getProductsByType(token, 'Machine', 'popular'),
+                productsService.getProductsByType(token,'key' ,'Coffee', 'new'),
+                productsService.getProductsByType(token,'key', 'Coffee', 'popular'),
+                productsService.getProductsByType(token,'key', 'Accessory', 'new'),
+                productsService.getProductsByType(token,'key', 'Accessory', 'popular'),
+                productsService.getProductsByType(token,'key', 'Machine', 'new'),
+                productsService.getProductsByType(token,'category', 'Machine', 'grinder'),
             ]);
             // coffee
             setNewCoffee(newCoffe.data);

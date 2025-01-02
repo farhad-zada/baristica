@@ -25,7 +25,7 @@ const CustomSelect = ({ field, options, defaultValue, additionalText, fontSize, 
   return (
     <div className={styles.custom_select}>
       <div style={{display: "flex", alignItems: "center"}} className={styles.selected_value + fontSize ? fontSize : 'f16' + textColor ? textColor : '' + ' fw400'} onClick={() => setIsOpen(!isOpen)}>
-        <span className={`${styles.selectText} robotoFont`}>{selectedValue} {additionalText ? additionalText : ''}</span>
+        <span className={`${styles.selectText} robotoFont ${styles.truncate}`}>{selectedValue} {additionalText ? additionalText : ''}</span>
         <span className={`${styles.dropdown_arrow} ${isOpen ? 'open' : ''} flex a-center`}>{Select}</span>
       </div>
 

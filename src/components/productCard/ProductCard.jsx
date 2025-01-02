@@ -15,10 +15,9 @@ import FavoritesService from "../../services/favorites.service"
 import Loading from "../loading/Loading"
 import ProductsService from "../../services/products.service"
 import Error from "../error/Error"
-const { productCard, categories, grindingOptionsTranslate } = pageText
+const { productCard, categories, grindingOptionsTranslate, proccessingMethodTranslate } = pageText
 const ProductCard = (props) => {
     const { product, width = 'auto' } = props
-
     const { token, lang } = useSelector(state => state.baristica)
 
     const [activeProduct, setActiveProduct] = useState({})
@@ -73,7 +72,14 @@ const ProductCard = (props) => {
         if (product[field] === value) {
             return
         } else {
-            const newProduct = linked.find((link) => link.field === field && link.fieldValue === value)
+            let newProduct = null;
+            if (activeProduct.productType === 'Machine') {
+                newProduct = linked.find((link) => link.field === field && link.categoryText === value)
+            }
+            else {
+                newProduct = linked.find((link) => link.field === field && link.fieldValue === value)
+            }
+            console.log(value, newProduct, linked)
             if (newProduct) {
                 getProduct(newProduct.product)
                 // navigate(`/product/${newProduct.product}`)
@@ -107,7 +113,6 @@ const ProductCard = (props) => {
 
                     <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} callBack={changeProduct} />
 
-
                     <Counter count={cartCount} setCount={setCartCount} />
                 </div>
             )
@@ -115,7 +120,7 @@ const ProductCard = (props) => {
             if (product?.category) {
                 return (
                     <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
-                        <CustomSelect options={categoryGroups} defaultValue={defaultCategory} additionalText={lang ? productCard[lang].grindityValue : 'g'} />
+                        <CustomSelect field={'category'} options={categoryGroups} defaultValue={defaultCategory} additionalText={''} callBack={changeProduct} />
                     </div>
                 )
             }
@@ -138,23 +143,21 @@ const ProductCard = (props) => {
 
     useEffect(() => {
         if (JSON.stringify(activeProduct) !== '{}') {
-            setLinked(activeProduct?.linked)
+            let linkedValues = activeProduct.linked.map((link) => { return { ...link, categoryText: categories[lang][link.fieldValue] } })
+            setLinked(linkedValues)
             const weightFields = activeProduct?.linked?.filter((link) => link.field === 'weight')
             const linkedWeights = weightFields?.map((field) => field.fieldValue) || []
             setWeightOptions([activeProduct?.weight, ...linkedWeights])
             setDefaultWeight(activeProduct?.weight || 200)
 
-            // const grindingFields = product.linked.filter((link) => link.field === 'grinding')
-            // const linkedGridnings = grindingFields.map((field) => field.fieldValue)
 
-            // setGrindingOptions(product?.grinding ? [product.grinding, ...linkedGridnings] : [...linkedGridnings])
-            // setDefaultGrinding(product?.grinding ? product?.grinding : '')
+            let categoryFields = product.linked.filter((link) => link.field === 'category')
+            let linkedCategories = categoryFields.map((field) => field.fieldValue)
+            categoryFields = categoryFields.map((category) => { return { ...category, categoryText: categories[lang][category.fieldValue] } })
+            linkedCategories = linkedCategories.map((category) => { return categories[lang][category] })
 
-            const categoryFields = product.linked.filter((link) => link.field === 'category')
-            const linkedCategories = categoryFields.map((field) => field.fieldValue)
-
-            setCategoryGroups(product?.category ? [product.category, ...linkedCategories] : [...linkedCategories])
-            setDefaultCategory(product?.category ? product?.category : '')
+            setCategoryGroups(product?.category ? [categories[lang][product?.category], ...linkedCategories] : [...linkedCategories])
+            setDefaultCategory(product?.category ? categories[lang][product?.category] : '')
 
             setCartCount(1)
         }
@@ -192,7 +195,7 @@ const ProductCard = (props) => {
                                 :
                                 <></>
                         }
-                        <span className="flex g8  f16 darkGrey_color fw400">
+                        <span className={style.star + " flex g8  f16 darkGrey_color fw400"}>
                             {Star}
                             <span>{activeProduct?.statistics?.ratings ? activeProduct.statistics.ratings.toFixed(1) : 0}</span>
                         </span>
@@ -213,7 +216,7 @@ const ProductCard = (props) => {
             </div>
             <div className={style.productCard_body}>
 
-                {/* <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processing ? activeProduct.processing : 'мытая ОБРАБОТКА'}</p> */}
+                <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod ? `${proccessingMethodTranslate[lang][activeProduct.processingMethod]}` : ''}</p>
 
                 <div className={`${style.productCard_img} w-100 flex j-center`}>
                     <img src={activeProduct?.images?.length ? activeProduct.images[0] : MockImg} alt="" />

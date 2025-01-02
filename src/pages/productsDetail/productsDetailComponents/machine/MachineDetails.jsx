@@ -6,7 +6,7 @@ import styles from '../coffee/coffeeDetails.module.css'
 import { Bag } from '../../../../icons';
 import pageText from '../../../../content/PagesText.json'
 import { useNavigate } from 'react-router-dom';
-const { productCard } = pageText
+const { productCard, categories } = pageText
 
 export default function MachineDetails({ product }) {
     const { lang } = useSelector(state => state.baristica)
@@ -16,35 +16,45 @@ export default function MachineDetails({ product }) {
 
     const [groups, setGroups] = useState([])
 
-    const handleColorSelect = (field,selectedColor) => {
+    const handleColorSelect = (field, selectedColor) => {
         console.log('Выбранный цвет:', selectedColor);
     };
 
     const navigate = useNavigate()
 
-    const changeProduct = (field,value) => {
-        if (field === 'images.0') {
+    const changeProduct = (field, value) => {
+        console.log(field, value)
+        // if (field === 'images.0') {
 
-        }
+        // }
         if (product[field] === value) {
             return
         } else {
-            const newProduct = linked.find((link) => link.field === field && link.fieldValue === value)
+            let newProduct = null
+            if (field === 'category') {
+                newProduct = linked.find((link) => link.field === field && link.categoryText === value)
+            } else {
+                newProduct = linked.find((link) => link.field === field && link.fieldValue === value)
+            }
             if (newProduct) {
                 navigate(`/product/${newProduct.product}`)
             }
         }
     }
-    console.log(groups)
-    console.log(selectedGroup)
+
+
     useEffect(() => {
         if (JSON.stringify(product) !== '{}') {
-            setLinked(product.linked)
+            let linkedValues = product.linked.map((link) => { return { ...link, categoryText: categories[lang][link.fieldValue] } })
+            setLinked(linkedValues)
 
-            const groupFields = product.linked.filter((link) => link.field === 'category')
-            const linkedGroups = groupFields.map((field) => field.fieldValue)
-            setSelectedGroup(product.category)
-            setGroups(product?.category ? [product?.category, ...linkedGroups] : [...linkedGroups])
+            let groupFields = product.linked.filter((link) => link.field === 'category')
+            groupFields = groupFields.map((field) => { return { ...field, categoryText: categories[lang][field.fieldValue] } })
+            let linkedGroups = groupFields.map((field) => field.categoryText)
+
+
+            setSelectedGroup(categories[lang][product.category])
+            setGroups(product?.category ? [categories[lang][product?.category], ...linkedGroups] : [...linkedGroups])
 
             const imageFields = product.linked.filter((link) => link.field === 'images.0')
             setColors([{ field: "images.0", product: product._id, fieldValue: product.images[0] }, ...imageFields])
@@ -67,7 +77,7 @@ export default function MachineDetails({ product }) {
                 {
                     groups?.map((group, index) => (
                         <div className={group === selectedGroup ? styles.weightActive : styles.weight} key={index} onClick={() => { changeProduct('category', group) }}>
-                            {group} {lang ? productCard[lang].weightValue : 'g'}
+                            {group}
                         </div>
                     ))
                 }
