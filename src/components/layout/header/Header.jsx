@@ -38,6 +38,23 @@ export default function Header() {
       navigate('/')
   }
 
+  useEffect(() => {
+    // Toggle the body class based on mobileMenu state
+    if (mobileMenu) {
+      document.body.classList.add("noOverwlowY");
+      document.getElementsByClassName("menu_body")[0].classList.add("body-overlay");
+    } else {
+      document.body.classList.remove("noOverwlowY");
+      document.getElementsByClassName("menu_body")[0].classList.remove("body-overlay");
+    }
+
+    // Cleanup on component unmount
+    return () => {
+      document.body.classList.remove("noOverwlowY");
+      document.getElementsByClassName("menu_body")[0].classList.remove("body-overlay");
+    };
+  }, [mobileMenu]);
+
   return (
     <header className="flex j-center" style={{ backgroundColor: "#F2F2F2" }}>
       <div className="container flex j-between a-center">
@@ -45,83 +62,85 @@ export default function Header() {
           <Link to="/" className={`${style.header_logo}`}>
             {Logo}
           </Link>
-          <ul className={`${style.menu} ${mobileMenu ? `flex a-center ${style.show_menu}` : `flex a-center`} `}>
-            <span className={style.close_menu} onClick={() => setMobileMenu(false)}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
-                <path d="M2 2.54395L28 28.5439" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M28 2.54395L2 28.5439" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </span>
-            {headerPageLinks[lang].map((elem, index) => (
-              <li key={index} className={`${style.menu_item} relative`}
-                onMouseEnter={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && true)}
-                onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
-                onClick={() => setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu)}>
-                {elem.link === "#contacts" ?
-                  <HashLink 
-                    smooth
-                    to={elem.link === "#contacts" ? "/#contacts" : elem.link}
-                    className={`darkGrey_color`}
-                  >
-                    {elem.title}
-                  </HashLink>
-                  : elem.link === "/catalog" ?
-                    <NavLink
-                      to=""
+          <div className="menu_body">
+            <ul className={`${style.menu} ${mobileMenu ? `flex a-center ${style.show_menu}` : `flex a-center`} `}>
+              <span className={style.close_menu} onClick={() => setMobileMenu(false)}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+                  <path d="M2 2.54395L28 28.5439" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M28 2.54395L2 28.5439" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              {headerPageLinks[lang].map((elem, index) => (
+                <li key={index} className={`${style.menu_item} relative`}
+                  onMouseEnter={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && true)}
+                  onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
+                  onClick={() => setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu)}>
+                  {elem.link === "#contacts" ?
+                    <HashLink 
+                      smooth
+                      to={elem.link === "#contacts" ? "/#contacts" : elem.link}
                       className={`darkGrey_color`}
                     >
                       {elem.title}
-                      {Down}
-                    </NavLink>
-                    : elem.link === '#faq'
-                      ?
-                      <HashLink
-                        smooth
-                        to={elem.link === "#faq" ? "/wholesale/#faq" : elem.link}
-                        className={({ isActive }) =>
-                          `darkGrey_color ${isActive ? style.active : ""}`
-                        }
-                      >
-                        {elem.title}
-                      </HashLink>
-                      :
+                    </HashLink>
+                    : elem.link === "/catalog" ?
                       <NavLink
-                        to={elem.link}
-                        className={'darkGrey_color'}
+                        to=""
+                        className={`darkGrey_color`}
                       >
                         {elem.title}
+                        {Down}
                       </NavLink>
-                }
-                {elem.list && elem.list.length > 0 && (
-                  <ul className={`${style.dropdown} ${menu ? style.show : ''}`}>
-                    {elem.list.map((subItem, subIndex) => (
-                      <li key={subIndex} className={style.dropdown_item}>
-                        <NavLink to={subItem.link}>{subItem.title}</NavLink>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-            {window.innerWidth < 960 ?
-              token ? (
-                <div className={style.profile_links}>
-                  <h2 className="f20 white fw700 pointer" onClick={() => navigate('/profile')}>{user?.name ? user.name : ""}</h2>
-                  <h2 className="pointer f20 white fw700" onClick={logout}>{lang ? header?.subHeader[lang].logoutBtn : ""}</h2>
-                </div>
-              ) : (
-                <div className={`${style.profile_links} ${style.header_auth} flex a-end column`}>
-                  <Link to="/register" className="f20 white fw700">
-                    {header?.subHeader && header?.subHeader[lang]?.registration}
-                  </Link>
-                  <Link to="/login" className="f20 white fw700">
-                    {header?.subHeader && header?.subHeader[lang]?.login}
-                  </Link>
-                </div>
-              )
-              : null
-            }
-          </ul>
+                      : elem.link === '#faq'
+                        ?
+                        <HashLink
+                          smooth
+                          to={elem.link === "#faq" ? "/wholesale/#faq" : elem.link}
+                          className={({ isActive }) =>
+                            `darkGrey_color ${isActive ? style.active : ""}`
+                          }
+                        >
+                          {elem.title}
+                        </HashLink>
+                        :
+                        <NavLink
+                          to={elem.link}
+                          className={'darkGrey_color'}
+                        >
+                          {elem.title}
+                        </NavLink>
+                  }
+                  {elem.list && elem.list.length > 0 && (
+                    <ul className={`${style.dropdown} ${menu ? style.show : ''}`}>
+                      {elem.list.map((subItem, subIndex) => (
+                        <li key={subIndex} className={style.dropdown_item}>
+                          <NavLink to={subItem.link}>{subItem.title}</NavLink>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+              {window.innerWidth < 960 ?
+                token ? (
+                  <div className={style.profile_links}>
+                    <h2 className="f20 white fw700 pointer" onClick={() => navigate('/profile')}>{user?.name ? user.name : ""}</h2>
+                    <h2 className="pointer f20 white fw700" onClick={logout}>{lang ? header?.subHeader[lang].logoutBtn : ""}</h2>
+                  </div>
+                ) : (
+                  <div className={`${style.profile_links} ${style.header_auth} flex a-end column`}>
+                    <Link to="/register" className="f20 white fw700">
+                      {header?.subHeader && header?.subHeader[lang]?.registration}
+                    </Link>
+                    <Link to="/login" className="f20 white fw700">
+                      {header?.subHeader && header?.subHeader[lang]?.login}
+                    </Link>
+                  </div>
+                )
+                : null
+              }
+            </ul>
+          </div>
           <div className="flex a-center">
             <div className={`${style.languages} flex a-center`}>
               {["az", "en", "ru"].map((langCode) => (
