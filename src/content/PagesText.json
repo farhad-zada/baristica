@@ -342,7 +342,7 @@
                             "Bütün suallarda — başdan sona qədər — məsləhət verəcəyik"
                         ],
                         "link": "QİYMƏT CƏDVƏLİNİ ƏLDƏ ET",
-                        "href": "#",
+                        "href": "/wholesale/#price",
                         "img": "coop"
                     },
                     {
@@ -352,7 +352,7 @@
                             "Hər gün sifarişə uyğun qovururuq"
                         ],
                         "link": "KATALOQ",
-                        "href": "#",
+                        "href": "/",
                         "img": "coop2"
                     }
                 ]
@@ -457,7 +457,7 @@
                             "Проконсультируем по всем вопросам — от и до"
                         ],
                         "link": "ПОЛУЧИТЬ ПРАЙС",
-                        "href": "#",
+                        "href": "/wholesale/#price",
                         "img": "coop"
                     },
                     {
@@ -467,7 +467,7 @@
                             "Получите 10%-ую скидку на первый заказ"
                         ],
                         "link": "ИНТЕРНЕТ-МАГАЗИН",
-                        "href": "#",
+                        "href": "/",
                         "img": "coop2"
                     }
                 ]
@@ -572,7 +572,7 @@
                             "Проконсультируем по всем вопросам — от и до"
                         ],
                         "link": "ПОЛУЧИТЬ ПРАЙС",
-                        "href": "#",
+                        "href": "/wholesale/#price",
                         "img": "coop"
                     },
                     {
@@ -582,7 +582,7 @@
                             "Получите 10%-ую скидку на первый заказ"
                         ],
                         "link": "ИНТЕРНЕТ-МАГАЗИН",
-                        "href": "#",
+                        "href": "/",
                         "img": "coop2"
                     }
                 ]
@@ -768,7 +768,7 @@
                         },
                         {
                             "label": "Online mağaza",
-                            "link": "/shop"
+                            "link": "/"
                         },
                         {
                             "label": "Korporativ satış",
@@ -811,7 +811,7 @@
                         },
                         {
                             "label": "Интернет-магазин",
-                            "link": "/shop"
+                            "link": "/"
                         },
                         {
                             "label": "Оптовый сайт",
@@ -854,7 +854,7 @@
                         },
                         {
                             "label": "Online Shop",
-                            "link": "/shop"
+                            "link": "/"
                         },
                         {
                             "label": "Wholesale Site",
