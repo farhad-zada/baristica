@@ -204,7 +204,7 @@ const ProductCard = (props) => {
                             <span>{activeProduct?.feedbacks ? activeProduct.feedbacks : 0}</span>
                         </span>
                     </div>
-                    <span className="productCard-head_right blueAccent fw400 text-upperCase">
+                    <span className={style.productCard_head_right + " f14 blueAccent fw400 text-upperCase"}>
                         {
                             activeProduct?.category ? categories[lang][activeProduct.category] : ''
 
@@ -212,7 +212,7 @@ const ProductCard = (props) => {
                     </span>
                 </div>
                 <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : 'BFC-02002'}</h3>
-                <h2 className="text-center darkGrey_color f24 fw600">{activeProduct?.name ? activeProduct.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
+                <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
             </div>
             <div className={style.productCard_body}>
 

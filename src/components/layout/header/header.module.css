@@ -68,7 +68,7 @@
 }
 
 .dropdown_item:hover a{
-    color: #fff;
+    color: #fff !important;
 }
 
 .dropdown_item a{
