@@ -2257,7 +2257,7 @@
             "3_group": "3-qruplu aparat",
             "grinder":"Qəhvə üyüdən",
             "scale":"Tərəzi",
-            "barista":"Barista",
+            "barista":"Barista aksesuarları",
             "tableware":"Qab",
             "teapot":"Çaydan"
         },
@@ -2269,7 +2269,7 @@
             "3_group": "3-х группажный аппарат",
             "grinder":"Гриндер",
             "scale":"Весы",
-            "barista":"Бариста",
+            "barista":"Аксессуары для бариста",
             "tableware":"Посуда",
             "teapot":"Чайник"
         },
@@ -2281,7 +2281,7 @@
             "3_group": "3-group apparatus",
             "grinder":"Grinder",
             "scale":"Scale",
-            "barista":"Barista",
+            "barista":"Barista accesories",
             "tableware":"Tableware",
             "teapot":"Teapot"
         }

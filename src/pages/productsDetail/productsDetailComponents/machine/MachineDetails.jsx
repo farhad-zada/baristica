@@ -70,18 +70,26 @@ export default function MachineDetails({ product }) {
                 :
                 <></>
             }
-            <h2 className="f16 fw700 mt20 darkGrey_color">
-                {lang ? productCard[lang].groups : ''}
-            </h2>
-            <div className="productWeights flex g10 mt4 mb20">
-                {
-                    groups?.map((group, index) => (
-                        <div className={group === selectedGroup ? styles.weightActive : styles.weight} key={index} onClick={() => { changeProduct('category', group) }}>
-                            {group}
+            {
+                product?.category === 'grinder'
+                    ?
+                    <></>
+                    :
+                    <>
+                        <h2 className="f16 fw700 mt20 darkGrey_color">
+                            {lang ? productCard[lang].groups : ''}
+                        </h2>
+                        <div className="productWeights flex g10 mt4 mb20">
+                            {
+                                groups?.map((group, index) => (
+                                    <div className={group === selectedGroup ? styles.weightActive : styles.weight} key={index} onClick={() => { changeProduct('category', group) }}>
+                                        {group}
+                                    </div>
+                                ))
+                            }
                         </div>
-                    ))
-                }
-            </div>
+                    </>
+            }
 
             <div className="flex j-between a-center mt20">
                 <span className='f32 fw400'>{product?.price ? product.price / 100 : 20} ₼</span>
