@@ -532,6 +532,18 @@ input {
     border-radius: 8px;
     margin-bottom: 50px;
 }
+.noOverwlowY{
+    overflow-y: hidden;
+}
+.body-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100%;
+    z-index: 3243243;
+}
 @media (max-width: 768px){
     body{
         overflow-x: hidden;

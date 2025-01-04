@@ -2,6 +2,16 @@
     position: relative;
     height: 723px;
 }
+.banner::before {
+  content: ""; /* Necessary to create the pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000099; /* 60% black overlay */
+  z-index: 1; /* Ensure it appears above the background image */
+}
 .banner_title{
     position: relative;
     z-index: 9999;
