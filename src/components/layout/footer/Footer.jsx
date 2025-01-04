@@ -5,7 +5,8 @@ import { BaristicaLogo, FacebookIcon, InstagramIcon, WPIcon, YoutubeIcon } from 
 import style from "./footer.module.css";
 
 import PagesText from '../../../content/PagesText.json';
-            
+import { HashLink } from "react-router-hash-link";
+
 const { footer } = PagesText;
 
 export default function Footer() {
@@ -22,7 +23,29 @@ export default function Footer() {
                   <h4 className="f24 fw600 darkGrey_color">{elem.title}</h4>
                   <div className={`${style.menu_links} flex column`}>
                     {elem.list.map((item) => (
-                      <Link to={item.link} className={`${style.menu_link} f16 fw400 darkGrey_color`}>{item.label}</Link>
+                      <>
+                        {
+                          item.link === "#contacts" ?
+                            <HashLink
+                              smooth
+                              to={item.link === "#contacts" ? "/#contacts" : item.link}
+                              className={`darkGrey_color`}
+                            >
+                              {item.label}
+                            </HashLink>
+                            :
+                            item.link === "#about" ?
+                            <HashLink
+                              smooth
+                              to={item.link === "#about" ? "/#about" : item.link}
+                              className={`darkGrey_color`}
+                            >
+                              {item.label}
+                            </HashLink>
+                            :
+                            <Link to={item.link} className={`${style.menu_link} f16 fw400 darkGrey_color`}>{item.label}</Link>
+                        }
+                      </>
                     ))}
                   </div>
                 </div>

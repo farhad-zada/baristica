@@ -2,16 +2,25 @@
     padding: 20px 0;
 }
 .menu{
-    gap: 15px;
+    gap: 25px;
 }
 .menu_item{
     position: relative;
     padding-bottom: 5px;
     transition: .2s ease-in-out;
 }
+.menu_item a{
+    transition: .2s ease-in-out;
+}
+.menu_item a:hover{
+    color: #61C4BF !important;
+}
+
 .menu_item svg{
     margin-left: 4px;
+    height: 15px;
 }
+
 .menu_item svg path{
     fill: white;
 }

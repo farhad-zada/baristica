@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styles from './colorPicker.module.css';
 
-const ColorPicker = ({ options, onColorSelect, text }) => {
-  const [selectedColor, setSelectedColor] = useState(options[0].value); // Значение выбранного цвета
+const ColorPicker = ({ field, options, onColorSelect, text }) => {
+  const [selectedColor, setSelectedColor] = useState(options[0].fieldValue); // Значение выбранного цвета
 
-  const handleSelect = (color) => {
+  const handleSelect = (field,color) => {
     setSelectedColor(color);
-    if (onColorSelect) onColorSelect(color); // Callback для родительского компонента
+    if (onColorSelect) onColorSelect(field,color); // Callback для родительского компонента
   };
 
   return (
@@ -15,13 +15,12 @@ const ColorPicker = ({ options, onColorSelect, text }) => {
       <div className={styles.options}>
         {options.map((option) => (
           <div
-            key={option.value}
-            className={`${styles.option} ${
-              selectedColor === option.value ? styles.selected : ''
-            }`}
-            onClick={() => handleSelect(option.value)}
+            key={option.fieldValue}
+            className={`${styles.option} ${selectedColor === option.fieldValue ? styles.selected : ''
+              }`}
+            onClick={() => handleSelect(field, option.fieldValue)}
           >
-            <img src={option.image} alt={option.label} className={styles.image} />
+            <img src={option.fieldValue} alt={option.field} className={styles.image} />
           </div>
         ))}
       </div>

@@ -37,10 +37,16 @@ export default function ProductsDetail() {
             <Loading status={loading} />
             <Error status={error} setStatus={setError} />
 
-            <div className="container">
-                <ProductsDetailHead product={product} />
-                <ProductsDetailBody product={product} />
-            </div>
+            {
+                JSON.stringify(product) !== '{}'
+                    ?
+                    <div className="container">
+                        <ProductsDetailHead product={product} />
+                        <ProductsDetailBody product={product} />
+                    </div>
+                    :
+                    <></>
+            }
         </div>
     )
 }

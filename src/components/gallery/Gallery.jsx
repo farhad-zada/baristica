@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -10,6 +10,11 @@ const Gallery = ({ images }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0); // Текущий активный слайд
 
+  useEffect(() => {
+    return () => {
+      setActiveIndex(0)
+    }
+  }, [images])
   return (
     <div className={styles.galleryContainer}>
       {/* Main Image Slider */}
@@ -38,9 +43,8 @@ const Gallery = ({ images }) => {
         {images.map((image, index) => (
           <SwiperSlide
             key={index}
-            className={`${styles.thumbnailSlide} ${
-              activeIndex === index ? styles.active : ''
-            }`} // Добавляем класс active для текущей миниатюры
+            className={`${styles.thumbnailSlide} ${activeIndex === index ? styles.active : ''
+              }`} // Добавляем класс active для текущей миниатюры
           >
             <img src={image} alt={`Thumbnail ${index + 1}`} className={styles.thumbnailImage} />
           </SwiperSlide>
