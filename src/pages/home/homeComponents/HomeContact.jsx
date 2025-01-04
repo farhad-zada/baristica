@@ -19,14 +19,11 @@ const HomeContact = () => {
             <div className={`${style.homeContact_top} flex a-center j-between`}>
               <h1 className='f48 fw700 black'>{body[lang].contact.subscribe.title}</h1>
               <div className={`${style.homeContact_socials} flex a-center`}>
-                <Link to="" className={`${style.homeContact_social} darkGray rounded`}>
+                <Link to="https://www.instagram.com/baristica.roastery/" target="_blank" className={`${style.homeContact_social} darkGray rounded`}>
                   {InstagramIcon}
                 </Link>
-                <Link to="" className={`${style.homeContact_social} darkGray rounded`}>
-                  {WPIcon}
-                </Link>
-                <Link to="" className={`${style.homeContact_social} darkGray rounded`}>
-                  {FacebookIcon}
+                <Link target="_blank" to="https://www.youtube.com/@BaristicaLife" className={`${style.homeContact_social} darkGray rounded`}>
+                  {YoutubeIcon}
                 </Link>
               </div>
             </div>
@@ -45,13 +42,13 @@ const HomeContact = () => {
                 <p className='f24 darkGrey_color robotoFont'>{body[lang].contact.getInTouch.workTime.saturday} 10:00 - 14:00</p>
               </div>
               <div className={`${style.homeContact_socials} flex a-center`}>
-                <Link to="" className={`${style.homeContact_social} darkGray rounded`}>
+                <Link to="https://www.instagram.com/baristica.roastery/" target="_blank" className={`${style.homeContact_social} darkGray rounded`}>
                   {InstagramIcon}
                 </Link>
-                <Link to="" className={`${style.homeContact_social} darkGray rounded`}>
+                <Link to="https://api.whatsapp.com/send?phone=+994514333003" target="_blank" className={`${style.homeContact_social} darkGray rounded`}>
                   {WPIcon}
                 </Link>
-                <Link to="" className={`${style.homeContact_social} darkGray rounded`}>
+                <Link to="https://www.youtube.com/@BaristicaLife" target="_blank" className={`${style.homeContact_social} darkGray rounded`}>
                   {YoutubeIcon}
                 </Link>
               </div>

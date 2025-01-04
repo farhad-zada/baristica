@@ -3,12 +3,17 @@
     max-width: 320px;
     padding: 12px 10px;
     background: #FAFAFA;
-    box-shadow: 0px 4px 4px 0px #00000040;
+    /* box-shadow: 0px 4px 4px 0px #00000040;
     /* min-width: max-content; */
+    transition: .2s ease-in-out;
     width: 100% !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+.productCard:hover{
+    transform: scale(1.03);
+    box-shadow: 0px 4px 4px 0px #00000040;
 }
 .productCard_head{
     margin-bottom: 20px;
