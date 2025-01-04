@@ -9,6 +9,11 @@
     width: 100%;
     max-width: 282.5px;
 }
+@media (max-width: 850px){
+    .homeInfo_img{
+        margin-right: 0 !important;
+    }
+}
 @media (max-width: 768px){
     .homeInfo_section{
         flex-direction: column;
