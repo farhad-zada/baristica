@@ -684,8 +684,8 @@
                     "address": "Zərifə Əliyeva 12A",
                     "workTime": {
                         "title": "İş qrafiki:",
-                        "weekday": "Həftə içi günlər",
-                        "saturday": "Şənbə"
+                        "weekday": "Həftə içi:",
+                        "saturday": "Həftə sonu:"
                     },
                     "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.788586767001!2d49.83824477621606!3d40.369211858529894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307dc35d7a0fa5%3A0x91aed66ca1d34cec!2sBARISTICA%20Specialty%20coffee%20and%20Pastry!5e0!3m2!1saz!2spl!4v1729427872633!5m2!1saz!2spl"
                 },
@@ -694,8 +694,8 @@
                     "address": "Ceyhun Hacıbəyli 28B",
                     "workTime": {
                         "title": "İş qrafiki:",
-                        "weekday": "Həftə içi günlər",
-                        "saturday": "Şənbə"
+                        "weekday": "Həftə içi:",
+                        "saturday": "Həftə sonu:"
                     },
                     "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.8263699441827!2d49.84348617621684!3d40.390540657232535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403063f225fe0ba3%3A0xa2d4980d8142b7c2!2sBARISTICA%20Specialty%20coffee%20and%20Pastry!5e0!3m2!1saz!2spl!4v1729427918671!5m2!1saz!2spl"
                 }
@@ -1534,7 +1534,7 @@
                         "ru": "Для заваривания",
                         "en": "For brewing"
                     },
-                    "value": "for breweing"
+                    "value": "for brewing"
                 },
                 {
                     "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNDIiIHZpZXdCb3g9IjAgMCA2MCA0MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEuODQ1NyAzNy40MTgxVjQxSDIwLjYyMTJWMzcuNDE4MU0xLjg0NTcgMzcuNDE4MUw3LjE1NzIgMzQuNzMxN00xLjg0NTcgMzcuNDE4MUgyMC42MjEyTTIwLjYyMTIgMzcuNDE4MUwxNS4zMDk3IDM0LjczMTdNMTUuMzA5NyAzNC43MzE3SDcuMTU3Mk0xNS4zMDk3IDM0LjczMTdWMjUuMDEzMkwxOC4wODEgMjEuMDE1N0MxOC41MjgyIDIwLjM3MDYgMTguNzY4NCAxOS41OTk3IDE4Ljc2ODQgMTguODA5NEMxOC43Njg0IDE4LjAxODQgMTguNTI3OCAxNy4yNDY5IDE4LjA3OTggMTYuNjAxNUwxNy42ODU3IDE2LjAzMzZDMTYuNTgyOCAxNC40NDQ1IDE0Ljc5MzUgMTMuNSAxMi44ODU2IDEzLjVIOS42MDc4OEM3LjY4ODkyIDEzLjUgNS44OTQ4MSAxNC40NzEzIDQuODE4MjggMTYuMDkyOUw0LjQ4OCAxNi41OTA0QzQuMDU0MDQgMTcuMjQ0MSAzLjgyMjA3IDE4LjAxNTcgMy44MjIwNyAxOC44MDUzQzMuODIyMDcgMTkuNTk5NCA0LjA1NjYxIDIwLjM3NSA0LjQ5NTA1IDIxLjAzMDhMNy4xNTcyIDI1LjAxMzJWMzQuNzMxN00yMS40NTcyIDE1Ljk0NzlMMTkuODczOSAzMC41NDEzQzE5LjYwNjIgMzMuMDA5IDIxLjQ5ODcgMzUuMTY2NyAyMy45MzA4IDM1LjE2NjdINDQuNTMzNkM0Ni45NjMgMzUuMTY2NyA0OC44NTQ1IDMzLjAxMzggNDguNTkxMiAzMC41NDg0TDQ4LjExNTIgMjYuMDkxMU0yMS40NTcyIDE1Ljk0NzlMMjUuMTA2MSAxTTIxLjQ1NzIgMTUuOTQ3OUMyMS40NTcyIDE1Ljk0NzkgMTkuMDAzOSAxMy42NDQyIDE4LjMyOTYgMTEuNjc3MUMxNy41ODc5IDkuNTEzMjQgMTguOTA5OSA1Ljg4NDI1IDE4LjMyOTYgMy42NjkyN0MxNy43ODY1IDEuNTk2MTIgMTUuNzIzMyAxIDE1LjcyMzMgMUgyNS4xMDYxTTI1LjEwNjEgMUg0NS40MzU2TDQ1Ljk0ODcgNS44MDQ2OU0yNC4wNjM2IDIwLjc1MjZMMjMuMTk5OSAyOS41OTc3QzIzLjEwNDEgMzAuNTc4NyAyMy44NTg4IDMxLjQyOTcgMjQuODI0NSAzMS40Mjk3SDMxLjM2MTNNNDUuOTQ4NyA1LjgwNDY5TDQ2LjMxNTIgNS41NTUwOEM0OC4xMjA5IDQuMzI1NDYgNTAuMjQyOCAzLjY2OTI3IDUyLjQxMzMgMy42NjkyN0g1NC4wMTUyQzU0Ljg4MzEgMy42NjkyNyA1NS43MzU4IDMuOTAxMSA1Ni40ODg3IDQuMzQxNzFDNTguMDM0OSA1LjI0NjU4IDU4Ljk4ODYgNi45MjY4NiA1OC45ODg2IDguNzQ2MjJWOC45NzcxOEM1OC45ODg2IDkuNzAyMTggNTguODQ3NSAxMC40MiA1OC41NzM2IDExLjA4ODlMNTMuODA0OSAyMi43MzVDNTIuODYzOSAyNS4wMzMgNTAuNTM1NCAyNi40MDY1IDQ4LjExNTIgMjYuMDkxMU00NS45NDg3IDUuODA0NjlMNDYuNDc4MSAxMC43NjE5TTQ4LjExNTIgMjYuMDkxMUw0Ny43MTYxIDIyLjM1NDJNNDYuNDc4MSAxMC43NjE5TDQ4LjQyNTkgOS4wMDQ1OUM0OS4xODYxIDguMzE4NjggNTAuMTY1NyA3Ljk0MDEgNTEuMTgwMyA3Ljk0MDFINTQuMDYwMkM1NC43NjY4IDcuOTQwMSA1NS4zMzk3IDguNTI0ODkgNTUuMzM5NyA5LjI0NjI2QzU1LjMzOTcgOS40NDA3NCA1NS4yOTcxIDkuNjMyNzcgNTUuMjE1MiA5LjgwODMyTDUwLjQ0OTQgMjAuMDEzNkM0OS45MTM1IDIxLjE2MTIgNDguOTE2NCAyMi4wMTUxIDQ3LjcxNjEgMjIuMzU0Mk00Ni40NzgxIDEwLjc2MTlMNDcuNzE2MSAyMi4zNTQyIiBzdHJva2U9IiM1NDU2NUEiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=",

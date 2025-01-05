@@ -18,12 +18,10 @@
 
 .menu_item svg{
     margin-left: 4px;
-    height: 15px;
+    /* height: 15px; */
 }
 
-.menu_item svg path{
-    fill: white;
-}
+
 .menu_item a{
     color: #54565A;
 }
@@ -106,6 +104,13 @@
 }
 
 @media (max-width: 960px){
+    .menu_item svg path{
+        fill: white;
+    }
+    .menu_item svg{
+        /* margin-left: 4px; */
+        height: 15px;
+    }
     .header_auth{
         display: flex !important;
     }

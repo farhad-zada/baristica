@@ -80,6 +80,7 @@ const CustomDropdown = ({
                                 name={selectionMode === 'single' ? label : undefined}
                                 checked={selectedOptions.some((item) => item.value === option.value)}
                                 onChange={() => handleOptionChange(option)}
+                                className={styles.customRadio}
                             />
                             <span className="f16 fw400 darkGrey_color">{option.text}</span>
                         </label>
