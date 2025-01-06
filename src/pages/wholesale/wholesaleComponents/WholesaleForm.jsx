@@ -12,7 +12,7 @@ const WholesaleForm = () => {
     console.log(1)
   }
   return (
-    <div className={`${style.form} flex j-center`}>
+    <div className={`${style.form} flex j-center`} id="price">
       <div className="container">
         <div className={`${style.form_section} flex a-start`}>
           <div className={`${style.form_elem}`}>

@@ -8,7 +8,7 @@ import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import style from "./header.module.css";
 
 import PagesText from "../../../content/PagesText.json";
-import { Down, Logo } from "../../../icons";
+import { DownHeader, Logo } from "../../../icons";
 
 import { setToken, setUser } from "../../../redux/slice";
 
@@ -99,13 +99,12 @@ export default function Header() {
                       {elem.title}
                     </HashLink>
                     : elem.link === "/catalog" ?
-                      <NavLink
-                        to=""
-                        className={`darkGrey_color`}
+                      <span
+                        className={`darkGrey_color flex a-center pointer`}
                       >
                         {elem.title}
-                        {Down}
-                      </NavLink>
+                        {DownHeader}
+                      </span>
                       : elem.link === '#faq'
                         ?
                         <HashLink

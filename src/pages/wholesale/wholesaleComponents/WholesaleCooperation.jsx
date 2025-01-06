@@ -5,6 +5,7 @@ import PagesText from '../../../content/PagesText.json';
 import { Link } from 'react-router-dom';
 import coop from "../../../assets/img/coop.jpeg"
 import coop2 from "../../../assets/img/coop2.jpeg"
+import { HashLink } from 'react-router-hash-link';
 
 const { wholesale } = PagesText;
 
@@ -24,7 +25,18 @@ const WholesaleCooperation = () => {
                             <div className={style.list}>
                                 {elem?.list?.map((item) => (<p className={`${style.elem_subtitle} robotoFont f20`} key={item}>{item}</p>))}
                             </div>
-                            <Link className="f24 fw700 border40" to={elem?.href}>{elem?.link}</Link>
+                            {
+                                elem.href === "#price" ?
+                                <HashLink 
+                                  smooth
+                                  to={elem.href === "#price" ? "/wholesale/#price" : elem.href}
+                                  className={style.linkTo + " f24 fw700 border40"}
+                                >
+                                  {elem.link}
+                                </HashLink>
+                                :
+                                <Link className={style.linkTo + " f24 fw700 border40"} to={elem?.href}>{elem?.link}</Link>
+                            }
                         </div>
                         <img src={elem?.img == "coop" ? coop : coop2}></img>
                     </div>

@@ -117,7 +117,8 @@ const ProductCard = (props) => {
                 </div>
             )
         } else if (type === 'Machine') {
-            if (product?.category) {
+            if (product?.category && product.category !== 'grinder') {
+                console.log(product.category)
                 return (
                     <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
                         <CustomSelect field={'category'} options={categoryGroups} defaultValue={defaultCategory} additionalText={''} callBack={changeProduct} />
@@ -213,10 +214,11 @@ const ProductCard = (props) => {
                 </div>
                 <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : 'BFC-02002'}</h3>
                 <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
+                <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod ? `${proccessingMethodTranslate[lang][activeProduct.processingMethod]}` : ''}</p>
+
             </div>
             <div className={style.productCard_body}>
 
-                <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod ? `${proccessingMethodTranslate[lang][activeProduct.processingMethod]}` : ''}</p>
 
                 <div className={`${style.productCard_img} w-100 flex j-center`}>
                     <img src={activeProduct?.images?.length ? activeProduct.images[0] : MockImg} alt="" />

@@ -59,6 +59,13 @@
     max-height: 195px;
     object-fit: cover;
 }
+.linkTo{
+    transition: .3s;
+}
+.linkTo:hover{
+    background-color: #54565A;
+    color: #fff;
+}
 @media (max-width: 480px){
     .cooperations{
         flex-direction: column;

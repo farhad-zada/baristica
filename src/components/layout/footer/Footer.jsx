@@ -29,7 +29,7 @@ export default function Footer() {
                             <HashLink
                               smooth
                               to={item.link === "#contacts" ? "/#contacts" : item.link}
-                              className={`darkGrey_color`}
+                              className={`${style.menu_link} f16 fw400 darkGrey_color`}
                             >
                               {item.label}
                             </HashLink>
@@ -38,7 +38,7 @@ export default function Footer() {
                             <HashLink
                               smooth
                               to={item.link === "#about" ? "/#about" : item.link}
-                              className={`darkGrey_color`}
+                              className={`${style.menu_link} f16 fw400 darkGrey_color`}
                             >
                               {item.label}
                             </HashLink>
