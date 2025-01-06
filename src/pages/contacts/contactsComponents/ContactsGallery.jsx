@@ -8,26 +8,17 @@ import img4 from "../../../assets/img/img4.jpeg";
 import img5 from "../../../assets/img/img5.jpeg";
 
 const ContactsGallery = () => {
-  const [modalImage, setModalImage] = useState(null);
+  const [modalImageIndex, setModalImageIndex] = useState(null);
 
   useEffect(() => {
-    if (modalImage) {
+    if (modalImageIndex !== null) {
       document.body.classList.add(style.no_scroll);
     } else {
       document.body.classList.remove(style.no_scroll);
     }
 
-    // Cleanup when component unmounts
     return () => document.body.classList.remove(style.no_scroll);
-  }, [modalImage]);
-
-  const openModal = (src) => {
-    setModalImage(src);
-  };
-
-  const closeModal = () => {
-    setModalImage(null);
-  };
+  }, [modalImageIndex]);
 
   const images = [
     { id: 1, src: img1, alt: "Coffee Shop 1" },
@@ -37,14 +28,34 @@ const ContactsGallery = () => {
     { id: 5, src: img5, alt: "Coffee Shop 5" },
   ];
 
+  const openModal = (index) => {
+    setModalImageIndex(index);
+  };
+
+  const closeModal = () => {
+    setModalImageIndex(null);
+  };
+
+  const showPreviousImage = () => {
+    setModalImageIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : images.length - 1
+    );
+  };
+
+  const showNextImage = () => {
+    setModalImageIndex((prevIndex) =>
+      prevIndex < images.length - 1 ? prevIndex + 1 : 0
+    );
+  };
+
   return (
     <div className={style.gallery_container}>
       <div className={style.horizontal_gallery}>
-        {images.map((image) => (
+        {images.map((image, index) => (
           <div
             key={image.id}
             className={style.gallery_item}
-            onClick={() => openModal(image.src)}
+            onClick={() => openModal(index)}
           >
             <img
               src={image.src}
@@ -55,7 +66,7 @@ const ContactsGallery = () => {
         ))}
       </div>
 
-      {modalImage && (
+      {modalImageIndex !== null && (
         <div className={style.modal} onClick={closeModal}>
           <div
             className={style.modal_content}
@@ -64,8 +75,30 @@ const ContactsGallery = () => {
             <span className={style.close} onClick={closeModal}>
               &times;
             </span>
-            <img src={modalImage} alt="Modal View" className={style.modal_image} />
+            <img
+              src={images[modalImageIndex].src}
+              alt={images[modalImageIndex].alt}
+              className={style.modal_image}
+            />
           </div>
+            <button
+              className={style.arrow_left}
+              onClick={(e) => {
+                e.stopPropagation();
+                showPreviousImage();
+              }}
+            >
+              &#8249;
+            </button>
+            <button
+              className={style.arrow_right}
+              onClick={(e) => {
+                e.stopPropagation();
+                showNextImage();
+              }}
+            >
+              &#8250;
+            </button>
         </div>
       )}
     </div>

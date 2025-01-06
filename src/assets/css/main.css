@@ -544,6 +544,12 @@ input {
     height: 100%;
     z-index: 3243243;
 }
+.swiper-button-prev, .swiper-button-next{
+    color: #54565A !important;
+}
+.swiper-button-prev::after, .swiper-button-next::after{
+    font-size: 24px;
+}
 @media (max-width: 768px){
     body{
         overflow-x: hidden;

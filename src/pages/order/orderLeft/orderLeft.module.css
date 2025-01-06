@@ -47,8 +47,9 @@
     border-radius: 50%;
     background-color: #54565A;
 }
-@media (max-width: 480px){
+
+/*@media (max-width: 480px){
     button{
         font-size: 24px !important;
     }
-}
+}*/

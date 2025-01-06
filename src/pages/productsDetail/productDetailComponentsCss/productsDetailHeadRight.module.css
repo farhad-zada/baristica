@@ -1,6 +1,12 @@
 .favorited{
     cursor: pointer;
 }
+.star{
+    &:hover svg path{
+        transition: .2s ease-in-out;
+        fill: #00c1c1;
+    }   
+}
 .favorited svg path{
     transition: .3s;
 }

@@ -35,7 +35,7 @@ const HomeContact = () => {
             <div className={`${style.homeContact_left}`}>
               <h1>{body[lang].contact.getInTouch.title}</h1>
               <p className={`${style.homeContact_getInTouch_address} f24 robotoFont`}>{body[lang].contact.getInTouch.address}</p>
-              <p className='f24 robotoFont'>+99 450 433 30 03</p>
+              <p className='f24 robotoFont'>+99 451 433 30 03</p>
               <div className={`${style.homeContact_workTime}`}>
                 <h6 className='f24 fw700 robotoFont'>{body[lang].contact.getInTouch.workTime.title}</h6>
                 <p className='f24 darkGrey_color robotoFont'>{body[lang].contact.getInTouch.workTime.weekday} 09:00 - 19:00</p>

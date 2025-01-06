@@ -67,6 +67,31 @@
   overflow: hidden;
 }
 
+.arrow_left, .arrow_right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 1000;
+  font-size: 24px;
+}
+
+.arrow_left {
+  left: 10px;
+}
+
+.arrow_right {
+  right: 10px;
+}
+
+.arrow_left:hover, .arrow_right:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 @media (max-width: 960px){
   .gallery_container{
     padding: 0 !important;

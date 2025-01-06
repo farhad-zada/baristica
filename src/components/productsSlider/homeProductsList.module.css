@@ -2,9 +2,9 @@
   /* display: grid;*/
   /* grid-template-columns: repeat(3, 1fr);*/
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  /* gap: 100px; */
+  gap: 80px;
   margin: 50px 0;
 }
 

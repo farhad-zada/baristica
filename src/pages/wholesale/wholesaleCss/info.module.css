@@ -1,6 +1,17 @@
 .info{
     padding: 100px 50px;
     position: relative;
+
+}
+.info::before {
+  content: ""; /* Necessary to create the pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000099; /* 60% black overlay */
+  z-index: 1; /* Ensure it appears above the background image */
 }
 .title:nth-child(2){
     font-weight: 300;

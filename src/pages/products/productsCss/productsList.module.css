@@ -1,7 +1,9 @@
 .productsList {
-    display: grid;
-    gap: 100px;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* grid-template-columns: repeat(3, 1fr); */
     max-width: 1200px; /* Ограничиваем ширину */
     margin: 0 auto; /* Центрируем контейнер */
 }
@@ -9,9 +11,9 @@
 @media (max-width: 1280px) {
     .productsList {
         display: flex;
-        justify-content: space-between;
+        /* justify-content: space-between; */
         flex-wrap: wrap;
-        gap: 0;
+        /* gap: 0; */
         padding: 0;
     }
 }

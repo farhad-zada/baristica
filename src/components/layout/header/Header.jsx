@@ -17,6 +17,7 @@ const { headerPageLinks } = header;
 
 export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false)
+  const [size, setSize] = useState("")
   const [menu, setMenu] = useState(false)
   const { lang, user, token } = useSelector((state) => state.baristica)
   const navigate = useNavigate();
@@ -55,6 +56,20 @@ export default function Header() {
     };
   }, [mobileMenu]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setSize(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+        window.removeEventListener("resize", handleResize);
+    };
+  },[])
+
+  useEffect(() => {
+    size > 960 && setMobileMenu(false)
+  }, [size])
+  
   return (
     <header className="flex j-center" style={{ backgroundColor: "#F2F2F2" }}>
       <div className="container flex j-between a-center">
@@ -74,7 +89,7 @@ export default function Header() {
                 <li key={index} className={`${style.menu_item} relative`}
                   onMouseEnter={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && true)}
                   onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
-                  onClick={() => setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu)}>
+                  onClick={() => {setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);setMobileMenu(false)}}>
                   {elem.link === "#contacts" ?
                     <HashLink 
                       smooth

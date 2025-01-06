@@ -63,7 +63,7 @@ export default function ProductsDetailHeadRight({ product }) {
                         :
                         <></>
                 }
-                <span className="flex g8  f16 darkGrey_color fw400">
+                <span className={`${style.star} flex g8  f16 darkGrey_color fw400`}>
                     {Star}
                     <span>{product?.statistics?.ratings.toFixed(1)}</span>
                 </span>
