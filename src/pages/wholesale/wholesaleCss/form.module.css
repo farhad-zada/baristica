@@ -24,6 +24,13 @@
     width: 100%;
     border: none;
 }
+@media (max-width: 960px){
+    .form{
+        .button{
+            font-size: 24px !important;
+        }
+    }
+}
 @media (max-width: 768px){
     .form_section{
         flex-direction: column;
