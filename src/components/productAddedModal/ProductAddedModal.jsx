@@ -81,6 +81,7 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
                 <div className={styles.buttons + " flex j-between"}>
                     <button onClick={() => {
                         setStatus(false)
+                        add()
                         dispatch(setProfileActiveTab('cart'))
                         navigate('/profile')
                     }} className={styles.greenBtn + ' w-48'}>{lang ? productAdded[lang].greenBtn : ''}</button>
