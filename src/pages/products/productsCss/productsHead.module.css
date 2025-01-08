@@ -10,8 +10,8 @@
     .right{
         z-index: 2;
         position: fixed;
-        top: 50%;
-        right: 10%;
+        bottom: 3%;
+        right: 6%;
         border: 1px solid #61C4BF;
         background-color: #61C4BF;
     }

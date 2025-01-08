@@ -13,7 +13,9 @@
     text-transform: uppercase;
 }
 .link{
-    padding: 10px 56px;
+    white-space: nowrap;
+    padding: 5px 30px;
+    font-size: 28px;
 }
 @media (max-width: 768px){
     .contact .contact_title{

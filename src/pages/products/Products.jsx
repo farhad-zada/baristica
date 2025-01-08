@@ -11,7 +11,6 @@ import ProductsService from '../../services/products.service';
 import Loading from '../../components/loading/Loading';
 import Pagination from '../../components/pagination/Pagination';
 import Error from '../../components/error/Error';
-import useScrollToTop from '../../hooks/useScrollToTop';
 const { productsPage } = pageText
 export default function Products() {
   const { lang, token } = useSelector((state) => state.baristica);

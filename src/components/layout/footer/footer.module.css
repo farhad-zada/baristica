@@ -24,7 +24,7 @@ footer{
     display: flex;
     align-items: center;
 }
-.footer_social svg path{
+.footer_social svg path:nth-child(1){
     fill: white;
 }
 .menu_links{

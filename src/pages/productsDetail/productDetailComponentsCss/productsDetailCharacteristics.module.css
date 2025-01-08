@@ -9,3 +9,8 @@
 .productDetails_characteristics{
     width: 80%;
 }
+@media(max-width: 480px){
+    .characteristic span{
+        font-size: 18px !important;
+    }
+}

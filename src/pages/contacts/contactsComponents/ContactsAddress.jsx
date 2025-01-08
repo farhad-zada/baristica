@@ -24,17 +24,17 @@ const ContactsAddress = () => {
                     <span className="tifanny_color">{firstWord}</span> {rest.join(" ")}
                   </h1>
                   <p className={`${style.wholesale_getInTouch_address} robotoFont f24`}>{elem.address}</p>
-                  <p className='f24 robotoFont'>+99 450 433 30 03</p>
+                  <p className='f24 robotoFont'>+99 451 433 30 03</p>
                   <div className={`${style.wholesale_workTime}`}>
                     <h6 className='f24 fw700 robotoFont'>{elem.workTime.title}</h6>
                     <p className='f24 darkGrey_color robotoFont'>{elem.workTime.weekday} 09:00 - 19:00</p>
                     <p className='f24 darkGrey_color robotoFont'>{elem.workTime.saturday} 10:00 - 14:00</p>
                   </div>
                   <div className={`${style.wholesale_socials} flex a-center`}>
-                    <Link to="" className={`${style.wholesale_social} darkGray rounded`}>
+                    <Link target="_blank" to="https://www.instagram.com/baristica.roastery/" className={`${style.wholesale_social} darkGray rounded`}>
                       {InstagramIcon}
                     </Link>
-                    <Link to="" className={`${style.wholesale_social} darkGray rounded`}>
+                    <Link target="_blank" to="https://api.whatsapp.com/send?phone=+994514333003" className={`${style.wholesale_social} darkGray rounded`}>
                       {WPIcon}
                     </Link>
                   </div>

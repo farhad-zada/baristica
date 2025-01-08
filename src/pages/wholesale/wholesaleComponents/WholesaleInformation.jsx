@@ -8,7 +8,7 @@ const { wholesale } = PagesText;
 const WholesaleInformation = () => {
   const { lang } = useSelector((state) => state.baristica);
   return (
-    <div className={style.info} style={{backgroundImage: `url(${infoBanner})`}}>
+    <div className={style.info} style={{background: `url(${infoBanner}) no-repeat center center`}}>
       <div className={`${style.info_section}`}>
         <div className={`${style.info_section_text} flex`}>
           <div>
