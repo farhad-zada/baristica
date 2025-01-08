@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 const Tabs = ({ tabs, children, additionalHeadingStyles = '', additionalTabStyle = '', callback }) => {
     const { tabIdx } = useSelector(state => state.baristica)
     const [selectedTab, setSelectedTab] = useState(tabIdx ? tabs[tabIdx] : tabs[0]);
-
+    console.log(children)
     useEffect(() => {
         if (tabs?.length) {
             setSelectedTab(tabs[0])
