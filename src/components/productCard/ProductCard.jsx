@@ -10,7 +10,7 @@ import Counter from "../counter/Counter"
 import pageText from '../../content/PagesText.json'
 import { useNavigate } from "react-router-dom"
 import ProductAddedModal from "../productAddedModal/ProductAddedModal"
-import { addProductToCart } from "../../redux/slice"
+import { addProductToCart, setTabIdx } from "../../redux/slice"
 import FavoritesService from "../../services/favorites.service"
 import Loading from "../loading/Loading"
 import ProductsService from "../../services/products.service"
@@ -228,11 +228,19 @@ const ProductCard = (props) => {
                                 :
                                 <></>
                         }
-                        <span className={style.star + " flex g8  f16 darkGrey_color fw400"}>
+                        <span className={style.star + " flex g8  f16 darkGrey_color fw400"} onClick={(e) => {
+                            e.stopPropagation()
+                            dispatch(setTabIdx(2))
+                            navigate(`/product/${activeProduct?._id}`)
+                        }}>
                             {Star}
                             <span>{activeProduct?.statistics?.ratings ? activeProduct.statistics.ratings.toFixed(1) : 0}</span>
                         </span>
-                        <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"}>
+                        <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"} onClick={(e) => {
+                            e.stopPropagation()
+                            dispatch(setTabIdx(2))
+                            navigate(`/product/${activeProduct?._id}`)
+                        }}>
                             {Feedback}
                             <span>{activeProduct?.feedbacks ? activeProduct.feedbacks : 0}</span>
                         </span>
