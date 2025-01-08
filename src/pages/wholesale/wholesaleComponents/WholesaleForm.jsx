@@ -9,7 +9,6 @@ const { wholesale } = PagesText;
 const WholesaleForm = () => {
   const { lang } = useSelector((state) => state.baristica);
   const handleInputChange = () => {
-    console.log(1)
   }
   return (
     <div className={`${style.form} flex j-center`} id="price">

@@ -16,12 +16,14 @@ import Loading from "../loading/Loading"
 import ProductsService from "../../services/products.service"
 import Error from "../error/Error"
 const { productCard, categories, grindingOptionsTranslate, proccessingMethodTranslate } = pageText
+
+
 const ProductCard = (props) => {
-    const { product, width = 'auto' } = props
+    const { product, width = 'auto', setModalProduct, setProductAdded, setCartProductCount } = props
     const { token, lang } = useSelector(state => state.baristica)
 
     const [activeProduct, setActiveProduct] = useState({})
-    const [productAdded, setProductAdded] = useState(false)
+    // const [productAdded, setProductAdded] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [linked, setLinked] = useState()
@@ -44,9 +46,11 @@ const ProductCard = (props) => {
     const dispatch = useDispatch()
 
     const addToCart = () => {
-        // setCartCount(1)
+        setCartCount(1)
         setProductAdded(true)
-        dispatch(addProductToCart({ ...activeProduct, cartCount: cartCount, grindingOption: selectedGrinding }))
+        setModalProduct({ ...activeProduct, cartCount: cartCount, grindingOption: selectedGrinding })
+        setCartProductCount(cartCount)
+        // dispatch(addProductToCart({ ...activeProduct, cartCount: cartCount, grindingOption: selectedGrinding }))
     }
     const addFavorite = async (id) => {
         setLoading(true)
@@ -79,7 +83,6 @@ const ProductCard = (props) => {
             else {
                 newProduct = linked.find((link) => link.field === field && link.fieldValue === value)
             }
-            console.log(value, newProduct, linked)
             if (newProduct) {
                 getProduct(newProduct.product)
                 // navigate(`/product/${newProduct.product}`)
@@ -118,7 +121,6 @@ const ProductCard = (props) => {
             )
         } else if (type === 'Machine') {
             if (product?.category && product.category !== 'grinder') {
-                console.log(product.category)
                 return (
                     <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
                         <CustomSelect field={'category'} options={categoryGroups} defaultValue={defaultCategory} additionalText={''} callBack={changeProduct} />
@@ -177,13 +179,13 @@ const ProductCard = (props) => {
             setActiveProduct({})
         }
     }, [])
-
+    
     return (
         <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${activeProduct?._id}`) }}>
             <Loading status={loading} />
             <Error status={error} setStatus={setError} />
 
-            <ProductAddedModal product={activeProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />
+            {/* <ProductAddedModal product={activeProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} /> */}
             <div className={style.productCard_head}>
                 <div className="flex j-between">
                     <div className="productCard-head_left flex g8">
@@ -212,8 +214,8 @@ const ProductCard = (props) => {
                         }
                     </span>
                 </div>
-                <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : 'BFC-02002'}</h3>
-                <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
+                <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : ''}</h3>
+                <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : ''}</h2>
                 <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod ? `${proccessingMethodTranslate[lang][activeProduct.processingMethod]}` : ''}</p>
 
             </div>
@@ -221,7 +223,7 @@ const ProductCard = (props) => {
 
 
                 <div className={`${style.productCard_img} w-100 flex j-center`}>
-                    <img src={activeProduct?.images?.length ? activeProduct.images[0] : MockImg} alt="" />
+                    <img src={activeProduct?.images?.length ? activeProduct.images[0] : ''} alt="" />
                 </div>
 
 
@@ -235,7 +237,7 @@ const ProductCard = (props) => {
                         ?
                         <></>
                         :
-                        <p className={style.pagaraph + " text-center f16 fw400 darkGrey_color robotoFont"} style={{ maxWidth: "350px" }}>{activeProduct?.profile ? activeProduct.profile[lang] : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
+                        <p className={style.pagaraph + " text-center f16 fw400 darkGrey_color robotoFont"} style={{ maxWidth: "350px" }}>{activeProduct?.profile ? activeProduct.profile[lang] : ''}</p>
                 }
 
                 {
@@ -256,19 +258,19 @@ const ProductCard = (props) => {
                 <div className="flex j-between a-center">
                     {product?.productType !== 'Machine'
                         ?
-                        <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
+                        <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : ''} ₼</span>
 
                         :
-                        <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount) : 20} ₼</span>
+                        <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount) : ''} ₼</span>
                     }
                     <button
                         onClick={(e) => {
+                            e.stopPropagation()
 
                             if (activeProduct?.productType !== 'Machine') {
                                 addToCart();
                             }
 
-                            e.stopPropagation()
                         }}
                         className={style.addToCart + " flex g8 a-center border8 f20 fw400 white"}
                     >

@@ -86,7 +86,6 @@ export default function HomeProducts() {
     useEffect(() => {
         setProducts(token)
     }, [token])
-
     return (
         <>
             <Loading status={loading} />

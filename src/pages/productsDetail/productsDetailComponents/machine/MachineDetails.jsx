@@ -23,7 +23,6 @@ export default function MachineDetails({ product }) {
     const navigate = useNavigate()
 
     const changeProduct = (field, value) => {
-        console.log(field, value)
         // if (field === 'images.0') {
 
         // }

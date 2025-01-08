@@ -8,6 +8,7 @@ import CustomSelectBordered from '../../../../components/customSelectBordered/Cu
 import { Bag } from '../../../../icons'
 import { useNavigate } from 'react-router-dom'
 import { addProductToCart } from '../../../../redux/slice'
+import ProductAddedModal from '../../../../components/productAddedModal/ProductAddedModal'
 const { productCard, grindingOptionsTranslate } = pageText
 
 export default function CoffeeDetails({ product }) {
@@ -18,6 +19,8 @@ export default function CoffeeDetails({ product }) {
     const [selectedWeight, setSelectedWeight] = useState(product?.weight ? product.weight : '')
     const [weights, setWeights] = useState([])
     const [cartCount, setCartCount] = useState(1)
+    const [productAdded, setProductAdded] = useState(false)
+    const [cartProduct, setCartProduct] =useState({})
 
     const [linked, setLinked] = useState([])
 
@@ -26,9 +29,10 @@ export default function CoffeeDetails({ product }) {
 
     const addToCart = () => {
         // setCartCount(1)
-        // setProductAdded(true)
-        dispatch(addProductToCart({ ...product, cartCount: cartCount, grindingOption: selectedGrinding }))
-        setCartCount(1)
+        setProductAdded(true)
+        setCartProduct({ ...product, cartCount: cartCount, grindingOption: selectedGrinding })
+        // dispatch(addProductToCart({ ...product, cartCount: cartCount, grindingOption: selectedGrinding }))
+        // setCartCount(1)
     }
 
     const changeProduct = (field,value) => {
@@ -75,6 +79,7 @@ export default function CoffeeDetails({ product }) {
  
     return (
         <div className='mt24'>
+            <ProductAddedModal product={cartProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />
 
             <h3 className='f16 fw700 darkGrey_color'>{lang ? productCard[lang].profile : ''}</h3>
             <p className='f20 fw400 darkGrey_color'>{product?.profile[lang] ? product.profile[lang] || product.profile['az'] : 'ТЁМНЫЙ ШОКОЛАД - МЁД - СЛИВА - СПЕЦИИ'}</p>

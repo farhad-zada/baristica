@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import { useRefClickOutside } from '../../hooks/useRefClickOutside'
 import useBodyScrollLock from '../../hooks/useBodyScrollLock'
-import { deleteFromCart, setProfileActiveTab } from '../../redux/slice'
+import { addProductToCart, deleteFromCart, setProfileActiveTab } from '../../redux/slice'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 const { productAdded } = pageText
 
@@ -29,19 +29,31 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
         setCartCount(1)
     }
 
+    const add = () => {
+        dispatch(addProductToCart(product))
+        setStatus(false)
+        setCartCount(1)
+    }
+
     // Закрытие при клике вне компонента
-    useRefClickOutside(modalRef, () => setStatus(false));
+    useRefClickOutside(
+        modalRef,
+        () => {
+            if (status) {
+                add();
+            }
+        }
+    );
     useBodyScrollLock(status);
 
 
     return (
-        <div className={status ? 'modal active' : 'modal'} onClick={(e) => e.stopPropagation()}>
+        <div className={status ? 'modal active' : 'modal'} onClick={(e) => {e.stopPropagation();}}>
             <div className="modalContent" ref={modalRef}>
                 <div className="modalContent_head flex j-between">
                     <h2 className="f32 fw700">{lang ? productAdded[lang].heading : ''}</h2>
                     <span className='pointer' onClick={() => {
-                        setStatus(false)
-                        setCartCount(1)
+                        add()
                     }}>{Close}</span>
                 </div>
 
@@ -72,7 +84,7 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
                         dispatch(setProfileActiveTab('cart'))
                         navigate('/profile')
                     }} className={styles.greenBtn + ' w-48'}>{lang ? productAdded[lang].greenBtn : ''}</button>
-                    <button onClick={() => { setCartCount(1); setStatus(false) }} className={styles.whiteBtn + ' w-48'}>{lang ? productAdded[lang].whiteBtn : ''}</button>
+                    <button onClick={() => { add() }} className={styles.whiteBtn + ' w-48'}>{lang ? productAdded[lang].whiteBtn : ''}</button>
                 </div>
             </div>
         </div>
