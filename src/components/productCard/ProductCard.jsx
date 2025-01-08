@@ -17,6 +17,19 @@ import ProductsService from "../../services/products.service"
 import Error from "../error/Error"
 const { productCard, categories, grindingOptionsTranslate, proccessingMethodTranslate } = pageText
 
+const categoryFilters = {
+    filter: ['whole-bean'], // Только "в зернах"
+    espresso: [
+        "for-french-press",
+        "for-drip-brewing",
+        "for-chemex",
+        "for-pour-over",
+        "for-aeropress",
+        "for-geyser-coffee-maker",
+        "for-espresso-coarse",
+        "for-espresso-fine",
+        "for-cezve-fine"],
+};
 
 const ProductCard = (props) => {
     const { product, width = 'auto', setModalProduct, setProductAdded, setCartProductCount } = props
@@ -50,7 +63,6 @@ const ProductCard = (props) => {
         setProductAdded(true)
         setModalProduct({ ...activeProduct, cartCount: cartCount, grindingOption: selectedGrinding })
         setCartProductCount(cartCount)
-        // dispatch(addProductToCart({ ...activeProduct, cartCount: cartCount, grindingOption: selectedGrinding }))
     }
     const addFavorite = async (id) => {
         setLoading(true)
@@ -107,12 +119,25 @@ const ProductCard = (props) => {
         window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     };
 
+    const getFilteredOptions = (category) => {
+        if (category === 'filter') {
+            return grindingOptions.filter(option => option.value === 'whole-bean'); // Только "dənli"
+        }
+        if (category === 'espresso') {
+            return grindingOptions.filter(option => option.value !== 'whole-bean'); // Все, кроме "dənli"
+        }
+        return grindingOptions; // Полный список для других категорий
+    };
+
 
     const setSelectContent = (type) => {
         if (type === 'Coffee') {
             return (
                 <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
-                    <CustomSelect options={grindingOptions.map((grinding) => grinding.text)} defaultValue={defaultGrinding} callBack={changeGrinding} />
+                    <CustomSelect
+                        options={getFilteredOptions(product.category).map(option => option.text)}
+                        defaultValue={defaultGrinding}
+                        callBack={changeGrinding} />
 
                     <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} callBack={changeProduct} />
 
@@ -167,25 +192,30 @@ const ProductCard = (props) => {
     }, [activeProduct])
 
     useEffect(() => {
-        if (lang) {
+        if (lang && JSON.stringify(activeProduct) !== "{}" && activeProduct) {
             setGrindingOptions(grindingOptionsTranslate[lang])
-            setDefaultGrinding(grindingOptionsTranslate[lang][0].text)
-            setSelectedGrinding(grindingOptionsTranslate[lang][0].value)
+
+            if (activeProduct.category === 'espresso') {
+                setDefaultGrinding(grindingOptionsTranslate[lang][1].text)
+                setSelectedGrinding(grindingOptionsTranslate[lang][1].value)
+            } else {
+                setDefaultGrinding(grindingOptionsTranslate[lang][0].text)
+                setSelectedGrinding(grindingOptionsTranslate[lang][0].value)
+            }
         }
-    }, [lang])
+    }, [lang, activeProduct])
 
     useEffect(() => {
         return () => {
             setActiveProduct({})
         }
     }, [])
-    
+
     return (
         <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${activeProduct?._id}`) }}>
             <Loading status={loading} />
             <Error status={error} setStatus={setError} />
 
-            {/* <ProductAddedModal product={activeProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} /> */}
             <div className={style.productCard_head}>
                 <div className="flex j-between">
                     <div className="productCard-head_left flex g8">
