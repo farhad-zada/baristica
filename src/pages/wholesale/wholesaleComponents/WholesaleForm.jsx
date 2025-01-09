@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InputText from '../../../components/form/inputField/InputText';
 import style from "../wholesaleCss/form.module.css"
 import { useSelector } from 'react-redux';
@@ -8,8 +8,18 @@ const { wholesale } = PagesText;
 
 const WholesaleForm = () => {
   const { lang } = useSelector((state) => state.baristica);
-  const handleInputChange = () => {
+  const [data, setData] = useState({
+    name: '',
+    phone:'',
+    mail:''
+  })
+  const handleInputChange = (name, value) => {
+    setData(state => {
+      return {...state, [name]:value}
+    })
   }
+
+
   return (
     <div className={`${style.form} flex j-center`} id="price">
       <div className="container">
@@ -28,19 +38,19 @@ const WholesaleForm = () => {
           <form className={`${style.price_form} border16`}>
             <InputText
               name="name"
-              value=""
+              value={data.name}
               onChange={handleInputChange}
               placeholder={lang ? wholesale[lang]?.form?.form?.name : ''}
             />
             <InputText
               name="phone"
-              value=""
+              value={data.phone}
               onChange={handleInputChange}
               placeholder={lang ? wholesale[lang]?.form?.form?.phone : ''}
             />
             <InputText
               name="mail"
-              value=""
+              value={data.mail}
               onChange={handleInputChange}
               placeholder={lang ? wholesale[lang]?.form?.form?.mail : ''}
             />

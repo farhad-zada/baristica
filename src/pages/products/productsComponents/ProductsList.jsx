@@ -11,7 +11,6 @@ export default function ProductsList({ products }) {
   const [modalProduct, setModalProduct] = useState({})
   const [productAdded, setProductAdded] = useState(false)
   const [cartProductCount, setCartProductCount] = useState(1)
-
   if (products?.length) {
     return (
       <div className={`${styles.productsList}`}>
