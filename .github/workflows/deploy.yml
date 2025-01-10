@@ -25,7 +25,7 @@ jobs:
       - name: Create 404.html for React routing
         run: cp build/index.html build/404.html
       - name: Create CNAME and add chatgpt.az to it
-        run: echo chatgpt.az build/CNAME
+        run: echo chatgpt.az > build/CNAME
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
         with:
