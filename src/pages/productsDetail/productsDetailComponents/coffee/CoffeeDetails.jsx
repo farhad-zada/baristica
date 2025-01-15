@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Characteristic from '../../../../components/characteristic/Characteristic'
 import Counter from '../../../../components/counter/Counter'
 import pageText from '../../../../content/PagesText.json'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import styles from './coffeeDetails.module.css'
 import CustomSelectBordered from '../../../../components/customSelectBordered/CustomSelectBordered'
 import { Bag } from '../../../../icons'
 import { useNavigate } from 'react-router-dom'
-import { addProductToCart } from '../../../../redux/slice'
 import ProductAddedModal from '../../../../components/productAddedModal/ProductAddedModal'
 const { productCard, grindingOptionsTranslate } = pageText
 
@@ -20,12 +19,21 @@ export default function CoffeeDetails({ product }) {
     const [weights, setWeights] = useState([])
     const [cartCount, setCartCount] = useState(1)
     const [productAdded, setProductAdded] = useState(false)
-    const [cartProduct, setCartProduct] =useState({})
+    const [cartProduct, setCartProduct] = useState({})
 
     const [linked, setLinked] = useState([])
 
     const navigate = useNavigate()
-    const dispatch = useDispatch()
+
+    const getFilteredOptions = (category) => {
+        if (category === 'filter') {
+            return grindingOptions.filter(option => option.value === 'whole-bean'); // Только "dənli"
+        }
+        if (category === 'espresso') {
+            return grindingOptions.filter(option => option.value !== 'whole-bean'); // Все, кроме "dənli"
+        }
+        return grindingOptions; // Полный список для других категорий
+    };
 
     const addToCart = () => {
         // setCartCount(1)
@@ -35,7 +43,7 @@ export default function CoffeeDetails({ product }) {
         // setCartCount(1)
     }
 
-    const changeProduct = (field,value) => {
+    const changeProduct = (field, value) => {
         if (field === 'weight') {
             setSelectedWeight(value)
         }
@@ -55,12 +63,18 @@ export default function CoffeeDetails({ product }) {
     }
 
     useEffect(() => {
-        if (lang) {
+        if (lang && JSON.stringify(product) !== "{}" && product) {
             setGrindingOptions(grindingOptionsTranslate[lang])
-            setDefaultGrinding(grindingOptionsTranslate[lang][0].text)
-            setSelectedGrinding(grindingOptionsTranslate[lang][0].value)
+
+            if (product.category === 'espresso') {
+                setDefaultGrinding(grindingOptionsTranslate[lang][1].text)
+                setSelectedGrinding(grindingOptionsTranslate[lang][1].value)
+            } else {
+                setDefaultGrinding(grindingOptionsTranslate[lang][0].text)
+                setSelectedGrinding(grindingOptionsTranslate[lang][0].value)
+            }
         }
-    }, [lang])
+    }, [lang, product])
 
     useEffect(() => {
         if (JSON.stringify(product) !== '{}') {
@@ -68,7 +82,7 @@ export default function CoffeeDetails({ product }) {
 
             const weightFields = product.linked.filter((link) => link.field === 'weight')
             const linkedWeights = weightFields.map((field) => field.fieldValue)
-            const sortedWeights = [product.weight, ...linkedWeights].sort((a,b) => a-b)
+            const sortedWeights = [product.weight, ...linkedWeights].sort((a, b) => a - b)
             setWeights(sortedWeights)
             setSelectedWeight(product.weight)
 
@@ -76,7 +90,7 @@ export default function CoffeeDetails({ product }) {
         }
     }, [product])
 
- 
+
     return (
         <div className='mt24'>
             <ProductAddedModal product={cartProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />
@@ -95,7 +109,11 @@ export default function CoffeeDetails({ product }) {
             <h2 className="f16 fw700 mt36 darkGrey_color">
                 {lang ? productCard[lang].grindity : ''}
             </h2>
-            <CustomSelectBordered callBack={changeGrinding} options={grindingOptions.map((option) => option.text)} defaultValue={defaultGrinding} />
+            <CustomSelectBordered
+                callBack={changeGrinding}
+                options={getFilteredOptions(product.category).map(option => option.text)}
+                defaultValue={defaultGrinding}
+            />
 
             <h2 className="f16 fw700 mt20 darkGrey_color">
                 {lang ? productCard[lang].weight : ''}
