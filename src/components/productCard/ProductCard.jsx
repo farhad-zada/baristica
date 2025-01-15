@@ -239,7 +239,7 @@ const ProductCard = (props) => {
                         <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"} onClick={(e) => {
                             e.stopPropagation()
                             dispatch(setTabIdx(2))
-                            navigate(`/product/${activeProduct?._id}`)
+                            navigate(`/product/${activeProduct?._id}/#stats`)
                         }}>
                             {Feedback}
                             <span>{activeProduct?.feedbacks ? activeProduct.feedbacks : 0}</span>
@@ -255,8 +255,12 @@ const ProductCard = (props) => {
                 <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : ''}</h3>
                 <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : ''}</h2>
                 <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod ? `${proccessingMethodTranslate[lang][activeProduct.processingMethod]}` : ''}</p>
-                <h2 className="text-center darkGrey_color f24 fw600 text-upperCase limited-text">{activeProduct?.description ? activeProduct.description[lang] : ''}</h2>
-
+                {activeProduct.productType === 'Accessory'
+                    ?
+                    <h2 className="text-center darkGrey_color f24 fw600 text-upperCase limited-text">{activeProduct?.description ? activeProduct.description[lang] : ''}</h2>
+                    :
+                    <></>
+                }
 
             </div>
             <div className={style.productCard_body}>

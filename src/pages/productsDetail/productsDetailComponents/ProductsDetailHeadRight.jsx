@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Favorited, Feedback, Star } from '../../../icons'
 import CoffeeDetails from './coffee/CoffeeDetails'
 import AccesoriesDetails from './accesories/AccesoriesDetails'
@@ -10,6 +10,7 @@ import Error from '../../../components/error/Error'
 import style from '../productDetailComponentsCss/productsDetailHeadRight.module.css'
 import { useNavigate } from 'react-router-dom'
 import pageText from '../../../content/PagesText.json'
+import { setTabIdx } from '../../../redux/slice'
 const { categories } = pageText
 
 export default function ProductsDetailHeadRight({ product }) {
@@ -20,6 +21,7 @@ export default function ProductsDetailHeadRight({ product }) {
 
     const favoriteService = new FavoritesService()
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const addFavorite = async (id) => {
         setLoading(true)
@@ -32,6 +34,13 @@ export default function ProductsDetailHeadRight({ product }) {
             setLoading(false)
         }
     }
+
+    const scrollToElement = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     const setByType = (type) => {
         switch (type) {
@@ -67,7 +76,10 @@ export default function ProductsDetailHeadRight({ product }) {
                     {Star}
                     <span>{product?.statistics?.ratings.toFixed(1)}</span>
                 </span>
-                <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"}>
+                <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"} onClick={() => {
+                    dispatch(setTabIdx(2))
+                    scrollToElement('stats')
+                }}>
                     {Feedback}
                     <span>{product?.feedbacks?.length ? product.feedbacks.length : 0}</span>
                 </span>

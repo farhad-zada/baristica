@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Tabs from '../../../components/tabs/Tabs';
 
@@ -27,9 +27,19 @@ export default function ProductsDetailBody({ product }) {
     const changeActiveTabIdx = (index) => {
         dispatch(setTabIdx(index))
     }
-
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash) {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+          // Удаляем хэш из URL после прокрутки
+          window.history.replaceState(null, '', window.location.pathname);
+        }
+      }, []);
     return (
-        <div className='flex j-center'>
+        <div className='flex j-center' id='stats'>
             {sectionsContent.map((section) => (
                 <Tabs
                     tabs={section.tabs?.map((tab) => tab)}

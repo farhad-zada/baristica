@@ -2273,7 +2273,8 @@
             "scale": "Tərəzi",
             "barista": "Barista aksesuarları",
             "tableware": "Qab",
-            "teapot": "Çaydan"
+            "teapot": "Çaydan",
+            "for brewing": "Dəmləmə üçün"
         },
         "ru": {
             "filter": "Фильтр",
@@ -2285,7 +2286,8 @@
             "scale": "Весы",
             "barista": "Аксессуары для бариста",
             "tableware": "Посуда",
-            "teapot": "Чайник"
+            "teapot": "Чайник",
+            "for brewing": "Для заваривания"
         },
         "en": {
             "filter": "Filter",
@@ -2297,7 +2299,8 @@
             "scale": "Scale",
             "barista": "Barista accesories",
             "tableware": "Tableware",
-            "teapot": "Teapot"
+            "teapot": "Teapot",
+            "for brewing": "For brewing"
         }
     },
     "grindingOptionsTranslate": {
