@@ -26,10 +26,10 @@ export default function CoffeeDetails({ product }) {
     const navigate = useNavigate()
 
     const getFilteredOptions = (category) => {
-        if (category === 'filter') {
+        if (category === 'espresso') {
             return grindingOptions.filter(option => option.value === 'whole-bean'); // Только "dənli"
         }
-        if (category === 'espresso') {
+        if (category === 'filter') {
             return grindingOptions.filter(option => option.value !== 'whole-bean'); // Все, кроме "dənli"
         }
         return grindingOptions; // Полный список для других категорий
@@ -66,7 +66,7 @@ export default function CoffeeDetails({ product }) {
         if (lang && JSON.stringify(product) !== "{}" && product) {
             setGrindingOptions(grindingOptionsTranslate[lang])
 
-            if (product.category === 'espresso') {
+            if (product.category === 'filter') {
                 setDefaultGrinding(grindingOptionsTranslate[lang][1].text)
                 setSelectedGrinding(grindingOptionsTranslate[lang][1].value)
             } else {

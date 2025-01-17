@@ -17,19 +17,7 @@ import ProductsService from "../../services/products.service"
 import Error from "../error/Error"
 const { productCard, categories, grindingOptionsTranslate, proccessingMethodTranslate } = pageText
 
-const categoryFilters = {
-    filter: ['whole-bean'], // Только "в зернах"
-    espresso: [
-        "for-french-press",
-        "for-drip-brewing",
-        "for-chemex",
-        "for-pour-over",
-        "for-aeropress",
-        "for-geyser-coffee-maker",
-        "for-espresso-coarse",
-        "for-espresso-fine",
-        "for-cezve-fine"],
-};
+
 
 const ProductCard = (props) => {
     const { product, width = 'auto', setModalProduct, setProductAdded, setCartProductCount } = props
@@ -120,10 +108,10 @@ const ProductCard = (props) => {
     };
 
     const getFilteredOptions = (category) => {
-        if (category === 'filter') {
+        if (category === 'espresso') {
             return grindingOptions.filter(option => option.value === 'whole-bean'); // Только "dənli"
         }
-        if (category === 'espresso') {
+        if (category === 'filter') {
             return grindingOptions.filter(option => option.value !== 'whole-bean'); // Все, кроме "dənli"
         }
         return grindingOptions; // Полный список для других категорий
@@ -195,7 +183,7 @@ const ProductCard = (props) => {
         if (lang && JSON.stringify(activeProduct) !== "{}" && activeProduct) {
             setGrindingOptions(grindingOptionsTranslate[lang])
 
-            if (activeProduct.category === 'espresso') {
+            if (activeProduct.category === 'filter') {
                 setDefaultGrinding(grindingOptionsTranslate[lang][1].text)
                 setSelectedGrinding(grindingOptionsTranslate[lang][1].value)
             } else {
@@ -255,12 +243,7 @@ const ProductCard = (props) => {
                 <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : ''}</h3>
                 <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : ''}</h2>
                 <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod ? `${proccessingMethodTranslate[lang][activeProduct.processingMethod]}` : ''}</p>
-                {activeProduct.productType === 'Accessory'
-                    ?
-                    <h2 className="text-center darkGrey_color f24 fw600 text-upperCase limited-text">{activeProduct?.description ? activeProduct.description[lang] : ''}</h2>
-                    :
-                    <></>
-                }
+                
 
             </div>
             <div className={style.productCard_body}>
@@ -270,7 +253,12 @@ const ProductCard = (props) => {
                     <img src={activeProduct?.images?.length ? activeProduct.images[0] : ''} alt="" />
                 </div>
 
-
+                {activeProduct.productType === 'Accessory'
+                    ?
+                    <h2 className="text-center darkGrey_color fw400  limited-text">{activeProduct?.description ? activeProduct.description[lang] : ''}</h2>
+                    :
+                    <></>
+                }
 
             </div>
 
