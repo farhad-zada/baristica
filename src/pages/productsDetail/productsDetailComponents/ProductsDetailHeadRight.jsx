@@ -24,7 +24,8 @@ export default function ProductsDetailHeadRight({ product }) {
     const dispatch = useDispatch()
 
     const addFavorite = async (id) => {
-        setLoading(true)
+        if(token){
+            setLoading(true)
         try {
             const response = await favoriteService.addFavorite(token, id)
         } catch (error) {
@@ -32,6 +33,9 @@ export default function ProductsDetailHeadRight({ product }) {
         }
         finally {
             setLoading(false)
+        }
+        } else{
+            navigate('/login')
         }
     }
 
@@ -63,15 +67,10 @@ export default function ProductsDetailHeadRight({ product }) {
             <Loading status={loading} />
             <Error status={error} setStatus={setError} />
             <div className="flex g8">
-                {
-                    token
-                        ?
-                        <span className={style.favorited} onClick={() => addFavorite(product._id)}>
-                            {Favorited}
-                        </span>
-                        :
-                        <></>
-                }
+
+                <span className={style.favorited} onClick={() => addFavorite(product._id)}>
+                    {Favorited}
+                </span>
                 <span className={`${style.star} flex g8  f16 darkGrey_color fw400`}>
                     {Star}
                     <span>{product?.statistics?.ratings.toFixed(1)}</span>
