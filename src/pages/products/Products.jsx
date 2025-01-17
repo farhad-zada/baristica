@@ -34,6 +34,7 @@ export default function Products() {
   const handlePageChange = (page) => {
     setCurrentPage(page);
     window.scrollTo(0, 0);
+    localStorage.setItem('productsPagination', JSON.stringify({ type: type, page: page }))
   };
 
   const productsService = new ProductsService()
@@ -53,9 +54,9 @@ export default function Products() {
     try {
       const response = await productsService.getProducts(token, type, currentPage, query)
       const products = response.data
-      if (productsCount !== response.count) {
-        setCurrentPage(1)
-      }
+      // if (productsCount !== response.count) {
+      //   setCurrentPage(1)
+      // }
       setShowedProductsCount(products.length)
       setProductsCount(response.count)
       setTotalPages(response.page_count)
@@ -106,13 +107,20 @@ export default function Products() {
   useEffect(() => {
     if (type) {
       getProducts(type, filterQueryString)
+      setCurrentPage(1)
     }
   }, [filterQueryString, type])
+
+
 
   //if the type changed we need to reset filter query string
   useEffect(() => {
     if (type) {
       setFilterQueryString('')
+      const productsPagination = JSON.parse(localStorage.getItem('productsPagination'))
+      if (productsPagination && type === productsPagination?.type) {
+        handlePageChange(productsPagination.page)
+      }
     }
   }, [type])
   return (
