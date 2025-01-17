@@ -1,18 +1,51 @@
-.subHeader{
+.subHeader {
     padding: 30px 0 0;
     background-color: #F2F2F2;
 }
-.subHeader_section{
+
+.subHeader_section {
     border-bottom: 1px solid rgba(217, 216, 214, 1);
     padding-bottom: 20px;
 }
-.subHeader_buttons{
+
+.subHeader_buttons {
     gap: 10px;
 }
-.button{
+
+.button {
     position: relative;
 }
-.clear{
+
+.badge {
+    position: absolute;
+    /* Абсолютное позиционирование для размещения поверх кнопки */
+    bottom: 8px;
+    /* Смещение сверху */
+    right: 8px;
+    /* Смещение справа */
+    background-color: #2cc9c3;
+    /* Цвет фона (как на вашем изображении) */
+    color: #fff;
+    /* Цвет текста */
+    width: 10px;
+    /* Размер значка */
+    height: 10px;
+    /* Размер значка */
+    border-radius: 50%;
+    padding: 1px 3px;
+    /* Круглая форма */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    /* Размер текста */
+    font-weight: bold;
+    color: #000;
+    /* Жирный шрифт */
+    /* Белая обводка */
+}
+
+.clear {
     position: absolute;
     right: 0;
     height: 100%;
@@ -21,52 +54,68 @@
     padding: 0 14px;
     cursor: pointer;
 }
-.button, .subHeader_buttons a{
+
+.button,
+.subHeader_buttons a {
     cursor: pointer;
     padding: 9px;
     transition: .2s ease-in-out;
 }
-.button:hover, .subHeader_buttons a:hover{
+
+.button:hover,
+.subHeader_buttons a:hover {
     background-color: #61C4BF;
 }
-.profile_links a:hover{
+
+.profile_links a:hover {
     transition: .2s ease-in-out;
     color: #61C4BF
 }
-.button svg{
+
+.button svg {
     width: 18px;
     height: 18px;
 }
-.button svg path{
+
+.button svg path {
     fill: white;
 }
-.product_count{
+
+.product_count {
     padding-left: 10px;
 }
-.profile_links{
+
+.profile_links {
     gap: 10px;
     margin-left: 40px;
 }
-.subHeader-info{
+
+.subHeader-info {
     gap: 16px;
 }
-.subHeader-info span{
+
+.subHeader-info span {
     font-size: 14px;
     font-weight: 500;
 }
-.subHeader-inner{
+
+.subHeader-inner {
     gap: 15px;
 }
-.subHeader-socials{
+
+.subHeader-socials {
     gap: 8px;
 }
-.subHeader-socials span{
+
+.subHeader-socials span {
     cursor: pointer;
 }
-.subHeader-langs{
+
+.subHeader-langs {
     gap: 4px;
 }
-.subHeader-langs span{
+
+.subHeader-langs span {
     display: inline-block;
     font-size: 14px;
     font-weight: 500;
@@ -75,26 +124,32 @@
     border-radius: 16px;
     background: #F3F4F6;
 }
+
 .searchInput {
-  background-color: white !important;
-  width: 200px;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 32px;
-  outline: none;
-  transition: width 0.3s ease-in-out;
+    background-color: white !important;
+    width: 200px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 32px;
+    outline: none;
+    transition: width 0.3s ease-in-out;
 }
+
 .searchInput:focus {
-  width: 250px;
-  border-color: #000;
+    width: 250px;
+    border-color: #000;
 }
+
 @media (max-width: 960px) {
-    .profile_links, .product_count{
+
+    .profile_links,
+    .product_count {
         display: none !important;
     }
 }
+
 @media screen and (max-width: 768px) {
-    .subHeader{
+    .subHeader {
         display: none;
     }
 }

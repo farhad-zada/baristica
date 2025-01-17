@@ -12,7 +12,7 @@ import { useLocalStorage } from '../../hooks/useLocalStorage'
 const { productAdded } = pageText
 
 export default function ProductAddedModal({ status, setStatus, product, cartCount, setCartCount }) {
-    const { lang, cart } = useSelector(state => state.baristica)
+    const { lang, cart, token } = useSelector(state => state.baristica)
     const { getItemFromStorage, setItemToStorage } = useLocalStorage('baristica')
 
     const navigate = useNavigate()
@@ -82,8 +82,12 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
                     <button onClick={() => {
                         setStatus(false)
                         add()
-                        dispatch(setProfileActiveTab('cart'))
+                        if(token){
+                            dispatch(setProfileActiveTab('cart'))
                         navigate('/profile')
+                        } else{
+                            navigate('/login')
+                        }
                     }} className={styles.greenBtn + ' w-48'}>{lang ? productAdded[lang].greenBtn : ''}</button>
                     <button onClick={() => { add() }} className={styles.whiteBtn + ' w-48'}>{lang ? productAdded[lang].whiteBtn : ''}</button>
                 </div>
