@@ -79,6 +79,10 @@ export default function FilterSection({ setFilterQueryString, productsCount, sho
         setDefaultOption(lang ? productsPage[lang].filterSection.priceSelect : '')
         setPriceOptions(lang ? productsPage[lang].filterSection.priceSelectOptions : '')
     }, [lang])
+    
+    useEffect(() => {
+        setFilter(false)
+    },[type])
     return (
         <div className={`${styles.filterSection}`}>
             <div className={`${styles.filterSection_head} flex j-between a-center`}>
