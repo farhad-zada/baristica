@@ -40,8 +40,12 @@ export default function SubHeader() {
   };
 
   const goToCart = () => {
-    dispatch(setProfileActiveTab("cart"));
+    if(token){
+      dispatch(setProfileActiveTab("cart"));
     navigate("/profile");
+    } else{
+      navigate('/login')
+    }
   };
 
   const logout = async () => {
@@ -110,9 +114,15 @@ export default function SubHeader() {
                 {Search}
               </button>
             )} */}
-            <Link to="/favorites" className={`${style.button} darkGray defaultBtn border32 flex a-center`}>
+            <span  className={`${style.button} darkGray defaultBtn border32 flex a-center`} onClick={() => {
+              if(token){
+                navigate('/favorites')
+              } else{
+                navigate('/login')
+              }
+            }}>
               {Favourites}
-            </Link>
+            </span>
             <span
               className={`${style.button} darkGray defaultBtn border32 flex a-center`}
               onClick={goToCart}
