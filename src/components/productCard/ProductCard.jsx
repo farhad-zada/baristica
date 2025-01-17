@@ -143,6 +143,8 @@ const ProductCard = (props) => {
                         <CustomSelect field={'category'} options={categoryGroups} defaultValue={defaultCategory} additionalText={''} callBack={changeProduct} />
                     </div>
                 )
+            } else{
+                return <div className={style.line}></div>
             }
         } else if (type === 'Accessory') {
             return (
