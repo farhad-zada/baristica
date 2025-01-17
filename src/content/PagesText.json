@@ -231,7 +231,7 @@
                     },
                     "getInTouch": {
                         "title": "ƏLAQƏ",
-                        "address": "Nigar Refibəyli 12/14, Passage 1901",
+                        "address": "Nigar Rəfibəyli 12/14, Passage 1901",
                         "workTime": {
                             "title": "İş qrafiki:",
                             "weekday": "Həftə içi:",
@@ -317,7 +317,7 @@
                     },
                     "getInTouch": {
                         "title": "CONTACTS",
-                        "address": "Nigar Refibəyli 12/14, Passage 1901",
+                        "address": "Nigar Rəfibəyli 12/14, Passage 1901",
                         "workTime": {
                             "title": "Working Hours:",
                             "weekday": "Weekdays:",
@@ -342,7 +342,7 @@
                             "Bütün suallarda — başdan sona qədər — məsləhət verəcəyik"
                         ],
                         "link": "QİYMƏT CƏDVƏLİNİ ƏLDƏ ET",
-                        "href": "/wholesale/#price",
+                        "href": "#price",
                         "img": "coop"
                     },
                     {
@@ -457,7 +457,7 @@
                             "Проконсультируем по всем вопросам — от и до"
                         ],
                         "link": "ПОЛУЧИТЬ ПРАЙС",
-                        "href": "/wholesale/#price",
+                        "href": "#price",
                         "img": "coop"
                     },
                     {
@@ -572,7 +572,7 @@
                             "Проконсультируем по всем вопросам — от и до"
                         ],
                         "link": "ПОЛУЧИТЬ ПРАЙС",
-                        "href": "/wholesale/#price",
+                        "href": "#price",
                         "img": "coop"
                     },
                     {
@@ -768,7 +768,7 @@
                         },
                         {
                             "label": "Online mağaza",
-                            "link": "/"
+                            "link": "#homestore"
                         },
                         {
                             "label": "Korporativ satış",
@@ -811,7 +811,7 @@
                         },
                         {
                             "label": "Интернет-магазин",
-                            "link": "/"
+                            "link": "#homestore"
                         },
                         {
                             "label": "Оптовый сайт",
@@ -854,7 +854,7 @@
                         },
                         {
                             "label": "Online Shop",
-                            "link": "/"
+                            "link": "#homestore"
                         },
                         {
                             "label": "Wholesale Site",

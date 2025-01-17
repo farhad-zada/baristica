@@ -43,6 +43,15 @@ export default function Footer() {
                               {item.label}
                             </HashLink>
                             :
+                            item.link === "#homestore" ?
+                            <HashLink
+                              smooth
+                              to={item.link === "#homestore" ? "/#homestore" : item.link}
+                              className={`${style.menu_link} f16 fw400 darkGrey_color`}
+                            >
+                              {item.label}
+                            </HashLink>
+                            :
                             <Link to={item.link} className={`${style.menu_link} f16 fw400 darkGrey_color`}>{item.label}</Link>
                         }
                       </>
