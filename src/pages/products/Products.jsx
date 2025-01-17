@@ -20,6 +20,7 @@ export default function Products() {
   const [types, setTypes] = useState([])
   const [currentType, setCurrentType] = useState('')
   const [productsCount, setProductsCount] = useState(0)
+  const [showedProductsCount, setShowedProductsCount] = useState(0)
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
@@ -55,6 +56,7 @@ export default function Products() {
       if (productsCount !== response.count) {
         setCurrentPage(1)
       }
+      setShowedProductsCount(products.length)
       setProductsCount(response.count)
       setTotalPages(response.page_count)
       setProducts(products)
@@ -70,21 +72,21 @@ export default function Products() {
     changePageType(currentType)
   }, [lang])
 
-
+  // we need this to set products and type when user first time opened this page.
   useEffect(() => {
     if (window.location.href.includes('/coffeeMachines')) {
       changePageType('coffeeMachines')
-      getProducts('Machine', filterQueryString)
+      getProducts('Machine', '')
       setType('Machine')
 
     } else if (window.location.href.includes('/coffee')) {
       changePageType('coffee')
-      getProducts('Coffee', filterQueryString)
+      getProducts('Coffee', '')
       setType('Coffee')
 
     } else if (window.location.href.includes('/accesories')) {
       changePageType('accesories')
-      getProducts('Accessory', filterQueryString)
+      getProducts('Accessory', '')
       setType('Accessory')
     }
     else {
@@ -95,13 +97,24 @@ export default function Products() {
       setTypes([])
       setCurrentType('')
     }
-  }, [pathname, token, currentPage])
+  }, [pathname, token])
+  // we need this to change products list when the user change page
+  useEffect(() => {
+    getProducts(type, filterQueryString)
+  }, [currentPage])
 
   useEffect(() => {
     if (type) {
       getProducts(type, filterQueryString)
     }
   }, [filterQueryString, type])
+
+  //if the type changed we need to reset filter query string
+  useEffect(() => {
+    if (type) {
+      setFilterQueryString('')
+    }
+  }, [type])
   return (
     <div className={`${style.productsPage}  flex j-center`}>
       <Loading status={loading} />
@@ -110,7 +123,12 @@ export default function Products() {
       <div className="container">
         <ProductsHead heading={heading} />
         <ProductTypes type={type} setFilterQueryString={setFilterQueryString} content={types?.length ? types : []} />
-        <FilterSection setFilterQueryString={setFilterQueryString} type={type} productsCount={productsCount} />
+        <FilterSection
+          setFilterQueryString={setFilterQueryString}
+          type={type}
+          showedProductsCount={showedProductsCount}
+          productsCount={productsCount}
+        />
         <ProductsList products={products} />
         <Pagination
           currentPage={currentPage}

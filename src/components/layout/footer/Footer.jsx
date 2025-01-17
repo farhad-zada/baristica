@@ -18,8 +18,8 @@ export default function Footer() {
         <div className={`${style.footer}`}>
           <div className={`${style.footer_top} flex a-center j-between`}>
             <div className={`${style.footer_topLeft} flex a-start`}>
-              {footer[lang].menu?.map((elem) => (
-                <div className="menu">
+              {footer[lang].menu?.map((elem,i) => (
+                <div className="menu" key={i}>
                   <h4 className="f24 fw600 darkGrey_color">{elem.title}</h4>
                   <div className={`${style.menu_links} flex column`}>
                     {elem.list.map((item) => (

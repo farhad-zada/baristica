@@ -23,7 +23,6 @@ export default function MachineDetails({ product }) {
     const navigate = useNavigate()
 
     const changeProduct = (field, value) => {
-        console.log(field, value)
         // if (field === 'images.0') {
 
         // }
@@ -50,17 +49,24 @@ export default function MachineDetails({ product }) {
 
             let groupFields = product.linked.filter((link) => link.field === 'category')
             groupFields = groupFields.map((field) => { return { ...field, categoryText: categories[lang][field.fieldValue] } })
-            let linkedGroups = groupFields.map((field) => field.categoryText)
+            let linkedGroups = groupFields
+                .map((field) => field.categoryText)
 
 
             setSelectedGroup(categories[lang][product.category])
-            setGroups(product?.category ? [categories[lang][product?.category], ...linkedGroups] : [...linkedGroups])
+            let sortedGroups = product?.category ? [categories[lang][product?.category], ...linkedGroups] : [...linkedGroups]
+            sortedGroups = sortedGroups.sort((a, b) => {
+                // Извлекаем первый символ и приводим к числу
+                const numA = parseInt(a.charAt(0), 10);
+                const numB = parseInt(b.charAt(0), 10);
+                return numA - numB; // Сортируем по возрастанию
+            })
+            setGroups(sortedGroups)
 
             const imageFields = product.linked.filter((link) => link.field === 'images.0')
             setColors([{ field: "images.0", product: product._id, fieldValue: product.images[0] }, ...imageFields])
         }
     }, [product])
-
     return (
         <div>
 

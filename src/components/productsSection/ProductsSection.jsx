@@ -9,7 +9,6 @@ const { productsSection } = pagesText
 const ProductsSection = (props) => {
     const { heading, tabs, content, navigateTo } = props
     const { lang } = useSelector((state) => state.baristica);
-
     return (
         <div className={styles.productsSection + ' flex j-center'}>
             <div className="container">

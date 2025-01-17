@@ -7,7 +7,9 @@ const initialState = {
   token: false,
   user: {},
   cart: [],
-  finalCart: []
+  finalCart: [],
+   // for product detail tabs
+  tabIdx: null
 };
 
 const baristicaSlice = createSlice({
@@ -97,6 +99,10 @@ const baristicaSlice = createSlice({
     },
     setFinalCartArr: (state, action) => {
       state.finalCart = action.payload
+    },
+    // for product detail tabs
+    setTabIdx: (state,action) => {
+      state.tabIdx = action.payload
     }
   },
 });
@@ -113,6 +119,7 @@ export const {
   setCart,
   setFinalCart,
   setFinalCartArr,
-  setUser
+  setUser,
+  setTabIdx
 } = baristicaSlice.actions;
 export default baristicaSlice.reducer;

@@ -4,8 +4,9 @@ import { useLocation, useParams } from 'react-router-dom'
 import ProductsDetailBody from './productsDetailComponents/ProductsDetailBody'
 import Loading from '../../components/loading/Loading'
 import ProductsService from '../../services/products.service'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Error from '../../components/error/Error'
+import { setTabIdx } from '../../redux/slice'
 
 export default function ProductsDetail() {
     const { token } = useSelector(state => state.baristica)
@@ -15,7 +16,7 @@ export default function ProductsDetail() {
     const { id } = useParams()
     const { pathname } = useLocation();
 
-
+    const dispatch = useDispatch()
     const productsService = new ProductsService()
     const getProduct = async (id) => {
         setLoading(true)
@@ -32,6 +33,12 @@ export default function ProductsDetail() {
     useEffect(() => {
         getProduct(id)
     }, [pathname])
+
+    useEffect(() => {
+        return () => {
+            dispatch(setTabIdx(null))
+        }
+    },[])
     return (
         <div className='flex j-center'>
             <Loading status={loading} />

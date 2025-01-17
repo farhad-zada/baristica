@@ -544,6 +544,22 @@ input {
     height: 100%;
     z-index: 3243243;
 }
+
+.limited-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ограничение на 2 строки */
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
+    text-overflow: ellipsis; /* Добавляет троеточие, если текст не помещается */
+    max-height: calc(1.2em * 2); /* Высота для двух строк текста (с учетом line-height) */
+    line-height: 1.2em; /* Настройте line-height под свой дизайн */
+    max-width: 100%; /* Чтобы текст не выходил за пределы карточки */
+    word-wrap: break-word; /* Перенос слов, если они слишком длинные */
+    font-size: 16px;
+  }
+  
+  
+
 .swiper-button-prev, .swiper-button-next{
     color: #54565A !important;
 }

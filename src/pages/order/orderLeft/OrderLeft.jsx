@@ -9,6 +9,7 @@ import AuthButton from '../../../components/form/button/AuthButton'
 import OrdersService from '../../../services/orders.service'
 import Loading from '../../../components/loading/Loading'
 import Error from '../../../components/error/Error'
+import Success from '../../../components/success/Success'
 const { order, profile } = PageText
 
 export default function OrderLeft({ content, delivery, setDelivery }) {
@@ -19,6 +20,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     })
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [success, setSuccess] = useState(false)
     const [byCard, setByCard] = useState(true)
     const [selectedAddress, setSelectedAddress] = useState({})
 
@@ -59,6 +61,8 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
             if(url){
                 window.location.href = url
             }
+            setSuccess(true)
+            
         } catch (error) {
             setError(true)
         } finally {
@@ -89,7 +93,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
         <div className={styles.orderLeft}>
             <Loading status={loading} />
             <Error status={error} setStatus={setError} />
-
+            <Success status={success} setStatus={setSuccess} />
             <div className="orderInfo_component">
                 <h2 className='f32 fw700'>{content ? content.personalInfoHeading : ''}</h2>
                 <InputText

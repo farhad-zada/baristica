@@ -23,7 +23,7 @@ export default function SubHeader() {
   const [isSearchActive, setIsSearchActive] = useState(false); // State for toggling search input
   const [searchInput, setSearchInput] = useState("");
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState(false)
+  const [error, setError] = useState(false)
 
   const searchRef = useRef(null); // Ref for click outside handling
   const dispatch = useDispatch();
@@ -70,6 +70,14 @@ export default function SubHeader() {
     }
   };
 
+  const calculateTotalCount = (products) => {
+    const count = products.reduce((acc, product) => {
+      
+      return acc + product.cartCount; 
+    }, 0); 
+    return count; 
+  }
+
   useRefClickOutside(searchRef, handleClickOutside)
 
 
@@ -113,7 +121,7 @@ export default function SubHeader() {
             </span>
           </div>
           <div className={`${style.product_count} flex column a-start`}>
-            <h6 className="f16">{cart.length} {subHeader && subHeader[lang].products}</h6>
+            <h6 className="f16">{calculateTotalCount(cart)} {subHeader && subHeader[lang].products}</h6>
             <h6 className="f16">{calculateTotalPrice(cart).toFixed(2)} ₼</h6>
           </div>
           {token ? (

@@ -7,7 +7,7 @@ import pageText from '../../../content/PagesText.json'
 import { useSelector } from 'react-redux'
 import ProductsFilter from '../../../components/productsFilter/ProductsFilter'
 const { productsPage } = pageText
-export default function FilterSection({ setFilterQueryString, productsCount, type }) {
+export default function FilterSection({ setFilterQueryString, productsCount, showedProductsCount, type }) {
     const [priceOptions, setPriceOptions] = useState(['По возрастанию', 'По убыванию'])
     const [selectedOption, setSelectedOption] = useState({})
     const [defaultOption, setDefaultOption] = useState('')
@@ -19,32 +19,47 @@ export default function FilterSection({ setFilterQueryString, productsCount, typ
         const selected = productsPage[lang].filterSection.priceSelectOptions.find((option) => option.text === value);
         setFilterQueryString((state) => {
             let arr = state.split('&');
-            
+
             // Удаляем все элементы с ключом `price`
             arr = arr.filter((item) => !item.startsWith('price='));
-            
+
             // Формируем строку заново и добавляем `price`
             const updatedState = arr.filter(item => item).join('&'); // Исключаем пустые строки
             return updatedState ? `${updatedState}&price=${selected.value}` : `price=${selected.value}`;
         });
     };
 
+    const setProductsCountText = (lang) => {
+        if (lang === 'ru' || lang === 'en') {
+            return (
+                <h2 className={`${styles.filterSection_paginationCount} robotoFont f20 fw400 darkGrey_color`}>
+                    {lang ? productsPage[lang].filterSection.leftHeading : ''} {showedProductsCount} {lang ? productsPage[lang].filterSection.leftHeadingAddition : ''} {productsCount}
+                </h2>
+            )
+        } else{
+            return (
+                <h2 className={`${styles.filterSection_paginationCount} robotoFont f20 fw400 darkGrey_color`}>
+                    {lang ? productsPage[lang].filterSection.leftHeading : ''} {productsCount}  {lang ? productsPage[lang].filterSection.leftHeadingAddition : ''} {showedProductsCount}
+                </h2>
+            )
+        }
+    }
+
     const resetFilter = () => {
         setFilterQueryString((state) => {
             let arr = state.split('&');
-            
+
             // Удаляем все элементы с ключом `price`
             arr = arr.filter((item) => item.startsWith('price='));
             arr = arr.filter((item) => item.startsWith('category='))
             arr = arr.filter((item) => item.startsWith('coffeeType='))
-            
+
             // Формируем строку заново и добавляем `price`
             const updatedState = arr.filter(item => item).join('&'); // Исключаем пустые строки
             return updatedState
         })
     }
 
-    const showedCount = 6
     useEffect(() => {
         setDefaultOption(lang ? productsPage[lang].filterSection.priceSelect : '')
         setPriceOptions(lang ? productsPage[lang].filterSection.priceSelectOptions : '')
@@ -52,22 +67,22 @@ export default function FilterSection({ setFilterQueryString, productsCount, typ
     return (
         <div className={`${styles.filterSection}`}>
             <div className={`${styles.filterSection_head} flex j-between a-center`}>
-                <h2 className={`${styles.filterSection_paginationCount} robotoFont f20 fw400 darkGrey_color`}>{lang ? productsPage[lang].filterSection.leftHeading : ''} {showedCount} {lang ? productsPage[lang].filterSection.leftHeadingAddition : ''} {productsCount}</h2>
+                {setProductsCountText(lang)}
                 <div className="filterButtons flex a-center g12">
                     {
                         type === 'Coffee'
                             ?
                             filter
-                            ?
-                            <div className={`${styles.closeFilter} flex g8 a-center`} onClick={() =>{resetFilter(); setFilter(!filter)}}>
-                                <span className='f20 fw400 darkGrey_color'>{lang ? productsPage[lang].filterSection.closeFilter : ''}</span>
-                                {CloseFilter}
-                            </div>
-                            :
-                            <div className={`${styles.filterBtn} flex g8 a-center`} onClick={() => setFilter(!filter)}>
-                                {FilterIcon}
-                                <span className='f20 fw400 darkGrey_color'>{lang ? productsPage[lang].filterSection.filterBtn : ''}</span>
-                            </div>
+                                ?
+                                <div className={`${styles.closeFilter} flex g8 a-center`} onClick={() => { resetFilter(); setFilter(!filter) }}>
+                                    <span className='f20 fw400 darkGrey_color'>{lang ? productsPage[lang].filterSection.closeFilter : ''}</span>
+                                    {CloseFilter}
+                                </div>
+                                :
+                                <div className={`${styles.filterBtn} flex g8 a-center`} onClick={() => setFilter(!filter)}>
+                                    {FilterIcon}
+                                    <span className='f20 fw400 darkGrey_color'>{lang ? productsPage[lang].filterSection.filterBtn : ''}</span>
+                                </div>
                             :
                             <></>
                     }

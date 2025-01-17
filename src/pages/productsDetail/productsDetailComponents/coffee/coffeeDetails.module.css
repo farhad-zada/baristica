@@ -21,4 +21,9 @@
     outline: none;
     border: none;
     cursor: pointer;
+    transition: .3s;
+}
+.addToCart:hover{
+    color: #FFFFFF;
+    background-color: #61C4BF;
 }

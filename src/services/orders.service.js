@@ -11,11 +11,11 @@ class OrdersService {
         return await httpRequest.createOne(`${this.#requestUrl}`, formData)
     }
 
-    getOrders = async (token) => {
+    getOrders = async (token, status = 'active', page=1) => {
         httpRequest.headers = {
             Authorization: "Bearer " + token,
         };
-        return await httpRequest.getAll(`${this.#requestUrl}`)
+        return await httpRequest.getAll(`${this.#requestUrl}/?status=${status}&pg=${page}&lt=2`)
     }
     
 }

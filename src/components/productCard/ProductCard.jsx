@@ -10,18 +10,21 @@ import Counter from "../counter/Counter"
 import pageText from '../../content/PagesText.json'
 import { useNavigate } from "react-router-dom"
 import ProductAddedModal from "../productAddedModal/ProductAddedModal"
-import { addProductToCart } from "../../redux/slice"
+import { addProductToCart, setTabIdx } from "../../redux/slice"
 import FavoritesService from "../../services/favorites.service"
 import Loading from "../loading/Loading"
 import ProductsService from "../../services/products.service"
 import Error from "../error/Error"
 const { productCard, categories, grindingOptionsTranslate, proccessingMethodTranslate } = pageText
+
+
+
 const ProductCard = (props) => {
-    const { product, width = 'auto' } = props
+    const { product, width = 'auto', setModalProduct, setProductAdded, setCartProductCount } = props
     const { token, lang } = useSelector(state => state.baristica)
 
     const [activeProduct, setActiveProduct] = useState({})
-    const [productAdded, setProductAdded] = useState(false)
+    // const [productAdded, setProductAdded] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [linked, setLinked] = useState()
@@ -44,9 +47,10 @@ const ProductCard = (props) => {
     const dispatch = useDispatch()
 
     const addToCart = () => {
-        // setCartCount(1)
+        setCartCount(1)
         setProductAdded(true)
-        dispatch(addProductToCart({ ...activeProduct, cartCount: cartCount, grindingOption: selectedGrinding }))
+        setModalProduct({ ...activeProduct, cartCount: cartCount, grindingOption: selectedGrinding })
+        setCartProductCount(cartCount)
     }
     const addFavorite = async (id) => {
         setLoading(true)
@@ -79,7 +83,6 @@ const ProductCard = (props) => {
             else {
                 newProduct = linked.find((link) => link.field === field && link.fieldValue === value)
             }
-            console.log(value, newProduct, linked)
             if (newProduct) {
                 getProduct(newProduct.product)
                 // navigate(`/product/${newProduct.product}`)
@@ -104,12 +107,25 @@ const ProductCard = (props) => {
         window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     };
 
+    const getFilteredOptions = (category) => {
+        if (category === 'espresso') {
+            return grindingOptions.filter(option => option.value === 'whole-bean'); // Только "dənli"
+        }
+        if (category === 'filter') {
+            return grindingOptions.filter(option => option.value !== 'whole-bean'); // Все, кроме "dənli"
+        }
+        return grindingOptions; // Полный список для других категорий
+    };
+
 
     const setSelectContent = (type) => {
         if (type === 'Coffee') {
             return (
                 <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
-                    <CustomSelect options={grindingOptions.map((grinding) => grinding.text)} defaultValue={defaultGrinding} callBack={changeGrinding} />
+                    <CustomSelect
+                        options={getFilteredOptions(product.category).map(option => option.text)}
+                        defaultValue={defaultGrinding}
+                        callBack={changeGrinding} />
 
                     <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} callBack={changeProduct} />
 
@@ -118,7 +134,6 @@ const ProductCard = (props) => {
             )
         } else if (type === 'Machine') {
             if (product?.category && product.category !== 'grinder') {
-                console.log(product.category)
                 return (
                     <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
                         <CustomSelect field={'category'} options={categoryGroups} defaultValue={defaultCategory} additionalText={''} callBack={changeProduct} />
@@ -165,12 +180,18 @@ const ProductCard = (props) => {
     }, [activeProduct])
 
     useEffect(() => {
-        if (lang) {
+        if (lang && JSON.stringify(activeProduct) !== "{}" && activeProduct) {
             setGrindingOptions(grindingOptionsTranslate[lang])
-            setDefaultGrinding(grindingOptionsTranslate[lang][0].text)
-            setSelectedGrinding(grindingOptionsTranslate[lang][0].value)
+
+            if (activeProduct.category === 'filter') {
+                setDefaultGrinding(grindingOptionsTranslate[lang][1].text)
+                setSelectedGrinding(grindingOptionsTranslate[lang][1].value)
+            } else {
+                setDefaultGrinding(grindingOptionsTranslate[lang][0].text)
+                setSelectedGrinding(grindingOptionsTranslate[lang][0].value)
+            }
         }
-    }, [lang])
+    }, [lang, activeProduct])
 
     useEffect(() => {
         return () => {
@@ -183,7 +204,6 @@ const ProductCard = (props) => {
             <Loading status={loading} />
             <Error status={error} setStatus={setError} />
 
-            <ProductAddedModal product={activeProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />
             <div className={style.productCard_head}>
                 <div className="flex j-between">
                     <div className="productCard-head_left flex g8">
@@ -196,11 +216,19 @@ const ProductCard = (props) => {
                                 :
                                 <></>
                         }
-                        <span className={style.star + " flex g8  f16 darkGrey_color fw400"}>
+                        <span className={style.star + " flex g8  f16 darkGrey_color fw400"} onClick={(e) => {
+                            e.stopPropagation()
+                            dispatch(setTabIdx(2))
+                            navigate(`/product/${activeProduct?._id}`)
+                        }}>
                             {Star}
                             <span>{activeProduct?.statistics?.ratings ? activeProduct.statistics.ratings.toFixed(1) : 0}</span>
                         </span>
-                        <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"}>
+                        <span className={style.feedback + " flex g8  f16 darkGrey_color fw400"} onClick={(e) => {
+                            e.stopPropagation()
+                            dispatch(setTabIdx(2))
+                            navigate(`/product/${activeProduct?._id}/#stats`)
+                        }}>
                             {Feedback}
                             <span>{activeProduct?.feedbacks ? activeProduct.feedbacks : 0}</span>
                         </span>
@@ -212,19 +240,25 @@ const ProductCard = (props) => {
                         }
                     </span>
                 </div>
-                <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : 'BFC-02002'}</h3>
-                <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
+                <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : ''}</h3>
+                <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : ''}</h2>
                 <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod ? `${proccessingMethodTranslate[lang][activeProduct.processingMethod]}` : ''}</p>
+                
 
             </div>
             <div className={style.productCard_body}>
 
 
                 <div className={`${style.productCard_img} w-100 flex j-center`}>
-                    <img src={activeProduct?.images?.length ? activeProduct.images[0] : MockImg} alt="" />
+                    <img src={activeProduct?.images?.length ? activeProduct.images[0] : ''} alt="" />
                 </div>
 
-
+                {activeProduct.productType === 'Accessory'
+                    ?
+                    <h2 className="text-center darkGrey_color fw400  limited-text">{activeProduct?.description ? activeProduct.description[lang] : ''}</h2>
+                    :
+                    <></>
+                }
 
             </div>
 
@@ -235,7 +269,7 @@ const ProductCard = (props) => {
                         ?
                         <></>
                         :
-                        <p className={style.pagaraph + " text-center f16 fw400 darkGrey_color robotoFont"} style={{ maxWidth: "350px" }}>{activeProduct?.profile ? activeProduct.profile[lang] : 'БЕРГАМОТ - РОЗА - СИРЕНЬ - МАРАКУЙЯ'}</p>
+                        <p className={style.pagaraph + " text-center f16 fw400 darkGrey_color robotoFont"} style={{ maxWidth: "350px" }}>{activeProduct?.profile ? activeProduct.profile[lang] : ''}</p>
                 }
 
                 {
@@ -256,19 +290,19 @@ const ProductCard = (props) => {
                 <div className="flex j-between a-center">
                     {product?.productType !== 'Machine'
                         ?
-                        <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
+                        <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount).toFixed(2) : ''} ₼</span>
 
                         :
-                        <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount) : 20} ₼</span>
+                        <span className="f24 fw400">{activeProduct?.price ? (activeProduct.price / 100 * cartCount) : ''} ₼</span>
                     }
                     <button
                         onClick={(e) => {
+                            e.stopPropagation()
 
                             if (activeProduct?.productType !== 'Machine') {
                                 addToCart();
                             }
 
-                            e.stopPropagation()
                         }}
                         className={style.addToCart + " flex g8 a-center border8 f20 fw400 white"}
                     >
