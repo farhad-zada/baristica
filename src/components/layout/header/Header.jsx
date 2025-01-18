@@ -100,7 +100,7 @@ export default function Header() {
                         e.preventDefault(); // Prevent default navigation
                   
                         // Navigate to the home page first
-                        navigate("/");
+                        navigate("/#contacts");
                   
                         // Delay scrolling to the target section to allow the DOM to render
                         setTimeout(() => {
@@ -131,7 +131,26 @@ export default function Header() {
                         <HashLink
                           smooth
                           to={elem.link === "#faq" ? "/wholesale/#faq" : elem.link}
-                          onClick={() => {setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);setMobileMenu(false)}}
+                          onClick={(e) => {
+                            // Check if navigating from a different page
+                            if (window.location.pathname !== "/wholesale" && elem.link === "#faq") {
+                              e.preventDefault(); // Prevent default navigation
+
+                              // Navigate to the wholesale page first
+                              navigate("/wholesale/#faq");
+
+                              // Delay scrolling to the target section
+                              setTimeout(() => {
+                                const targetElement = document.getElementById("faq");
+                                if (targetElement) {
+                                  targetElement.scrollIntoView({ behavior: "smooth" });
+                                }
+                              }, 500); // Adjust delay if needed
+                            } else {
+                              setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);
+                              setMobileMenu(false);
+                            }
+                          }}
                           className={({ isActive }) =>
                             `darkGrey_color ${isActive ? style.active : ""}`
                           }
