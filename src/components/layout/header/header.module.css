@@ -71,6 +71,8 @@
 
 .dropdown_item a{
   color: #54565A;
+  width: 100%;
+  display: block;
 }
 
 .menu_btn{
@@ -147,7 +149,7 @@
     .menu.show_menu{
         right: 0;
     }
-    .menu_item a{
+    .menu_item a, .menu_item span{
         color: white;
         font-size: 24px;
     }
