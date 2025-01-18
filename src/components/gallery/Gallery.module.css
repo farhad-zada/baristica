@@ -34,6 +34,7 @@
   .thumbnailSlide {
     cursor: pointer;
     opacity: 0.5;
+    height: 110px;
     transition: opacity 0.3s;
   }
 
@@ -52,8 +53,9 @@
   
   .thumbnailImage {
     width: 100%;
-    height: 110px;
-    object-fit: cover;
+    height: 100%;
+    object-fit: cover !important; /* Change from contain to cover */
+    object-position: center; /* Center the image */
     border: 1px solid #ddd;
     border-radius: 5px;
   }
