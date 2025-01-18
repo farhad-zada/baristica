@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { setCart, setFinalCart, setFinalCartArr, setLang, setToken, setUser } from './redux/slice';
+import { setCart, setFavoritesCount, setFinalCart, setFinalCartArr, setLang, setToken, setUser } from './redux/slice';
 import { useDispatch, UseDispatch, useSelector } from 'react-redux';
 import HeadBanner from "./components/layout/headBanner/HeadBanner"
 import SubHeader from "./components/layout/subHeader/SubHeader"
@@ -12,10 +12,11 @@ import useScrollToTop from './hooks/useScrollToTop';
 import UserService from './services/user.service';
 import Loading from './components/loading/Loading';
 import Error from './components/error/Error';
+import FavoritesService from './services/favorites.service';
 
 const App = () => {
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState(false)
+  const [error, setError] = useState(false)
 
   const { cart, finalCart } = useSelector(state => state.baristica)
   const dispatch = useDispatch()
@@ -24,6 +25,7 @@ const App = () => {
   const { getItemFromStorage: getObjectFromStorage, setItemToStorage: setObjectToStorage } = useLocalStorage('baristica')
 
   const userService = new UserService()
+  const favoritesService = new FavoritesService()
 
   const getUser = async (token) => {
     // setLoading(true)
@@ -34,6 +36,18 @@ const App = () => {
       setError(true)
     }
     finally {
+      setLoading(false)
+    }
+  }
+
+  const getFavorites = async (page, token) => {
+    setLoading(true)
+    try {
+      const response = await favoritesService.getFavorites(token, page)
+      dispatch(setFavoritesCount(response.data.length))
+    } catch (error) {
+      setError(true)
+    } finally {
       setLoading(false)
     }
   }
@@ -83,6 +97,7 @@ const App = () => {
     if (token) {
       getUser(token)
       dispatch(setToken(token))
+      getFavorites(1, token)
     }
   }, []);
 

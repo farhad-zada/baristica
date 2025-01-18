@@ -8,9 +8,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import PageText from '../../content/PagesText.json'
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import AuthService from '../../services/auth.service';
-import { setToken, setUser } from '../../redux/slice';
+import { setFavoritesCount, setToken, setUser } from '../../redux/slice';
 import Loading from '../../components/loading/Loading';
 import Error from '../../components/error/Error';
+import FavoritesService from '../../services/favorites.service';
 
 const { login } = PageText
 
@@ -24,10 +25,22 @@ export default function Login() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const authService = new AuthService()
-
+    const favoritesService = new FavoritesService()
     const handleInputChange = (name, value) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
+
+    const getFavorites = async (page, token) => {
+        setLoading(true)
+        try {
+          const response = await favoritesService.getFavorites(token, page)
+          dispatch(setFavoritesCount(response.data.length))
+        } catch (error) {
+          setError(true)
+        } finally {
+          setLoading(false)
+        }
+      }
 
     const onSubmit = async () => {
         setLoading(true)
@@ -40,6 +53,7 @@ export default function Login() {
                 dispatch(setUser(user))
                 setItemToStorage(token)
                 navigate('/')
+                getFavorites(1,token)
             }
         } catch (error) {
             setError(true)

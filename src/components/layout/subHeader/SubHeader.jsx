@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import style from "./subHeader.module.css";
 
-import { setLang, setProfileActiveTab, setToken, setUser } from "../../../redux/slice";
+import { setFavoritesCount, setLang, setProfileActiveTab, setToken, setUser } from "../../../redux/slice";
 
 import PagesText from "../../../content/PagesText.json";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +18,7 @@ const { header } = PagesText;
 const { subHeader } = header;
 
 export default function SubHeader() {
-  const { lang, user, token, cart } = useSelector((state) => state.baristica);
+  const { lang, user, token, cart, favoritesCount } = useSelector((state) => state.baristica);
 
   const [isSearchActive, setIsSearchActive] = useState(false); // State for toggling search input
   const [searchInput, setSearchInput] = useState("");
@@ -40,8 +40,12 @@ export default function SubHeader() {
   };
 
   const goToCart = () => {
-    dispatch(setProfileActiveTab("cart"));
+    if(token){
+      dispatch(setProfileActiveTab("cart"));
     navigate("/profile");
+    } else{
+      navigate('/login')
+    }
   };
 
   const logout = async () => {
@@ -50,6 +54,7 @@ export default function SubHeader() {
       const response = await authService.logout(token)
       dispatch(setToken(false))
       dispatch(setUser({}))
+      dispatch(setFavoritesCount(0))
       removeItemFromStorage()
       navigate('/')
     } catch (error) {
@@ -110,14 +115,22 @@ export default function SubHeader() {
                 {Search}
               </button>
             )} */}
-            <Link to="/favorites" className={`${style.button} darkGray defaultBtn border32 flex a-center`}>
+            <span  className={`${style.button} darkGray defaultBtn border32 flex a-center`} onClick={() => {
+              if(token){
+                navigate('/favorites')
+              } else{
+                navigate('/login')
+              }
+            }}>
               {Favourites}
-            </Link>
+              <span className={`${style.badge}`}>{favoritesCount}</span>
+            </span>
             <span
               className={`${style.button} darkGray defaultBtn border32 flex a-center`}
               onClick={goToCart}
             >
               {CartIcon}
+              <span className={`${style.badge}`}>{calculateTotalCount(cart)}</span>
             </span>
           </div>
           <div className={`${style.product_count} flex column a-start`}>

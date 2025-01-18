@@ -53,7 +53,8 @@ const ProductCard = (props) => {
         setCartProductCount(cartCount)
     }
     const addFavorite = async (id) => {
-        setLoading(true)
+        if(token){
+            setLoading(true)
         try {
             const response = await favoriteService.addFavorite(token, id)
         } catch (error) {
@@ -61,6 +62,9 @@ const ProductCard = (props) => {
         }
         finally {
             setLoading(false)
+        }
+        } else{
+            navigate('/login')
         }
     }
 
@@ -139,6 +143,8 @@ const ProductCard = (props) => {
                         <CustomSelect field={'category'} options={categoryGroups} defaultValue={defaultCategory} additionalText={''} callBack={changeProduct} />
                     </div>
                 )
+            } else{
+                return <div className={style.line}></div>
             }
         } else if (type === 'Accessory') {
             return (
@@ -207,15 +213,10 @@ const ProductCard = (props) => {
             <div className={style.productCard_head}>
                 <div className="flex j-between">
                     <div className="productCard-head_left flex g8">
-                        {
-                            token
-                                ?
-                                <span className={style.favorited} onClick={(e) => { e.stopPropagation(); addFavorite(activeProduct?._id) }}>
-                                    {Favorited}
-                                </span>
-                                :
-                                <></>
-                        }
+
+                        <span className={style.favorited} onClick={(e) => { e.stopPropagation(); addFavorite(activeProduct?._id) }}>
+                            {Favorited}
+                        </span>
                         <span className={style.star + " flex g8  f16 darkGrey_color fw400"} onClick={(e) => {
                             e.stopPropagation()
                             dispatch(setTabIdx(2))
@@ -243,7 +244,7 @@ const ProductCard = (props) => {
                 <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : ''}</h3>
                 <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : ''}</h2>
                 <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod ? `${proccessingMethodTranslate[lang][activeProduct.processingMethod]}` : ''}</p>
-                
+
 
             </div>
             <div className={style.productCard_body}>

@@ -15,6 +15,21 @@ export default function FilterSection({ setFilterQueryString, productsCount, sho
 
     const { lang } = useSelector((state) => state.baristica);
 
+    function getEnding(productsCount) {
+        const strCount = String(productsCount); // Преобразуем число в строку
+        const lastDigit = strCount.slice(-1); // Последняя цифра
+        const lastTwoDigits = strCount.slice(-2); // Последние две цифры
+    
+        // Проверяем условия
+        if (
+            ['6', '9'].includes(lastDigit) || 
+            ['10', '30', '40', '60', '90'].includes(lastTwoDigits)
+        ) {
+            return 'dan';
+        }
+        return 'dən';
+    }
+
     const changeSelect = (field, value) => {
         const selected = productsPage[lang].filterSection.priceSelectOptions.find((option) => option.text === value);
         setFilterQueryString((state) => {
@@ -39,7 +54,7 @@ export default function FilterSection({ setFilterQueryString, productsCount, sho
         } else{
             return (
                 <h2 className={`${styles.filterSection_paginationCount} robotoFont f20 fw400 darkGrey_color`}>
-                    {lang ? productsPage[lang].filterSection.leftHeading : ''} {productsCount}  {lang ? productsPage[lang].filterSection.leftHeadingAddition : ''} {showedProductsCount}
+                    {lang ? productsPage[lang].filterSection.leftHeading : ''} {productsCount} - {getEnding(productsCount)} {showedProductsCount}
                 </h2>
             )
         }
@@ -64,6 +79,10 @@ export default function FilterSection({ setFilterQueryString, productsCount, sho
         setDefaultOption(lang ? productsPage[lang].filterSection.priceSelect : '')
         setPriceOptions(lang ? productsPage[lang].filterSection.priceSelectOptions : '')
     }, [lang])
+    
+    useEffect(() => {
+        setFilter(false)
+    },[type])
     return (
         <div className={`${styles.filterSection}`}>
             <div className={`${styles.filterSection_head} flex j-between a-center`}>
