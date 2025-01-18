@@ -101,7 +101,7 @@ export default function Header() {
                     : elem.link === "/catalog" ?
                       <span
                         className={`darkGrey_color flex a-center pointer`}
-                        onClick={() => {setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu)}}
+                        onClick={() => {setMenu(!menu)}}
                       >
                         {elem.title}
                         {DownHeader}
