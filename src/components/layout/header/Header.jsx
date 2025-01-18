@@ -86,21 +86,22 @@ export default function Header() {
                 </svg>
               </span>
               {headerPageLinks[lang].map((elem, index) => (
-                <li key={index} className={`${style.menu_item} relative`}
-                  onMouseEnter={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && true)}
-                  onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
-                  onClick={() => {setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);setMobileMenu(false)}}>
+                <li key={index} className={`${style.menu_item} relative`}>
                   {elem.link === "#contacts" ?
                     <HashLink 
                       smooth
                       to={elem.link === "#contacts" ? "/#contacts" : elem.link}
                       className={`darkGrey_color`}
+                      onMouseEnter={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && true)}
+                      onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
+                      onClick={() => {setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);setMobileMenu(false)}}
                     >
                       {elem.title}
                     </HashLink>
                     : elem.link === "/catalog" ?
                       <span
                         className={`darkGrey_color flex a-center pointer`}
+                        onClick={() => {setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu)}}
                       >
                         {elem.title}
                         {DownHeader}
@@ -110,6 +111,7 @@ export default function Header() {
                         <HashLink
                           smooth
                           to={elem.link === "#faq" ? "/wholesale/#faq" : elem.link}
+                          onClick={() => {setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);setMobileMenu(false)}}
                           className={({ isActive }) =>
                             `darkGrey_color ${isActive ? style.active : ""}`
                           }
@@ -119,6 +121,9 @@ export default function Header() {
                         :
                         <NavLink
                           to={elem.link}
+                          onMouseEnter={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && true)}
+                          onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
+                          onClick={() => {setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);setMobileMenu(false)}}
                           className={'darkGrey_color'}
                         >
                           {elem.title}

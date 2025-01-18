@@ -148,6 +148,7 @@
     }
     .menu.show_menu{
         right: 0;
+        gap: 5px;
     }
     .menu_item a, .menu_item span{
         color: white;
