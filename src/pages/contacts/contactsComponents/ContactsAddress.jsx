@@ -27,8 +27,8 @@ const ContactsAddress = () => {
                   <p className='f24 robotoFont'>+99 451 433 30 03</p>
                   <div className={`${style.wholesale_workTime}`}>
                     <h6 className='f24 fw700 robotoFont'>{elem.workTime.title}</h6>
-                    <p className='f24 darkGrey_color robotoFont'>{elem.workTime.weekday} 09:00 - 19:00</p>
-                    <p className='f24 darkGrey_color robotoFont'>{elem.workTime.saturday} 10:00 - 14:00</p>
+                    <p className='f24 darkGrey_color robotoFont'>{elem.workTime.weekday} {elem.workTime.weekday_hours}</p>
+                    <p className='f24 darkGrey_color robotoFont'>{elem.workTime.saturday} {elem.workTime.weekend_hours}</p>
                   </div>
                   <div className={`${style.wholesale_socials} flex a-center`}>
                     <Link target="_blank" to="https://www.instagram.com/baristica.roastery/" className={`${style.wholesale_social} darkGray rounded`}>
