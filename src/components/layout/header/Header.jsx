@@ -86,21 +86,41 @@ export default function Header() {
                 </svg>
               </span>
               {headerPageLinks[lang].map((elem, index) => (
-                <li key={index} className={`${style.menu_item} relative`}>
+                <li key={index} className={`${style.menu_item} relative`}
+                onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
+                >
                   {elem.link === "#contacts" ?
-                    <HashLink 
-                      smooth
-                      to={elem.link === "#contacts" ? "/#contacts" : elem.link}
-                      className={`darkGrey_color`}
-                      onMouseEnter={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && true)}
-                      onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
-                      onClick={() => {setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);setMobileMenu(false)}}
-                    >
-                      {elem.title}
-                    </HashLink>
+                    <HashLink
+                    smooth
+                    to={elem.link === "#contacts" ? "/#contacts" : elem.link}
+                    className="darkGrey_color"
+                    onClick={(e) => {
+                      // Prevent default behavior if navigating from a different page
+                      if (window.location.pathname !== "/" && elem.link === "#contacts") {
+                        e.preventDefault(); // Prevent default navigation
+                  
+                        // Navigate to the home page first
+                        navigate("/");
+                  
+                        // Delay scrolling to the target section to allow the DOM to render
+                        setTimeout(() => {
+                          const targetElement = document.getElementById("contacts");
+                          if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: "smooth" });
+                          }
+                        }, 500); // Adjust delay as needed
+                      } else {
+                        setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);
+                        setMobileMenu(false);
+                      }
+                    }}
+                  >
+                    {elem.title}
+                  </HashLink>
                     : elem.link === "/catalog" ?
                       <span
                         className={`darkGrey_color flex a-center pointer`}
+                        onMouseEnter={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && true)}
                         onClick={() => {setMenu(!menu)}}
                       >
                         {elem.title}
@@ -130,7 +150,9 @@ export default function Header() {
                         </NavLink>
                   }
                   {elem.list && elem.list.length > 0 && (
-                    <ul className={`${style.dropdown} ${menu ? style.show : ''}`}>
+                    <ul className={`${style.dropdown} ${menu ? style.show : ''}`}
+                    onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
+                    >
                       {elem.list.map((subItem, subIndex) => (
                         <li key={subIndex} className={style.dropdown_item}>
                           <NavLink to={subItem.link}>{subItem.title}</NavLink>
