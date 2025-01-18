@@ -9,6 +9,11 @@
     background: #F2F2F2;
     margin-top: 17px;
 }
+.modalContent_head{
+    h2{
+        padding-right: 12px !important;
+    }
+}
 .final{
     padding: 10px 40px;
     background: #F2F2F2;
@@ -39,4 +44,66 @@
 .whiteBtn{
     background: #fff;
     border: 2px solid #54565A;
+}
+.modal{
+    @media(max-width: 535px){
+        .modalContent_head{
+            align-items: center;
+            h2{
+                font-size: 24px !important;
+            }
+        }
+        .product{
+            flex-direction: column-reverse;
+            .text{
+                width: 100%;
+            }
+            h2{
+                font-size: 16px !important;
+            }
+            p{
+                font-size: 14px !important;
+            }
+            img{
+                width: 180px;
+                height: 135px;
+            }
+        }
+        .final{
+            margin-top: 12px !important;
+            h2{
+                font-size: 24px !important;
+            }
+        }
+        .weights{
+            flex-direction: column;
+            align-items: flex-start;
+            span:nth-child(2){
+                margin: 0;
+            }
+        }
+        .buttons{
+            margin-top: 12px !important;
+            flex-direction: column;
+            button{
+                width: 100%;
+                &:nth-child(2){
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+    @media(max-width: 380px){
+        .modalContent_head{
+            h2{
+                font-size: 20px !important;
+            }
+        }
+        .final{
+            padding: 10px 20px !important;
+            h2{
+                font-size: 20px !important;
+            }
+        }
+    }
 }

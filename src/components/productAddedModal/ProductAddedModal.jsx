@@ -49,8 +49,8 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
 
     return (
         <div className={status ? 'modal active' : 'modal'} onClick={(e) => {e.stopPropagation();}}>
-            <div className="modalContent" ref={modalRef}>
-                <div className="modalContent_head flex j-between">
+            <div className={`${styles.modal} modalContent`} ref={modalRef}>
+                <div className={`${styles.modalContent_head} flex j-between`}>
                     <h2 className="f32 fw700">{lang ? productAdded[lang].heading : ''}</h2>
                     <span className='pointer' onClick={() => {
                         add()
@@ -58,10 +58,10 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
                 </div>
 
                 <div className={styles.product + " mt24 flex j-between a-center"}>
-                    <div className="text">
+                    <div className={`${styles.text}`}>
                         <h2 className='f20 fw700  darkGrey_color'>{product?.name ? product.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
                         <p className="f16 fw400 darkGrey_color mt6">{product?.selectedGrinding ? product.selectedGrinding : 'Помол: для турки (мелкий)'}</p>
-                        <div className="flex g8">
+                        <div className={`${styles.weights} flex g8`}>
                             <span>{product?.weight ? product.weight : '1000'} {lang ? productAdded[lang].weightAdding : ''}</span>
                             <span>{cartCount ? cartCount : '2'} {lang ? productAdded[lang].countAdding : ''}</span>
                         </div>
