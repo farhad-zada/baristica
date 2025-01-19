@@ -24,7 +24,7 @@ const ContactsAddress = () => {
                     <span className="tifanny_color">{firstWord}</span> {rest.join(" ")}
                   </h1>
                   <p className={`${style.wholesale_getInTouch_address} robotoFont f24`}>{elem.address}</p>
-                  <p className='f24 robotoFont'>+99 451 433 30 03</p>
+                  <p className='f24 robotoFont'>{elem?.phone}</p>
                   <div className={`${style.wholesale_workTime}`}>
                     <h6 className='f24 fw700 robotoFont'>{elem.workTime.title}</h6>
                     <p className='f24 darkGrey_color robotoFont'>{elem.workTime.weekday} {elem.workTime.weekday_hours}</p>
