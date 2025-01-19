@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import style from '../homeCss/homeContact.module.css'
 import { useSelector } from 'react-redux'
 

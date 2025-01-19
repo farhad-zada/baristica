@@ -91,7 +91,6 @@ export default function Header() {
                 >
                   {elem.link === "#contacts" ?
                     <HashLink
-                    smooth
                     to={elem.link === "#contacts" ? "/#contacts" : elem.link}
                     className="darkGrey_color"
                     onClick={(e) => {
