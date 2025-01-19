@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { InstagramIcon, WPIcon, YoutubeIcon } from '../../../icons';
@@ -9,6 +9,12 @@ const { contacts } = PagesText;
 
 const ContactsAddress = () => {
   const { lang } = useSelector((state) => state.baristica);
+  const [phone, setPhone] = useState("")
+
+//   const openWhatsApp = () => {
+//     const whatsappUrl = `https://wa.me/${phone}`;
+//     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+// };
 
   return (
     <div className="flex j-center">
@@ -34,9 +40,18 @@ const ContactsAddress = () => {
                     <Link target="_blank" to="https://www.instagram.com/baristica.roastery/" className={`${style.wholesale_social} darkGray rounded`}>
                       {InstagramIcon}
                     </Link>
-                    <Link target="_blank" to="https://api.whatsapp.com/send?phone=+994514333003" className={`${style.wholesale_social} darkGray rounded`}>
+                    <span
+                      onClick={() => {
+                        if (elem?.phone) {
+                          window.open(`https://wa.me/${elem?.phone.replace(/[\+\s]/g, '')}`, '_blank', 'noopener,noreferrer');
+                        } else {
+                          console.error("Phone number is missing or invalid.");
+                        }
+                      }}
+                      className={`${style.wholesale_social} darkGray rounded`}
+                    >
                       {WPIcon}
-                    </Link>
+                    </span>
                   </div>
                 </div>
                 <iframe src={elem.map} width="610" height="400" style={{ border: "none" }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
