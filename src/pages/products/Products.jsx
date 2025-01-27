@@ -86,7 +86,6 @@ export default function Products() {
       setType('Coffee')
 
     } else if (window.location.href.includes('/accesories')) {
-      console.log('work href')
       changePageType('accesories')
       getProducts('Accessory', '')
       setType('Accessory')
@@ -102,14 +101,11 @@ export default function Products() {
   }, [pathname, token])
   // we need this to change products list when the user change page
   useEffect(() => {
-    console.log('workkk')
     getProducts(type, filterQueryString)
   }, [currentPage])
 
   useEffect(() => {
-    console.log(filterQueryString,'query string')
     if (type && filterQueryString) {
-      console.log('querychange')
       getProducts(type, filterQueryString)
       setCurrentPage(1)
     }
@@ -140,6 +136,7 @@ export default function Products() {
           type={type}
           showedProductsCount={showedProductsCount}
           productsCount={productsCount}
+          getProducts={getProducts}
         />
         <ProductsList products={products} />
         <Pagination

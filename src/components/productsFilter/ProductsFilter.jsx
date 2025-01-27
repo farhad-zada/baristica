@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styles from './productsFilter.module.css'
 import CustomDropdown from '../customDropdown/CustomDropdown'
+import { useSelector } from 'react-redux';
+import CountriesService from '../../services/countries.service';
 
 export default function ProductsFilter({ setFilterQueryString, content, status }) {
-
+    const { lang } = useSelector(state => state.baristica)
     const [selectedArr, setSelectedArr] = useState([]);
     const [selectedRating, setSelectedRating] = useState([])
     const [selectedGrader, setSelectedGrader] = useState([])
@@ -12,18 +14,20 @@ export default function ProductsFilter({ setFilterQueryString, content, status }
     const [selectedCountry, setSelecteCountry] = useState([])
     const [selectedDencity, setSelecteDencity] = useState([])
 
+    const [countryOptions, setCountryOptions] = useState([])
+
     const filters = [
         {
             header: content.rating.header,
             options: content.rating.options,
             type: 'rating',
-            selectionMode:'single'
+            selectionMode: 'single'
         },
         {
             header: content.grader.header,
             options: content.grader.options,
             type: 'grader',
-            selectionMode:'single'
+            selectionMode: 'single'
         },
         {
             header: content.acidity.header,
@@ -46,6 +50,24 @@ export default function ProductsFilter({ setFilterQueryString, content, status }
             type: 'dencity'
         }
     ]
+
+    const countriesService = new CountriesService()
+
+    const getCountries = async (lang) => {
+        try {
+            const response = await countriesService.getCountries()
+            const countriesData = response.data.countries.map((country) => {
+                return {
+                    "text": country[lang],
+                    "value": country.en
+                }
+            })
+            
+            setCountryOptions(countriesData)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const processFilters = () => {
         const data = {
@@ -126,6 +148,12 @@ export default function ProductsFilter({ setFilterQueryString, content, status }
             setSelectedArr([])
         }
     }, [status])
+
+    useEffect(() => {
+        if (lang) {
+            getCountries(lang)
+        }
+    }, [lang])
     return (
         <div className={status ? styles.productsFilterActive : styles.productsFilter}>
             {
@@ -137,18 +165,32 @@ export default function ProductsFilter({ setFilterQueryString, content, status }
                                     filter.type === 'processing' ? selectedProcessing :
                                         filter.type === 'country' ? selectedCountry :
                                             filter.type === 'dencity' ? selectedDencity : [];
-
-                    return (
-                        <CustomDropdown
-                            label={filter.header}
-                            options={filter.options}
-                            onSelectionChange={handleSelectionChange}
-                            key={filter.header}
-                            type={filter.type}
-                            selectionMode={filter.selectionMode}
-                            selectedOptions={selectedOptions} // Передаем состояние в CustomDropdown
-                        />
-                    );
+                    if(filter.type !== 'country'){
+                        return (
+                            <CustomDropdown
+                                label={filter.header}
+                                options={filter.options}
+                                onSelectionChange={handleSelectionChange}
+                                key={filter.header}
+                                type={filter.type}
+                                selectionMode={filter.selectionMode}
+                                selectedOptions={selectedOptions} // Передаем состояние в CustomDropdown
+                            />
+                        );
+                    } else{
+                        return (
+                            <CustomDropdown
+                                label={filter.header}
+                                options={countryOptions}
+                                onSelectionChange={handleSelectionChange}
+                                key={filter.header}
+                                type={filter.type}
+                                selectionMode={filter.selectionMode}
+                                selectedOptions={selectedOptions} // Передаем состояние в CustomDropdown
+                            />
+                        );
+                    }
+                    
                 })
             }
 
