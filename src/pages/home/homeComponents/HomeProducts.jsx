@@ -9,7 +9,7 @@ import Loading from '../../../components/loading/Loading';
 import Error from '../../../components/error/Error';
 const { productsSection } = pagesText
 
-export default function HomeProducts() {
+export default function HomeProducts({onLoad}) {
     const { lang, token } = useSelector((state) => state.baristica);
 
     const [newCoffe, setNewCoffee] = useState([])
@@ -80,6 +80,9 @@ export default function HomeProducts() {
             setError(true)
         } finally {
             setLoading(false)
+            setTimeout(() => {
+                onLoad();
+              }, 1000);
         }
     }, [productsService])
 

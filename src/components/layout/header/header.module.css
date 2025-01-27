@@ -9,6 +9,13 @@
     padding-bottom: 5px;
     transition: .2s ease-in-out;
 }
+.headerLink{
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+.headerLink:hover{
+    color: #61C4BF !important;
+}
 .menu_item a{
     transition: .2s ease-in-out;
 }

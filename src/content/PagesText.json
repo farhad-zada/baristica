@@ -1593,9 +1593,9 @@
             ],
             "reviews": {
                 "headerHeading": "Rəy əlavə edin",
-                "inputPlaceHolder": "Fikrinizi bildir",
+                "inputPlaceHolder": "Fikrinizi bildirin",
                 "sendBtn": "GÖNDƏR",
-                "addImg": "Şəkil yüklə",
+                "addImg": "Şəkil yükləyin",
                 "noReviews": "Təəssüf ki bu məhsul üçün rəy yoxdur",
                 "unregisteredUser": {
                     "text1": "Rəy əlavə etmək üçün şəxsi hesabınıza ",

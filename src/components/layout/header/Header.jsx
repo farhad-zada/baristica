@@ -32,11 +32,11 @@ export default function Header() {
   };
 
   const logout = async () => {
-      const response = await authService.logout(token)
-      dispatch(setToken(false))
-      dispatch(setUser({}))
-      removeItemFromStorage()
-      navigate('/')
+    const response = await authService.logout(token)
+    dispatch(setToken(false))
+    dispatch(setUser({}))
+    removeItemFromStorage()
+    navigate('/')
   }
 
   useEffect(() => {
@@ -62,14 +62,14 @@ export default function Header() {
     };
     window.addEventListener("resize", handleResize);
     return () => {
-        window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResize);
     };
-  },[])
+  }, [])
 
   useEffect(() => {
     size > 960 && setMobileMenu(false)
   }, [size])
-  
+
   return (
     <header className="flex j-center" style={{ backgroundColor: "#F2F2F2" }}>
       <div className="container flex j-between a-center">
@@ -87,40 +87,46 @@ export default function Header() {
               </span>
               {headerPageLinks[lang].map((elem, index) => (
                 <li key={index} className={`${style.menu_item} relative`}
-                onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
+                  onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
                 >
                   {elem.link === "#contacts" ?
-                    <HashLink
-                    to={elem.link === "#contacts" ? "/#contacts" : elem.link}
-                    className="darkGrey_color"
-                    onClick={(e) => {
-                      // Prevent default behavior if navigating from a different page
-                      if (window.location.pathname !== "/" && elem.link === "#contacts") {
-                        e.preventDefault(); // Prevent default navigation
-                  
-                        // Navigate to the home page first
-                        navigate("/#contacts");
-                  
-                        // Delay scrolling to the target section to allow the DOM to render
-                        setTimeout(() => {
+                    <span
+                      className={style.headerLink + " darkGrey_color"}
+                      onClick={(e) => {
+                        if (window.location.pathname === '/') {
+
                           const targetElement = document.getElementById("contacts");
                           if (targetElement) {
                             targetElement.scrollIntoView({ behavior: "smooth" });
                           }
-                        }, 500); // Adjust delay as needed
-                      } else {
-                        setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);
-                        setMobileMenu(false);
-                      }
-                    }}
-                  >
-                    {elem.title}
-                  </HashLink>
+                        }
+                        // Prevent default behavior if navigating from a different page
+                        if (window.location.pathname !== "/" && elem.link === "#contacts") {
+                          e.preventDefault(); // Prevent default navigation
+
+                          // Navigate to the home page first
+                          navigate("/#contacts");
+
+                          // // Delay scrolling to the target section to allow the DOM to render
+                          // setTimeout(() => {
+                          //   const targetElement = document.getElementById("contacts");
+                          //   if (targetElement) {
+                          //     targetElement.scrollIntoView({ behavior: "smooth" });
+                          //   }
+                          // }, 500); // Adjust delay as needed
+                        } else {
+                          setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);
+                          setMobileMenu(false);
+                        }
+                      }}
+                    >
+                      {elem.title}
+                    </span>
                     : elem.link === "/catalog" ?
                       <span
                         className={`darkGrey_color flex a-center pointer`}
                         onMouseEnter={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && true)}
-                        onClick={() => {setMenu(!menu)}}
+                        onClick={() => { setMenu(!menu) }}
                       >
                         {elem.title}
                         {DownHeader}
@@ -161,7 +167,7 @@ export default function Header() {
                           to={elem.link}
                           onMouseEnter={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && true)}
                           onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
-                          onClick={() => {setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu);setMobileMenu(false)}}
+                          onClick={() => { setMenu(elem.list.length > 0 && window.innerWidth < 960 && !menu); setMobileMenu(false) }}
                           className={'darkGrey_color'}
                         >
                           {elem.title}
@@ -169,7 +175,7 @@ export default function Header() {
                   }
                   {elem.list && elem.list.length > 0 && (
                     <ul className={`${style.dropdown} ${menu ? style.show : ''}`}
-                    onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
+                      onMouseLeave={() => setMenu(elem.list.length > 0 && window.innerWidth > 960 && false)}
                     >
                       {elem.list.map((subItem, subIndex) => (
                         <li key={subIndex} className={style.dropdown_item}>
