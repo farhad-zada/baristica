@@ -1,52 +1,79 @@
-.form{
+.form {
     padding: 100px 0;
 }
-.form_section{
+
+.form_section {
     gap: 66px;
 }
-.form_elem h1{
+
+.form_elem h1 {
     padding-bottom: 35px;
 }
-.elem{
+
+.elem {
     padding: 14px 28px;
     margin-bottom: 17px;
     background-color: white;
 }
-.price_form{
+
+.price_form {
     padding: 40px 20px;
     background-color: white;
 }
-.price_form p{
+
+.price_form p {
     padding-top: 26px;
 }
-.button{
+
+.button {
     padding: 10px 0;
     width: 100%;
     border: none;
 }
-@media (max-width: 960px){
-    .form{
-        .button{
+
+.input {
+    width: 100%;
+    padding-bottom: 15px;
+    font-size: 24px;
+    border: none;
+    border-bottom: 0.5px solid #54565A;
+    outline: none;
+    margin: 26px 0;
+    color: #54565A;
+}
+
+.input::placeholder {
+    color: #D9D8D6;
+}
+
+@media (max-width: 960px) {
+    .form {
+        .button {
             font-size: 24px !important;
         }
     }
 }
-@media (max-width: 768px){
-    .form_section{
+
+@media (max-width: 768px) {
+    .form_section {
         flex-direction: column;
     }
-    .form_elem{
+
+    .form_elem {
         width: 100%;
     }
 }
-@media (max-width: 480px){
-    .form_section{
+
+@media (max-width: 480px) {
+    .form_section {
         flex-direction: column;
     }
-    .form_section .form_elem h1{
+
+    .form_section .form_elem h1 {
         font-size: 36px !important;
     }
-    .form_section button{
+
+    .form_section button {
         font-size: 28px !important;
     }
 }

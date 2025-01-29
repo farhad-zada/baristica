@@ -3,6 +3,10 @@ import InputText from '../../../components/form/inputField/InputText';
 import style from "../wholesaleCss/form.module.css"
 import { useSelector } from 'react-redux';
 import PagesText from '../../../content/PagesText.json';
+import Loading from '../../../components/loading/Loading';
+import PriceTableService from '../../../services/priceTable.service';
+import Error from '../../../components/error/Error';
+import Success from '../../../components/success/Success';
 const { wholesale } = PagesText;
 
 
@@ -11,17 +15,39 @@ const WholesaleForm = () => {
   const [data, setData] = useState({
     name: '',
     phone:'',
-    mail:''
+    email:''
   })
+  const [loading,setLoading] = useState(false)
+  const [error, setError] = useState(false)
+  const [success, setSuccess] = useState(false)
+
+  const priceTableService = new PriceTableService()
+
   const handleInputChange = (name, value) => {
     setData(state => {
       return {...state, [name]:value}
     })
   }
 
+  const submitForm = async () => {
+    setLoading(true)
+    try {
+      await priceTableService.getPriceTable(data)
+      setSuccess(true)
+    } catch (error) {
+      setError(true)
+    } finally{
+      setLoading(false)
+    }
+  }
+
 
   return (
     <div className={`${style.form} flex j-center`} id="price">
+      <Loading status={loading} />
+      <Error status={error} setStatus={setError} />
+      <Success status={success} setStatus={setSuccess} />
+
       <div className="container">
         <div className={`${style.form_section} flex a-start`}>
           <div className={`${style.form_elem}`}>
@@ -44,17 +70,18 @@ const WholesaleForm = () => {
             />
             <InputText
               name="phone"
+              type='number'
               value={data.phone}
               onChange={handleInputChange}
               placeholder={lang ? wholesale[lang]?.form?.form?.phone : ''}
             />
             <InputText
-              name="mail"
-              value={data.mail}
+              name="email"
+              value={data.email}
               onChange={handleInputChange}
               placeholder={lang ? wholesale[lang]?.form?.form?.mail : ''}
             />
-            <button className={`${style.button} border40 tifanny fw600 f32`}>{wholesale[lang]?.form?.form?.link}</button>
+            <button className={`${style.button} border40 tifanny fw600 f32 pointer`} type='button' onClick={submitForm}>{wholesale[lang]?.form?.form?.link}</button>
             <p>{wholesale[lang]?.form?.form?.rule}</p>
           </form>
         </div>
