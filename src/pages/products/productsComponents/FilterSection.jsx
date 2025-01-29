@@ -7,7 +7,8 @@ import pageText from '../../../content/PagesText.json'
 import { useSelector } from 'react-redux'
 import ProductsFilter from '../../../components/productsFilter/ProductsFilter'
 const { productsPage } = pageText
-export default function FilterSection({ setFilterQueryString, productsCount, type }) {
+
+export default function FilterSection({ setFilterQueryString, productsCount, type, getProducts }) {
     const [priceOptions, setPriceOptions] = useState(['По возрастанию', 'По убыванию'])
     const [selectedOption, setSelectedOption] = useState({})
     const [defaultOption, setDefaultOption] = useState('')
@@ -42,6 +43,7 @@ export default function FilterSection({ setFilterQueryString, productsCount, typ
             const updatedState = arr.filter(item => item).join('&'); // Исключаем пустые строки
             return updatedState
         })
+        getProducts('Coffee', '')
     }
 
     const showedCount = 6

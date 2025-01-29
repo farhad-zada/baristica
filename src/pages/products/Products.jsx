@@ -105,7 +105,7 @@ export default function Products() {
   }, [currentPage])
 
   useEffect(() => {
-    if (type) {
+    if (type && filterQueryString) {
       getProducts(type, filterQueryString)
       setCurrentPage(1)
     }
@@ -136,6 +136,7 @@ export default function Products() {
           type={type}
           showedProductsCount={showedProductsCount}
           productsCount={productsCount}
+          getProducts={getProducts}
         />
         <ProductsList products={products} />
         <Pagination
