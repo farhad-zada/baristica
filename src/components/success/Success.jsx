@@ -25,7 +25,9 @@ export default function Success({ status, setStatus, navigateTo }) {
                 <div className="flex j-center">
                     <span className={styles.closeBtn} onClick={() => {
                         setStatus(false)
+                        if(navigateTo !== 'no'){
                         navigate('/')
+                        }
                     }}>OK</span>
                 </div>
             </div>

@@ -3,11 +3,14 @@ import InputText from '../../../../components/form/inputField/InputText'
 import AuthButton from '../../../../components/form/button/AuthButton';
 import AuthService from '../../../../services/auth.service'
 import styles from './personalData.module.css'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import PageText from '../../../../content/PagesText.json'
 import Loading from '../../../../components/loading/Loading';
 import Error from '../../../../components/error/Error';
+import UserService from '../../../../services/user.service';
+import Success from '../../../../components/success/Success';
+import { setUser } from '../../../../redux/slice';
 
 const { profile, register } = PageText
 
@@ -23,10 +26,13 @@ export default function PersonalData() {
     const [errorMessage, setErrorMessage] = useState(""); // Для вывода ошибки
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [success, setSuccess] = useState(false)
 
 
     const { lang, user, token } = useSelector((state) => state.baristica);
     const authService = new AuthService()
+    const userService = new UserService()
+    const dispatch = useDispatch()
 
     const handleInputChange = (name, value) => {
         setFormData((prev) => ({ ...prev, [name]: value }));
@@ -34,11 +40,7 @@ export default function PersonalData() {
             setErrorMessage('')
         }
     };
-
-    const onSubmit = () => {
-
-    }
-
+    console.log(user)
     const changePassword = async () => {
         if (formData.newPassword !== formData.repeatPassword) {
             const errorText = lang ? register[lang].passwordMismatch : "Passwords do not match";
@@ -69,6 +71,26 @@ export default function PersonalData() {
         }
     }
 
+    const changePersonalData = async () => {
+
+        const data = {
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email
+        }
+
+        setLoading(true)
+        try {
+            const response = await userService.changePersonalData(token, data)
+            dispatch(setUser(response.data.user))
+            setSuccess(true)
+        } catch (error) {
+            setError(true)
+        } finally {
+            setLoading(false)
+        }
+    }
+
     useEffect(() => {
         if (JSON.stringify(user) !== '{}') {
             setFormData(user)
@@ -78,6 +100,7 @@ export default function PersonalData() {
         <div className={styles.personalData}>
             <Loading status={loading} />
             <Error status={error} setStatus={setError} />
+            <Success status={success} setStatus={setSuccess} navigateTo='no' />
 
             <form className={styles.form}>
                 <div className="flex j-between g26">
@@ -101,7 +124,7 @@ export default function PersonalData() {
                             onChange={handleInputChange}
                             placeholder={lang ? profile[lang].personalData.emailInput : ''}
                         />
-                        <AuthButton text={lang ? profile[lang].personalData.submitBtn : ''} onClick={onSubmit} />
+                        <AuthButton text={lang ? profile[lang].personalData.submitBtn : ''} onClick={changePersonalData} />
                     </div>
                     <div className="right">
                         <h2 className="f32 fw600 darkGrey_color robotoFont">{lang ? profile[lang].personalData.passwordHeading : ''}</h2>
