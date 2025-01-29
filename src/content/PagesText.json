@@ -28,7 +28,7 @@
         "headerPageLinks": {
             "az": [
                 {
-                    "title": "Kataloq",
+                    "title": "Online-mağaza",
                     "link": "/catalog",
                     "list": [
                         {
@@ -59,11 +59,16 @@
                     "title": "Tez-tez verilən suallar",
                     "link": "#faq",
                     "list": []
+                },
+                {
+                    "title": "Bizim kofeşoplar",
+                    "link": "/coffeeshops",
+                    "list": []
                 }
             ],
             "ru": [
                 {
-                    "title": "Каталог",
+                    "title": "Интернет-магазин",
                     "link": "/catalog",
                     "list": [
                         {
@@ -94,11 +99,16 @@
                     "title": "Частые вопросы",
                     "link": "#faq",
                     "list": []
+                },
+                {
+                    "title": "Наши кофейни",
+                    "link": "/coffeeshops",
+                    "list": []
                 }
             ],
             "en": [
                 {
-                    "title": "Catalog",
+                    "title": "Online-shop",
                     "link": "/catalog",
                     "list": [
                         {
@@ -128,6 +138,11 @@
                 {
                     "title": "FAQ",
                     "link": "#faq",
+                    "list": []
+                },
+                {
+                    "title": "Our coffeeshops",
+                    "link": "/coffeeshops",
                     "list": []
                 }
             ]
@@ -791,6 +806,10 @@
                         {
                             "label": "Korporativ satış",
                             "link": "/wholesale"
+                        },
+                        {
+                            "label": "Bizim kofeşoplar",
+                            "link": "/coffeeshops"
                         }
                     ]
                 },
@@ -834,6 +853,10 @@
                         {
                             "label": "Оптовый сайт",
                             "link": "/wholesale"
+                        },
+                        {
+                            "label": "Наши кофейни",
+                            "link": "/coffeeshops"
                         }
                     ]
                 },
@@ -877,6 +900,10 @@
                         {
                             "label": "Wholesale Site",
                             "link": "/wholesale"
+                        },
+                        {
+                            "label": "Coffeeshops",
+                            "link": "/coffeeshops"
                         }
                     ]
                 },
