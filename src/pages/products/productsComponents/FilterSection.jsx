@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 import ProductsFilter from '../../../components/productsFilter/ProductsFilter'
 const { productsPage } = pageText
 
-export default function FilterSection({ setFilterQueryString, productsCount, type, getProducts }) {
+export default function FilterSection({ setFilterQueryString,showedProductsCount, productsCount, type, getProducts }) {
     const [priceOptions, setPriceOptions] = useState(['По возрастанию', 'По убыванию'])
     const [selectedOption, setSelectedOption] = useState({})
     const [defaultOption, setDefaultOption] = useState('')
@@ -46,16 +46,50 @@ export default function FilterSection({ setFilterQueryString, productsCount, typ
         getProducts('Coffee', '')
     }
 
-    const showedCount = 6
+    function getEnding(productsCount) {
+        const strCount = String(productsCount); // Преобразуем число в строку
+        const lastDigit = strCount.slice(-1); // Последняя цифра
+        const lastTwoDigits = strCount.slice(-2); // Последние две цифры
+    
+        // Проверяем условия
+        if (
+            ['6', '9'].includes(lastDigit) || 
+            ['10', '30', '40', '60', '90'].includes(lastTwoDigits)
+        ) {
+            return 'dan';
+        }
+        return 'dən';
+    }
+
+    const setProductsCountText = (lang) => {
+        if (lang === 'ru' || lang === 'en') {
+            return (
+                <h2 className={`${styles.filterSection_paginationCount} robotoFont f20 fw400 darkGrey_color`}>
+                    {lang ? productsPage[lang].filterSection.leftHeading : ''} {showedProductsCount} {lang ? productsPage[lang].filterSection.leftHeadingAddition : ''} {productsCount}
+                </h2>
+            )
+        } else{
+            return (
+                <h2 className={`${styles.filterSection_paginationCount} robotoFont f20 fw400 darkGrey_color`}>
+                    {lang ? productsPage[lang].filterSection.leftHeading : ''} {productsCount} - {getEnding(productsCount)} {showedProductsCount}
+                </h2>
+            )
+        }
+    }
+
     useEffect(() => {
         setDefaultOption(lang ? productsPage[lang].filterSection.priceSelect : '')
         setPriceOptions(lang ? productsPage[lang].filterSection.priceSelectOptions : '')
     }, [lang])
+
+    useEffect(() => {
+        setFilter(false)
+    },[type])
     
     return (
         <div className={`${styles.filterSection}`}>
             <div className={`${styles.filterSection_head} flex j-between a-center`}>
-                <h2 className={`${styles.filterSection_paginationCount} robotoFont f20 fw400 darkGrey_color`}>{lang ? productsPage[lang].filterSection.leftHeading : ''} {showedCount} {lang ? productsPage[lang].filterSection.leftHeadingAddition : ''} {productsCount}</h2>
+            {setProductsCountText(lang)}
                 <div className="filterButtons flex a-center g12">
                     {
                         type === 'Coffee'

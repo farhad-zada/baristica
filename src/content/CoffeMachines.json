@@ -1,0 +1,73 @@
+{
+    "machines": [
+        {
+            "name": "SANREMO CAFE RACER",
+            "az": {
+                "longDescriptions": [
+                    "Sanremo Cafe Racer — bu, kiçik kafelər və qastronomlar üçün mükəmməl olan zərif bir qəhvə maşınıdır. Müasir dizaynı və kompakt ölçüləri ilə yüksək məhsuldarlığı və mükəmməl ekstreksiyanı təmin edir. White Wood üslubunda hazırlanmış bu model yalnız interyerinizi bəzəməkdə deyil, həm də müştərilərinizi zəngin və aromatik qəhvə ilə sevindirəcək."
+                ],
+                "body":[
+                    {
+                        "icon": "DisplayIcon",
+                        "heading":"TAM NƏZARƏT SISTEMLI EKRAN",
+                        "paragraph":"Qəhvə maşınının bütün göstəricilərinin (təzyiq, temperatura və su səviyyəsi) nəzarəti."
+                    },
+                    {
+                        "icon": "CupHeightIcon",
+                        "heading":"HÜNDÜRLÜYƏ TƏNZİMLƏNƏN ALTLIQ",
+                        "paragraph":"Müxtəlif hündürlüklü fincanla işləməyə imkan verir."
+                    },
+                    {
+                        "icon":"CicleIcon",
+                        "heading":"PEŞƏKAR TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph":"Qəhvə aparatının təmizləmə prosesi."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Sanremo Cafe Racer —  это мощная и стильная кофемашина, созданная для профессионалов, требующих максимальной производительности. Обладая тремя группами, она идеально подходит для заведений с высоким потоком клиентов, обеспечивая быстрое и качественное приготовление кофе. Элегантный дизайн White Wood подчеркивает современный стиль вашего заведения, в то время как передовые технологии гарантируют отличные результаты в каждой чашке."
+                ],
+                "body":[
+                    {
+                        "icon": "DisplayIcon",
+                        "heading":"ПОЛНЫЙ КОНТРОЛЬ С СИСТЕМНЫМ ДИСПЛЕЕМ",
+                        "paragraph":"Контроль всех показателей кофемашины: давления, температуры и уровня воды."
+                    },
+                    {
+                        "icon": "CupHeightIcon",
+                        "heading":"РЕГУЛИРУЕМЫЙ ПО ВЫСОТЕ ПОДДОН",
+                        "paragraph":"Позволяет работать с посудой разной формы"
+                    },
+                    {
+                        "icon":"CicleIcon",
+                        "heading":"ПРОФЕССИОНАЛЬНЫЙ ЦИКЛ ОЧИСТКИ",
+                        "paragraph":"Процедура очистки кофемашины"
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Sanremo Cafe Racer — bu, kiçik kafelər və qastronomlar üçün mükəmməl olan zərif bir qəhvə maşınıdır. Müasir dizaynı və kompakt ölçüləri ilə yüksək məhsuldarlığı və mükəmməl ekstreksiyanı təmin edir. White Wood üslubunda hazırlanmış bu model yalnız interyerinizi bəzəməkdə deyil, həm də müştərilərinizi zəngin və aromatik qəhvə ilə sevindirəcək."
+                ],
+                "body":[
+                    {
+                        "icon": "DisplayIcon",
+                        "heading":"TAM NƏZARƏT SISTEMLI EKRAN",
+                        "paragraph":"Qəhvə maşınının bütün göstəricilərinin (təzyiq, temperatura və su səviyyəsi) nəzarəti."
+                    },
+                    {
+                        "icon": "CupHeightIcon",
+                        "heading":"HÜNDÜRLÜYƏ TƏNZİMLƏNƏN ALTLIQ",
+                        "paragraph":"Müxtəlif hündürlüklü fincanla işləməyə imkan verir."
+                    },
+                    {
+                        "icon":"CicleIcon",
+                        "heading":"PEŞƏKAR TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph":"Qəhvə aparatının təmizləmə prosesi."
+                    }
+                ]
+            }
+        }
+    ]
+}

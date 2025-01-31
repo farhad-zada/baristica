@@ -33,6 +33,7 @@ export default function Products() {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+    getProducts(type, filterQueryString, page)
     window.scrollTo(0, 0);
     localStorage.setItem('productsPagination', JSON.stringify({ type: type, page: page }))
   };
@@ -49,10 +50,10 @@ export default function Products() {
 
   const navigate = useNavigate()
 
-  const getProducts = async (type, query) => {
+  const getProducts = async (type, query, page = false) => {
     setLoading(true)
     try {
-      const response = await productsService.getProducts(token, type, currentPage, query)
+      const response = await productsService.getProducts(token, type, page ? page : currentPage, query)
       const products = response.data
       // if (productsCount !== response.count) {
       //   setCurrentPage(1)
@@ -77,17 +78,40 @@ export default function Products() {
   useEffect(() => {
     if (window.location.href.includes('/coffeeMachines')) {
       changePageType('coffeeMachines')
-      getProducts('Machine', '')
+
+      const productsPagination = JSON.parse(localStorage.getItem('productsPagination'))
+      if (productsPagination && 'Machine' === productsPagination?.type) {
+        setType('Machine')
+        return;
+      }
+      setCurrentPage(1)
+      getProducts('Machine', '',1)
       setType('Machine')
 
     } else if (window.location.href.includes('/coffee')) {
+
       changePageType('coffee')
-      getProducts('Coffee', '')
+      const productsPagination = JSON.parse(localStorage.getItem('productsPagination'))
+      if (productsPagination && 'Coffee' === productsPagination?.type) {
+        setType('Coffee')
+        return;
+      }
+      setCurrentPage(1)
+
+      getProducts('Coffee', '', 1)
       setType('Coffee')
 
     } else if (window.location.href.includes('/accesories')) {
       changePageType('accesories')
-      getProducts('Accessory', '')
+      // here
+      const productsPagination = JSON.parse(localStorage.getItem('productsPagination'))
+      if (productsPagination && 'Accessory' === productsPagination?.type) {
+        setType('Accessory')
+        return;
+      }
+      setCurrentPage(1)
+
+      getProducts('Accessory', '',1)
       setType('Accessory')
     }
     else {
@@ -99,10 +123,13 @@ export default function Products() {
       setCurrentType('')
     }
   }, [pathname, token])
+
   // we need this to change products list when the user change page
-  useEffect(() => {
-    getProducts(type, filterQueryString)
-  }, [currentPage])
+  // useEffect(() => {
+  //   console.log('work', currentPage)
+
+  //   getProducts(type, filterQueryString)
+  // }, [currentPage])
 
   useEffect(() => {
     if (type && filterQueryString) {
@@ -123,6 +150,8 @@ export default function Products() {
       }
     }
   }, [type])
+
+
   return (
     <div className={`${style.productsPage}  flex j-center`}>
       <Loading status={loading} />

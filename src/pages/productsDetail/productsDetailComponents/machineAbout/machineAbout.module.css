@@ -1,0 +1,19 @@
+
+.detailSection h2{
+    margin-bottom: 20px;
+}
+.detail{
+    margin-top: 40px;
+    justify-content: space-between;
+}
+
+.section{
+    width: 33%;
+}
+.section p{
+    margin-top: 10px;
+}
+.section svg{
+    height: 50px;
+    width: 50px;
+}
