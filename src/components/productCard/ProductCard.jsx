@@ -161,7 +161,7 @@ const ProductCard = (props) => {
         if (JSON.stringify(product) !== '{}') {
             setActiveProduct(product)
         }
-    }, [product])
+    }, [product]) 
 
     useEffect(() => {
         if (JSON.stringify(activeProduct) !== '{}') {
