@@ -242,7 +242,7 @@ const ProductCard = (props) => {
                 </div>
                 <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : ''}</h3>
                 <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : ''}</h2>
-                <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod ? `${proccessingMethodTranslate[lang][activeProduct.processingMethod]}` : ''}</p>
+                <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod? activeProduct?.processingMethod[lang]  : ''}</p>
 
 
             </div>
