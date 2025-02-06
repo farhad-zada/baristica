@@ -23,9 +23,6 @@ export default function MachineDetails({ product }) {
     const navigate = useNavigate()
 
     const changeProduct = (field, value) => {
-        // if (field === 'images.0') {
-
-        // }
         if (product[field] === value) {
             return
         } else {
@@ -54,7 +51,7 @@ export default function MachineDetails({ product }) {
 
 
             setSelectedGroup(categories[lang][product.category])
-            let sortedGroups = product?.category ? [categories[lang][product?.category], ...linkedGroups] : [...linkedGroups]
+            let sortedGroups = linkedGroups
             sortedGroups = sortedGroups.sort((a, b) => {
                 // Извлекаем первый символ и приводим к числу
                 const numA = parseInt(a.charAt(0), 10);
@@ -63,8 +60,8 @@ export default function MachineDetails({ product }) {
             })
             setGroups(sortedGroups)
 
-            const imageFields = product.linked.filter((link) => link.field === 'images.0')
-            setColors([{ field: "images.0", product: product._id, fieldValue: product.images[0] }, ...imageFields])
+            const imageFields = product.linked.filter((link) => link.field === 'profileImage')
+            setColors(imageFields)
         }
     }, [product])
     return (
@@ -72,7 +69,7 @@ export default function MachineDetails({ product }) {
 
             {colors.length
                 ?
-                <ColorPicker field={'images.0'} options={colors} onColorSelect={changeProduct} text={lang ? productCard[lang].color : ''} />
+                <ColorPicker field={'profileImage'} options={colors} onColorSelect={changeProduct} text={lang ? productCard[lang].color : ''} />
                 :
                 <></>
             }

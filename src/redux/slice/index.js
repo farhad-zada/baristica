@@ -60,6 +60,7 @@ const baristicaSlice = createSlice({
     },
     finalSelectProduct: (state, action) => {
       const { id, selected } = action.payload
+      console.log(id, selected);
       state.cart = state.cart.map((product) => {
         if (id === product._id) {
           return { ...product, selectedForOrder: selected }

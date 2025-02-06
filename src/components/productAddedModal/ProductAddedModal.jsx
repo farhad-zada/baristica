@@ -67,7 +67,7 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
                         </div>
                     </div>
                     <div className="img">
-                        <img src={product?.images?.length ? product.images[0] : ''} alt="" />
+                        <img src={product?.profileImage || ''} alt="" />
                     </div>
                 </div>
 

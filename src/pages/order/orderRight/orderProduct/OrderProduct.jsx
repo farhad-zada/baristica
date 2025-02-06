@@ -25,7 +25,7 @@ export default function OrderProduct({ product, grindityText, weightText, codeTe
     return (
         <div className={styles.product}>
             <div className={styles.productImg}>
-                <img className={styles.img} src={product?.images?.length ? product.images[0] : ''} alt="" />
+                <img className={styles.img} src={product?.profileImage || ''} alt="" />
             </div>
 
             <div className={styles.textContent}>

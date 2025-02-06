@@ -82,7 +82,7 @@ export default function CoffeeDetails({ product }) {
 
             const weightFields = product.linked.filter((link) => link.field === 'weight')
             const linkedWeights = weightFields.map((field) => field.fieldValue)
-            const sortedWeights = [product.weight, ...linkedWeights].sort((a, b) => a - b)
+            const sortedWeights = linkedWeights.sort((a, b) => a - b)
             setWeights(sortedWeights)
             setSelectedWeight(product.weight)
 

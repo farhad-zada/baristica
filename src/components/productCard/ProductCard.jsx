@@ -74,23 +74,22 @@ const ProductCard = (props) => {
     }
 
     const changeProduct = (field, value) => {
+        console.log(field, value, linked);
         if (field === 'weight') {
             setDefaultWeight(value)
         }
-        if (product[field] === value) {
-            return
-        } else {
-            let newProduct = null;
-            if (activeProduct.productType === 'Machine') {
-                newProduct = linked.find((link) => link.field === field && link.categoryText === value)
-            }
-            else {
-                newProduct = linked.find((link) => link.field === field && link.fieldValue === value)
-            }
-            if (newProduct) {
-                getProduct(newProduct.product)
-                // navigate(`/product/${newProduct.product}`)
-            }
+
+        let newProduct = null;
+        if (activeProduct.productType === 'Machine') {
+            newProduct = linked.find((link) => link.field === field && link.categoryText === value)
+        }
+        else {
+            newProduct = linked.find((link) => link.field === field && link.fieldValue === value)
+        }
+        if (newProduct) {
+            getProduct(newProduct.product)
+            // navigate(`/product/${newProduct.product}`)
+
         }
     }
 
@@ -130,7 +129,7 @@ const ProductCard = (props) => {
                         options={getFilteredOptions(product.category).map(option => option.text)}
                         defaultValue={defaultGrinding}
                         callBack={changeGrinding} />
-
+                        {/*  TODO: Weight problem */}
                     <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} callBack={changeProduct} />
 
                     <Counter count={cartCount} setCount={setCartCount} />
@@ -169,7 +168,7 @@ const ProductCard = (props) => {
             setLinked(linkedValues)
             const weightFields = activeProduct?.linked?.filter((link) => link.field === 'weight')
             const linkedWeights = weightFields?.map((field) => field.fieldValue) || []
-            setWeightOptions([activeProduct?.weight, ...linkedWeights])
+            setWeightOptions(linkedWeights)
             setDefaultWeight(activeProduct?.weight || 200)
 
 
@@ -178,7 +177,7 @@ const ProductCard = (props) => {
             categoryFields = categoryFields.map((category) => { return { ...category, categoryText: categories[lang][category.fieldValue] } })
             linkedCategories = linkedCategories.map((category) => { return categories[lang][category] })
 
-            setCategoryGroups(product?.category ? [categories[lang][product?.category], ...linkedCategories] : [...linkedCategories])
+            setCategoryGroups(linkedCategories)
             setDefaultCategory(product?.category ? categories[lang][product?.category] : '')
 
             setCartCount(1)
@@ -251,7 +250,7 @@ const ProductCard = (props) => {
 
 
                 <div className={`${style.productCard_img} w-100 flex j-center`}>
-                    <img src={activeProduct?.images?.length ? activeProduct.images[0] : ''} alt="" />
+                    <img src={activeProduct?.profileImage || ''} alt="" />
                 </div>
 
                 {activeProduct.productType === 'Accessory'

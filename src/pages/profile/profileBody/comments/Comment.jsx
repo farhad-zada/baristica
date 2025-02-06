@@ -50,7 +50,7 @@ const Comment = ({ products,comment, getComments }) => {
         <div className={style.comment_section}>
             <div className={`${style.comment} gray border8`} id={comment.id} key={comment.id}>
                 <div className={`${style.comment_head} flex a-center`}>
-                    <img src={products[comment.product].images ? products[comment.product].images[0] : ''} alt="" />
+                    <img src={products[comment.product].profileImage || ''} alt="" />
                     <h5 className="darkGrey_color f20 fw700 robotoFont">{products[comment.product].name[lang] ? products[comment.product].name[lang] : products[comment.product].name['az'] }</h5>
                 </div>
                 <hr />

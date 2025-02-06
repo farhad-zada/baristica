@@ -43,7 +43,7 @@ export default function CartProduct({ product, weightText, grindityText }) {
         <div className={styles.product}>
             <div className={styles.left + " flex a-center g20"}>
                 <input type="checkbox" checked={product.selectedForOrder} onChange={(e) => onCheckbox(e, product)} />
-                <img src={product?.images?.length ? product.images[0] : ''} alt="" />
+                <img src={product?.profileImage || ''} alt="" />
                 <div>
                     <h2 className="robotoFont f20 fw700 mt4 darkGrey_color">{product?.name ? product.name[lang] || product.name['az'] : 'COLOMBIA GESHA ANCESTRO'}</h2>
                     <h3 className="robotoFont f16 fw400 mt4 darkGrey_color">{grindityText} {product?.selectedGrinding ? product.selectedGrinding : 'эспрессо'}</h3>
