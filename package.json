@@ -20,8 +20,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "CI=false react-scripts build",
+    "start": "REACT_APP_BASE_URL=http://localhost:8181 react-scripts start",
+    "build": "REACT_APP_BASE_URL=https://api.baristica.az CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
