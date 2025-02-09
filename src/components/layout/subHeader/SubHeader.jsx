@@ -40,10 +40,10 @@ export default function SubHeader() {
   };
 
   const goToCart = () => {
-    if(token){
+    if (token) {
       dispatch(setProfileActiveTab("cart"));
-    navigate("/profile");
-    } else{
+      navigate("/profile");
+    } else {
       navigate('/login')
     }
   };
@@ -77,10 +77,10 @@ export default function SubHeader() {
 
   const calculateTotalCount = (products) => {
     const count = products.reduce((acc, product) => {
-      
-      return acc + product.cartCount; 
-    }, 0); 
-    return count; 
+
+      return acc + product.cartCount;
+    }, 0);
+    return count;
   }
 
   useRefClickOutside(searchRef, handleClickOutside)
@@ -92,9 +92,12 @@ export default function SubHeader() {
       <Error status={error} setStatus={setError} />
 
       <div className="container flex">
-        <div className={`${style.subHeader_section} flex a-center j-end w-100`}>
-          <div className={`${style.subHeader_buttons} flex a-center j-end`} ref={searchRef}>
-            {/* {isSearchActive ? (
+        <div className={`${style.subHeader_section} flex a-center j-between w-100`}>
+          <h2 className="w-100">{subHeader[lang].headText}</h2>
+
+          <div className="flex j-end w-100">
+            <div className={`${style.subHeader_buttons} flex a-center j-end`} ref={searchRef}>
+              {/* {isSearchActive ? (
               <div style={{ position: "relative" }}>
                 <input
                   type="text"
@@ -115,43 +118,45 @@ export default function SubHeader() {
                 {Search}
               </button>
             )} */}
-            <span  className={`${style.button} darkGray defaultBtn border32 flex a-center`} onClick={() => {
-              if(token){
-                navigate('/favorites')
-              } else{
-                navigate('/login')
-              }
-            }}>
-              {Favourites}
-              <span className={`${style.badge}`}>{favoritesCount}</span>
-            </span>
-            <span
-              className={`${style.button} darkGray defaultBtn border32 flex a-center`}
-              onClick={goToCart}
-            >
-              {CartIcon}
-              <span className={`${style.badge}`}>{calculateTotalCount(cart)}</span>
-            </span>
-          </div>
-          <div className={`${style.product_count} flex column a-start`}>
-            <h6 className="f16">{calculateTotalCount(cart)} {subHeader && subHeader[lang].products}</h6>
-            <h6 className="f16">{calculateTotalPrice(cart).toFixed(2)} ₼</h6>
-          </div>
-          {token ? (
-            <div className={style.profile_links}>
-              <h2 className="f16 fw600 pointer" onClick={() => navigate('/profile')}>{user?.name ? user.name : ""}</h2>
-              <h2 className="pointer f16 fw400" onClick={logout}>{lang ? subHeader[lang].logoutBtn : ""}</h2>
+              <span className={`${style.button} darkGray defaultBtn border32 flex a-center`} onClick={() => {
+                if (token) {
+                  navigate('/favorites')
+                } else {
+                  navigate('/login')
+                }
+              }}>
+                {Favourites}
+                <span className={`${style.badge}`}>{favoritesCount}</span>
+              </span>
+              <span
+                className={`${style.button} darkGray defaultBtn border32 flex a-center`}
+                onClick={goToCart}
+              >
+                {CartIcon}
+                <span className={`${style.badge}`}>{calculateTotalCount(cart)}</span>
+              </span>
             </div>
-          ) : (
-            <div className={`${style.profile_links} flex a-center`}>
-              <Link to="/register" className="black fw400">
-                {subHeader && subHeader[lang].registration}
-              </Link>
-              <Link to="/login" className="black fw400">
-                {subHeader && subHeader[lang].login}
-              </Link>
+            <div className={`${style.product_count} flex column a-start`}>
+              <h6 className="f16">{calculateTotalCount(cart)} {subHeader && subHeader[lang].products}</h6>
+              <h6 className="f16">{calculateTotalPrice(cart).toFixed(2)} ₼</h6>
             </div>
-          )}
+            {token ? (
+              <div className={style.profile_links}>
+                <h2 className="f16 fw600 pointer" onClick={() => navigate('/profile')}>{user?.name ? user.name : ""}</h2>
+                <h2 className="pointer f16 fw400" onClick={logout}>{lang ? subHeader[lang].logoutBtn : ""}</h2>
+              </div>
+            ) : (
+              <div className={`${style.profile_links} flex a-center`}>
+                <Link to="/register" className="black fw400">
+                  {subHeader && subHeader[lang].registration}
+                </Link>
+                <Link to="/login" className="black fw400">
+                  {subHeader && subHeader[lang].login}
+                </Link>
+              </div>
+            )}
+          </div>
+
         </div>
       </div>
     </div>

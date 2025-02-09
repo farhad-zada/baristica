@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import PagesText from '../../../content/PagesText.json';
 import { Link } from 'react-router-dom';
 import coop from "../../../assets/img/coop.jpeg"
-import coop2 from "../../../assets/img/coop2.jpeg"
+import coop2 from "../../../assets/img/coop2.jpg"
 import { HashLink } from 'react-router-hash-link';
 
 const { wholesale } = PagesText;

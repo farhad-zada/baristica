@@ -1266,6 +1266,879 @@
                     }
                 ]
             }
+        },
+        {
+            "name": "SANREMO D8",
+            "az": {
+                "longDescriptions": [
+                    "Sanremo D8 2GR – kafe müəssisələri üçün yüksək keyfiyyət və istehsala yönəlmiş mükəmməl bir həlldir. Bu peşəkar iki qruplu qəhvə maşını, baristalara eyni anda bir neçə espresso porsiyasını hazırlamağa imkan verir, bu da müştərilərə xidmət sürətini əhəmiyyətli dərəcədə artırır. Proqramlaşdırıla bilən temperatur və ekstraksiya vaxtı kimi funksiyalarla təchiz olunmuş D8 2GR, hər bir qəhvə hazırlama prosesində dəqiqlik və sabitlik təmin edir. Tənzimlənən iş səthi və ikili ölçmə manometrini də ehtiva edən əlavə xüsusiyyətlər, bu modeli iş üçün maksimal dərəcədə rahat edir. Maşının xarici görünüşü müxtəlif rənglərdə təqdim olunur, bu da hər bir interyerdə optimal variantı seçməyə imkan tanıyır."
+                ],
+                "body": [
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "AVTOMATİK TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə qruplarının təmizlənməsi prosesi. Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "AKTİVLƏŞDİRİLMİŞ ELEKTRONİK PRE-INFUZİYA",
+                        "paragraph": "Su solenoidinin işə düşmə gecikməsini dəmləmənin ilk mərhələsində idarə edir."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ QƏNAƏT SİSTEMİ",
+                        "paragraph": "Hər şəraitdə yüksək və sabit təzyiq. Proqramlaşdırılan porsiya üçün daha böyük dəqiqlik təmin edir."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "AVTOMATİK YANDIRMA / SÖNDÜRMƏ",
+                        "paragraph": "Hər gün üçün proqramlaşdırıla bilən yandırma/söndürmə zamanlayıcısı və ya gündəlik qrafikin qurulması."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "AVTOMATİK SU SƏVİYYƏSİNİN NƏZARƏTİ",
+                        "paragraph": "Elektron sensor vasitəsilə, boiler avtomatik olaraq suyu doldurur və tələb olunan su səviyyəsini saxlayır."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "E61 QRUPU",
+                        "paragraph": "Sanremo-nun xüsusi dizaynı, tələb olunan temperaturu dəqiq şəkildə saxlamağa imkan verir."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "TƏNZİMLƏNƏ BİLƏN İŞ SAHƏSİ",
+                        "paragraph": "Sanremonun innovativ sistemi, müxtəlif forma və hündürlükdəki fincanlardan istifadə etməyə imkan verir."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "İKİQAT BOİLER MANOMETRİ",
+                        "paragraph": "Boilerdə eyni zamanda təzyiqi və paylama təzyiqini idarə etməyə imkan verir."
+                    },
+                    {
+                        "icon": "EkstraksiyaZamanIcon",
+                        "heading": "EKSTRAKSİYA ÜÇÜN ZAMANLAYICI",
+                        "paragraph": "Qəhvənin ekstraksiya müddətini dəqiq ölçməyə imkan verir."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Sanremo D8 2GR – это идеальное решение для кофейных заведений, стремящихся к высокому качеству и производительности. Эта профессиональная кофемашина с двумя группами позволяет баристам одновременно готовить несколько порций эспрессо, что значительно увеличивает скорость обслуживания клиентов. Оснащенная функциями, такими как программируемая температура и таймер экстракции, D8 2GR обеспечивает точность и стабильность в каждом процессе приготовления кофе. Дополнительные особенности, включая регулируемую рабочую поверхность и двойной измерительный манометр, делают эту модель максимально удобной для работы. Внешний вид машины представлен в разных цветах, что позволяет выбрать оптимальный вариант для любого интерьера."
+                ],
+                "body": [
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "АВТОМАТИЧЕСКИЙ ЦИКЛ ОЧИСТКИ",
+                        "paragraph": "Процесс очистки кофейных групп."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "ПРОГРАМИРУЕМОЕ ПРЕИНФУЗИЯ",
+                        "paragraph": "Контроль времени пролива воды для смачивания таблетки с точностью 0,1 сек с настройкой 4 разных профилей для каждой группы."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "СИСТЕМА ЭНЕРГОСБЕРЕЖЕНИЯ",
+                        "paragraph": "Высокое и постоянное давление при любых условиях. Для большей точности программируемой порции."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "АВТОМАТИЧЕСКОЕ ВКЛЮЧЕНИЕ / ВЫКЛЮЧЕНИЕ",
+                        "paragraph": "Программируемый таймер включения/выключения каждый день или установка ежедневного расписания."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "АВТОКОНТРОЛЬ УРОВНЯ ВОДЫ",
+                        "paragraph": "С помощью электронного датчика бойлер наполняется и поддерживает нужный уровень воды автоматически."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "ГРУППА E61",
+                        "paragraph": "Эксклюзивная конструкция Sanremo, позволяющая точно поддерживать заданную температуру."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "РЕГУЛИРУЕМАЯ РАБОЧАЯ ПОВЕРХНОСТЬ",
+                        "paragraph": "Инновационная система Sanremo позволяющая использовать чашки различной формы и высоты."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "ДВОЙНОЙ ИЗМЕРИТЕЛЬНЫЙ МАНОМЕТР",
+                        "paragraph": "Позволяет одновременно контролировать давление в бойлере и распределительное давление."
+                    },
+                    {
+                        "icon": "EkstraksiyaZamanIcon",
+                        "heading": "ТАЙМЕР ЭКСТРАКЦИИ",
+                        "paragraph": "Для точного и надежного измерения времени экстракции кофе."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Sanremo D8 2GR – kafe müəssisələri üçün yüksək keyfiyyət və istehsala yönəlmiş mükəmməl bir həlldir. Bu peşəkar iki qruplu qəhvə maşını, baristalara eyni anda bir neçə espresso porsiyasını hazırlamağa imkan verir, bu da müştərilərə xidmət sürətini əhəmiyyətli dərəcədə artırır. Proqramlaşdırıla bilən temperatur və ekstraksiya vaxtı kimi funksiyalarla təchiz olunmuş D8 2GR, hər bir qəhvə hazırlama prosesində dəqiqlik və sabitlik təmin edir. Tənzimlənən iş səthi və ikili ölçmə manometrini də ehtiva edən əlavə xüsusiyyətlər, bu modeli iş üçün maksimal dərəcədə rahat edir. Maşının xarici görünüşü müxtəlif rənglərdə təqdim olunur, bu da hər bir interyerdə optimal variantı seçməyə imkan tanıyır."
+                ],
+                "body": [
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "AVTOMATİK TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə qruplarının təmizlənməsi prosesi. Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "AKTİVLƏŞDİRİLMİŞ ELEKTRONİK PRE-INFUZİYA",
+                        "paragraph": "Su solenoidinin işə düşmə gecikməsini dəmləmənin ilk mərhələsində idarə edir."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ QƏNAƏT SİSTEMİ",
+                        "paragraph": "Hər şəraitdə yüksək və sabit təzyiq. Proqramlaşdırılan porsiya üçün daha böyük dəqiqlik təmin edir."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "AVTOMATİK YANDIRMA / SÖNDÜRMƏ",
+                        "paragraph": "Hər gün üçün proqramlaşdırıla bilən yandırma/söndürmə zamanlayıcısı və ya gündəlik qrafikin qurulması."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "AVTOMATİK SU SƏVİYYƏSİNİN NƏZARƏTİ",
+                        "paragraph": "Elektron sensor vasitəsilə, boiler avtomatik olaraq suyu doldurur və tələb olunan su səviyyəsini saxlayır."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "E61 QRUPU",
+                        "paragraph": "Sanremo-nun xüsusi dizaynı, tələb olunan temperaturu dəqiq şəkildə saxlamağa imkan verir."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "TƏNZİMLƏNƏ BİLƏN İŞ SAHƏSİ",
+                        "paragraph": "Sanremonun innovativ sistemi, müxtəlif forma və hündürlükdəki fincanlardan istifadə etməyə imkan verir."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "İKİQAT BOİLER MANOMETRİ",
+                        "paragraph": "Boilerdə eyni zamanda təzyiqi və paylama təzyiqini idarə etməyə imkan verir."
+                    },
+                    {
+                        "icon": "EkstraksiyaZamanIcon",
+                        "heading": "EKSTRAKSİYA ÜÇÜN ZAMANLAYICI",
+                        "paragraph": "Qəhvənin ekstraksiya müddətini dəqiq ölçməyə imkan verir."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SANREMO D8 PRO",
+            "az": {
+                "longDescriptions": [
+                    "Sanremo D8 PRO 2GR – yüksək keyfiyyətli peşəkar qəhvə maşınıdır ki, qəhvə hazırlanmasında istisna nəticələr Əlaqəmək üçün hazırlanmışdır. İki qrupla, bu model kafe üçün ideal seçimdir, burada keyfiyyətlə yanaşı, xidmət sürəti də önəmlidir. Proqramlaşdırıla bilən temperatur və ekstraksiya vaxtı kimi funksiyalarla təchiz olunmuş D8 PRO 2GR, baristalara espressoyu yüksək dəqiqlik və sabitliklə hazırlamağa imkan tanıyır. Tənzimlənən iş səthi və ikili manometr, iş prosesini daha rahat edir. Müxtəlif rəng variantlarında mövcud olan bu qəhvə maşını, hər bir interyeri stilə uyğunlaşdıran şık bir əlavə olacaq."
+                ],
+                "body": [
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "AVTOMATİK TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə qruplarının təmizlənməsi prosesi. Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "AKTİVLƏŞDİRİLMİŞ ELEKTRONİK PRE-INFUZİYA",
+                        "paragraph": "Su solenoidinin işə düşmə gecikməsini dəmləmənin ilk mərhələsində idarə edir."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ QƏNAƏT SİSTEMİ",
+                        "paragraph": "Hər şəraitdə yüksək və sabit təzyiq. Proqramlaşdırılan porsiya üçün daha böyük dəqiqlik təmin edir."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "AVTOMATİK YANDIRMA / SÖNDÜRMƏ",
+                        "paragraph": "Hər gün üçün proqramlaşdırıla bilən yandırma/söndürmə zamanlayıcısı və ya gündəlik qrafikin qurulması."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "AVTOMATİK SU SƏVİYYƏSİNİN NƏZARƏTİ",
+                        "paragraph": "Elektron sensor vasitəsilə, boiler avtomatik olaraq suyu doldurur və tələb olunan su səviyyəsini saxlayır."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "E61 QRUPU",
+                        "paragraph": "Sanremo-nun xüsusi dizaynı, tələb olunan temperaturu dəqiq şəkildə saxlamağa imkan verir."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "TƏNZİMLƏNƏ BİLƏN İŞ SAHƏSİ",
+                        "paragraph": "Sanremonun innovativ sistemi, müxtəlif forma və hündürlükdəki fincanlardan istifadə etməyə imkan verir."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "İKİQAT BOİLER MANOMETRİ",
+                        "paragraph": "Boilerdə eyni zamanda təzyiqi və paylama təzyiqini idarə etməyə imkan verir."
+                    },
+                    {
+                        "icon": "EkstraksiyaZamanIcon",
+                        "heading": "EKSTRAKSİYA ÜÇÜN ZAMANLAYICI",
+                        "paragraph": "Qəhvənin ekstraksiya müddətini dəqiq ölçməyə imkan verir."
+                    },
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "QAYNAR SU VERMƏSİ ÜÇÜN SUYUN QARIŞDIRILMASI",
+                        "paragraph": "Kimyəvi və orqonoleptik keyfiyyətin yaxşılaşdırılması üçün su və buxarın ani qarışdırılması."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "PASLANMAZ POLADDAN OLAN «COOL TOUCH» BUXAR BORUSU",
+                        "paragraph": "Yüksək performanslı buxar sistemi, «Latte Art» üçün mükəmməl uyğun gəlir."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "İŞ SAHƏSİNİN LED İŞIQLANDIRILMASI",
+                        "paragraph": "İstənilən işıqlandırılma mühitində iş rahatlığı."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "SU TEMPERATURUNA MÜSTƏQİL NƏZARƏT",
+                        "paragraph": "Maksimal dəqiqlik və sabit temperatur."
+                    },
+                    {
+                        "icon": "FunctionalScreenIcon",
+                        "heading": "ÇOXFUNKSİYALI EKRAN",
+                        "paragraph": "Qəhvə maşınının düzgün işləməsini izləməyə və əsas funksiyaları idarə etməyə imkan verir."
+                    },
+                    {
+                        "icon": "ReleIcon",
+                        "heading": "STATİK RELE",
+                        "paragraph": "Mükəmməl dəqiqlik təmin etmək üçün temperaturu tənzimləyir."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Sanremo D8 PRO 2GR – это высококачественная профессиональная кофемашина, разработанная для достижения исключительных результатов в приготовлении кофе. С двумя группами, эта модель идеально подходит для кофеен, где важно не только качество, но и скорость обслуживания. Оснащенная такими функциями, как программируемая температура и таймер экстракции, D8 PRO 2GR позволяет баристам готовить эспрессо с высокой точностью и стабильностью. Регулируемая рабочая поверхность и двойной манометр добавляют удобства в процессе работы. Доступная в различных цветовых вариантах, эта кофемашина станет стильным дополнением к любому интерьеру."
+                ],
+                "body": [
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "АВТОМАТИЧЕСКИЙ ЦИКЛ ОЧИСТКИ",
+                        "paragraph": "Процесс очистки кофейных групп."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "АКТИВИРОВАННАЯ ЭЛЕКТРОННАЯ ПРЕДИНФУЗИЯ",
+                        "paragraph": "Управление задержкой активации соленоида воды на первом этапе заваривания."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "СИСТЕМА ЭНЕРГОСБЕРЕЖЕНИЯ",
+                        "paragraph": "Высокое и постоянное давление при любых условиях. Для большей точности программируемой порции."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "АВТОМАТИЧЕСКОЕ ВКЛЮЧЕНИЕ / ВЫКЛЮЧЕНИЕ",
+                        "paragraph": "Программируемый таймер включения/выключения каждый день или установка ежедневного расписания."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "АВТОКОНТРОЛЬ УРОВНЯ ВОДЫ",
+                        "paragraph": "С помощью электронного датчика бойлер наполняется и поддерживает нужный уровень воды автоматически."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "ГРУППА E61",
+                        "paragraph": "Эксклюзивная конструкция Sanremo, позволяющая точно поддерживать заданную температуру."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "РЕГУЛИРУЕМАЯ РАБОЧАЯ ПОВЕРХНОСТЬ",
+                        "paragraph": "Инновационная система Sanremo позволяющая использовать чашки различной формы и высоты."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "ДВОЙНОЙ ИЗМЕРИТЕЛЬНЫЙ МАНОМЕТР",
+                        "paragraph": "Позволяет одновременно контролировать давление в бойлере и распределительное давление."
+                    },
+                    {
+                        "icon": "EkstraksiyaZamanIcon",
+                        "heading": "ТАЙМЕР ЭКСТРАКЦИИ",
+                        "paragraph": "Для точного и надежного измерения времени экстракции кофе."
+                    },
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "СМЕШИВАНИЕ ВОДЫ ДЛЯ ЧАЯ",
+                        "paragraph": "Быстрое смешивание воды и пара для улучшения химических и органолептических свойств."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "СТИМЕР «COOL TOUCH» ИЗ НЕРЖАВЕЮЩЕЙ СТАЛИ",
+                        "paragraph": "Паровая система высокой производительности, отлично подходящая для работы над «Latte Art»."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "СВЕТОДИОДНОЕ ОСВЕЩЕНИЕ РАБОЧЕЙ ЗОНЫ",
+                        "paragraph": "Удобство работы при любом освещении."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "НЕЗАВИСИМАЯ РЕГУЛИРОВКА ТЕМПЕРАТУРЫ ВОДЫ",
+                        "paragraph": "Максимальная точность и постоянство температуры."
+                    },
+                    {
+                        "icon": "FunctionalScreenIcon",
+                        "heading": "МНОГОФУНКЦИОНАЛЬНЫЙ ДИСПЛЕЙ",
+                        "paragraph": "Обеспечивает контроль с точностью до 0,1 секунды за потоком воды, увлажняющим кофе, с возможностью программирования 4 различных профилей для каждой группы."
+                    },
+                    {
+                        "icon": "ReleIcon",
+                        "heading": "СТАТИЧЕСКОЕ РЕЛЕ",
+                        "paragraph": "Регулирует температуру для обеспечения отличной точности."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Sanremo D8 PRO 2GR – yüksək keyfiyyətli peşəkar qəhvə maşınıdır ki, qəhvə hazırlanmasında istisna nəticələr Əlaqəmək üçün hazırlanmışdır. İki qrupla, bu model kafe üçün ideal seçimdir, burada keyfiyyətlə yanaşı, xidmət sürəti də önəmlidir. Proqramlaşdırıla bilən temperatur və ekstraksiya vaxtı kimi funksiyalarla təchiz olunmuş D8 PRO 2GR, baristalara espressoyu yüksək dəqiqlik və sabitliklə hazırlamağa imkan tanıyır. Tənzimlənən iş səthi və ikili manometr, iş prosesini daha rahat edir. Müxtəlif rəng variantlarında mövcud olan bu qəhvə maşını, hər bir interyeri stilə uyğunlaşdıran şık bir əlavə olacaq."
+                ],
+                "body": [
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "AVTOMATİK TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə qruplarının təmizlənməsi prosesi. Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "AKTİVLƏŞDİRİLMİŞ ELEKTRONİK PRE-INFUZİYA",
+                        "paragraph": "Su solenoidinin işə düşmə gecikməsini dəmləmənin ilk mərhələsində idarə edir."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ QƏNAƏT SİSTEMİ",
+                        "paragraph": "Hər şəraitdə yüksək və sabit təzyiq. Proqramlaşdırılan porsiya üçün daha böyük dəqiqlik təmin edir."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "AVTOMATİK YANDIRMA / SÖNDÜRMƏ",
+                        "paragraph": "Hər gün üçün proqramlaşdırıla bilən yandırma/söndürmə zamanlayıcısı və ya gündəlik qrafikin qurulması."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "AVTOMATİK SU SƏVİYYƏSİNİN NƏZARƏTİ",
+                        "paragraph": "Elektron sensor vasitəsilə, boiler avtomatik olaraq suyu doldurur və tələb olunan su səviyyəsini saxlayır."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "E61 QRUPU",
+                        "paragraph": "Sanremo-nun xüsusi dizaynı, tələb olunan temperaturu dəqiq şəkildə saxlamağa imkan verir."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "TƏNZİMLƏNƏ BİLƏN İŞ SAHƏSİ",
+                        "paragraph": "Sanremonun innovativ sistemi, müxtəlif forma və hündürlükdəki fincanlardan istifadə etməyə imkan verir."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "İKİQAT BOİLER MANOMETRİ",
+                        "paragraph": "Boilerdə eyni zamanda təzyiqi və paylama təzyiqini idarə etməyə imkan verir."
+                    },
+                    {
+                        "icon": "EkstraksiyaZamanIcon",
+                        "heading": "EKSTRAKSİYA ÜÇÜN ZAMANLAYICI",
+                        "paragraph": "Qəhvənin ekstraksiya müddətini dəqiq ölçməyə imkan verir."
+                    },
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "QAYNAR SU VERMƏSİ ÜÇÜN SUYUN QARIŞDIRILMASI",
+                        "paragraph": "Kimyəvi və orqonoleptik keyfiyyətin yaxşılaşdırılması üçün su və buxarın ani qarışdırılması."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "PASLANMAZ POLADDAN OLAN «COOL TOUCH» BUXAR BORUSU",
+                        "paragraph": "Yüksək performanslı buxar sistemi, «Latte Art» üçün mükəmməl uyğun gəlir."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "İŞ SAHƏSİNİN LED İŞIQLANDIRILMASI",
+                        "paragraph": "İstənilən işıqlandırılma mühitində iş rahatlığı."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "SU TEMPERATURUNA MÜSTƏQİL NƏZARƏT",
+                        "paragraph": "Maksimal dəqiqlik və sabit temperatur."
+                    },
+                    {
+                        "icon": "FunctionalScreenIcon",
+                        "heading": "ÇOXFUNKSİYALI EKRAN",
+                        "paragraph": "Qəhvə maşınının düzgün işləməsini izləməyə və əsas funksiyaları idarə etməyə imkan verir."
+                    },
+                    {
+                        "icon": "ReleIcon",
+                        "heading": "STATİK RELE",
+                        "paragraph": "Mükəmməl dəqiqlik təmin etmək üçün temperaturu tənzimləyir."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SANREMO F64 OD EVO",
+            "az": {
+                "longDescriptions": [
+                    "Bu, sabit və dəqiq espresso üyütməsi üçün yaradılmış avtomatik dozajlı yüksək məhsuldar bir qəhvə üyüdəndir. Güclü mühərrik və etibarlı polad burslar ilə təchiz olunmuşdur, bu da onu pik saatlarda belə yüksək məhsuldarlığı təmin etməyə imkan verir. Rəqəmsal ekranla intuitiv interfeys, parametrləri asanlıqla tənzimləməyə imkan verir, kompakt dizaynı isə onu hər hansı bir kafedə yerləşdirmək üçün əlverişli edir.                    "
+                ],
+                "body": [
+                    {
+                        "heading": "KOMPAKT DİZAYN",
+                        "paragraph": "Yüksək məhsuldarlığına baxmayaraq, qəhvə üyüdəninin yer tutumu azdır, bu da onu kiçik və ya dolu iş sahələri üçün mükəmməl seçim edir."
+                    },
+                    {
+                        "heading": "AVTOMATİK DOZALAMA SİSTEMİ",
+                        "paragraph": "İntegrasiya olunmuş dozator sayəsində, qəhvə üyüdən hər porsiya üçün üyüdülmüş qəhvənin miqdarını avtomatik olaraq tənzimləyir, bu da üyüdülmə sabitliyini təmin edir və itkini minimuma endirir."
+                    },
+                    {
+                        "heading": "RƏQAMLI EKRAN",
+                        "paragraph": "İntuitiv rəqəmsal panel, üyüdülmə parametrlərini sürətlə tənzimləməyə və prosesi nəzarət etməyə imkan verir, bu da onu intensiv iş şəraitində belə istifadəsini asanlaşdırır."
+                    },
+                    {
+                        "heading": "YÜKSƏK ÜYÜTMƏ SÜRƏTİ",
+                        "paragraph": "Güclü mühərrik və polad burslar, hətta böyük miqdarda qəhvə hazırlayarkən belə, dənələrin ətirini və keyfiyyətini qoruyaraq, onların sürətli emalını təmin edir."
+                    },
+                    {
+                        "heading": "SOYUTMA SİSTEMİ",
+                        "paragraph": "İçindəki aktiv soyutma sistemi, qəhvə üyüdücünün uzun müddət işlədiyi zaman yüksək temperaturdan qorunmasını təmin edir və gün boyunca stabil iş rejimini zəmanət verir."
+                    },
+                    {
+                        "heading": "POLAD BURSLAR",
+                        "paragraph": "Möhkəm və sərtləşdirilmiş poladdan hazırlanmış burslar uzun müddət xidmət edir və yüksək dəqiqliklə üyütməyi təmin edir, bu da kafe və ya restoran kimi intensiv iş mühitlərində xüsusilə vacibdir."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Это высокопроизводительная кофемолка с автоматическим дозированием, созданная для стабильного и точного помола эспрессо. Оснащённая мощным двигателем и надежными стальными жерновами, она гарантирует высокую производительность даже в часы пик. Интуитивный интерфейс с цифровым дисплеем позволяет легко регулировать параметры, а компактный дизайн делает её удобной для размещения в любой кофейне."
+                ],
+                "body": [
+                    {
+                        "heading": "КОМПАКТНЫЙ ДИЗАЙН",
+                        "paragraph": "Несмотря на высокую производительность, кофемолка занимает мало места, что делает её отличным выбором для небольших или переполненных рабочих пространств."
+                    },
+                    {
+                        "heading": "СИСТЕМА АВТОМАТИЧЕСКОГО ДОЗИРОВАНИЯ",
+                        "paragraph": "Благодаря встроенному дозатору, кофемолка автоматически регулирует количество молотого кофе для каждой порции, обеспечивая стабильность помола и минимизируя отходы."
+                    },
+                    {
+                        "heading": "ЦИФРОВОЙ ДИСПЛЕЙ",
+                        "paragraph": "Интуитивно понятная цифровая панель позволяет быстро настраивать параметры помола и контролировать процесс, что делает её удобной в использовании даже во время интенсивной работы."
+                    },
+                    {
+                        "heading": "ВЫСОКАЯ СКОРОСТЬ ПОМОЛА",
+                        "paragraph": "Мощный двигатель и стальные жернова обеспечивают быструю обработку зерен, сохраняя их аромат и качество, даже при больших объемах приготовления кофе."
+                    },
+                    {
+                        "heading": "СИСТЕМА ОХЛАЖДЕНИЯ",
+                        "paragraph": "Встроенная система активного охлаждения двигателя предотвращает перегрев кофемолки при длительной эксплуатации, гарантируя стабильную работу в течение всего дня."
+                    },
+                    {
+                        "heading": "СТАЛЬНЫЕ ЖЕРНОВА",
+                        "paragraph": "Прочные жернова из закаленной стали обеспечивают длительный срок службы и высокую точность помола, что особенно важно при интенсивной эксплуатации в кафе или ресторане."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Bu, sabit və dəqiq espresso üyütməsi üçün yaradılmış avtomatik dozajlı yüksək məhsuldar bir qəhvə üyüdəndir. Güclü mühərrik və etibarlı polad burslar ilə təchiz olunmuşdur, bu da onu pik saatlarda belə yüksək məhsuldarlığı təmin etməyə imkan verir. Rəqəmsal ekranla intuitiv interfeys, parametrləri asanlıqla tənzimləməyə imkan verir, kompakt dizaynı isə onu hər hansı bir kafedə yerləşdirmək üçün əlverişli edir.                    "
+                ],
+                "body": [
+                    {
+                        "heading": "KOMPAKT DİZAYN",
+                        "paragraph": "Yüksək məhsuldarlığına baxmayaraq, qəhvə üyüdəninin yer tutumu azdır, bu da onu kiçik və ya dolu iş sahələri üçün mükəmməl seçim edir."
+                    },
+                    {
+                        "heading": "AVTOMATİK DOZALAMA SİSTEMİ",
+                        "paragraph": "İntegrasiya olunmuş dozator sayəsində, qəhvə üyüdən hər porsiya üçün üyüdülmüş qəhvənin miqdarını avtomatik olaraq tənzimləyir, bu da üyüdülmə sabitliyini təmin edir və itkini minimuma endirir."
+                    },
+                    {
+                        "heading": "RƏQAMLI EKRAN",
+                        "paragraph": "İntuitiv rəqəmsal panel, üyüdülmə parametrlərini sürətlə tənzimləməyə və prosesi nəzarət etməyə imkan verir, bu da onu intensiv iş şəraitində belə istifadəsini asanlaşdırır."
+                    },
+                    {
+                        "heading": "YÜKSƏK ÜYÜTMƏ SÜRƏTİ",
+                        "paragraph": "Güclü mühərrik və polad burslar, hətta böyük miqdarda qəhvə hazırlayarkən belə, dənələrin ətirini və keyfiyyətini qoruyaraq, onların sürətli emalını təmin edir."
+                    },
+                    {
+                        "heading": "SOYUTMA SİSTEMİ",
+                        "paragraph": "İçindəki aktiv soyutma sistemi, qəhvə üyüdücünün uzun müddət işlədiyi zaman yüksək temperaturdan qorunmasını təmin edir və gün boyunca stabil iş rejimini zəmanət verir."
+                    },
+                    {
+                        "heading": "POLAD BURSLAR",
+                        "paragraph": "Möhkəm və sərtləşdirilmiş poladdan hazırlanmış burslar uzun müddət xidmət edir və yüksək dəqiqliklə üyütməyi təmin edir, bu da kafe və ya restoran kimi intensiv iş mühitlərində xüsusilə vacibdir."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SANREMO F64 OD EVO PRO",
+            "az": {
+                "longDescriptions": [
+                    "Bu, mükəmməl üyütmə Əlaqəmək üçün ən son texnologiyalar və innovativ funksiyaları birləşdirən qabaqcıl bir qəhvə üyüdəndir. Bu, baristalar və yüksək məhsuldarlıq və dəqiqlik tələb edən peşəkar kafelər üçün hazırlanmışdır. Müxtəlif qəhvə növləri ilə işləmək imkanı sayəsində X-One müxtəlif qəhvə növlərini istifadə etməyə çeviklik təqdim edir, eyni zamanda ağıllı idarəetmə sistemi hər içki üçün üyüdülməni optimallaşdırır. Zərif dizaynı və intuitiv interfeysi onu mükəmməl bir qəhvə üyüdənə çevirir."
+                ],
+                "body": [
+                    {
+                        "heading": "TƏKMİLLƏŞDİRİLMİŞ DOZA SİSTEMİ",
+                        "paragraph": "PRO model daha dəqiq doza sisteminə malikdir ki, bu da hər içki üçün qəhvə porsiyalarını incəliklə tənzimləməyə imkan verir və premium coffee shoplar üçün xüsusilə əhəmiyyətlidir."
+                    },
+                    {
+                        "heading": "MİKROMETRİK TƏNZİMLƏMƏ",
+                        "paragraph": "Qəhvə üyüdən müxtəlif qəhvə növləri üçün ideal üyütmə səviyyəsini seçməyə imkan verən incə üyütmə parametrlərini tənzimləməyə dəstək verir."
+                    },
+                    {
+                        "heading": "STABİLLİK",
+                        "paragraph": "Daxili sistem qəhvə miqdarından asılı olmayaraq sabit sürət və üyütmə keyfiyyətini qoruyur, bu da hətta pik saatlarında yüksək məhsuldarlığı təmin edir."
+                    },
+                    {
+                        "heading": "ERGONOMİKLİK",
+                        "paragraph": "Erqonomik dizayn və rahat idarəetmə elementləri baristanın işini asanlaşdırır, onların məhsuldarlığını və avadanlıqdan istifadəsində rahatlığını artırır."
+                    },
+                    {
+                        "heading": "SƏSSİZ İŞLƏMƏ",
+                        "paragraph": "PRO modeli təkmilləşdirilmiş səs izolyasiyası ilə hazırlanıb, bu da üyütmə prosesini daha sakit və rahat edir, xüsusilə açıq konsepsiyalı kafelərdə vacibdir."
+                    },
+                    {
+                        "heading": "ÜYÜTMƏ PROFİLLƏRİ",
+                        "paragraph": "Qəhvə üyüdən müxtəlif üyütmə proqramlarını yaratmaq və yadda saxlamaq imkanı təqdim edir ki, bu da fərqli qəhvə növləri və reseptləri ilə işləməyi asanlaşdırır."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Это усовершенствованная версия, которая предлагает повышенную точность и больше возможностей для настройки. Она разработана для профессиональных бариста, которым требуется точный контроль над процессом помола. Модель PRO обладает улучшенными функциями дозирования и регулировки, что позволяет легко подстраивать помол под различные сорта кофе, обеспечивая безупречную консистенцию на протяжении всего дня."
+                ],
+                "body": [
+                    {
+                        "heading": "УЛУЧШЕННОЕ ДОЗИРОВАНИЕ",
+                        "paragraph": "Модель PRO оснащена более точной системой дозирования, которая позволяет детально настраивать порции кофе для каждого напитка, что особенно важно для премиум-кофеен."
+                    },
+                    {
+                        "heading": "МИКРОРЕГУЛИРОВКА",
+                        "paragraph": "Кофемолка поддерживает возможность тонкой настройки жерновов, что позволяет подобрать идеальный уровень помола для любого сорта кофе."
+                    },
+                    {
+                        "heading": "СТАБИЛЬНОСТЬ",
+                        "paragraph": "Встроенная система поддерживает постоянную скорость и качество помола, независимо от количества зерен, что обеспечивает высокую производительность даже в часы пик."
+                    },
+                    {
+                        "heading": "ЭРГОНОМИЧНОСТЬ",
+                        "paragraph": "Эргономичный дизайн и удобные элементы управления облегчают работу бариста, повышая их производительность и комфорт в использовании оборудования."
+                    },
+                    {
+                        "heading": "БЕСШУМНАЯ РАБОТА",
+                        "paragraph": "Модель PRO разработана с улучшенной шумоизоляцией, что делает процесс помола тише и комфортнее, что особенно важно в кофейнях с открытой концепцией."
+                    },
+                    {
+                        "heading": "ПРОФИЛИ ПОМОЛА",
+                        "paragraph": "Кофемолка поддерживает создание и сохранение нескольких программ помола, что облегчает работу с разными сортами кофе и рецептами."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Bu, mükəmməl üyütmə Əlaqəmək üçün ən son texnologiyalar və innovativ funksiyaları birləşdirən qabaqcıl bir qəhvə üyüdəndir. Bu, baristalar və yüksək məhsuldarlıq və dəqiqlik tələb edən peşəkar kafelər üçün hazırlanmışdır. Müxtəlif qəhvə növləri ilə işləmək imkanı sayəsində X-One müxtəlif qəhvə növlərini istifadə etməyə çeviklik təqdim edir, eyni zamanda ağıllı idarəetmə sistemi hər içki üçün üyüdülməni optimallaşdırır. Zərif dizaynı və intuitiv interfeysi onu mükəmməl bir qəhvə üyüdənə çevirir."
+                ],
+                "body": [
+                    {
+                        "heading": "TƏKMİLLƏŞDİRİLMİŞ DOZA SİSTEMİ",
+                        "paragraph": "PRO model daha dəqiq doza sisteminə malikdir ki, bu da hər içki üçün qəhvə porsiyalarını incəliklə tənzimləməyə imkan verir və premium coffee shoplar üçün xüsusilə əhəmiyyətlidir."
+                    },
+                    {
+                        "heading": "MİKROMETRİK TƏNZİMLƏMƏ",
+                        "paragraph": "Qəhvə üyüdən müxtəlif qəhvə növləri üçün ideal üyütmə səviyyəsini seçməyə imkan verən incə üyütmə parametrlərini tənzimləməyə dəstək verir."
+                    },
+                    {
+                        "heading": "STABİLLİK",
+                        "paragraph": "Daxili sistem qəhvə miqdarından asılı olmayaraq sabit sürət və üyütmə keyfiyyətini qoruyur, bu da hətta pik saatlarında yüksək məhsuldarlığı təmin edir."
+                    },
+                    {
+                        "heading": "ERGONOMİKLİK",
+                        "paragraph": "Erqonomik dizayn və rahat idarəetmə elementləri baristanın işini asanlaşdırır, onların məhsuldarlığını və avadanlıqdan istifadəsində rahatlığını artırır."
+                    },
+                    {
+                        "heading": "SƏSSİZ İŞLƏMƏ",
+                        "paragraph": "PRO modeli təkmilləşdirilmiş səs izolyasiyası ilə hazırlanıb, bu da üyütmə prosesini daha sakit və rahat edir, xüsusilə açıq konsepsiyalı kafelərdə vacibdir."
+                    },
+                    {
+                        "heading": "ÜYÜTMƏ PROFİLLƏRİ",
+                        "paragraph": "Qəhvə üyüdən müxtəlif üyütmə proqramlarını yaratmaq və yadda saxlamaq imkanı təqdim edir ki, bu da fərqli qəhvə növləri və reseptləri ilə işləməyi asanlaşdırır."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SANREMO X-ONE",
+            "az": {
+                "longDescriptions": [
+                    "Это передовая кофемолка, которая сочетает в себе новейшие технологии и инновационные функции для достижения идеального помола. Она разработана для бариста и профессиональных кофеен, где требуется высокая производительность и точность. С возможностью работы с несколькими бункерами для зерен, X-One предоставляет гибкость в использовании разных сортов кофе, а интеллектуальная система управления оптимизирует помол под каждый напиток. Элегантный дизайн и интуитивный интерфейс делают её удобной и стильной частью любого кофейного бара."
+                ],
+                "body": [
+                    {
+                        "icon": "HighFilterIcon",
+                        "heading": "ПРЕДВАРИТЕЛЬНОЕ ВЗВЕШИВАНИЕ ЗЁРЕН",
+                        "paragraph": "X-One — единственная кофемолка, которая предварительно взвешивает зерна перед помолом, гарантируя точные порции для идеального эспрессо или фильтр-кофе."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "ОЧИСТКА ПОСЛЕ КАЖДОГО ПОМОЛА",
+                        "paragraph": "После каждой выдачи камера помола очищается, предотвращая скопление остатков кофе и минимизируя ретенцию, что особенно важно для поддержания свежести вкуса."
+                    },
+                    {
+                        "icon": "FreezeIcon",
+                        "heading": "АВТОМАТИЧЕСКАЯ СИСТЕМА ОХЛАЖДЕНИЯ",
+                        "paragraph": "Добавленный автоматический вентилятор охлаждения делает кофемолку отличным выбором для заведений с высокой загрузкой, которые стремятся предложить высокое качество в больших объемах."
+                    },
+                    {
+                        "icon": "FreezeIcon",
+                        "heading": "ВЕРТИКАЛЬНАЯ ПЛОСКИЕ ЖЕРНОВА 98ММ",
+                        "paragraph": "Обеспечивают стабильный и высококачественный помол кофе, позволяя готовить идеальный эспрессо каждый раз."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "МИКРОМЕТРИЧЕСКАЯ РЕГУЛИРОВКА",
+                        "paragraph": "Точная регулировка помола, которая позволяет получать максимальную отдачу от вашего кофе и обеспечивает стабильность вкуса каждый раз."
+                    },
+                    {
+                        "icon": "CapsenseIcon",
+                        "heading": "СЕНСОРНЫЙ ЭКРАН CAPSENSE",
+                        "paragraph": "Убедитесь, что всё под контролем: легко настраивайте параметры и отслеживайте температуру, влажность и срок службы лезвий."
+                    },
+                    {
+                        "icon": "BluetoothIcon",
+                        "heading": "BLUETOOTH",
+                        "paragraph": "Возможность подключения по Bluetooth для удобного управления и мониторинга."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ПРОСТОТА ОБСЛУЖИВАНИЯ",
+                        "paragraph": "Быстрый доступ к внутренним частям для легкого технического обслуживания."
+                    },
+                    {
+                        "icon": "DisplayIcon",
+                        "heading": "СИСТЕМНЫЙ ДИСПЛЕЙ",
+                        "paragraph": "Обеспечивает видимость всех функций машины: температуры, давления и уровней."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Это передовая кофемолка, которая сочетает в себе новейшие технологии и инновационные функции для достижения идеального помола. Она разработана для бариста и профессиональных кофеен, где требуется высокая производительность и точность. С возможностью работы с несколькими бункерами для зерен, X-One предоставляет гибкость в использовании разных сортов кофе, а интеллектуальная система управления оптимизирует помол под каждый напиток. Элегантный дизайн и интуитивный интерфейс делают её удобной и стильной частью любого кофейного бара."
+                ],
+                "body": [
+                    {
+                        "icon": "HighFilterIcon",
+                        "heading": "ПРЕДВАРИТЕЛЬНОЕ ВЗВЕШИВАНИЕ ЗЁРЕН",
+                        "paragraph": "X-One — единственная кофемолка, которая предварительно взвешивает зерна перед помолом, гарантируя точные порции для идеального эспрессо или фильтр-кофе."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "ОЧИСТКА ПОСЛЕ КАЖДОГО ПОМОЛА",
+                        "paragraph": "После каждой выдачи камера помола очищается, предотвращая скопление остатков кофе и минимизируя ретенцию, что особенно важно для поддержания свежести вкуса."
+                    },
+                    {
+                        "icon": "FreezeIcon",
+                        "heading": "АВТОМАТИЧЕСКАЯ СИСТЕМА ОХЛАЖДЕНИЯ",
+                        "paragraph": "Добавленный автоматический вентилятор охлаждения делает кофемолку отличным выбором для заведений с высокой загрузкой, которые стремятся предложить высокое качество в больших объемах."
+                    },
+                    {
+                        "icon": "FreezeIcon",
+                        "heading": "ВЕРТИКАЛЬНАЯ ПЛОСКИЕ ЖЕРНОВА 98ММ",
+                        "paragraph": "Обеспечивают стабильный и высококачественный помол кофе, позволяя готовить идеальный эспрессо каждый раз."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "МИКРОМЕТРИЧЕСКАЯ РЕГУЛИРОВКА",
+                        "paragraph": "Точная регулировка помола, которая позволяет получать максимальную отдачу от вашего кофе и обеспечивает стабильность вкуса каждый раз."
+                    },
+                    {
+                        "icon": "CapsenseIcon",
+                        "heading": "СЕНСОРНЫЙ ЭКРАН CAPSENSE",
+                        "paragraph": "Убедитесь, что всё под контролем: легко настраивайте параметры и отслеживайте температуру, влажность и срок службы лезвий."
+                    },
+                    {
+                        "icon": "BluetoothIcon",
+                        "heading": "BLUETOOTH",
+                        "paragraph": "Возможность подключения по Bluetooth для удобного управления и мониторинга."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ПРОСТОТА ОБСЛУЖИВАНИЯ",
+                        "paragraph": "Быстрый доступ к внутренним частям для легкого технического обслуживания."
+                    },
+                    {
+                        "icon": "DisplayIcon",
+                        "heading": "СИСТЕМНЫЙ ДИСПЛЕЙ",
+                        "paragraph": "Обеспечивает видимость всех функций машины: температуры, давления и уровней."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Это передовая кофемолка, которая сочетает в себе новейшие технологии и инновационные функции для достижения идеального помола. Она разработана для бариста и профессиональных кофеен, где требуется высокая производительность и точность. С возможностью работы с несколькими бункерами для зерен, X-One предоставляет гибкость в использовании разных сортов кофе, а интеллектуальная система управления оптимизирует помол под каждый напиток. Элегантный дизайн и интуитивный интерфейс делают её удобной и стильной частью любого кофейного бара."
+                ],
+                "body": [
+                    {
+                        "icon": "HighFilterIcon",
+                        "heading": "ПРЕДВАРИТЕЛЬНОЕ ВЗВЕШИВАНИЕ ЗЁРЕН",
+                        "paragraph": "X-One — единственная кофемолка, которая предварительно взвешивает зерна перед помолом, гарантируя точные порции для идеального эспрессо или фильтр-кофе."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "ОЧИСТКА ПОСЛЕ КАЖДОГО ПОМОЛА",
+                        "paragraph": "После каждой выдачи камера помола очищается, предотвращая скопление остатков кофе и минимизируя ретенцию, что особенно важно для поддержания свежести вкуса."
+                    },
+                    {
+                        "icon": "FreezeIcon",
+                        "heading": "АВТОМАТИЧЕСКАЯ СИСТЕМА ОХЛАЖДЕНИЯ",
+                        "paragraph": "Добавленный автоматический вентилятор охлаждения делает кофемолку отличным выбором для заведений с высокой загрузкой, которые стремятся предложить высокое качество в больших объемах."
+                    },
+                    {
+                        "icon": "FreezeIcon",
+                        "heading": "ВЕРТИКАЛЬНАЯ ПЛОСКИЕ ЖЕРНОВА 98ММ",
+                        "paragraph": "Обеспечивают стабильный и высококачественный помол кофе, позволяя готовить идеальный эспрессо каждый раз."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "МИКРОМЕТРИЧЕСКАЯ РЕГУЛИРОВКА",
+                        "paragraph": "Точная регулировка помола, которая позволяет получать максимальную отдачу от вашего кофе и обеспечивает стабильность вкуса каждый раз."
+                    },
+                    {
+                        "icon": "CapsenseIcon",
+                        "heading": "СЕНСОРНЫЙ ЭКРАН CAPSENSE",
+                        "paragraph": "Убедитесь, что всё под контролем: легко настраивайте параметры и отслеживайте температуру, влажность и срок службы лезвий."
+                    },
+                    {
+                        "icon": "BluetoothIcon",
+                        "heading": "BLUETOOTH",
+                        "paragraph": "Возможность подключения по Bluetooth для удобного управления и мониторинга."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ПРОСТОТА ОБСЛУЖИВАНИЯ",
+                        "paragraph": "Быстрый доступ к внутренним частям для легкого технического обслуживания."
+                    },
+                    {
+                        "icon": "DisplayIcon",
+                        "heading": "СИСТЕМНЫЙ ДИСПЛЕЙ",
+                        "paragraph": "Обеспечивает видимость всех функций машины: температуры, давления и уровней."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "MAZZER KOLD S",
+            "az": {
+                "longDescriptions": [
+                    "Mazzer Kold S sərin, müasir və gələcəyə yönəlmiş dizayna malikdir. O, qabaqcıl texnologiyanı və yüksək keyfiyyəti təcəssüm etdirir. Mazzer Kold S məhsul xəttində ən sürətli dəyirmanlardan biridir (50Hz-də 1s/5g, 60Hz-də 1s/6g). Mükəmməl konsistensiya və saxlanma performanslarına əlavə olaraq, Kold S uzunmüddətli üyütmə zamanı belə qəhvəni istiliyə məruz qalmadan qorumaq üçün xüsusi mexaniki konstruksiya, aşağı RPM və ikiqat soyutma sistemi ilə dizayn edilmişdir."
+                ],
+                "body": [
+                    {
+                        "icon": "HighProductivityIcon",
+                        "heading": "YÜKSƏK MƏHSULDARLIQ",
+                        "paragraph": "Böyük satış həcminə malik kafelər üçün yüksək məhsuldarlıq | Orta üyütmə sürəti 1 s / 5 g, 50 Hz-də."
+                    },
+                    {
+                        "icon": "SafetyIcon",
+                        "heading": "TƏHLÜKƏSİZLİK",
+                        "paragraph": "İki ventilyatordan ibarət xüsusi soyutma sistemi. Aşağı dövr sürətinə malik mühərrik."
+                    },
+                    {
+                        "icon": "GFCIcon",
+                        "heading": "ÜYÜDÜLMƏ AXININI İDARƏ ETMƏ SİSTEMİ",
+                        "paragraph": "Portafiltriniz üçün bərabər üyütmə əldə edilir, üyüdülmüş qəhvənin səthə düşməsinin qarşısını alır."
+                    },
+                    {
+                        "icon": "SettingIcon",
+                        "heading": "KONUSVARI BURSLAR",
+                        "paragraph": "71 mm konusvari burslar, 100% İtaliyada Mazzer şirkəti tərəfindən istehsal olunmuşdur."
+                    },
+                    {
+                        "icon": "LowLoseIcon",
+                        "heading": "AŞAĞI İTKİ MİQDARI",
+                        "paragraph": "Hər dəfə tənzimləmələri dəyişdirdiyinizdə həm vaxtınıza, həm də qəhvənizə qənaət edən az itkiyə malik qəhvə üyüdən."
+                    },
+                    {
+                        "icon": "NoWasteIcon",
+                        "heading": "YÜKSƏK DƏQİQLİK",
+                        "paragraph": "Yüksək dəqiqlikli sayğaclı üyütmə tənzimlənməsinə dəqiq nəzarət imkanı verir."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Mazzer Kold S разработан в современном, стильном и перспективном дизайне. Он сочетает в себе передовые технологии и премиальное качество. Mazzer Kold S является самой быстрой кофемолкой в линейке продуктов (1с/5г при 50Гц, 1с/6г при 60Гц). Помимо отличной производительности в плане консистенции и удержания, Kold S спроектирован для защиты кофе от воздействия тепла даже при длительном времени помола благодаря специальной механической конструкции с ременным приводом, низкими оборотами и двойной системе охлаждения."
+                ],
+                "body": [
+                    {
+                        "icon": "HighProductivityIcon",
+                        "heading": "ВЫСОКАЯ ПРОИЗВОДИТЕЛЬНОСТЬ",
+                        "paragraph": "Высокая производительность для кафе с большим объемом продаж | Средняя скорость помола 1 с / 5 г при 50 Гц."
+                    },
+                    {
+                        "icon": "SafetyIcon",
+                        "heading": "ДЕРЖИТЕ В БЕЗОПАСНОСТИ",
+                        "paragraph": "Специальная система охлаждения с двойным вентилятором. Двигатель с низкими оборотами."
+                    },
+                    {
+                        "icon": "GFCIcon",
+                        "heading": "СИСТЕМА УПРАВЛЕНИЯ ПОТОКОМ ПОМОЛА",
+                        "paragraph": "Получайте однородный помол для вашего портафильтра, избегая попадания молотого кофе на поверхность."
+                    },
+                    {
+                        "icon": "SettingIcon",
+                        "heading": "КОНУСНЫЕ ЖЕРНОВА",
+                        "paragraph": "71 мм конусные жернова, 100% произведенные в Италии компанией Mazzer."
+                    },
+                    {
+                        "icon": "LowLoseIcon",
+                        "heading": "ВЫСОКАЯ ТОЧНОСТЬ",
+                        "paragraph": "Высокоточный регулятор с счётчиком оборотов позволяет точно контролировать настройки помола"
+                    },
+                    {
+                        "icon": "NoWasteIcon",
+                        "heading": "НИЗКИЙ УРОВЕНЬ УДЕРЖАНИЯ",
+                        "paragraph": "Кофемолка с низким уровнем удержания для экономии времени и кофе при каждой смене настроек."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Mazzer Kold S sərin, müasir və gələcəyə yönəlmiş dizayna malikdir. O, qabaqcıl texnologiyanı və yüksək keyfiyyəti təcəssüm etdirir. Mazzer Kold S məhsul xəttində ən sürətli dəyirmanlardan biridir (50Hz-də 1s/5g, 60Hz-də 1s/6g). Mükəmməl konsistensiya və saxlanma performanslarına əlavə olaraq, Kold S uzunmüddətli üyütmə zamanı belə qəhvəni istiliyə məruz qalmadan qorumaq üçün xüsusi mexaniki konstruksiya, aşağı RPM və ikiqat soyutma sistemi ilə dizayn edilmişdir."
+                ],
+                "body": [
+                    {
+                        "icon": "HighProductivityIcon",
+                        "heading": "YÜKSƏK MƏHSULDARLIQ",
+                        "paragraph": "Böyük satış həcminə malik kafelər üçün yüksək məhsuldarlıq | Orta üyütmə sürəti 1 s / 5 g, 50 Hz-də."
+                    },
+                    {
+                        "icon": "SafetyIcon",
+                        "heading": "TƏHLÜKƏSİZLİK",
+                        "paragraph": "İki ventilyatordan ibarət xüsusi soyutma sistemi. Aşağı dövr sürətinə malik mühərrik."
+                    },
+                    {
+                        "icon": "GFCIcon",
+                        "heading": "ÜYÜDÜLMƏ AXININI İDARƏ ETMƏ SİSTEMİ",
+                        "paragraph": "Portafiltriniz üçün bərabər üyütmə əldə edilir, üyüdülmüş qəhvənin səthə düşməsinin qarşısını alır."
+                    },
+                    {
+                        "icon": "SettingIcon",
+                        "heading": "KONUSVARI BURSLAR",
+                        "paragraph": "71 mm konusvari burslar, 100% İtaliyada Mazzer şirkəti tərəfindən istehsal olunmuşdur."
+                    },
+                    {
+                        "icon": "LowLoseIcon",
+                        "heading": "AŞAĞI İTKİ MİQDARI",
+                        "paragraph": "Hər dəfə tənzimləmələri dəyişdirdiyinizdə həm vaxtınıza, həm də qəhvənizə qənaət edən az itkiyə malik qəhvə üyüdən."
+                    },
+                    {
+                        "icon": "NoWasteIcon",
+                        "heading": "YÜKSƏK DƏQİQLİK",
+                        "paragraph": "Yüksək dəqiqlikli sayğaclı üyütmə tənzimlənməsinə dəqiq nəzarət imkanı verir."
+                    }
+                ]
+            }
         }
     ]
 }
