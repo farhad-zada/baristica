@@ -6,21 +6,81 @@
                 "longDescriptions": [
                     "Sanremo Cafe Racer — bu, kiçik kafelər və qastronomlar üçün mükəmməl olan zərif bir qəhvə maşınıdır. Müasir dizaynı və kompakt ölçüləri ilə yüksək məhsuldarlığı və mükəmməl ekstreksiyanı təmin edir. White Wood üslubunda hazırlanmış bu model yalnız interyerinizi bəzəməkdə deyil, həm də müştərilərinizi zəngin və aromatik qəhvə ilə sevindirəcək."
                 ],
-                "body":[
+                "body": [
                     {
                         "icon": "DisplayIcon",
-                        "heading":"TAM NƏZARƏT SISTEMLI EKRAN",
-                        "paragraph":"Qəhvə maşınının bütün göstəricilərinin (təzyiq, temperatura və su səviyyəsi) nəzarəti."
+                        "heading": "TAM NƏZARƏT SISTEMLI EKRAN",
+                        "paragraph": "Qəhvə maşınının bütün göstəricilərinin (təzyiq, temperatura və su səviyyəsi) nəzarəti."
                     },
                     {
                         "icon": "CupHeightIcon",
-                        "heading":"HÜNDÜRLÜYƏ TƏNZİMLƏNƏN ALTLIQ",
-                        "paragraph":"Müxtəlif hündürlüklü fincanla işləməyə imkan verir."
+                        "heading": "HÜNDÜRLÜYƏ TƏNZİMLƏNƏN ALTLIQ",
+                        "paragraph": "Müxtəlif hündürlüklü fincanla işləməyə imkan verir."
                     },
                     {
-                        "icon":"CicleIcon",
-                        "heading":"PEŞƏKAR TƏMİZLƏMƏ DÖVRÜ",
-                        "paragraph":"Qəhvə aparatının təmizləmə prosesi."
+                        "icon": "CicleIcon",
+                        "heading": "PEŞƏKAR TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə aparatının təmizləmə prosesi."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN AVTOMATİK BAŞLANĞIC VƏ SÖNDÜRMƏ",
+                        "paragraph": "Hər gün və gündəlik cədvəl üçün proqramlaşdırıla bilən işə salma/söndürmə taymeri."
+                    },
+                    {
+                        "icon": "HolderIcon",
+                        "heading": "PASLANMAZ POLADDAN HOLDERLƏR",
+                        "paragraph": "Eksklüziv sanremo dizaynı, forması və həcmi ilə qəhvənin dadının bütün zənginliyini maksimum dərəcədə açmağa imkan verir."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ İSTİFADƏSİ SISTEMİ",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "PreBrewIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN ÖN DƏMLƏMƏ",
+                        "paragraph": "Qəhvəni islatmaq üçün su axınını idarə etməyə imkan verir; 0.1 saniyə dəqiqliyi ilə, hər qrup üçün 4 müxtəlif profilin saxlanılması imkanı ilə."
+                    },
+                    {
+                        "icon": "CupHeatingIcon",
+                        "heading": "FİNCANLARIN İSTİDİLMƏ TEMPERATURUNUN TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Fincanları müxtəlif iqlim və ekoloji şəraitdə optimal temperaturda saxlamağa imkan verir."
+                    },
+                    {
+                        "icon": "UpdateWaterIcon",
+                        "heading": "BOİLERDƏ DAİMİ SU YENİLƏNMƏSİ",
+                        "paragraph": "Qəhvə və çay hazırlamaq üçün suyun optimal xarakteristikalarını təmin edir, eyni zamanda boilerdə suyun yenilənməsi onun düzgün mineralizasiyasını dəstəkləyir."
+                    },
+                    {
+                        "icon": "PerfomancePumpIcon",
+                        "heading": "YÜKSƏK PERFORMANSLI NASOS",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "IndependentTempIcon",
+                        "heading": "HƏR QƏHVƏ QRUPU ÜÇÜN MÜSTƏQİL TEMPERATUR",
+                        "paragraph": "Hər qrupun temperaturunu ± 0,5 dərəcə dəqiqliklə tənzimləməyə imkan verir."
+                    },
+                    {
+                        "icon": "PressurePumpIcon",
+                        "heading": "YÜKSƏK TƏZYİQ NASOSU (300 l/saat)",
+                        "paragraph": "Maşından istifadə şəraitindən asılı olmayaraq, sabit təzyiq təmin edir."
+                    },
+                    {
+                        "icon": "ElectronicSwitchIcon",
+                        "heading": "TƏNZİMLƏNƏN ELEKTRON DƏYİŞDİRİCİ",
+                        "paragraph": "0,02 bar dəqiqliyi olan sensor, istənilən istifadə şəraitində boiler içində sabit təzyiq və buxarı qorumağa imkan verir."
+                    },
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "QAYNAR SU VERMƏSİ ÜÇÜN SUYUN QARIŞDIRILMASI",
+                        "paragraph": "Kimyəvi və orqonoleptik keyfiyyətin yaxşılaşdırılması üçün su və buxarın ani qarışdırılması."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "PASLANMAZ POLADDAN OLAN «COOL TOUCH» BUXAR BORUSU",
+                        "paragraph": "Yüksək performanslı buxar sistemi, «Latte Art» üçün mükəmməl uyğun gəlir."
                     }
                 ]
             },
@@ -28,21 +88,81 @@
                 "longDescriptions": [
                     "Sanremo Cafe Racer —  это мощная и стильная кофемашина, созданная для профессионалов, требующих максимальной производительности. Обладая тремя группами, она идеально подходит для заведений с высоким потоком клиентов, обеспечивая быстрое и качественное приготовление кофе. Элегантный дизайн White Wood подчеркивает современный стиль вашего заведения, в то время как передовые технологии гарантируют отличные результаты в каждой чашке."
                 ],
-                "body":[
+                "body": [
                     {
                         "icon": "DisplayIcon",
-                        "heading":"ПОЛНЫЙ КОНТРОЛЬ С СИСТЕМНЫМ ДИСПЛЕЕМ",
-                        "paragraph":"Контроль всех показателей кофемашины: давления, температуры и уровня воды."
+                        "heading": "ПОЛНЫЙ КОНТРОЛЬ С СИСТЕМНЫМ ДИСПЛЕЕМ",
+                        "paragraph": "Контроль всех показателей кофемашины: давления, температуры и уровня воды."
                     },
                     {
                         "icon": "CupHeightIcon",
-                        "heading":"РЕГУЛИРУЕМЫЙ ПО ВЫСОТЕ ПОДДОН",
-                        "paragraph":"Позволяет работать с посудой разной формы"
+                        "heading": "РЕГУЛИРУЕМЫЙ ПО ВЫСОТЕ ПОДДОН",
+                        "paragraph": "Позволяет работать с посудой разной формы"
                     },
                     {
-                        "icon":"CicleIcon",
-                        "heading":"ПРОФЕССИОНАЛЬНЫЙ ЦИКЛ ОЧИСТКИ",
-                        "paragraph":"Процедура очистки кофемашины"
+                        "icon": "CicleIcon",
+                        "heading": "ПРОФЕССИОНАЛЬНЫЙ ЦИКЛ ОЧИСТКИ",
+                        "paragraph": "Процедура очистки кофемашины"
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "ПРОГРАММИРУЕМЫЙ АВТО ЗАПУСК, АВТОВЫКЛЮЧЕНИЕ",
+                        "paragraph": "Программируемый таймер включениявыключения для каждого дня и ежедневных расписаний."
+                    },
+                    {
+                        "icon": "HolderIcon",
+                        "heading": "ХОЛДЕРЫ ИЗ НЕРЖАВЕЮЩЕЙ СТАЛИ",
+                        "paragraph": "Эксклюзивный дизайн Sanremo, с формой и объемом, позволяющим максимально раскрыть весь букет кофейного вкуса."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "СИСТЕМА ЭНЕРГОСБЕРЕЖЕНИЯ",
+                        "paragraph": "Высокое и постоянное давление при любых условиях. Для большей точности программируемой порции."
+                    },
+                    {
+                        "icon": "PreBrewIcon",
+                        "heading": "ПРОГРАММИРУЕМОЕ ПРЕДЗАВАРИВАНИЕ",
+                        "paragraph": "Позволяет управлять потоком воды, который смачивает кофейную таблетку; с точностью до 0.1 секунды, с возможностью сохранения 4 различных профилей с настройками на каждую группу."
+                    },
+                    {
+                        "icon": "CupHeatingIcon",
+                        "heading": "НАСТРАИВАЕМАЯ ТЕМПЕРАТУРА ПОДОГРЕВА ЧАШЕК",
+                        "paragraph": "Позволяет хранить чашки при оптимальной температуре в самых разных климатических и экологических условиях."
+                    },
+                    {
+                        "icon": "UpdateWaterIcon",
+                        "heading": "РЕГУЛЯРНОЕ ОБНОВЛЕНИЕ ВОДЫ В БОЙЛЕРЕ",
+                        "paragraph": "Обеспечивает оптимальные характери-стики воды для приготовления кофе и чая, а также обновление воды в бойлере способствует её правильной минерализации."
+                    },
+                    {
+                        "icon": "PerfomancePumpIcon",
+                        "heading": "НАСОС ВЫСОКОЙ ПРОИЗВОДИТЕЛЬНОСТИ",
+                        "paragraph": "Высокое и постоянное давление при любых условиях. Для большей точности программируемой порции."
+                    },
+                    {
+                        "icon": "IndependentTempIcon",
+                        "heading": "НЕЗАВИСИМАЯ ТЕМПЕРАТУРА КАЖДОЙ КОФЕЙНОЙ ГРУППЫ",
+                        "paragraph": "Точная настройка температуры каждой группы с шагом ± 0,5 "
+                    },
+                    {
+                        "icon": "PressurePumpIcon",
+                        "heading": "НАСОС ВЫСОКОГО ДАВЛЕНИЯ (300 л/час)",
+                        "paragraph": "Гарантирует постоянное давление при любых условиях использования машины"
+                    },
+                    {
+                        "icon": "ElectronicSwitchIcon",
+                        "heading": "РЕГУЛИРУЕМЫЙ ЭЛЕКТРОННЫЙ ПЕРЕКЛЮЧАТЕЛЬ",
+                        "paragraph": "Датчик с точностью 0,02 бар, который позволяет поддерживать постоянное давление и пар в бойлере при любых условиях использования."
+                    },
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "СМЕШАННАЯ ГОРЯЧАЯ ВОДА ДЛЯ ПОДАЧИ КИПЯТКА",
+                        "paragraph": "Мгновенное смешивание водопроводной воды и пара для лучшего химического и органолептическое качества."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "ПАРОВАЯ ТРУБКА «COOL TOUCH» ИЗ НЕРЖАВЕЮЩЕЙ СТАЛИ",
+                        "paragraph": "Паровая система высокой производительности, отлично подходящая для работы над «Latte Art»."
                     }
                 ]
             },
@@ -50,21 +170,1099 @@
                 "longDescriptions": [
                     "Sanremo Cafe Racer — bu, kiçik kafelər və qastronomlar üçün mükəmməl olan zərif bir qəhvə maşınıdır. Müasir dizaynı və kompakt ölçüləri ilə yüksək məhsuldarlığı və mükəmməl ekstreksiyanı təmin edir. White Wood üslubunda hazırlanmış bu model yalnız interyerinizi bəzəməkdə deyil, həm də müştərilərinizi zəngin və aromatik qəhvə ilə sevindirəcək."
                 ],
-                "body":[
+                "body": [
                     {
                         "icon": "DisplayIcon",
-                        "heading":"TAM NƏZARƏT SISTEMLI EKRAN",
-                        "paragraph":"Qəhvə maşınının bütün göstəricilərinin (təzyiq, temperatura və su səviyyəsi) nəzarəti."
+                        "heading": "TAM NƏZARƏT SISTEMLI EKRAN",
+                        "paragraph": "Qəhvə maşınının bütün göstəricilərinin (təzyiq, temperatura və su səviyyəsi) nəzarəti."
                     },
                     {
                         "icon": "CupHeightIcon",
-                        "heading":"HÜNDÜRLÜYƏ TƏNZİMLƏNƏN ALTLIQ",
-                        "paragraph":"Müxtəlif hündürlüklü fincanla işləməyə imkan verir."
+                        "heading": "HÜNDÜRLÜYƏ TƏNZİMLƏNƏN ALTLIQ",
+                        "paragraph": "Müxtəlif hündürlüklü fincanla işləməyə imkan verir."
                     },
                     {
-                        "icon":"CicleIcon",
-                        "heading":"PEŞƏKAR TƏMİZLƏMƏ DÖVRÜ",
-                        "paragraph":"Qəhvə aparatının təmizləmə prosesi."
+                        "icon": "CicleIcon",
+                        "heading": "PEŞƏKAR TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə aparatının təmizləmə prosesi."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SANREMO OPERA",
+            "az": {
+                "longDescriptions": [
+                    "Bu, yüksək müştəri axını olan müəssisələr üçün nəzərdə tutulmuş, üç qruplu güclü və mükəmməlləşdirilmiş versiyadır. Maşın, mükəmməl performansı, ekstraksiya prosesinə yuxarı səviyyədə nəzarət ilə birləşdirərək peşəkarlar üçün ideal edir. Polad korpusu onun müasir və dayanıqlı dizaynını vurğulayır, intensiv istifadəyə uyğun gəlir. Bu model, böyük həcmlərdə belə, mükəmməl qəhvə keyfiyyətini təmin edir və yüksək xidmət standartlarını qorumağa kömək edir."
+                ],
+                "body": [
+                    {
+                        "icon": "DisplayIcon",
+                        "heading": "TAM NƏZARƏT SISTEMLI EKRAN",
+                        "paragraph": "Qəhvə maşınının bütün göstəricilərinin (təzyiq, temperatura və su səviyyəsi) nəzarəti."
+                    },
+                    {
+                        "icon": "MixingWaterIcon",
+                        "heading": "SU QARIŞDIRMA EKRANI",
+                        "paragraph": "Çay və otlu içkilər üçün suyun temperaturunu göstərir. (İki qrup qəhvə maşınında qazan ekranı ilə birləşdirilib)"
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN AVTOMATİK BAŞLANĞIC VƏ SÖNDÜRMƏ",
+                        "paragraph": "Hər gün və gündəlik cədvəl üçün proqramlaşdırıla bilən işə salma/söndürmə taymeri."
+                    },
+                    {
+                        "icon": "PoladdanIcon",
+                        "heading": "AISI 316 POLADDAN OLAN 10 KG-LIQ QRUPLAR",
+                        "paragraph": "Sanremo-nun eksklüziv inkişafı, mükəmməl istilik sabitliyini və maksimum oksidləşmə və çöküntü qorunmasını təmin edir."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "PASLANMAZ POLADDAN OLAN «COOL TOUCH» BUXAR BORUSU",
+                        "paragraph": "Yüksək performanslı buxar sistemi, «Latte Art» üçün mükəmməl uyğun gəlir."
+                    },
+                    {
+                        "icon": "ManometrIcon",
+                        "heading": "ELEKTRON TƏYZİQ MANOMETRİ",
+                        "paragraph": "Təzyiqin 0,02 bar dəqiqliyi ilə ölçülməsini təmin edən sensor, istənilən istifadə şəraitində qazan içində sabit təzyiqin qorunmasına imkan verir."
+                    },
+                    {
+                        "icon": "CupHeatingIcon",
+                        "heading": "FİNCANLARIN İSTİDİLMƏ TEMPERATURUNUN TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Fincanları müxtəlif iqlim və ekoloji şəraitdə optimal temperaturda saxlamağa imkan verir."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "EKSTRAKSİYANI DƏYİŞDİRMƏYƏ İMKAN VERƏN NASOSLAR",
+                        "paragraph": "Hər bir qrup üçün ekstraksiya zamanı təzyiqi ayrıca dəyişdirməyə imkan verir."
+                    },
+                    {
+                        "icon": "IndependentTempIcon",
+                        "heading": "PID - MÜSTƏQİL SU TEMPERATRUNUN TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Dəqiq tənzimləmə (səhv ± 0,1 °C, sabitlik 0,2 °C)."
+                    },
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "QAYNAR SU VERMƏSİ ÜÇÜN SUYUN QARIŞDIRILMASI",
+                        "paragraph": "Kimyəvi və orqonoleptik keyfiyyətin yaxşılaşdırılması üçün su və buxarın ani qarışdırılması."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "BOİLER EKRANI",
+                        "paragraph": "Qazandakı təzyiq və temperaturu göstərir. (İki qrup qəhvə maşınında su qarışdırma ekranı ilə birləşdirilib)."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ İSTİFADƏSİ SISTEMİ",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ASAN İSTİFADƏ",
+                        "paragraph": "Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "EKSTRAKSİYAYA NƏZARƏT SİSTEMİ",
+                        "paragraph": "Hər bir ekstraksiya mərhələsinin bütün parametrlərinə nəzarət edir."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "PEŞƏKAR TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə aparatının təmizləmə prosesi."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Это кофемашина, сочетающая минималистичный стальной корпус с высокой функциональностью. С двумя группами она предназначена для небольших кофеен, где важны скорость и стабильное качество приготовления.",
+                    "Технологии, используемые в этой модели, обеспечивают точную настройку всех параметров экстракции, что позволяет создавать идеальные чашки эспрессо, раскрывая полную глубину вкуса. Стальной корпус придаёт машине современный и прочный внешний вид, что делает её не только стильной, но и долговечной."
+                ],
+                "body": [
+                    {
+                        "icon": "DisplayIcon",
+                        "heading": "ПОЛНЫЙ КОНТРОЛЬ С СИСТЕМНЫМ ДИСПЛЕЕМ",
+                        "paragraph": "Контроль всех показателей кофемашины: давления, температуры и уровня воды."
+                    },
+                    {
+                        "icon": "MixingWaterIcon",
+                        "heading": "ДИСПЛЕЙ СМЕШИВАНИЯ ВОДЫ",
+                        "paragraph": "Показывает температуру воды для чая и травяных напитков. (в двухгрупповой кофемашине объединено с  дисплеем бойлера)."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "АВТОМАТИЧЕСКИЙ ЗАПУСК И ВЫКЛЮЧЕНИЕ",
+                        "paragraph": "Программируемый таймер включения/выключения для каждого дня и ежедневных расписаний."
+                    },
+                    {
+                        "icon": "PoladdanIcon",
+                        "heading": "ГРУППЫ ИЗ СТАЛИ AISI 316 ВЕСОМ 10КГ",
+                        "paragraph": "Эксклюзивная разработка Sanremo обеспечивает превосходную термостабильность и максимальную защиту от окисления и налета."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "СИСТЕМА ЭНЕРГОСБЕРЕЖЕНИЯ",
+                        "paragraph": "Высокое и постоянное давление при любых условиях. Для большей точности программируемой порции."
+                    },
+                    {
+                        "icon": "ManometrIcon",
+                        "heading": "ЭЛЕКТРОННЫЙ МАНОМЕТР ДАВЛЕНИЯ ПАРА",
+                        "paragraph": "Датчик с точностью 0,02 бара, позволяющий поддерживать постоянное давление в бойлере при любых условиях использования."
+                    },
+                    {
+                        "icon": "CupHeatingIcon",
+                        "heading": "НАСТРАИВАЕМАЯ ТЕМПЕРАТУРА ПОДОГРЕВА ЧАШЕК",
+                        "paragraph": "Поддержание оптимальной температуры нагрева чашек при разных климатических условиях."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "ШЕСТЕРЕННЫЕ ПОМПЫ",
+                        "paragraph": "Позволяют изменять давлениево время экстракции отдельно для каждой группы. "
+                    },
+                    {
+                        "icon": "IndependentTempIcon",
+                        "heading": "СИСТЕМА КОНТРОЛЯ ЭКСТРАКЦИИ (CDS)",
+                        "paragraph": "Контроль всех параметров каждого этапа экстракции."
+                    },
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "СМЕШАННАЯ ГОРЯЧАЯ ВОДА ДЛЯ ПОДАЧИ КИПЯТКА",
+                        "paragraph": "Мгновенное смешивание водопроводной воды и пара для лучшего химического и органолептическое качества."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "ДИСПЛЕЙ БОЙЛЕРА",
+                        "paragraph": "Показывает давление/ температуру в бойлере (В двухгрупповой кофемашине объединен с дисплеем смешивания воды)."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "СТИМЕР «COOL TOUCH» ИЗ НЕРЖАВЕЮЩЕЙ СТАЛИ",
+                        "paragraph": "Паровая система высокой производительности, отлично подходящая для работы над «Latte Art»."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ПРОСТОТА ОБСЛУЖИВАНИЯ",
+                        "paragraph": "Быстрый доступ к внутренним частям для легкого технического обслуживания."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "PID - НЕЗАВИСИМАЯ РЕГУЛИРОВКА ТЕМПЕРАТУРЫ ВОДЫ ",
+                        "paragraph": "Точная настройка (погрешность ± 0,1 °C с постоянством 0,2°C)."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "АВТОМАТИЧЕСКИЙ ЦИКЛ ОЧИСТКИ",
+                        "paragraph": "Процесс очистки кофейных групп."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Bu, yüksək müştəri axını olan müəssisələr üçün nəzərdə tutulmuş, üç qruplu güclü və mükəmməlləşdirilmiş versiyadır. Maşın, mükəmməl performansı, ekstraksiya prosesinə yuxarı səviyyədə nəzarət ilə birləşdirərək peşəkarlar üçün ideal edir. Polad korpusu onun müasir və dayanıqlı dizaynını vurğulayır, intensiv istifadəyə uyğun gəlir. Bu model, böyük həcmlərdə belə, mükəmməl qəhvə keyfiyyətini təmin edir və yüksək xidmət standartlarını qorumağa kömək edir."
+                ],
+                "body": [
+                    {
+                        "icon": "DisplayIcon",
+                        "heading": "TAM NƏZARƏT SISTEMLI EKRAN",
+                        "paragraph": "Qəhvə maşınının bütün göstəricilərinin (təzyiq, temperatura və su səviyyəsi) nəzarəti."
+                    },
+                    {
+                        "icon": "MixingWaterIcon",
+                        "heading": "SU QARIŞDIRMA EKRANI",
+                        "paragraph": "Çay və otlu içkilər üçün suyun temperaturunu göstərir. (İki qrup qəhvə maşınında qazan ekranı ilə birləşdirilib)"
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN AVTOMATİK BAŞLANĞIC VƏ SÖNDÜRMƏ",
+                        "paragraph": "Hər gün və gündəlik cədvəl üçün proqramlaşdırıla bilən işə salma/söndürmə taymeri."
+                    },
+                    {
+                        "icon": "PoladdanIcon",
+                        "heading": "AISI 316 POLADDAN OLAN 10 KG-LIQ QRUPLAR",
+                        "paragraph": "Sanremo-nun eksklüziv inkişafı, mükəmməl istilik sabitliyini və maksimum oksidləşmə və çöküntü qorunmasını təmin edir."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "PASLANMAZ POLADDAN OLAN «COOL TOUCH» BUXAR BORUSU",
+                        "paragraph": "Yüksək performanslı buxar sistemi, «Latte Art» üçün mükəmməl uyğun gəlir."
+                    },
+                    {
+                        "icon": "ManometrIcon",
+                        "heading": "ELEKTRON TƏYZİQ MANOMETRİ",
+                        "paragraph": "Təzyiqin 0,02 bar dəqiqliyi ilə ölçülməsini təmin edən sensor, istənilən istifadə şəraitində qazan içində sabit təzyiqin qorunmasına imkan verir."
+                    },
+                    {
+                        "icon": "CupHeatingIcon",
+                        "heading": "FİNCANLARIN İSTİDİLMƏ TEMPERATURUNUN TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Fincanları müxtəlif iqlim və ekoloji şəraitdə optimal temperaturda saxlamağa imkan verir."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "EKSTRAKSİYANI DƏYİŞDİRMƏYƏ İMKAN VERƏN NASOSLAR",
+                        "paragraph": "Hər bir qrup üçün ekstraksiya zamanı təzyiqi ayrıca dəyişdirməyə imkan verir."
+                    },
+                    {
+                        "icon": "IndependentTempIcon",
+                        "heading": "PID - MÜSTƏQİL SU TEMPERATRUNUN TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Dəqiq tənzimləmə (səhv ± 0,1 °C, sabitlik 0,2 °C)."
+                    },
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "QAYNAR SU VERMƏSİ ÜÇÜN SUYUN QARIŞDIRILMASI",
+                        "paragraph": "Kimyəvi və orqonoleptik keyfiyyətin yaxşılaşdırılması üçün su və buxarın ani qarışdırılması."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "BOİLER EKRANI",
+                        "paragraph": "Qazandakı təzyiq və temperaturu göstərir. (İki qrup qəhvə maşınında su qarışdırma ekranı ilə birləşdirilib)."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ İSTİFADƏSİ SISTEMİ",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ASAN İSTİFADƏ",
+                        "paragraph": "Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "EKSTRAKSİYAYA NƏZARƏT SİSTEMİ",
+                        "paragraph": "Hər bir ekstraksiya mərhələsinin bütün parametrlərinə nəzarət edir."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "PEŞƏKAR TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə aparatının təmizləmə prosesi."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SANREMO F18 MB",
+            "az": {
+                "longDescriptions": [
+                    "Orta və yüksək satış həcminə malik kafe üçün hazırlanmış Sanremo F18, mükəmməl buxar istehsalını və yeni nəsil qabaqcıl texnologiyaları təmin edən yüksək performanslı çoxboilerli bir maşındır. O, həmçinin, məhsuldarlığı və enerji effektivliyini (SEEM) artıran intuitiv proqramlaşdırma və funksiyalar təqdim edir.",
+                    "F18-in unikal künc dizaynı, baristaların müştərilərlə asanlıqla ünsiyyət qurmasına imkan tanıyır və ziyarətçilərin gözləri önündə inanılmaz qəhvə içkiləri hazırlamağa kömək edir."
+                ],
+                "body": [
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "QAYNAR SU VERMƏSİ ÜÇÜN SUYUN QARIŞDIRILMASI",
+                        "paragraph": "Kimyəvi və orqonoleptik keyfiyyətin yaxşılaşdırılması üçün su və buxarın ani qarışdırılması."
+                    },
+                    {
+                        "icon": "PoladdanBoilerIcon",
+                        "heading": "PASLANMAYAN POLADDAN OLAN BOİLER",
+                        "paragraph": "Üstün istilik sabitliyi, temperatur dəqiqliyi və maksimum oksidləşmə və çöküntü qorunması təmin edir."
+                    },
+                    {
+                        "icon": "PreBrewIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN ÖN DƏMLƏMƏ",
+                        "paragraph": "Qəhvəni islatmaq üçün su axınını idarə etməyə imkan verir; 0.1 saniyə dəqiqliyi ilə, hər qrup üçün 4 müxtəlif profilin saxlanılması imkanı ilə."
+                    },
+                    {
+                        "icon": "RealTimeIcon",
+                        "heading": "REAL ZAMANDA İSTİLİK NƏZARƏTİ",
+                        "paragraph": "Sanremo-nun eksklüziv inkişafı qrupun təyin olunmuş temperaturunu dəqiq şəkildə qorumağa imkan tanıyır."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "PASLANMAZ POLADDAN OLAN «COOL TOUCH» BUXAR BORUSU",
+                        "paragraph": "Yüksək performanslı buxar sistemi, «Latte Art» üçün mükəmməl uyğun gəlir."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ İSTİFADƏSİ SISTEMİ",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN AVTOMATİK BAŞLANĞIC VƏ SÖNDÜRMƏ",
+                        "paragraph": "Hər gün və gündəlik cədvəl üçün proqramlaşdırıla bilən işə salma/söndürmə taymeri."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "İŞ SAHƏSİNİN İŞIQLINDIRILMASI",
+                        "paragraph": "Hər hansı işıqlandırma şəraitində rahat iş imkanı."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ASAN İSTİFADƏ",
+                        "paragraph": "Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "SU TEMPERATURUNUN DƏQİQ TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Maksimum dəqiqlik və temperaturun sabitliyi."
+                    },
+                    {
+                        "icon": "HighFilterIcon",
+                        "heading": "YÜKSƏK DƏQİQLİKDƏ FİLTRLƏR",
+                        "paragraph": "Sanremo-nun eksklüziv tərtibatı hesab edilən filtrlərin forması və sıxlığı qəhvənin ən yaxşı aroması üçün zəmanət verir."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "AVTOMATİK TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə qruplarının təmizlənməsi prosesi. Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "CupHeatingIcon",
+                        "heading": "FİNCANLARIN İSTİDİLMƏ TEMPERATURUNUN TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Fincanları müxtəlif iqlim və ekoloji şəraitdə optimal temperaturda saxlamağa imkan verir."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "QRUPUN YUYULMASI",
+                        "paragraph": "Bir düyməyə basmaqla kiçik miqdarda su tökülür, dispersiya şəbəkələrinin təmizliyini qorumaq üçün."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Разработанная для кофеен со средними и высокими объемами продаж, Sanremo F18 является высокопроизводительной многобойлерной машиной, обеспечивающей отличную производительность пара и передовые технологии следующего поколения. Она предлагает интуитивное программирование и функции, которые улучшают как производительность, так и энергоэффективность (SEEM).",
+                    "Уникальный угловой дизайн F18 позволяет баристам легко взаимодействовать с клиентами, создавая невероятные кофейные напитки на глазах у посетителей."
+                ],
+                "body": [
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "СМЕШАННАЯ ГОРЯЧАЯ ВОДА ДЛЯ ПОДАЧИ КИПЯТКА",
+                        "paragraph": "Быстрое смешивание воды и пара для улучшения химических и органолептических свойств."
+                    },
+                    {
+                        "icon": "PoladdanBoilerIcon",
+                        "heading": "БОЙЛЕР ИЗ НЕРЖАВЕЮЩЕЙ СТАЛИ",
+                        "paragraph": "Превосходная термостабильность, точность температуры и максимальная защита от окисления и налета."
+                    },
+                    {
+                        "icon": "PreBrewIcon",
+                        "heading": "ПРОГРАМИРУЕМОЕ ПРЕИНФУЗИЯ",
+                        "paragraph": "Контроль времени пролива воды для смачивания таблетки с точностью 0,1 сек с настройкой 4 разных профилей для каждой группы."
+                    },
+                    {
+                        "icon": "RealTimeIcon",
+                        "heading": "ТЕРМОКОНТРОЛЬ В РЕАЛЬНОМ ВРЕМЕНИ",
+                        "paragraph": "Эксклюзивная разработка Sanremo позволяет точно поддерживать установленную температуры группы."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "СТИМЕР «COOL TOUCH» ИЗ НЕРЖАВЕЮЩЕЙ СТАЛИ",
+                        "paragraph": "Паровая система высокой производительности, отлично подходящая для работы над «Latte Art»."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "СИСТЕМА ЭНЕРГОСБЕРЕЖЕНИЯ",
+                        "paragraph": "Высокое и постоянное давление при любых условиях. Для большей точности программируемой порции."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "АВТОМАТИЧЕСКОЕ ВКЛЮЧЕНИЕ / ВЫКЛЮЧЕНИЕ",
+                        "paragraph": "Программируемый таймер включения/выключения каждый день или установка ежедневного расписания."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "СВЕТОДИОДНОЕ ОСВЕЩЕНИЕ РАБОЧЕЙ ЗОНЫ",
+                        "paragraph": "Удобство работы при любом освещении."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ПРОСТОТА ОБСЛУЖИВАНИЯ",
+                        "paragraph": "Быстрый доступ к внутренним частям для легкого технического обслуживания."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "ТОЧНАЯ НАСТРОЙКА ТЕМПЕРАТУРЫ ВОДЫ",
+                        "paragraph": "Максимальная точность и постоянство температуры."
+                    },
+                    {
+                        "icon": "HighFilterIcon",
+                        "heading": "ВЫСОКОТОЧНЫЕ ФИЛЬТРЫ",
+                        "paragraph": "Эксклюзивная разработка Sanremo, их форма и плотность гарантируют наилучший аромат кофе."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "АВТОМАТИЧЕСКИЙ ЦИКЛ ОЧИСТКИ ПРОСТОТА ОБСЛУЖИВАНИЯ",
+                        "paragraph": "Процесс очистки кофейных групп. Быстрый доступ к внутренним частям для легкого технического обслуживания."
+                    },
+                    {
+                        "icon": "CupHeatingIcon",
+                        "heading": "НАСТРАИВАЕМАЯ ТЕМПЕРАТУРА ПОДОГРЕВА ЧАШЕК",
+                        "paragraph": "Поддержание оптимальной температуры нагрева чашек при разных климатических условиях."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "ПРОЛИВКА ГРУППЫ",
+                        "paragraph": "Небольшое количество воды проливается одним нажатием кнопки, поддерживая чистоту дисперсионных сеток."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Orta və yüksək satış həcminə malik kafe üçün hazırlanmış Sanremo F18, mükəmməl buxar istehsalını və yeni nəsil qabaqcıl texnologiyaları təmin edən yüksək performanslı çoxboilerli bir maşındır. O, həmçinin, məhsuldarlığı və enerji effektivliyini (SEEM) artıran intuitiv proqramlaşdırma və funksiyalar təqdim edir.",
+                    "F18-in unikal künc dizaynı, baristaların müştərilərlə asanlıqla ünsiyyət qurmasına imkan tanıyır və ziyarətçilərin gözləri önündə inanılmaz qəhvə içkiləri hazırlamağa kömək edir."
+                ],
+                "body": [
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "QAYNAR SU VERMƏSİ ÜÇÜN SUYUN QARIŞDIRILMASI",
+                        "paragraph": "Kimyəvi və orqonoleptik keyfiyyətin yaxşılaşdırılması üçün su və buxarın ani qarışdırılması."
+                    },
+                    {
+                        "icon": "PoladdanBoilerIcon",
+                        "heading": "PASLANMAYAN POLADDAN OLAN BOİLER",
+                        "paragraph": "Üstün istilik sabitliyi, temperatur dəqiqliyi və maksimum oksidləşmə və çöküntü qorunması təmin edir."
+                    },
+                    {
+                        "icon": "PreBrewIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN ÖN DƏMLƏMƏ",
+                        "paragraph": "Qəhvəni islatmaq üçün su axınını idarə etməyə imkan verir; 0.1 saniyə dəqiqliyi ilə, hər qrup üçün 4 müxtəlif profilin saxlanılması imkanı ilə."
+                    },
+                    {
+                        "icon": "RealTimeIcon",
+                        "heading": "REAL ZAMANDA İSTİLİK NƏZARƏTİ",
+                        "paragraph": "Sanremo-nun eksklüziv inkişafı qrupun təyin olunmuş temperaturunu dəqiq şəkildə qorumağa imkan tanıyır."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "PASLANMAZ POLADDAN OLAN «COOL TOUCH» BUXAR BORUSU",
+                        "paragraph": "Yüksək performanslı buxar sistemi, «Latte Art» üçün mükəmməl uyğun gəlir."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ İSTİFADƏSİ SISTEMİ",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN AVTOMATİK BAŞLANĞIC VƏ SÖNDÜRMƏ",
+                        "paragraph": "Hər gün və gündəlik cədvəl üçün proqramlaşdırıla bilən işə salma/söndürmə taymeri."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "İŞ SAHƏSİNİN İŞIQLINDIRILMASI",
+                        "paragraph": "Hər hansı işıqlandırma şəraitində rahat iş imkanı."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ASAN İSTİFADƏ",
+                        "paragraph": "Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "SU TEMPERATURUNUN DƏQİQ TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Maksimum dəqiqlik və temperaturun sabitliyi."
+                    },
+                    {
+                        "icon": "HighFilterIcon",
+                        "heading": "YÜKSƏK DƏQİQLİKDƏ FİLTRLƏR",
+                        "paragraph": "Sanremo-nun eksklüziv tərtibatı hesab edilən filtrlərin forması və sıxlığı qəhvənin ən yaxşı aroması üçün zəmanət verir."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "AVTOMATİK TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə qruplarının təmizlənməsi prosesi. Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "CupHeatingIcon",
+                        "heading": "FİNCANLARIN İSTİDİLMƏ TEMPERATURUNUN TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Fincanları müxtəlif iqlim və ekoloji şəraitdə optimal temperaturda saxlamağa imkan verir."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "QRUPUN YUYULMASI",
+                        "paragraph": "Bir düyməyə basmaqla kiçik miqdarda su tökülür, dispersiya şəbəkələrinin təmizliyini qorumaq üçün."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SANREMO F18 SB",
+            "az": {
+                "longDescriptions": [
+                    "Sanremo F18 SB, yüksək tıxaclı kafelər üçün maksimum istehsal gücü nəzərə alınaraq hazırlanmışdır. Onun üç qruplu dizaynı, qabaqcıl çoxboiler sisteminin köməyi ilə bir anda bir neçə içki hazırlamağa imkan tanıyır və dəqiq ekstraksiyanı qoruyur. İstehsal gücü, davamlılıq və minimalistik üslubun birləşməsi, bu modeli funksionallığı və müasir dizaynı qiymətləndirənlər üçün ideal edir."
+                ],
+                "body": [
+                    {
+                        "icon": "AluminiumKorpusIcon",
+                        "heading": "DÖKMƏ ALÜMİNİUMDAN HAZIRLANMIŞ KORPUS",
+                        "paragraph": "Qəhvə maşınının çərçivəsi alüminiumdan hazırlanmışdır."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "AVTOMATİK TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə qruplarının təmizlənməsi prosesi. Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "PressurePumpIcon",
+                        "heading": "TƏZYİQ SENSORU",
+                        "paragraph": "Ekstraksiya zamanı daxil olan təzyiqi və nasosun təzyiqini izləməyə imkan verir."
+                    },
+                    {
+                        "icon": "PreBrewIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN ÖN DƏMLƏMƏ",
+                        "paragraph": "Qəhvəni islatmaq üçün su axınını idarə etməyə imkan verir; 0.1 saniyə dəqiqliyi ilə, hər qrup üçün 4 müxtəlif profilin saxlanılması imkanı ilə."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "PASLANMAZ POLADDAN OLAN «COOL TOUCH» BUXAR BORUSU",
+                        "paragraph": "Yüksək performanslı buxar sistemi, «Latte Art» üçün mükəmməl uyğun gəlir."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ İSTİFADƏSİ SISTEMİ",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "SU TEMPERATURUNUN DƏQİQ TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Maksimum dəqiqlik və temperaturun sabitliyi."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ASAN İSTİFADƏ",
+                        "paragraph": "Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "QRUPUN YUYULMASI",
+                        "paragraph": "Bir düyməyə basmaqla kiçik miqdarda su tökülür, dispersiya şəbəkələrinin təmizliyini qorumaq üçün."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN AVTOMATİK BAŞLANĞIC VƏ SÖNDÜRMƏ",
+                        "paragraph": "Hər gün və gündəlik cədvəl üçün proqramlaşdırıla bilən işə salma/söndürmə taymeri."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "SU SƏVİYYƏSİNİN AVTOMATİK NƏZARƏTİ",
+                        "paragraph": "Elektron sensor vasitəsilə qazan avtomatik olaraq doldurulur və lazımi su səviyyəsini qoruyur."
+                    },
+                    {
+                        "icon": "S61Icon",
+                        "heading": "SR 61 QRUPU",
+                        "paragraph": "Klassik qızıl misi materialından hazırlanmış xromlanmış qrup, ideal ekstraksiya temperaturunun qorunması üçün termosifon dövrü sistemi ilə təchiz olunub."
+                    },
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "QAYNAR SU VERMƏSİ ÜÇÜN SUYUN QARIŞDIRILMASI",
+                        "paragraph": "Kimyəvi və orqonoleptik keyfiyyətin yaxşılaşdırılması üçün su və buxarın ani qarışdırılması."
+                    },
+                    {
+                        "icon": "CupHeatingIcon",
+                        "heading": "FİNCANLARIN İSTİDİLMƏ TEMPERATURUNUN TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Fincanları müxtəlif iqlim və ekoloji şəraitdə optimal temperaturda saxlamağa imkan verir."
+                    },
+                    {
+                        "icon": "FunctionalScreenIcon",
+                        "heading": "ÇOXFUNKSİYALI EKRAN",
+                        "paragraph": "Qəhvə maşınının düzgün işləməsini izləməyə və əsas funksiyaları idarə etməyə imkan verir."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Это элегантная и функциональная машина с минималистичным матовым черным дизайном. Она идеально подходит для кофеен с умеренным потоком клиентов, предлагая надежную стабильность температуры благодаря многобойлерной системе и мягкой предэкстракции для улучшения вкуса. 'Cool Touch' паровые трубки обеспечивают безопасность бариста при создании латте-арта, а компактный корпус позволяет эффективно работать в ограниченных пространствах."
+                ],
+                "body": [
+                    {
+                        "icon": "AluminiumKorpusIcon",
+                        "heading": "НОЖКИ ИЗ ЛИТОГО АЛЮМИНИЯ",
+                        "paragraph": "Рама кофемашины из литого алюминия"
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "АВТОМАТИЧЕСКИЙ ЦИКЛ ОЧИСТКИ",
+                        "paragraph": "Процесс очистки кофейных групп."
+                    },
+                    {
+                        "icon": "PressurePumpIcon",
+                        "heading": "ДАТЧИК ДАВЛЕНИЯ",
+                        "paragraph": "Позволяет контролировать входящее давление и давление помпы во время экстракции."
+                    },
+                    {
+                        "icon": "PreBrewIcon",
+                        "heading": "ПРОГРАМИРУЕМОЕ ПРЕИНФУЗИЯ",
+                        "paragraph": "Контроль времени пролива воды для смачивания таблетки с точностью 0,1 сек с настройкой 4 разных профилей для каждой группы."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "СТИМЕР «COOL TOUCH» ИЗ НЕРЖАВЕЮЩЕЙ СТАЛИ",
+                        "paragraph": "Паровая система высокой производительности, отлично подходящая для работы над «Latte Art»."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "СИСТЕМА ЭНЕРГОСБЕРЕЖЕНИЯ",
+                        "paragraph": "Высокое и постоянное давление при любых условиях. Для большей точности программируемой порции."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "ТОЧНАЯ НАСТРОЙКА ТЕМПЕРАТУРЫ ВОДЫ",
+                        "paragraph": "Максимальная точность и постоянство температуры."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ПРОСТОТА ОБСЛУЖИВАНИЯ",
+                        "paragraph": "Быстрый доступ к внутренним частям для легкого технического обслуживания."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "ПРОЛИВКА ГРУППЫ",
+                        "paragraph": "Небольшое количество воды проливается одним нажатием кнопки, поддерживая чистоту дисперсионных сеток."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "АВТОМАТИЧЕСКОЕ ВКЛЮЧЕНИЕ / ВЫКЛЮЧЕНИЕ",
+                        "paragraph": "Программируемый таймер включения/выключения каждый день или установка ежедневного расписания."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "АВТОКОНТРОЛЬ УРОВНЯ ВОДЫ",
+                        "paragraph": "С помощью электронного датчика бойлер наполняется и поддерживает нужный уровень воды автоматически."
+                    },
+                    {
+                        "icon": "S61Icon",
+                        "heading": "ГРУППА SR 61",
+                        "paragraph": "Хромированная группа из латуни с термосифонной системой циркуляции для поддержания идеальной температуры экстракции"
+                    },
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "СМЕШАННАЯ ГОРЯЧАЯ ВОДА ДЛЯ ПОДАЧИ КИПЯТКА",
+                        "paragraph": "Мгновенное смешивание водопроводной воды и пара для лучшего химического и органолептическое качества."
+                    },
+                    {
+                        "icon": "CupHeatingIcon",
+                        "heading": "НАСТРАИВАЕМАЯ ТЕМПЕРАТУРА ПОДОГРЕВА ЧАШЕК",
+                        "paragraph": "Поддержание оптимальной температуры нагрева чашек при разных климатических условиях."
+                    },
+                    {
+                        "icon": "FunctionalScreenIcon",
+                        "heading": "МНОГОФУНКЦИОНАЛЬНЫЙ ДИСПЛЕЙ",
+                        "paragraph": "Позволяет следить за корректностью работы кофемашины и управлять основными функциями."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Sanremo F18 SB, yüksək tıxaclı kafelər üçün maksimum istehsal gücü nəzərə alınaraq hazırlanmışdır. Onun üç qruplu dizaynı, qabaqcıl çoxboiler sisteminin köməyi ilə bir anda bir neçə içki hazırlamağa imkan tanıyır və dəqiq ekstraksiyanı qoruyur. İstehsal gücü, davamlılıq və minimalistik üslubun birləşməsi, bu modeli funksionallığı və müasir dizaynı qiymətləndirənlər üçün ideal edir."
+                ],
+                "body": [
+                    {
+                        "icon": "AluminiumKorpusIcon",
+                        "heading": "DÖKMƏ ALÜMİNİUMDAN HAZIRLANMIŞ KORPUS",
+                        "paragraph": "Qəhvə maşınının çərçivəsi alüminiumdan hazırlanmışdır."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "AVTOMATİK TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə qruplarının təmizlənməsi prosesi. Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "PressurePumpIcon",
+                        "heading": "TƏZYİQ SENSORU",
+                        "paragraph": "Ekstraksiya zamanı daxil olan təzyiqi və nasosun təzyiqini izləməyə imkan verir."
+                    },
+                    {
+                        "icon": "PreBrewIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN ÖN DƏMLƏMƏ",
+                        "paragraph": "Qəhvəni islatmaq üçün su axınını idarə etməyə imkan verir; 0.1 saniyə dəqiqliyi ilə, hər qrup üçün 4 müxtəlif profilin saxlanılması imkanı ilə."
+                    },
+                    {
+                        "icon": "SteamPipeIcon",
+                        "heading": "PASLANMAZ POLADDAN OLAN «COOL TOUCH» BUXAR BORUSU",
+                        "paragraph": "Yüksək performanslı buxar sistemi, «Latte Art» üçün mükəmməl uyğun gəlir."
+                    },
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ İSTİFADƏSİ SISTEMİ",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "SU TEMPERATURUNUN DƏQİQ TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Maksimum dəqiqlik və temperaturun sabitliyi."
+                    },
+                    {
+                        "icon": "EasyUseIcon",
+                        "heading": "ASAN İSTİFADƏ",
+                        "paragraph": "Daxili hissələrə sürətli giriş, asan texniki xidmət üçün imkan yaradır."
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "QRUPUN YUYULMASI",
+                        "paragraph": "Bir düyməyə basmaqla kiçik miqdarda su tökülür, dispersiya şəbəkələrinin təmizliyini qorumaq üçün."
+                    },
+                    {
+                        "icon": "AutoStartIcon",
+                        "heading": "PROQRAMLAŞDIRILABİLƏN AVTOMATİK BAŞLANĞIC VƏ SÖNDÜRMƏ",
+                        "paragraph": "Hər gün və gündəlik cədvəl üçün proqramlaşdırıla bilən işə salma/söndürmə taymeri."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "SU SƏVİYYƏSİNİN AVTOMATİK NƏZARƏTİ",
+                        "paragraph": "Elektron sensor vasitəsilə qazan avtomatik olaraq doldurulur və lazımi su səviyyəsini qoruyur."
+                    },
+                    {
+                        "icon": "S61Icon",
+                        "heading": "SR 61 QRUPU",
+                        "paragraph": "Klassik qızıl misi materialından hazırlanmış xromlanmış qrup, ideal ekstraksiya temperaturunun qorunması üçün termosifon dövrü sistemi ilə təchiz olunub."
+                    },
+                    {
+                        "icon": "MixedWaterIcon",
+                        "heading": "QAYNAR SU VERMƏSİ ÜÇÜN SUYUN QARIŞDIRILMASI",
+                        "paragraph": "Kimyəvi və orqonoleptik keyfiyyətin yaxşılaşdırılması üçün su və buxarın ani qarışdırılması."
+                    },
+                    {
+                        "icon": "CupHeatingIcon",
+                        "heading": "FİNCANLARIN İSTİDİLMƏ TEMPERATURUNUN TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Fincanları müxtəlif iqlim və ekoloji şəraitdə optimal temperaturda saxlamağa imkan verir."
+                    },
+                    {
+                        "icon": "FunctionalScreenIcon",
+                        "heading": "ÇOXFUNKSİYALI EKRAN",
+                        "paragraph": "Qəhvə maşınının düzgün işləməsini izləməyə və əsas funksiyaları idarə etməyə imkan verir."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SANREMO ZOE COMPETITION",
+            "az": {
+                "longDescriptions": [
+                    "Bu, mülayim müştəri axını olan kafelər üçün mükəmməl olan kompakt və yüksək performanslı qəhvə maşınıdır. O, estetik minimalist dizaynı və sabit espresso ekstraksiyası üçün innovativ texnologiyaları birləşdirir. İstifadəsi asan idarəetmə paneli və güclü buxar boruları sayəsində bu model baristalara klassik və süd içkilərinin hazırlanmasında rahatlıq təqdim edir."
+                ],
+                "body": [
+                    {
+                        "icon": "PressurePumpIcon",
+                        "heading": "TƏZYİQ SENSORU",
+                        "paragraph": "Ekstraksiya zamanı daxil olan təzyiqi və nasosun təzyiqini izləməyə imkan verir."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "EKSTRAKSİYANIN ELEKTRON NƏZARƏTİ",
+                        "paragraph": "Ekstraksiyanın birinci mərhələsində su klapanının gecikmiş işə salınmasını idarə edir."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "SU SƏVİYYƏSİNİN AVTOMATİK NƏZARƏTİ",
+                        "paragraph": "Elektron sensor vasitəsilə qazan avtomatik olaraq doldurulur və lazımi su səviyyəsini qoruyur."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "İŞ SAHƏSİNİN İŞIQLANDIRILMASI",
+                        "paragraph": "Hər hansı işıqlandırma şəraitində rahat iş imkanı."
+                    },
+                    {
+                        "icon": "EkstraksiyaZamanIcon",
+                        "heading": "EKSTRAKSİYA ÜÇÜN ZAMANLAYICI",
+                        "paragraph": "Qəhvənin ekstraksiya müddətini dəqiq ölçməyə imkan verir."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "PEŞƏKAR TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə aparatının təmizləmə prosesi."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Это компактная и производительная кофемашина, идеально подходящая для кафе с умеренным потоком клиентов. Она сочетает в себе элегантный минималистичный дизайн и инновационные технологии для стабильной экстракции эспрессо. С простой в использовании панелью управления и мощными паровыми трубками, эта модель обеспечивает баристам удобство в приготовлении как классических, так и молочных напитков."
+                ],
+                "body": [
+                    {
+                        "icon": "PressurePumpIcon",
+                        "heading": "ДАТЧИК ДАВЛЕНИЯ",
+                        "paragraph": "Позволяет контролировать входящее давление и давление помпы во время экстракции."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "ЭЛЕКТРОННЫЙ КОНТРОЛЬ ПРЕДСМАЧИВАНИЯ",
+                        "paragraph": "Управление отложенным срабатыванием водяного клапана на первом этапе экстракции."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "АВТОКОНТРОЛЬ УРОВНЯ ВОДЫ",
+                        "paragraph": "С помощью электронного датчика бойлер наполняется и поддерживает нужный уровень воды автоматически."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "СВЕТОДИОДНОЕ ОСВЕЩЕНИЕ РАБОЧЕЙ ЗОНЫ",
+                        "paragraph": "Удобство работы при любом освещении."
+                    },
+                    {
+                        "icon": "EkstraksiyaZamanIcon",
+                        "heading": "ТАЙМЕР ЭКСТРАКЦИИ",
+                        "paragraph": "Точное измерение времени экстракции кофе."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "АВТОМАТИЧЕСКИЙ ЦИКЛ ОЧИСТКИ",
+                        "paragraph": "Процесс очистки кофейных групп."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Bu, mülayim müştəri axını olan kafelər üçün mükəmməl olan kompakt və yüksək performanslı qəhvə maşınıdır. O, estetik minimalist dizaynı və sabit espresso ekstraksiyası üçün innovativ texnologiyaları birləşdirir. İstifadəsi asan idarəetmə paneli və güclü buxar boruları sayəsində bu model baristalara klassik və süd içkilərinin hazırlanmasında rahatlıq təqdim edir."
+                ],
+                "body": [
+                    {
+                        "icon": "PressurePumpIcon",
+                        "heading": "TƏZYİQ SENSORU",
+                        "paragraph": "Ekstraksiya zamanı daxil olan təzyiqi və nasosun təzyiqini izləməyə imkan verir."
+                    },
+                    {
+                        "icon": "EkstraksiyaIcon",
+                        "heading": "EKSTRAKSİYANIN ELEKTRON NƏZARƏTİ",
+                        "paragraph": "Ekstraksiyanın birinci mərhələsində su klapanının gecikmiş işə salınmasını idarə edir."
+                    },
+                    {
+                        "icon": "WaterLevelIcon",
+                        "heading": "SU SƏVİYYƏSİNİN AVTOMATİK NƏZARƏTİ",
+                        "paragraph": "Elektron sensor vasitəsilə qazan avtomatik olaraq doldurulur və lazımi su səviyyəsini qoruyur."
+                    },
+                    {
+                        "icon": "WorkIcon",
+                        "heading": "İŞ SAHƏSİNİN İŞIQLANDIRILMASI",
+                        "paragraph": "Hər hansı işıqlandırma şəraitində rahat iş imkanı."
+                    },
+                    {
+                        "icon": "EkstraksiyaZamanIcon",
+                        "heading": "EKSTRAKSİYA ÜÇÜN ZAMANLAYICI",
+                        "paragraph": "Qəhvənin ekstraksiya müddətini dəqiq ölçməyə imkan verir."
+                    },
+                    {
+                        "icon": "CicleIcon",
+                        "heading": "PEŞƏKAR TƏMİZLƏMƏ DÖVRÜ",
+                        "paragraph": "Qəhvə aparatının təmizləmə prosesi."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SANREMO CUBE",
+            "az": {
+                "longDescriptions": [
+                    "Bu, evdə peşəkar keyfiyyətli espresso hazırlamaq istəyən qəhvə sevərləri üçün nəzərdə tutulmuş kompakt və şık bir qəhvə maşınıdır. Müasir dizaynı və qabaqcıl texnologiyaları sayəsində Cube sabit ekstraksiya, rahat idarəetmə və kiçik ölçülər təqdim edir, bu da onu kiçik məkanlar üçün mükəmməl seçim edir."
+                ],
+                "body": [
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ İSTİFADƏSİ SISTEMİ",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "SU TƏCHİZATI",
+                        "paragraph": "Daxili çəndən su təchizatı və ya birbaşa su şəbəkəsinə qoşulma imkanı."
+                    },
+                    {
+                        "icon": "FunctionalScreenIcon",
+                        "heading": "RƏQƏMSAL EKRAN",
+                        "paragraph": "Elektron sensor vasitəsilə qazan avtomatik olaraq doldurulur və lazım olan su səviyyəsini saxlayır."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "SU DƏRƏCƏSİNİN TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Qazan temperaturunun tənzimlənməsi, aralıq 115–130 °C (239–266 °F)"
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "E61 TERMOSİFON QRUPU",
+                        "paragraph": "Mexaniki ön infuziya ilə təchiz olunmuşdur."
+                    },
+                    {
+                        "icon": "WiFiIcon",
+                        "heading": "WI-FI QOŞULMA",
+                        "paragraph": "Veb tətbiqi ilə WI-FI sayəsində bağlantı imkanı."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Это компактная и стильная домашняя кофемашина, созданная для любителей эспрессо, которые хотят наслаждаться профессиональным качеством кофе у себя дома. Благодаря современному дизайну и передовым технологиям, Cube предлагает стабильную экстракцию, удобное управление и компактные размеры, что делает её идеальным выбором для небольших пространств."
+                ],
+                "body": [
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "СИСТЕМА ЭНЕРГОСБЕРЕЖЕНИЯ",
+                        "paragraph": "Высокое и постоянное давление при любых условиях для большей точности."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "ПОДАЧА ВОДЫ",
+                        "paragraph": "Возможность выбора подачи воды: из внутреннего резервуара или прямому подключению к водопроводу"
+                    },
+                    {
+                        "icon": "FunctionalScreenIcon",
+                        "heading": "ЦИФРОВОЙ ДИСПЛЕЙ",
+                        "paragraph": "С помощью электронного датчика бойлер наполняется и поддерживает нужный уровень воды автоматически."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "РЕГУЛИРОВКА ТЕМПЕРАТУРЫ ВОДЫ",
+                        "paragraph": "Регулировка температуры котла, диапазон 115–130 °C (239–266 °F)"
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "ТЕРМОСИФОННАЯ ГРУППА E61",
+                        "paragraph": "С механической предварительной инфузией."
+                    },
+                    {
+                        "icon": "WiFiIcon",
+                        "heading": "WI-FI ПОДКЛЮЧЕНИЕ",
+                        "paragraph": "Возможность подключения через wi-fi с веб-приложением."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Bu, evdə peşəkar keyfiyyətli espresso hazırlamaq istəyən qəhvə sevərləri üçün nəzərdə tutulmuş kompakt və şık bir qəhvə maşınıdır. Müasir dizaynı və qabaqcıl texnologiyaları sayəsində Cube sabit ekstraksiya, rahat idarəetmə və kiçik ölçülər təqdim edir, bu da onu kiçik məkanlar üçün mükəmməl seçim edir."
+                ],
+                "body": [
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ İSTİFADƏSİ SISTEMİ",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "SU TƏCHİZATI",
+                        "paragraph": "Daxili çəndən su təchizatı və ya birbaşa su şəbəkəsinə qoşulma imkanı."
+                    },
+                    {
+                        "icon": "FunctionalScreenIcon",
+                        "heading": "RƏQƏMSAL EKRAN",
+                        "paragraph": "Elektron sensor vasitəsilə qazan avtomatik olaraq doldurulur və lazım olan su səviyyəsini saxlayır."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "SU DƏRƏCƏSİNİN TƏNZİMLƏNMƏSİ",
+                        "paragraph": "Qazan temperaturunun tənzimlənməsi, aralıq 115–130 °C (239–266 °F)"
+                    },
+                    {
+                        "icon": "GroupIcon",
+                        "heading": "E61 TERMOSİFON QRUPU",
+                        "paragraph": "Mexaniki ön infuziya ilə təchiz olunmuşdur."
+                    },
+                    {
+                        "icon": "WiFiIcon",
+                        "heading": "WI-FI QOŞULMA",
+                        "paragraph": "Veb tətbiqi ilə WI-FI sayəsində bağlantı imkanı."
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SANREMO YOU",
+            "az": {
+                "longDescriptions": [
+                    "Peşəkar qəhvə maşını iki qrupla, espresso ekstraksiyasını optimallaşdırmaq üçün nəzərdə tutulmuşdur. Yüksək istehsal və sabitlik tələb olunan kafe üçün mükəmməldir. Proqramlaşdırıla bilən temperatur və ekstraksiya vaxtı kimi müasir funksiyalarla təchiz edilib, bu da qəhvə hazırlanma prosesini rahat və dəqiq edir."
+                ],
+                "body": [
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ İSTİFADƏSİ SISTEMİ",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "DƏYİŞMƏYƏN SABİTLİK",
+                        "paragraph": "Uzun müddət istifadə edildikdən sonra belə, təzyiq və temperaturun davamlı nəzarəti sayəsində təmin edilir."
+                    },
+                    {
+                        "icon": "AluminiumKorpusIcon",
+                        "heading": "ERQONOMİKLİK",
+                        "paragraph": "İdarəetmə rıçaqları su və buxarın verilməsini yalnız bir düyməyə basmaqla aktivləşdirməyə imkan verir; su və buxar verən kranlar - Cool Touch."
+                    },
+                    {
+                        "icon": "RasionalIcon",
+                        "heading": "RASİONAL POMPA",
+                        "paragraph": "Yeni nəsil 70 litr tutumlu."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "MULTİBOİLER",
+                        "paragraph": "Hər iki boyler AISI 316 paslanmayan poladdan hazırlanmışdır."
+                    },
+                    {
+                        "icon": "WiFiIcon",
+                        "heading": "WI-FI QOŞULMA",
+                        "paragraph": "Veb tətbiqi ilə WI-FI sayəsində bağlantı imkanı."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Это это инновационная кофемашина для профессионалов и энтузиастов, предлагающая полный контроль над процессом приготовления кофе. Оснащенная передовыми технологиями, включая управление температурой, давлением и временем экстракции, она позволяет бариста экспериментировать и настраивать каждый параметр для достижения идеального вкуса. Элегантный дизайн и компактные размеры делают её идеальной как для домашних бариста, так и для специализированных кофеен."
+                ],
+                "body": [
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "СИСТЕМА ЭНЕРГОСБЕРЕЖЕНИЯ",
+                        "paragraph": "Два эко-режима: ручной и автоматический"
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "НЕИЗМЕННАЯ СТАБИЛЬНОСТЬ",
+                        "paragraph": "Даже после продолжительного использования благодаря постоянному контролю давления и температуры."
+                    },
+                    {
+                        "icon": "AluminiumKorpusIcon",
+                        "heading": "ЭРГОНОМИЧНОСТЬ",
+                        "paragraph": "Рычаги запуска / остановки позволяют активировать подачу воды и пара всего одним включением, краны для подачи пара и воды - Cool Touch"
+                    },
+                    {
+                        "icon": "RasionalIcon",
+                        "heading": "РАЦИОННАЯ ПОМПА",
+                        "paragraph": "Нового поколения на 70 литров"
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "МУЛЬТИБОЙЛЕР",
+                        "paragraph": "Оба бойлера выполнены из нержавеющей стали AISI 316"
+                    },
+                    {
+                        "icon": "WiFiIcon",
+                        "heading": "WI-FI ПОДКЛЮЧЕНИЕ",
+                        "paragraph": "Возможность подключения через wi-fi с веб-приложением."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Peşəkar qəhvə maşını iki qrupla, espresso ekstraksiyasını optimallaşdırmaq üçün nəzərdə tutulmuşdur. Yüksək istehsal və sabitlik tələb olunan kafe üçün mükəmməldir. Proqramlaşdırıla bilən temperatur və ekstraksiya vaxtı kimi müasir funksiyalarla təchiz edilib, bu da qəhvə hazırlanma prosesini rahat və dəqiq edir."
+                ],
+                "body": [
+                    {
+                        "icon": "EnergySavingIcon",
+                        "heading": "ENERJİ İSTİFADƏSİ SISTEMİ",
+                        "paragraph": "Hər hansı bir şəraitdə yüksək və sabit təzyiq. Proqramlaşdırıla bilən porsiyanın dəqiqliyini artırır."
+                    },
+                    {
+                        "icon": "WaterTempIcon",
+                        "heading": "DƏYİŞMƏYƏN SABİTLİK",
+                        "paragraph": "Uzun müddət istifadə edildikdən sonra belə, təzyiq və temperaturun davamlı nəzarəti sayəsində təmin edilir."
+                    },
+                    {
+                        "icon": "AluminiumKorpusIcon",
+                        "heading": "ERQONOMİKLİK",
+                        "paragraph": "İdarəetmə rıçaqları su və buxarın verilməsini yalnız bir düyməyə basmaqla aktivləşdirməyə imkan verir; su və buxar verən kranlar - Cool Touch."
+                    },
+                    {
+                        "icon": "RasionalIcon",
+                        "heading": "RASİONAL POMPA",
+                        "paragraph": "Yeni nəsil 70 litr tutumlu."
+                    },
+                    {
+                        "icon": "BoilerIcon",
+                        "heading": "MULTİBOİLER",
+                        "paragraph": "Hər iki boyler AISI 316 paslanmayan poladdan hazırlanmışdır."
+                    },
+                    {
+                        "icon": "WiFiIcon",
+                        "heading": "WI-FI QOŞULMA",
+                        "paragraph": "Veb tətbiqi ilə WI-FI sayəsində bağlantı imkanı."
                     }
                 ]
             }

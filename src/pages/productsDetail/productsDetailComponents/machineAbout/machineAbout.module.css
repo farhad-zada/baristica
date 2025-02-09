@@ -2,13 +2,18 @@
 .detailSection h2{
     margin-bottom: 20px;
 }
+.detailSection{
+    padding-bottom: 100px;
+}
 .detail{
     margin-top: 40px;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .section{
     width: 33%;
+    margin-top: 36px;
 }
 .section p{
     margin-top: 10px;
