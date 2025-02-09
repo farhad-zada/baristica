@@ -87,6 +87,7 @@ export default function Products() {
       setCurrentPage(1)
       getProducts('Machine', '',1)
       setType('Machine')
+      localStorage.setItem('productsPagination', JSON.stringify({ type: 'Machine', page: 1 }))
 
     } else if (window.location.href.includes('/coffee')) {
 
@@ -100,6 +101,7 @@ export default function Products() {
 
       getProducts('Coffee', '', 1)
       setType('Coffee')
+      localStorage.setItem('productsPagination', JSON.stringify({ type: 'Coffee', page: 1 }))
 
     } else if (window.location.href.includes('/accesories')) {
       changePageType('accesories')
@@ -113,6 +115,7 @@ export default function Products() {
 
       getProducts('Accessory', '',1)
       setType('Accessory')
+      localStorage.setItem('productsPagination', JSON.stringify({ type: 'Accessory', page: 1 }))
     }
     else {
       navigate('/')
