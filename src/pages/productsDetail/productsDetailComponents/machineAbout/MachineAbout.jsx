@@ -3,6 +3,7 @@ import content from '../../../../content/CoffeMachines.json'
 import { useSelector } from 'react-redux'
 import { machineDetailsIcons } from '../../../../assets/machineDetailIcons/machineDetailicons'
 import styles from './machineAbout.module.css'
+import MachineAboutExtra from './MachineAboutExtra'
 const { machines } = content
 
 export default function MachineAbout({ product }) {
@@ -25,7 +26,8 @@ export default function MachineAbout({ product }) {
     }, [product, lang]);
 
     return (
-        <div className={styles.detailSection}>
+        product?.name[lang]?.includes("MAZZER PHILOS") ? <MachineAboutExtra/>
+        : <div className={styles.detailSection}>
             {
                 data && data[lang]?.longDescriptions.map((description) => (
                     <h2 className='f20 fw400 darkGrey_color'>{description}</h2>
