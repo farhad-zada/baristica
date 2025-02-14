@@ -6,6 +6,7 @@ import HomeInfo from './homeComponents/HomeInfo'
 import HomeProducts from './homeComponents/HomeProducts'
 import { useLocation } from 'react-router-dom'
 import Loading from '../../components/loading/Loading'
+import HomeVideoBanner from './homeComponents/HomeVideoBanner'
 
 const Home = () => {
   const [isProductsLoaded, setIsProductsLoaded] = useState(false);
@@ -31,7 +32,8 @@ const Home = () => {
   return (
     <div className='home'>
       <Loading status={loading} />
-      <HomeBanner />
+      <HomeVideoBanner />
+      {/* <HomeBanner /> */}
       <HomeProducts onLoad={() => {
         setIsProductsLoaded(true)
       }} />

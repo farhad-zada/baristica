@@ -4,6 +4,12 @@
 .menu{
     gap: 25px;
 }
+.header_logo svg{
+    width: 70px;
+    height: 70px;
+}
+
+
 .menu_item{
     position: relative;
     padding-bottom: 5px;
@@ -160,5 +166,9 @@
     .menu_item a, .menu_item span{
         color: white;
         font-size: 24px;
+    }
+    .header_logo svg{
+        width: 45px;
+        height: 45px;
     }
 }
