@@ -6,7 +6,6 @@ import MachineAbout from './machineAbout/MachineAbout'
 export default function ProductDetailsAbout({ product }) {
   return (
     <div className={styles.about}>
-
       {
         product.productType === 'Machine'
           ?
