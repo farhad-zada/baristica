@@ -1,16 +1,2 @@
-.homeBannerVideo{
-    width: 100%;
-    height: 600px;
-}
-.homeBannerVideo video{
-    width: 100%;
-    height: 100%;
-    object-fit:fill;
-}
 
-@media (max-width: 960px){
-    .homeBannerVideo{
-        height: 400px;
-    }
-}
 
