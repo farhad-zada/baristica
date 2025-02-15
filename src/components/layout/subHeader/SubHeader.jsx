@@ -93,7 +93,7 @@ export default function SubHeader() {
 
       <div className="container flex">
         <div className={`${style.subHeader_section} flex a-center j-between w-100`}>
-          <h2 className="w-100 f48 fw700">{subHeader[lang].headText}</h2>
+          <h2 className={style.mainHeading + " w-100 fw700"}>{subHeader[lang].headText}</h2>
 
           <div className="flex j-end w-100">
             <div className={`${style.subHeader_buttons} flex a-center j-end`} ref={searchRef}>
