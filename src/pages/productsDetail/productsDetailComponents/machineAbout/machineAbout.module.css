@@ -14,11 +14,42 @@
 .section{
     width: 33%;
     margin-top: 36px;
+  
+    
 }
+@media(max-width: 768px){
+    .detailSection h2{
+        font-size: 18px !important;
+    }
+    .section{
+        width: 100% !important;
+        h3{
+            font-size: 20px !important;
+        }
+        p{
+            font-size: 16px !important;
+        }
+    }
+}
+@media(max-width: 1100px){
+    .detailSection h2{
+        font-size: 20px !important;
+    }
+    .section{
+        width: 48% !important;
+        h3{
+            font-size: 22px !important;
+        }
+        p{
+            font-size: 18px !important;
+        }
+    }
+    }
+
 .section p{
     margin-top: 10px;
 }
-.section svg{
+.section svg{ 
     height: 50px;
     width: 50px;
 }
