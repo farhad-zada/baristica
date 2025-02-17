@@ -5,7 +5,7 @@ import CartProduct from './cartProduct/CartProduct';
 import PageText from '../../../../content/PagesText.json'
 import { useNavigate } from 'react-router-dom';
 
-const { profile } = PageText
+const { profile, grindingOptionsTranslate } = PageText
 export default function Cart() {
   const { cart, finalCart, lang } = useSelector((state) => state.baristica);
   const navigate = useNavigate()
@@ -21,6 +21,7 @@ export default function Cart() {
                 <CartProduct
                 key={key}
                   product={product}
+                  grindingOptionsTranslate={grindingOptionsTranslate}
                   weightText={lang ? profile[lang].cart.weight : ''}
                   grindityText={lang ? profile[lang].cart.grindity : ''}
                 />

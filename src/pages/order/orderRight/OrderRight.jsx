@@ -6,7 +6,7 @@ import OrderProduct from './orderProduct/OrderProduct';
 import PageText from '../../../content/PagesText.json'
 import OrderPrice from './orderPrice/OrderPrice';
 
-const { profile, order } = PageText
+const { profile, order, grindingOptionsTranslate } = PageText
 export default function OrderRight({fee, delivery}) {
     const { lang, finalCart } = useSelector((state) => state.baristica);
     return (
@@ -19,6 +19,7 @@ export default function OrderRight({fee, delivery}) {
                         weightText={lang ? profile[lang].cart.weight : ''}
                         grindityText={lang ? profile[lang].cart.grindity : ''}
                         codeText={lang ? profile[lang].cart.codeText : ''}
+                        grindingOptionsTranslate={grindingOptionsTranslate}
                     />
                 ))
             }

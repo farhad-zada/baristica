@@ -7,7 +7,7 @@ import { changeCartCount, deleteFromCart, finalSelectProduct, setFinalCart } fro
 import { useLocalStorage } from '../../../../../hooks/useLocalStorage'
 
 
-export default function CartProduct({ product, weightText, grindityText }) {
+export default function CartProduct({ product, grindingOptionsTranslate, weightText, grindityText }) {
     const [cartCount, setCartCount] = useState(1)
     const { lang, cart } = useSelector(state => state.baristica)
     const { getItemFromStorage, setItemToStorage } = useLocalStorage('baristica')
@@ -25,7 +25,11 @@ export default function CartProduct({ product, weightText, grindityText }) {
             setItemToStorage({ ...baristicaObj, cart: [], finalCart: [] })
         }
         dispatch(deleteFromCart(id))
+    }
 
+    const findGrindingTranslation = (value) => {
+        const option = grindingOptionsTranslate[lang].find((el) => el.value === value)?.text
+        return option
     }
 
     const changeCount = (type) => {
@@ -38,7 +42,6 @@ export default function CartProduct({ product, weightText, grindityText }) {
         }
     }, [product])
 
-
     return (
         <div className={styles.product}>
             <div className={styles.left + " flex a-center g20"}>
@@ -46,8 +49,17 @@ export default function CartProduct({ product, weightText, grindityText }) {
                 <img src={product?.profileImage || ''} alt="" />
                 <div>
                     <h2 className="robotoFont f20 fw700 mt4 darkGrey_color">{product?.name ? product.name[lang] || product.name['az'] : 'COLOMBIA GESHA ANCESTRO'}</h2>
-                    <h3 className="robotoFont f16 fw400 mt4 darkGrey_color">{grindityText} {product?.selectedGrinding ? product.selectedGrinding : 'эспрессо'}</h3>
-                    <h3 className="robotoFont f16 fw400 mt4 darkGrey_color">{weightText} {product?.selectedWeight ? product.selectedWeight : '1000'} g</h3>
+                    {
+
+                        product.productType === 'Coffee'
+                            ?
+                            <>
+                                <h3 className="robotoFont f16 fw400 mt4 darkGrey_color">{grindityText} {product?.grindingOption ? findGrindingTranslation(product.grindingOption) : 'эспрессо'}</h3>
+                                <h3 className="robotoFont f16 fw400 mt4 darkGrey_color">{weightText} {product?.selectedWeight ? product.selectedWeight : '1000'} g</h3>
+                            </>
+                            :
+                            <></>
+                    }
                 </div>
             </div>
 

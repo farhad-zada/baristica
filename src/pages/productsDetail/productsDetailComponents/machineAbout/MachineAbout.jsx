@@ -9,7 +9,6 @@ const { machines } = content
 export default function MachineAbout({ product }) {
     const { lang } = useSelector(state => state.baristica)
     const [data, setData] = useState({})
-    console.log(data)
     useEffect(() => {
         if (JSON.stringify(product) !== '{}') {
             // Очистка строк от всех скрытых символов (например, разрывов строки)

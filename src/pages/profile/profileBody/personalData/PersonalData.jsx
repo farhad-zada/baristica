@@ -40,7 +40,6 @@ export default function PersonalData() {
             setErrorMessage('')
         }
     };
-    console.log(user)
     const changePassword = async () => {
         if (formData.newPassword !== formData.repeatPassword) {
             const errorText = lang ? register[lang].passwordMismatch : "Passwords do not match";

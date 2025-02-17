@@ -9,7 +9,7 @@ import { useRefClickOutside } from '../../hooks/useRefClickOutside'
 import useBodyScrollLock from '../../hooks/useBodyScrollLock'
 import { addProductToCart, deleteFromCart, setProfileActiveTab } from '../../redux/slice'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
-const { productAdded } = pageText
+const { productAdded, profile, grindingOptionsTranslate } = pageText
 
 export default function ProductAddedModal({ status, setStatus, product, cartCount, setCartCount }) {
     const { lang, cart, token } = useSelector(state => state.baristica)
@@ -27,6 +27,11 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
         dispatch(deleteFromCart(id))
         setStatus(false)
         setCartCount(1)
+    }
+
+    const findGrindingTranslation = (value) => {
+        const option = grindingOptionsTranslate[lang].find((el) => el.value === value)?.text
+        return option
     }
 
     const add = () => {
@@ -48,7 +53,7 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
 
 
     return (
-        <div className={status ? 'modal active' : 'modal'} onClick={(e) => {e.stopPropagation();}}>
+        <div className={status ? 'modal active' : 'modal'} onClick={(e) => { e.stopPropagation(); }}>
             <div className={`${styles.modal} modalContent`} ref={modalRef}>
                 <div className={`${styles.modalContent_head} flex j-between`}>
                     <h2 className="f32 fw700">{lang ? productAdded[lang].heading : ''}</h2>
@@ -60,9 +65,21 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
                 <div className={styles.product + " mt24 flex j-between a-center"}>
                     <div className={`${styles.text}`}>
                         <h2 className='f20 fw700  darkGrey_color'>{product?.name ? product.name[lang] : 'COLOMBIA GESHA ANCESTRO'}</h2>
-                        <p className="f16 fw400 darkGrey_color mt6">{product?.selectedGrinding ? product.selectedGrinding : 'Помол: для турки (мелкий)'}</p>
+                        {
+                            product.productType === 'Coffee'
+                                ?
+                                <p className="f16 fw400 darkGrey_color mt6">{lang ? profile[lang].cart.grindity : ''} {product?.grindingOption ? findGrindingTranslation(product.grindingOption) : ' для турки (мелкий)'}</p>
+                                :
+                                <></>
+                        }
                         <div className={`${styles.weights} flex g8`}>
-                            <span>{product?.weight ? product.weight : '1000'} {lang ? productAdded[lang].weightAdding : ''}</span>
+                            {
+                                product.productType === 'Coffee'
+                                    ?
+                                    <span>{product?.weight ? product.weight : '1000'} {lang ? productAdded[lang].weightAdding : ''}</span>
+                                    :
+                                    <></>
+                            }
                             <span>{cartCount ? cartCount : '2'} {lang ? productAdded[lang].countAdding : ''}</span>
                         </div>
                     </div>
@@ -82,10 +99,10 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
                     <button onClick={() => {
                         setStatus(false)
                         add()
-                        if(token){
+                        if (token) {
                             dispatch(setProfileActiveTab('cart'))
-                        navigate('/profile')
-                        } else{
+                            navigate('/profile')
+                        } else {
                             navigate('/login')
                         }
                     }} className={styles.greenBtn + ' w-48'}>{lang ? productAdded[lang].greenBtn : ''}</button>

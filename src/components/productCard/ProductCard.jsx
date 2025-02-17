@@ -74,7 +74,6 @@ const ProductCard = (props) => {
     }
 
     const changeProduct = (field, value) => {
-        console.log(field, value, linked);
         if (field === 'weight') {
             setDefaultWeight(value)
         }
