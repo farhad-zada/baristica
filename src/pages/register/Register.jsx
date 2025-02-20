@@ -91,12 +91,31 @@ export default function Register() {
                             onChange={handleInputChange}
                             placeholder={lang ? register[lang].nameInput : ''}
                         />
-                        <InputText
-                            name="phone"
+                        <input
+                            type={'text'}
+                            name={'phone'}
                             value={formData.phone}
-                            onChange={handleInputChange}
+                            onChange={(e) => {
+                                const inputValue = e.target.value;
+
+                                // Удаляем все символы, кроме +0123456789
+                                let filteredValue = inputValue.replace(/[^+0123456789]/g, '');
+
+                                // Проверяем, если плюс не на первом месте, удаляем его
+                                if (filteredValue.indexOf('+') > 0) {
+                                    filteredValue = filteredValue.replace(/\+/g, '');
+                                }
+
+                                // Если плюс не первый символ, но пользователь пытается его ввести, игнорируем
+                                if (inputValue.includes('+') && filteredValue.indexOf('+') !== 0) {
+                                    filteredValue = filteredValue.replace(/\+/g, '');
+                                }
+                                handleInputChange(e.target.name, filteredValue)
+                            }}
+                            className={styles.input}
                             placeholder={lang ? register[lang].phoneInput : ''}
                         />
+
                         <InputText
                             name="email"
                             value={formData.email}

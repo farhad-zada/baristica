@@ -1,19 +1,37 @@
-form input{
+form input {
     font-family: "Roboto Condensed", sans-serif;
 }
-@media (max-width: 960px){
-    .personalData .form div{
+
+@media (max-width: 960px) {
+    .personalData .form div {
         display: flex;
         flex-direction: column;
     }
-    .form h2{
+
+    .form h2 {
         font-size: 28px !important;
     }
-    form input{
+
+    form input {
         font-size: 20px !important;
     }
-    form button{
+
+    form button {
         font-size: 24px !important;
     }
 }
 
+.input {
+    width: 100%;
+    padding-bottom: 15px;
+    font-size: 24px;
+    border: none;
+    border-bottom: 0.5px solid #54565A;
+    outline: none;
+    margin: 26px 0;
+    color: #54565A;
+}
+
+.input::placeholder {
+    color: #D9D8D6;
+}

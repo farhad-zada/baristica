@@ -14,10 +14,10 @@ const WholesaleForm = () => {
   const { lang } = useSelector((state) => state.baristica);
   const [data, setData] = useState({
     name: '',
-    phone:'',
-    email:''
+    phone: '',
+    email: ''
   })
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
 
@@ -25,7 +25,7 @@ const WholesaleForm = () => {
 
   const handleInputChange = (name, value) => {
     setData(state => {
-      return {...state, [name]:value}
+      return { ...state, [name]: value }
     })
   }
 
@@ -36,7 +36,7 @@ const WholesaleForm = () => {
       setSuccess(true)
     } catch (error) {
       setError(true)
-    } finally{
+    } finally {
       setLoading(false)
     }
   }
@@ -56,7 +56,7 @@ const WholesaleForm = () => {
               {wholesale[lang]?.form?.list?.map((elem) => (
                 <div className={`${style.elem} border16 f20 flex a-center`}>
                   <div dangerouslySetInnerHTML={{ __html: elem?.icon }} />
-                  <p style={{paddingLeft: "28px"}}>{elem?.title}</p>
+                  <p style={{ paddingLeft: "28px" }}>{elem?.title}</p>
                 </div>
               ))}
             </div>
@@ -68,13 +68,31 @@ const WholesaleForm = () => {
               onChange={handleInputChange}
               placeholder={lang ? wholesale[lang]?.form?.form?.name : ''}
             />
-            <InputText
-              name="phone"
-              type='number'
+            <input
+              type={'text'}
+              name={'phone'}
               value={data.phone}
-              onChange={handleInputChange}
+              onChange={(e) => {
+                const inputValue = e.target.value;
+
+                // Удаляем все символы, кроме +0123456789
+                let filteredValue = inputValue.replace(/[^+0123456789]/g, '');
+            
+                // Проверяем, если плюс не на первом месте, удаляем его
+                if (filteredValue.indexOf('+') > 0) {
+                  filteredValue = filteredValue.replace(/\+/g, '');
+                }
+            
+                // Если плюс не первый символ, но пользователь пытается его ввести, игнорируем
+                if (inputValue.includes('+') && filteredValue.indexOf('+') !== 0) {
+                  filteredValue = filteredValue.replace(/\+/g, '');
+                }
+                handleInputChange(e.target.name, filteredValue)
+              }}
+              className={style.input}
               placeholder={lang ? wholesale[lang]?.form?.form?.phone : ''}
             />
+           
             <InputText
               name="email"
               value={data.email}
