@@ -162,7 +162,7 @@ export default function Products() {
 
       <div className="container">
         <ProductsHead heading={heading} />
-        <ProductTypes type={type} setFilterQueryString={setFilterQueryString} content={types?.length ? types : []} />
+        <ProductTypes type={type} getProducts={getProducts} setFilterQueryString={setFilterQueryString} content={types?.length ? types : []} />
         <FilterSection
           setFilterQueryString={setFilterQueryString}
           type={type}

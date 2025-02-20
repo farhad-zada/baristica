@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProductType from './ProductType';
 import styles from '../productsCss/productTypes.module.css';
 
-export default function ProductTypes({ setFilterQueryString, content, type }) {
+export default function ProductTypes({ setFilterQueryString, content, type, getProducts }) {
     const [activeIndices, setActiveIndices] = useState([]);
 
 
@@ -58,6 +58,13 @@ export default function ProductTypes({ setFilterQueryString, content, type }) {
             return arr.filter((item) => item).join('&'); // Убираем пустые строки
         });
     };
+
+    useEffect(() => {
+        if (!activeIndices.length) {
+            setFilterQueryString('')
+            getProducts(type, '')
+        }
+    }, [activeIndices])
 
     useEffect(() => {
         return () => {
