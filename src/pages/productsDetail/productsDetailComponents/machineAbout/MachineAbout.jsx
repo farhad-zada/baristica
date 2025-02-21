@@ -29,7 +29,7 @@ export default function MachineAbout({ product }) {
         : <div className={styles.detailSection}>
             {
                 data && data[lang]?.longDescriptions.map((description) => (
-                    <h2 className='f20 fw400 darkGrey_color'>{description}</h2>
+                    <h2 className='f20 fw400 darkGrey_color robotoFont'>{description}</h2>
                 ))
             }
 

@@ -37,7 +37,7 @@ const ContactsAddress = () => {
                     <p className='f24 darkGrey_color robotoFont'>{elem.workTime.saturday} {elem.workTime.weekend_hours}</p>
                   </div>
                   <div className={`${style.wholesale_socials} flex a-center`}>
-                    <Link target="_blank" to="https://www.instagram.com/baristica.roastery/" className={`${style.wholesale_social} darkGray rounded`}>
+                    <Link target="_blank" to="https://www.instagram.com/baristica.az/" className={`${style.wholesale_social} darkGray rounded`}>
                       {InstagramIcon}
                     </Link>
                     <span

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './productsFilter.module.css'
 import CustomDropdown from '../customDropdown/CustomDropdown'
 import { useSelector } from 'react-redux';
 import CountriesService from '../../services/countries.service';
+import ProductsService from '../../services/products.service';
 
-export default function ProductsFilter({ setFilterQueryString, content, status }) {
+export default function ProductsFilter({ setFilterQueryString, content, status, getProducts }) {
     const { lang } = useSelector(state => state.baristica)
     const [selectedArr, setSelectedArr] = useState([]);
     const [selectedRating, setSelectedRating] = useState([])
@@ -15,6 +16,9 @@ export default function ProductsFilter({ setFilterQueryString, content, status }
     const [selectedDencity, setSelecteDencity] = useState([])
 
     const [countryOptions, setCountryOptions] = useState([])
+    const [processingMethodsOptions, setProcessingMethodsOptions] = useState([])
+
+    const isFirstRender = useRef(true);
 
     const filters = [
         {
@@ -52,6 +56,7 @@ export default function ProductsFilter({ setFilterQueryString, content, status }
     ]
 
     const countriesService = new CountriesService()
+    const productsService = new ProductsService()
 
     const getCountries = async (lang) => {
         try {
@@ -62,10 +67,29 @@ export default function ProductsFilter({ setFilterQueryString, content, status }
                     "value": country.en
                 }
             })
-            
+
             setCountryOptions(countriesData)
         } catch (error) {
             console.log(error)
+        }
+    }
+
+    const getProcessingMethods = async (lang) => {
+        try {
+            const response = await productsService.getProcessingMethods()
+            const processingResponse = response.data.processingMethods
+            console.log(processingResponse)
+            const processingTranslations = processingResponse[lang] ? processingResponse[lang] : processingResponse['az']
+            const processingData = processingTranslations.map((method, index) => {
+                return {
+                    "text": method,
+                    "value": processingResponse['az'][index]
+                }
+            })
+            setProcessingMethodsOptions(processingData)
+
+        } catch (error) {
+
         }
     }
 
@@ -134,6 +158,16 @@ export default function ProductsFilter({ setFilterQueryString, content, status }
     };
 
     useEffect(() => {
+
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
+
+        if(!selectedArr.length){
+            getProducts('Coffee', '')
+        }
+
         processFilters()
     }, [selectedArr])
 
@@ -152,6 +186,7 @@ export default function ProductsFilter({ setFilterQueryString, content, status }
     useEffect(() => {
         if (lang) {
             getCountries(lang)
+            getProcessingMethods(lang)
         }
     }, [lang])
     return (
@@ -165,19 +200,7 @@ export default function ProductsFilter({ setFilterQueryString, content, status }
                                     filter.type === 'processing' ? selectedProcessing :
                                         filter.type === 'country' ? selectedCountry :
                                             filter.type === 'dencity' ? selectedDencity : [];
-                    if(filter.type !== 'country'){
-                        return (
-                            <CustomDropdown
-                                label={filter.header}
-                                options={filter.options}
-                                onSelectionChange={handleSelectionChange}
-                                key={filter.header}
-                                type={filter.type}
-                                selectionMode={filter.selectionMode}
-                                selectedOptions={selectedOptions} // Передаем состояние в CustomDropdown
-                            />
-                        );
-                    } else{
+                    if (filter.type === 'country') {
                         return (
                             <CustomDropdown
                                 label={filter.header}
@@ -189,8 +212,33 @@ export default function ProductsFilter({ setFilterQueryString, content, status }
                                 selectedOptions={selectedOptions} // Передаем состояние в CustomDropdown
                             />
                         );
+                    } else if (filter.type === 'processing') {
+                        return (
+                            <CustomDropdown
+                                label={filter.header}
+                                options={processingMethodsOptions}
+                                onSelectionChange={handleSelectionChange}
+                                key={filter.header}
+                                type={filter.type}
+                                selectionMode={filter.selectionMode}
+                                selectedOptions={selectedOptions} // Передаем состояние в CustomDropdown
+                            />
+                        );
                     }
-                    
+                    else {
+                        return (
+                            <CustomDropdown
+                                label={filter.header}
+                                options={filter.options}
+                                onSelectionChange={handleSelectionChange}
+                                key={filter.header}
+                                type={filter.type}
+                                selectionMode={filter.selectionMode}
+                                selectedOptions={selectedOptions} // Передаем состояние в CustomDropdown
+                            />
+                        );
+                    }
+
                 })
             }
 

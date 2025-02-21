@@ -115,7 +115,7 @@ export default function FilterSection({ setFilterQueryString,showedProductsCount
             {
                 window.location.href.includes('/coffee')
                     ?
-                    <ProductsFilter setFilterQueryString={setFilterQueryString} status={filter} content={lang ? productsPage[lang].filterSection.filters : {}} />
+                    <ProductsFilter getProducts={getProducts} setFilterQueryString={setFilterQueryString} status={filter} content={lang ? productsPage[lang].filterSection.filters : {}} />
                     :
                     <></>
             }

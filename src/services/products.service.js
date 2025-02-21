@@ -38,6 +38,15 @@ class ProductsService {
         }
         return await httpRequest.createOne(`${this.#requestUrl}/${id}/rate`, formData)
     }
+    
+    getProcessingMethods = async (token) => {
+        if(token){
+            httpRequest.headers = {
+                Authorization: "Bearer " + token,
+            };
+        }
+        return await httpRequest.getAll(`${this.#requestUrl}/processing-methods`)
+    }
 }
 
 export default ProductsService;
