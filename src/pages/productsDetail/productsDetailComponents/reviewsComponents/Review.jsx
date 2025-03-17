@@ -7,16 +7,16 @@ import { useSelector } from 'react-redux';
 
 
 export default function Review({ review }) {
-    const {lang} = useSelector(state => state.baristica)
+    const { lang } = useSelector(state => state.baristica)
 
     const formatDate = (dateString, lang) => {
         // Устанавливаем текущий язык для moment
         moment.locale(lang);
-      
+
         // Форматируем дату
         return moment(dateString).format("D MMM YYYY"); // Пример: 12 sen 2024
-      };
-
+    };
+    console.log(review)
     return (
         <div className={styles.review}>
             <div className="reviewHead flex j-between">
@@ -34,9 +34,14 @@ export default function Review({ review }) {
             <div className="reviewBody mt20">
                 <p className="f20 fw400 darkGrey_color">{review?.text ? review.text : 'Кофе с нотами бергамота, розы, жасмина и маракуйи, жасмина и маракуйи, жасмина…'}</p>
                 <div className={styles.reviewImg + " flex g10 mt12"}>
-                    {review?.photourls?.length && review.photourls.map((url, key) => (
-                        <img src={url} alt={`image ${key + 1}`} key={key} />
-                    ))}
+                    {
+                        review?.photourls?.length ?
+                            review.photourls.map((url, key) => (
+                                <img src={url} alt={`image ${key + 1}`} key={key} />
+                            ))
+                            :
+                            <></>
+                    }
                 </div>
             </div>
         </div>

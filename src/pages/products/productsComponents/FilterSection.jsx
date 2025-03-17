@@ -44,6 +44,7 @@ export default function FilterSection({ setFilterQueryString,showedProductsCount
             return updatedState
         })
         getProducts('Coffee', '')
+        
     }
 
     function getEnding(productsCount) {
@@ -113,7 +114,7 @@ export default function FilterSection({ setFilterQueryString,showedProductsCount
                 </div>
             </div>
             {
-                window.location.href.includes('/coffee')
+                type === 'Coffee'
                     ?
                     <ProductsFilter getProducts={getProducts} setFilterQueryString={setFilterQueryString} status={filter} content={lang ? productsPage[lang].filterSection.filters : {}} />
                     :

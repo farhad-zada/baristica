@@ -51,6 +51,10 @@ export default function Products() {
   const navigate = useNavigate()
 
   const getProducts = async (type, query, page = false) => {
+    
+    console.log('work', type) 
+    if(!type) return
+
     setLoading(true)
     try {
       const response = await productsService.getProducts(token, type, page ? page : currentPage, query)
@@ -136,6 +140,7 @@ export default function Products() {
 
   useEffect(() => {
     if (type && filterQueryString) {
+      
       getProducts(type, filterQueryString)
       setCurrentPage(1)
     }

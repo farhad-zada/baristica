@@ -45,7 +45,7 @@ export default function OrderProduct({ product, grindityText, grindingOptionsTra
                         ?
                         <>
                             <h3 className="f16 fw400 mt4 darkGrey_color">{grindityText} {product?.grindingOption ? findGrindingTranslation(product.grindingOption) : 'эспрессо'}</h3>
-                            <h3 className="f16 fw400 mt4 darkGrey_color">{weightText} {product?.selectedWeight ? product.selectedWeight : '1000'} g</h3>
+                            <h3 className="f16 fw400 mt4 darkGrey_color">{weightText} {product?.weight ? product.weight : '1000'} g</h3>
                         </>
                         :
                         <></>

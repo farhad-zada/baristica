@@ -20,6 +20,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     })
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [errorMessage, setErrorMessage] = useState({})
     const [success, setSuccess] = useState(false)
     const [byCard, setByCard] = useState(true)
     const [selectedAddress, setSelectedAddress] = useState({})
@@ -35,7 +36,16 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     const ordersService = new OrdersService()
 
     const onSubmit = async () => {
-        setLoading(true)
+        if((delivery && !formData.time) || (delivery && !formData.date)){
+
+            setErrorMessage({
+                az:'Zəhmət olmasa çatdırılma vaxtını və tarixini qeyd edin',
+                ru:"Пожалуйста выберите  время и дату доставки",
+                en:"Please set up delivery time and date"
+            })
+            setError(true)
+            return
+        }
         const data = {
             language: lang,
             order: {
@@ -55,14 +65,16 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                 deliveryDate: formData.date
             }
         }
+
+        setLoading(true)
         try {
             const response = await ordersService.createOrder(token, data)
             const url = response.data.redirect.redirect_url
-            if(url){
+            if (url) {
                 window.location.href = url
             }
             setSuccess(true)
-            
+
         } catch (error) {
             setError(true)
         } finally {
@@ -92,7 +104,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     return (
         <div className={styles.orderLeft}>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={errorMessage} />
             <Success status={success} setStatus={setSuccess} />
             <div className="orderInfo_component">
                 <h2 className='f32 fw700'>{content ? content.personalInfoHeading : ''}</h2>
@@ -113,29 +125,29 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
 
             {
                 delivery
-                ?
-                <div className="orderInfo_component">
-                <h2 className='f32 fw700'>{content ? content.timeHeading : ''}</h2>
-                <div className="flex g20 mt20">
-                    <InputText
-                        name="time"
-                        type='time'
-                        value={formData.time}
-                        onChange={handleInputChange}
-                        placeholder={lang ? order[lang].nameInput : ''}
-                    />
+                    ?
+                    <div className="orderInfo_component">
+                        <h2 className='f32 fw700'>{content ? content.timeHeading : ''}</h2>
+                        <div className="flex g20 mt20">
+                            <InputText
+                                name="time"
+                                type='time'
+                                value={formData.time}
+                                onChange={handleInputChange}
+                                placeholder={lang ? order[lang].nameInput : ''}
+                            />
 
-                    <InputText
-                        name="date"
-                        type='date'
-                        value={formData.date}
-                        onChange={handleInputChange}
-                        placeholder={lang ? order[lang].phoneInput : ''}
-                    />
-                </div>
-            </div>
-            :
-            <></>
+                            <InputText
+                                name="date"
+                                type='date'
+                                value={formData.date}
+                                onChange={handleInputChange}
+                                placeholder={lang ? order[lang].phoneInput : ''}
+                            />
+                        </div>
+                    </div>
+                    :
+                    <></>
             }
 
             <div className="orderInfo_component">
@@ -205,20 +217,27 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                 <h2 className='f32 fw700'>{content ? content.paymentHeading : ''}</h2>
 
                 <div className="flex g20 mt20">
-                    <div className="flex a-center g8 pointer" onClick={() => setByCard(false)}>
-                        <span className={styles.circle} >
-                            {
-                                !byCard
-                                    ?
-                                    <span className={styles.blueCircle}></span>
-                                    :
-                                    <></>
-                            }
-                        </span>
-                        <span className='f20 fw400'>
-                            {content ? content.byCash : ''}
-                        </span>
-                    </div>
+                    {
+                        !delivery
+                            ?
+                            <div className="flex a-center g8 pointer" onClick={() => setByCard(false)}>
+                                <span className={styles.circle} >
+                                    {
+                                        !byCard
+                                            ?
+                                            <span className={styles.blueCircle}></span>
+                                            :
+                                            <></>
+                                    }
+                                </span>
+                                <span className='f20 fw400'>
+                                    {content ? content.byCash : ''}
+                                </span>
+                            </div>
+                            :
+                            <></>
+                    }
+
 
                     <div className="flex a-center g8 pointer" onClick={() => setByCard(true)}>
                         <span className={styles.circle} >

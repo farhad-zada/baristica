@@ -41,7 +41,7 @@ export default function CartProduct({ product, grindingOptionsTranslate, weightT
             setCartCount(product.cartCount)
         }
     }, [product])
-
+    console.log(product)
     return (
         <div className={styles.product}>
             <div className={styles.left + " flex a-center g20"}>
@@ -55,7 +55,7 @@ export default function CartProduct({ product, grindingOptionsTranslate, weightT
                             ?
                             <>
                                 <h3 className="robotoFont f16 fw400 mt4 darkGrey_color">{grindityText} {product?.grindingOption ? findGrindingTranslation(product.grindingOption) : 'эспрессо'}</h3>
-                                <h3 className="robotoFont f16 fw400 mt4 darkGrey_color">{weightText} {product?.selectedWeight ? product.selectedWeight : '1000'} g</h3>
+                                <h3 className="robotoFont f16 fw400 mt4 darkGrey_color">{weightText} {product?.weight ? product.weight : '1000'} g</h3>
                             </>
                             :
                             <></>

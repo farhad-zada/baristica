@@ -166,6 +166,7 @@ export default function ProductsFilter({ setFilterQueryString, content, status, 
 
         if(!selectedArr.length){
             getProducts('Coffee', '')
+            
         }
 
         processFilters()
