@@ -46,6 +46,10 @@
                         {
                             "title": "Aksesuarlar",
                             "link": "/products/accesories"
+                        },
+                        {
+                            "title": "Çaylar",
+                            "link": "/products/tea"
                         }
                     ]
                 },
@@ -86,6 +90,10 @@
                         {
                             "title": "Аксессуары",
                             "link": "/products/accesories"
+                        },
+                        {
+                            "title": "Чай",
+                            "link": "/products/tea"
                         }
                     ]
                 },
@@ -112,7 +120,7 @@
             ],
             "en": [
                 {
-                    "title": "Online-shop",
+                    "title": "Online-store",
                     "link": "/catalog",
                     "list": [
                         {
@@ -126,6 +134,10 @@
                         {
                             "title": "Accessories",
                             "link": "/products/accesories"
+                        },
+                        {
+                            "title": "Tea",
+                            "link": "/products/tea"
                         }
                     ]
                 },
@@ -135,7 +147,7 @@
                     "list": []
                 },
                 {
-                    "title": "Wholesale Site",
+                    "title": "Wholesale",
                     "link": "/wholesale",
                     "list": []
                 },
@@ -145,7 +157,7 @@
                     "list": []
                 },
                 {
-                    "title": "Our coffeeshops",
+                    "title": "Our coffee shops",
                     "link": "/coffeeshops",
                     "list": []
                 }
@@ -336,7 +348,7 @@
                     },
                     "getInTouch": {
                         "title": "CONTACTS",
-                        "address": "Nigar Rəfibəyli 12/14, Passage 1901",
+                        "address": "Nigar Rafibayli 12/14, Passage 1901",
                         "workTime": {
                             "title": "Working Hours:",
                             "weekday": "Weekdays:",
@@ -408,7 +420,7 @@
             },
             "info": {
                 "title": "ÖZ QƏHVƏ\n\nİSTEHSALATIMIZ",
-                "description": "Biz qəhvə ilə bağlı bütün təcrübəmizi bu\n\nistehsalata qoyduq və ən yaxşı speshəlti\n\nqəhvə istehsalatını yaratmağa çalışdıq",
+                "description": "Biz qəhvə ilə bağlı bütün təcrübəmizi bu\n\nistehsalata qoyduq və ən yaxşı specialty\n\nqəhvə istehsalatını yaratmağa çalışdıq",
                 "list": [
                     {
                         "title": "MÜKƏMMƏL AVADANLIQ",
@@ -898,15 +910,15 @@
                             "link": "#contacts"
                         },
                         {
-                            "label": "Online Shop",
+                            "label": "Online-store",
                             "link": "#homestore"
                         },
                         {
-                            "label": "Wholesale Site",
+                            "label": "Wholesale",
                             "link": "/wholesale"
                         },
                         {
-                            "label": "Coffeeshops",
+                            "label": "Coffee shops",
                             "link": "/coffeeshops"
                         }
                     ]
@@ -1061,6 +1073,7 @@
             "coffee": "QƏHVƏ",
             "coffeeMachines": "QƏHVƏ APARATI VƏ QƏHVƏ ÜYÜDƏN",
             "accesories": "Qəhvə üçün aksesuarlar",
+            "tea":"Çaylar",
             "subHeading": "Bölməni seçin:",
             "contactHeading": "KÖMƏK LAZIMDIR?",
             "contactSubHeading": "Qısa müddətdə geri dönəcəyik",
@@ -1202,6 +1215,7 @@
             "coffee": "КОФЕ",
             "coffeeMachines": "КОФЕ АППАРАТЫ И ГРИНДЕРЫ",
             "accesories": "Аксессуары для кофе",
+            "tea":"Чай",
             "subHeading": "Выберите раздел:",
             "contactHeading": "НУЖНА ПОМОЩЬ?",
             "contactSubHeading": "свяжемся в кратчайшие сроки",
@@ -1343,6 +1357,7 @@
             "coffee": "Coffee",
             "coffeeMachines": "COFFEE MACHINES AND GRINDERS",
             "accesories": "Accessories for coffee",
+            "tea":"Tea",
             "subHeading": "Select section:",
             "contactHeading": "NEED HELP?",
             "contactSubHeading": "We will contact you as soon as possible",
@@ -1611,6 +1626,17 @@
                         "en": "Teapots"
                     },
                     "value": "teapot"
+                }
+            ],
+            "tea":[
+                {
+                    "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjYiIHZpZXdCb3g9IjAgMCA0MCAyNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMzLjc5ODggMy4yMzQzOEMzNC4wMjcxIDEuNTU2MTggMzQuMDkyNSAwLjUgMzQuMDkyNSAwLjVIMC44MTI1QzAuODEyNSAwLjUgMS41ODY0NSAyNS41IDE4LjIyNjQgMjUuNUMyNS42NTkyIDI1LjUgMjkuNjUwNiAxOC43NjMgMzEuNzcwNiAxMi4yODM2TTMzLjc5ODggMy4yMzQzOEMzMy43OTg4IDMuMjM0MzggMzcuNjI4IDEuNzc4NDcgMzguNzM2MiA0LjAxNTYyQzM5LjUxMDEgNS41NzgxMiAzNy45NjIyIDEwLjY1NjIgMzUuNjQwNCAxMS44MjgxQzM0LjA5MjUgMTIuNjA5NCAzMS43NzA2IDEyLjI4MzYgMzEuNzcwNiAxMi4yODM2TTMzLjc5ODggMy4yMzQzOEMzMy40OTMxIDUuNDgyNDkgMzIuODk1MSA4Ljg0NjgyIDMxLjc3MDYgMTIuMjgzNiIgc3Ryb2tlPSJibGFjayIvPgo8cGF0aCBkPSJNMjkuMTI0NSAxM0g2LjYyNDUxQzYuNjI0NTEgMTMgOC42MjQ1MSAyMyAxOC4zOTM3IDIzQzI2LjEyNDUgMjMgMjkuMTI0NSAxMyAyOS4xMjQ1IDEzWiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg==",
+                    "text": {
+                        "az": "Meyvəli çay",
+                        "ru": "Фруктовый чай",
+                        "en": "Fruit tea"
+                    },
+                    "value": "fruit tea"
                 }
             ]
         }
@@ -2315,6 +2341,7 @@
         "az": {
             "filter": "Filtr",
             "espresso": "Espresso",
+            "drip":"Damcı",
             "1_group": "1-qruplu aparat",
             "2_group": "2-qruplu aparat",
             "3_group": "3-qruplu aparat",
@@ -2328,6 +2355,7 @@
         "ru": {
             "filter": "Фильтр",
             "espresso": "Эспрессо",
+            "drip":"Дрип-кофе",
             "1_group": "1-группажный аппарат",
             "2_group": "2-х группажный аппарат",
             "3_group": "3-х группажный аппарат",
@@ -2341,6 +2369,7 @@
         "en": {
             "filter": "Filter",
             "espresso": "Espresso",
+            "drip":"Drip",
             "1_group": "1-group apparatus",
             "2_group": "2-group apparatus",
             "3_group": "3-group apparatus",

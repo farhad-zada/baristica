@@ -3,18 +3,14 @@ import Characteristic from '../../../../components/characteristic/Characteristic
 import Counter from '../../../../components/counter/Counter'
 import pageText from '../../../../content/PagesText.json'
 import { useSelector } from 'react-redux'
-import styles from './coffeeDetails.module.css'
-import CustomSelectBordered from '../../../../components/customSelectBordered/CustomSelectBordered'
+import styles from './teaDetails.module.css'
 import { Bag } from '../../../../icons'
 import { useNavigate } from 'react-router-dom'
 import ProductAddedModal from '../../../../components/productAddedModal/ProductAddedModal'
-const { productCard, grindingOptionsTranslate } = pageText
+const { productCard } = pageText
 
 export default function CoffeeDetails({ product }) {
     const { lang } = useSelector(state => state.baristica)
-    const [grindingOptions, setGrindingOptions] = useState([])
-    const [defaultGrinding, setDefaultGrinding] = useState('')
-    const [selectedGrinding, setSelectedGrinding] = useState('')
     const [selectedWeight, setSelectedWeight] = useState(product?.weight ? product.weight : '')
     const [weights, setWeights] = useState([])
     const [cartCount, setCartCount] = useState(1)
@@ -25,22 +21,9 @@ export default function CoffeeDetails({ product }) {
 
     const navigate = useNavigate()
 
-    const getFilteredOptions = (category) => {
-        if (category === 'espresso') {
-            return grindingOptions.filter(option => option.value === 'whole-bean'); // Только "dənli"
-        }
-        if (category === 'filter') {
-            return grindingOptions.filter(option => option.value !== 'whole-bean'); // Все, кроме "dənli"
-        }
-        return grindingOptions; // Полный список для других категорий
-    };
-
     const addToCart = () => {
-        // setCartCount(1)
         setProductAdded(true)
-        setCartProduct({ ...product, cartCount: cartCount, grindingOption: selectedGrinding })
-        // dispatch(addProductToCart({ ...product, cartCount: cartCount, grindingOption: selectedGrinding }))
-        // setCartCount(1)
+        setCartProduct({ ...product, cartCount: cartCount })
     }
 
     const changeProduct = (field, value) => {
@@ -57,24 +40,6 @@ export default function CoffeeDetails({ product }) {
         }
     }
 
-    const changeGrinding = (value) => {
-        const selected = grindingOptions.find((grinding) => grinding.text === value)
-        setSelectedGrinding(selected.value)
-    }
-
-    useEffect(() => {
-        if (lang && JSON.stringify(product) !== "{}" && product) {
-            setGrindingOptions(grindingOptionsTranslate[lang])
-
-            if (product.category === 'filter') {
-                setDefaultGrinding(grindingOptionsTranslate[lang][1].text)
-                setSelectedGrinding(grindingOptionsTranslate[lang][1].value)
-            } else {
-                setDefaultGrinding(grindingOptionsTranslate[lang][0].text)
-                setSelectedGrinding(grindingOptionsTranslate[lang][0].value)
-            }
-        }
-    }, [lang, product])
 
     useEffect(() => {
         if (JSON.stringify(product) !== '{}') {
@@ -105,46 +70,19 @@ export default function CoffeeDetails({ product }) {
             </div>
 
 
+            <h2 className="f16 fw700 mt20 darkGrey_color">
+                {lang ? productCard[lang].weight : ''}
+            </h2>
 
-            {
-                product.category === 'drip'
-                    ?
-                    <></>
-                    :
-                    <>
-                        <h2 className="f16 fw700 mt36 darkGrey_color">
-                            {lang ? productCard[lang].grindity : ''}
-                        </h2>
-                        <CustomSelectBordered
-                            callBack={changeGrinding}
-                            options={getFilteredOptions(product.category).map(option => option.text)}
-                            defaultValue={defaultGrinding}
-                        />
-                    </>
-            }
-
-            {
-                product.category === 'drip'
-                    ?
-                    <div className='mb20'></div>
-                    :
-                    <>
-                        <h2 className="f16 fw700 mt20 darkGrey_color">
-                            {lang ? productCard[lang].weight : ''}
-                        </h2>
-
-                        <div className="productWeights flex g10 mt4 mb20">
-                            {
-                                weights?.map((weight, index) => (
-                                    <div className={weight === selectedWeight ? styles.weightActive : styles.weight} key={index} onClick={() => { changeProduct('weight', weight) }}>
-                                        {weight}
-                                    </div>
-                                ))
-                            }
+            <div className="productWeights flex g10 mt4 mb20">
+                {
+                    weights?.map((weight, index) => (
+                        <div className={weight === selectedWeight ? styles.weightActive : styles.weight} key={index} onClick={() => { changeProduct('weight', weight) }}>
+                            {weight}
                         </div>
-                    </>
-            }
-
+                    ))
+                }
+            </div>
 
             <Counter count={cartCount} setCount={setCartCount} />
 

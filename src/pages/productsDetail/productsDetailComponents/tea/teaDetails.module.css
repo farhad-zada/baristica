@@ -1,0 +1,29 @@
+.weight{
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px 12px;
+    border: 1px solid #54565A;
+    border-radius: 40px;
+    cursor: pointer;
+}
+.weightActive{
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    padding: 4px 12px;
+    background: #54565A;
+    border-radius: 40px;
+    cursor: pointer;
+}
+.addToCart{
+    padding: 6px 15px;
+    background: #54565A;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+.addToCart:hover{
+    color: #FFFFFF;
+    background-color: #61C4BF;
+}

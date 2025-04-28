@@ -74,7 +74,7 @@ export default function ProductTypes({ setFilterQueryString, content, type, getP
     }, [type])
 
     return (
-        <div className={`${styles.productTypes} flex`}>
+        <div className={`${styles.productTypes}` + `${content.length > 1 ? ' flex' : ''}`}>
             {content.map((element, index) => (
                 <ProductType
                     width={content.length ? `${100 / content.length}%` : '100%'}

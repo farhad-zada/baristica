@@ -51,9 +51,9 @@ export default function Products() {
   const navigate = useNavigate()
 
   const getProducts = async (type, query, page = false) => {
-    
-    console.log('work', type) 
-    if(!type) return
+
+    console.log('work', type)
+    if (!type) return
 
     setLoading(true)
     try {
@@ -89,7 +89,7 @@ export default function Products() {
         return;
       }
       setCurrentPage(1)
-      getProducts('Machine', '',1)
+      getProducts('Machine', '', 1)
       setType('Machine')
       localStorage.setItem('productsPagination', JSON.stringify({ type: 'Machine', page: 1 }))
 
@@ -117,9 +117,22 @@ export default function Products() {
       }
       setCurrentPage(1)
 
-      getProducts('Accessory', '',1)
+      getProducts('Accessory', '', 1)
       setType('Accessory')
       localStorage.setItem('productsPagination', JSON.stringify({ type: 'Accessory', page: 1 }))
+    } else if (window.location.href.includes('/tea')) {
+      changePageType('tea')
+      // here
+      const productsPagination = JSON.parse(localStorage.getItem('productsPagination'))
+      if (productsPagination && 'Tea' === productsPagination?.type) {
+        setType('Tea')
+        return;
+      }
+      setCurrentPage(1)
+
+      getProducts('Tea', '', 1)
+      setType('Tea')
+      localStorage.setItem('productsPagination', JSON.stringify({ type: 'Tea', page: 1 }))
     }
     else {
       navigate('/')
@@ -134,13 +147,12 @@ export default function Products() {
   // we need this to change products list when the user change page
   // useEffect(() => {
   //   console.log('work', currentPage)
-
   //   getProducts(type, filterQueryString)
   // }, [currentPage])
 
   useEffect(() => {
     if (type && filterQueryString) {
-      
+
       getProducts(type, filterQueryString)
       setCurrentPage(1)
     }

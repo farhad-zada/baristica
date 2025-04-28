@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import style from './productCard.module.css'
-import { Bag, CartIcon, Favorited, Feedback, Star } from "../../icons"
-import MockImg from '../../assets/img/coffe_mock.png'
+import { Bag, Favorited, Feedback, Star } from "../../icons"
 import Characteristic from "../characteristic/Characteristic"
 import CustomSelect from "../customSelect/CustomSelect"
 import { memo, useEffect, useState } from "react"
@@ -9,15 +8,19 @@ import Counter from "../counter/Counter"
 
 import pageText from '../../content/PagesText.json'
 import { useNavigate } from "react-router-dom"
-import ProductAddedModal from "../productAddedModal/ProductAddedModal"
-import { addProductToCart, setTabIdx } from "../../redux/slice"
+
+import { setTabIdx } from "../../redux/slice"
 import FavoritesService from "../../services/favorites.service"
 import Loading from "../loading/Loading"
 import ProductsService from "../../services/products.service"
 import Error from "../error/Error"
-const { productCard, categories, grindingOptionsTranslate, proccessingMethodTranslate } = pageText
+const { productCard, categories, grindingOptionsTranslate } = pageText
 
-
+const dripCoffeeAdditional = {
+    az: 'ədəd',
+    ru: "шт",
+    en: "count"
+}
 
 const ProductCard = (props) => {
     const { product, width = 'auto', setModalProduct, setProductAdded, setCartProductCount } = props
@@ -53,17 +56,17 @@ const ProductCard = (props) => {
         setCartProductCount(cartCount)
     }
     const addFavorite = async (id) => {
-        if(token){
+        if (token) {
             setLoading(true)
-        try {
-            const response = await favoriteService.addFavorite(token, id)
-        } catch (error) {
-            console.log(error)
-        }
-        finally {
-            setLoading(false)
-        }
-        } else{
+            try {
+                const response = await favoriteService.addFavorite(token, id)
+            } catch (error) {
+                console.log(error)
+            }
+            finally {
+                setLoading(false)
+            }
+        } else {
             navigate('/login')
         }
     }
@@ -124,12 +127,24 @@ const ProductCard = (props) => {
         if (type === 'Coffee') {
             return (
                 <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
-                    <CustomSelect
-                        options={getFilteredOptions(product.category).map(option => option.text)}
-                        defaultValue={defaultGrinding}
-                        callBack={changeGrinding} />
-                        {/*  TODO: Weight problem */}
-                    <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={lang ? productCard[lang].weightValue : 'g'} callBack={changeProduct} />
+                    {
+                        activeProduct.category === 'drip'
+                            ?
+                            <span></span>
+                            :
+                            <CustomSelect
+                                options={getFilteredOptions(product.category).map(option => option.text)}
+                                defaultValue={defaultGrinding}
+                                callBack={changeGrinding} />
+                    }
+                    {/*  TODO: Weight problem */}
+                    {
+                        activeProduct.category === 'drip'
+                            ?
+                            <span></span>
+                            :
+                            <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={productCard[lang].weightValue} callBack={changeProduct} />
+                    }
 
                     <Counter count={cartCount} setCount={setCartCount} />
                 </div>
@@ -141,7 +156,7 @@ const ProductCard = (props) => {
                         <CustomSelect field={'category'} options={categoryGroups} defaultValue={defaultCategory} additionalText={''} callBack={changeProduct} />
                     </div>
                 )
-            } else{
+            } else {
                 return <div className={style.line}></div>
             }
         } else if (type === 'Accessory') {
@@ -152,6 +167,14 @@ const ProductCard = (props) => {
                     <Counter count={cartCount} setCount={setCartCount} />
                 </div>
             )
+        } else if (type === 'Tea') {
+            return (
+                <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
+
+                    <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={productCard[lang].weightValue} callBack={changeProduct} />
+                    <Counter count={cartCount} setCount={setCartCount} />
+                </div>
+            )
         }
     }
 
@@ -159,7 +182,7 @@ const ProductCard = (props) => {
         if (JSON.stringify(product) !== '{}') {
             setActiveProduct(product)
         }
-    }, [product]) 
+    }, [product])
 
     useEffect(() => {
         if (JSON.stringify(activeProduct) !== '{}') {
@@ -167,14 +190,18 @@ const ProductCard = (props) => {
             setLinked(linkedValues)
             const weightFields = activeProduct?.linked?.filter((link) => link.field === 'weight')
             const linkedWeights = weightFields?.map((field) => field.fieldValue) || []
+
             setWeightOptions(linkedWeights)
             setDefaultWeight(activeProduct?.weight || 200)
 
 
-            let categoryFields = product.linked.filter((link) => link.field === 'category')
+
+            let categoryFields = activeProduct.linked.filter((link) => link.field === 'category')
             let linkedCategories = categoryFields.map((field) => field.fieldValue)
+
             categoryFields = categoryFields.map((category) => { return { ...category, categoryText: categories[lang][category.fieldValue] } })
             linkedCategories = linkedCategories.map((category) => { return categories[lang][category] })
+
 
             setCategoryGroups(linkedCategories)
             setDefaultCategory(product?.category ? categories[lang][product?.category] : '')
@@ -241,7 +268,7 @@ const ProductCard = (props) => {
                 </div>
                 <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : ''}</h3>
                 <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : ''}</h2>
-                <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod? activeProduct?.processingMethod[lang]  : ''}</p>
+                <p className="text-center darkGrey_color f16 fw400">{activeProduct?.processingMethod ? activeProduct?.processingMethod[lang] : ''}</p>
 
 
             </div>
@@ -252,7 +279,7 @@ const ProductCard = (props) => {
                     <img src={activeProduct?.profileImage || ''} alt="" />
                 </div>
 
-                {activeProduct.productType === 'Accessory'
+                {activeProduct.productType === 'Accessory' || activeProduct.productType === 'Tea'
                     ?
                     <h2 className="text-center darkGrey_color fw400  limited-text">{activeProduct?.description ? activeProduct.description[lang] : ''}</h2>
                     :
