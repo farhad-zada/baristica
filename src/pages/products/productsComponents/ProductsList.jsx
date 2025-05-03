@@ -11,6 +11,9 @@ export default function ProductsList({ products }) {
   const [modalProduct, setModalProduct] = useState({})
   const [productAdded, setProductAdded] = useState(false)
   const [cartProductCount, setCartProductCount] = useState(1)
+
+  
+
   if (products?.length) {
     return (
       <div className={`${styles.productsList}`}>
@@ -18,7 +21,7 @@ export default function ProductsList({ products }) {
 
         {
           products.map((product, index) => (
-            <ProductCard key={index} product={product} width={'15%'} setModalProduct={setModalProduct} setProductAdded={setProductAdded} setCartProductCount={setCartProductCount} />
+            <ProductCard key={product._id} product={product} width={'15%'} setModalProduct={setModalProduct} setProductAdded={setProductAdded} setCartProductCount={setCartProductCount} />
           ))
         }
       </div>

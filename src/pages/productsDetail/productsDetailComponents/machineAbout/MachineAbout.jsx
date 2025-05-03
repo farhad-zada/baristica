@@ -17,9 +17,11 @@ export default function MachineAbout({ product }) {
             const machine = machines.find((machine) => {
                 // Очистка строки из machines перед сравнением
                 const cleanedMachineName = machine.name.replace(/\s+/g, ' ').trim();
+                if(cleanedMachineName === 'SANREMO F64 OD EVO PRO' && cleanedProductName === 'SANREMO F64 OD EVO PRO'){
+                    return 'SANREMO F64 OD EVO PRO'
+                }
                 return cleanedProductName.includes(cleanedMachineName);
             });
-
             setData(machine);
         }
     }, [product, lang]);

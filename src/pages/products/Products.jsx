@@ -50,28 +50,28 @@ export default function Products() {
 
   const navigate = useNavigate()
 
+  
+
   const getProducts = async (type, query, page = false) => {
+  if (!type) return;
 
-    console.log('work', type)
-    if (!type) return
+  setLoading(true);
+  setProducts([]); // Очищаем старые продукты
+  try {
+    const response = await productsService.getProducts(token, type, page ? page : currentPage, query);
+    const products = response.data;
 
-    setLoading(true)
-    try {
-      const response = await productsService.getProducts(token, type, page ? page : currentPage, query)
-      const products = response.data
-      // if (productsCount !== response.count) {
-      //   setCurrentPage(1)
-      // }
-      setShowedProductsCount(products.length)
-      setProductsCount(response.count)
-      setTotalPages(response.page_count)
-      setProducts(products)
-    } catch (error) {
-      setError(true)
-    } finally {
-      setLoading(false)
-    }
+    setShowedProductsCount(products.length);
+    setProductsCount(response.count);
+    setTotalPages(response.page_count);
+    setProducts(products);
+  } catch (error) {
+    setError(true);
+  } finally {
+    setLoading(false);
   }
+}
+
 
 
   useEffect(() => {
@@ -153,7 +153,7 @@ export default function Products() {
   useEffect(() => {
     if (type && filterQueryString) {
 
-      getProducts(type, filterQueryString)
+      getProducts(type, filterQueryString, 1)
       setCurrentPage(1)
     }
   }, [filterQueryString, type])

@@ -1676,102 +1676,6 @@
             }
         },
         {
-            "name": "SANREMO F64 OD EVO",
-            "az": {
-                "longDescriptions": [
-                    "Bu, sabit və dəqiq espresso üyütməsi üçün yaradılmış avtomatik dozajlı yüksək məhsuldar bir qəhvə üyüdəndir. Güclü mühərrik və etibarlı polad burslar ilə təchiz olunmuşdur, bu da onu pik saatlarda belə yüksək məhsuldarlığı təmin etməyə imkan verir. Rəqəmsal ekranla intuitiv interfeys, parametrləri asanlıqla tənzimləməyə imkan verir, kompakt dizaynı isə onu hər hansı bir kafedə yerləşdirmək üçün əlverişli edir.                    "
-                ],
-                "body": [
-                    {
-                        "heading": "KOMPAKT DİZAYN",
-                        "paragraph": "Yüksək məhsuldarlığına baxmayaraq, qəhvə üyüdəninin yer tutumu azdır, bu da onu kiçik və ya dolu iş sahələri üçün mükəmməl seçim edir."
-                    },
-                    {
-                        "heading": "AVTOMATİK DOZALAMA SİSTEMİ",
-                        "paragraph": "İntegrasiya olunmuş dozator sayəsində, qəhvə üyüdən hər porsiya üçün üyüdülmüş qəhvənin miqdarını avtomatik olaraq tənzimləyir, bu da üyüdülmə sabitliyini təmin edir və itkini minimuma endirir."
-                    },
-                    {
-                        "heading": "RƏQƏMSAL EKRAN",
-                        "paragraph": "İntuitiv rəqəmsal panel, üyüdülmə parametrlərini sürətlə tənzimləməyə və prosesi nəzarət etməyə imkan verir, bu da onu intensiv iş şəraitində belə istifadəsini asanlaşdırır."
-                    },
-                    {
-                        "heading": "YÜKSƏK ÜYÜTMƏ SÜRƏTİ",
-                        "paragraph": "Güclü mühərrik və polad burslar, hətta böyük miqdarda qəhvə hazırlayarkən belə, dənələrin ətirini və keyfiyyətini qoruyaraq, onların sürətli emalını təmin edir."
-                    },
-                    {
-                        "heading": "SOYUTMA SİSTEMİ",
-                        "paragraph": "İçindəki aktiv soyutma sistemi, qəhvə üyüdücünün uzun müddət işlədiyi zaman yüksək temperaturdan qorunmasını təmin edir və gün boyunca stabil iş rejimini zəmanət verir."
-                    },
-                    {
-                        "heading": "POLAD BURSLAR",
-                        "paragraph": "Möhkəm və sərtləşdirilmiş poladdan hazırlanmış burslar uzun müddət xidmət edir və yüksək dəqiqliklə üyütməyi təmin edir, bu da kafe və ya restoran kimi intensiv iş mühitlərində xüsusilə vacibdir."
-                    }
-                ]
-            },
-            "ru": {
-                "longDescriptions": [
-                    "Это высокопроизводительная кофемолка с автоматическим дозированием, созданная для стабильного и точного помола эспрессо. Оснащённая мощным двигателем и надежными стальными жерновами, она гарантирует высокую производительность даже в часы пик. Интуитивный интерфейс с цифровым дисплеем позволяет легко регулировать параметры, а компактный дизайн делает её удобной для размещения в любой кофейне."
-                ],
-                "body": [
-                    {
-                        "heading": "КОМПАКТНЫЙ ДИЗАЙН",
-                        "paragraph": "Несмотря на высокую производительность, кофемолка занимает мало места, что делает её отличным выбором для небольших или переполненных рабочих пространств."
-                    },
-                    {
-                        "heading": "СИСТЕМА АВТОМАТИЧЕСКОГО ДОЗИРОВАНИЯ",
-                        "paragraph": "Благодаря встроенному дозатору, кофемолка автоматически регулирует количество молотого кофе для каждой порции, обеспечивая стабильность помола и минимизируя отходы."
-                    },
-                    {
-                        "heading": "ЦИФРОВОЙ ДИСПЛЕЙ",
-                        "paragraph": "Интуитивно понятная цифровая панель позволяет быстро настраивать параметры помола и контролировать процесс, что делает её удобной в использовании даже во время интенсивной работы."
-                    },
-                    {
-                        "heading": "ВЫСОКАЯ СКОРОСТЬ ПОМОЛА",
-                        "paragraph": "Мощный двигатель и стальные жернова обеспечивают быструю обработку зерен, сохраняя их аромат и качество, даже при больших объемах приготовления кофе."
-                    },
-                    {
-                        "heading": "СИСТЕМА ОХЛАЖДЕНИЯ",
-                        "paragraph": "Встроенная система активного охлаждения двигателя предотвращает перегрев кофемолки при длительной эксплуатации, гарантируя стабильную работу в течение всего дня."
-                    },
-                    {
-                        "heading": "СТАЛЬНЫЕ ЖЕРНОВА",
-                        "paragraph": "Прочные жернова из закаленной стали обеспечивают длительный срок службы и высокую точность помола, что особенно важно при интенсивной эксплуатации в кафе или ресторане."
-                    }
-                ]
-            },
-            "en": {
-                "longDescriptions": [
-                    "Bu, sabit və dəqiq espresso üyütməsi üçün yaradılmış avtomatik dozajlı yüksək məhsuldar bir qəhvə üyüdəndir. Güclü mühərrik və etibarlı polad burslar ilə təchiz olunmuşdur, bu da onu pik saatlarda belə yüksək məhsuldarlığı təmin etməyə imkan verir. Rəqəmsal ekranla intuitiv interfeys, parametrləri asanlıqla tənzimləməyə imkan verir, kompakt dizaynı isə onu hər hansı bir kafedə yerləşdirmək üçün əlverişli edir.                    "
-                ],
-                "body": [
-                    {
-                        "heading": "KOMPAKT DİZAYN",
-                        "paragraph": "Yüksək məhsuldarlığına baxmayaraq, qəhvə üyüdəninin yer tutumu azdır, bu da onu kiçik və ya dolu iş sahələri üçün mükəmməl seçim edir."
-                    },
-                    {
-                        "heading": "AVTOMATİK DOZALAMA SİSTEMİ",
-                        "paragraph": "İntegrasiya olunmuş dozator sayəsində, qəhvə üyüdən hər porsiya üçün üyüdülmüş qəhvənin miqdarını avtomatik olaraq tənzimləyir, bu da üyüdülmə sabitliyini təmin edir və itkini minimuma endirir."
-                    },
-                    {
-                        "heading": "RƏQƏMSAL EKRAN",
-                        "paragraph": "İntuitiv rəqəmsal panel, üyüdülmə parametrlərini sürətlə tənzimləməyə və prosesi nəzarət etməyə imkan verir, bu da onu intensiv iş şəraitində belə istifadəsini asanlaşdırır."
-                    },
-                    {
-                        "heading": "YÜKSƏK ÜYÜTMƏ SÜRƏTİ",
-                        "paragraph": "Güclü mühərrik və polad burslar, hətta böyük miqdarda qəhvə hazırlayarkən belə, dənələrin ətirini və keyfiyyətini qoruyaraq, onların sürətli emalını təmin edir."
-                    },
-                    {
-                        "heading": "SOYUTMA SİSTEMİ",
-                        "paragraph": "İçindəki aktiv soyutma sistemi, qəhvə üyüdücünün uzun müddət işlədiyi zaman yüksək temperaturdan qorunmasını təmin edir və gün boyunca stabil iş rejimini zəmanət verir."
-                    },
-                    {
-                        "heading": "POLAD BURSLAR",
-                        "paragraph": "Möhkəm və sərtləşdirilmiş poladdan hazırlanmış burslar uzun müddət xidmət edir və yüksək dəqiqliklə üyütməyi təmin edir, bu da kafe və ya restoran kimi intensiv iş mühitlərində xüsusilə vacibdir."
-                    }
-                ]
-            }
-        },
-        {
             "name": "SANREMO F64 OD EVO PRO",
             "az": {
                 "longDescriptions": [
@@ -1868,56 +1772,153 @@
             }
         },
         {
+            "name": "SANREMO F64 OD EVO",
+            "az": {
+                "longDescriptions": [
+                    "Bu, sabit və dəqiq espresso üyütməsi üçün yaradılmış avtomatik dozajlı yüksək məhsuldar bir qəhvə üyüdəndir. Güclü mühərrik və etibarlı polad burslar ilə təchiz olunmuşdur, bu da onu pik saatlarda belə yüksək məhsuldarlığı təmin etməyə imkan verir. Rəqəmsal ekranla intuitiv interfeys, parametrləri asanlıqla tənzimləməyə imkan verir, kompakt dizaynı isə onu hər hansı bir kafedə yerləşdirmək üçün əlverişli edir.                    "
+                ],
+                "body": [
+                    {
+                        "heading": "KOMPAKT DİZAYN",
+                        "paragraph": "Yüksək məhsuldarlığına baxmayaraq, qəhvə üyüdəninin yer tutumu azdır, bu da onu kiçik və ya dolu iş sahələri üçün mükəmməl seçim edir."
+                    },
+                    {
+                        "heading": "AVTOMATİK DOZALAMA SİSTEMİ",
+                        "paragraph": "İntegrasiya olunmuş dozator sayəsində, qəhvə üyüdən hər porsiya üçün üyüdülmüş qəhvənin miqdarını avtomatik olaraq tənzimləyir, bu da üyüdülmə sabitliyini təmin edir və itkini minimuma endirir."
+                    },
+                    {
+                        "heading": "RƏQƏMSAL EKRAN",
+                        "paragraph": "İntuitiv rəqəmsal panel, üyüdülmə parametrlərini sürətlə tənzimləməyə və prosesi nəzarət etməyə imkan verir, bu da onu intensiv iş şəraitində belə istifadəsini asanlaşdırır."
+                    },
+                    {
+                        "heading": "YÜKSƏK ÜYÜTMƏ SÜRƏTİ",
+                        "paragraph": "Güclü mühərrik və polad burslar, hətta böyük miqdarda qəhvə hazırlayarkən belə, dənələrin ətirini və keyfiyyətini qoruyaraq, onların sürətli emalını təmin edir."
+                    },
+                    {
+                        "heading": "SOYUTMA SİSTEMİ",
+                        "paragraph": "İçindəki aktiv soyutma sistemi, qəhvə üyüdücünün uzun müddət işlədiyi zaman yüksək temperaturdan qorunmasını təmin edir və gün boyunca stabil iş rejimini zəmanət verir."
+                    },
+                    {
+                        "heading": "POLAD BURSLAR",
+                        "paragraph": "Möhkəm və sərtləşdirilmiş poladdan hazırlanmış burslar uzun müddət xidmət edir və yüksək dəqiqliklə üyütməyi təmin edir, bu da kafe və ya restoran kimi intensiv iş mühitlərində xüsusilə vacibdir."
+                    }
+                ]
+            },
+            "ru": {
+                "longDescriptions": [
+                    "Это высокопроизводительная кофемолка с автоматическим дозированием, созданная для стабильного и точного помола эспрессо. Оснащённая мощным двигателем и надежными стальными жерновами, она гарантирует высокую производительность даже в часы пик. Интуитивный интерфейс с цифровым дисплеем позволяет легко регулировать параметры, а компактный дизайн делает её удобной для размещения в любой кофейне."
+                ],
+                "body": [
+                    {
+                        "heading": "КОМПАКТНЫЙ ДИЗАЙН",
+                        "paragraph": "Несмотря на высокую производительность, кофемолка занимает мало места, что делает её отличным выбором для небольших или переполненных рабочих пространств."
+                    },
+                    {
+                        "heading": "СИСТЕМА АВТОМАТИЧЕСКОГО ДОЗИРОВАНИЯ",
+                        "paragraph": "Благодаря встроенному дозатору, кофемолка автоматически регулирует количество молотого кофе для каждой порции, обеспечивая стабильность помола и минимизируя отходы."
+                    },
+                    {
+                        "heading": "ЦИФРОВОЙ ДИСПЛЕЙ",
+                        "paragraph": "Интуитивно понятная цифровая панель позволяет быстро настраивать параметры помола и контролировать процесс, что делает её удобной в использовании даже во время интенсивной работы."
+                    },
+                    {
+                        "heading": "ВЫСОКАЯ СКОРОСТЬ ПОМОЛА",
+                        "paragraph": "Мощный двигатель и стальные жернова обеспечивают быструю обработку зерен, сохраняя их аромат и качество, даже при больших объемах приготовления кофе."
+                    },
+                    {
+                        "heading": "СИСТЕМА ОХЛАЖДЕНИЯ",
+                        "paragraph": "Встроенная система активного охлаждения двигателя предотвращает перегрев кофемолки при длительной эксплуатации, гарантируя стабильную работу в течение всего дня."
+                    },
+                    {
+                        "heading": "СТАЛЬНЫЕ ЖЕРНОВА",
+                        "paragraph": "Прочные жернова из закаленной стали обеспечивают длительный срок службы и высокую точность помола, что особенно важно при интенсивной эксплуатации в кафе или ресторане."
+                    }
+                ]
+            },
+            "en": {
+                "longDescriptions": [
+                    "Bu, sabit və dəqiq espresso üyütməsi üçün yaradılmış avtomatik dozajlı yüksək məhsuldar bir qəhvə üyüdəndir. Güclü mühərrik və etibarlı polad burslar ilə təchiz olunmuşdur, bu da onu pik saatlarda belə yüksək məhsuldarlığı təmin etməyə imkan verir. Rəqəmsal ekranla intuitiv interfeys, parametrləri asanlıqla tənzimləməyə imkan verir, kompakt dizaynı isə onu hər hansı bir kafedə yerləşdirmək üçün əlverişli edir.                    "
+                ],
+                "body": [
+                    {
+                        "heading": "KOMPAKT DİZAYN",
+                        "paragraph": "Yüksək məhsuldarlığına baxmayaraq, qəhvə üyüdəninin yer tutumu azdır, bu da onu kiçik və ya dolu iş sahələri üçün mükəmməl seçim edir."
+                    },
+                    {
+                        "heading": "AVTOMATİK DOZALAMA SİSTEMİ",
+                        "paragraph": "İntegrasiya olunmuş dozator sayəsində, qəhvə üyüdən hər porsiya üçün üyüdülmüş qəhvənin miqdarını avtomatik olaraq tənzimləyir, bu da üyüdülmə sabitliyini təmin edir və itkini minimuma endirir."
+                    },
+                    {
+                        "heading": "RƏQƏMSAL EKRAN",
+                        "paragraph": "İntuitiv rəqəmsal panel, üyüdülmə parametrlərini sürətlə tənzimləməyə və prosesi nəzarət etməyə imkan verir, bu da onu intensiv iş şəraitində belə istifadəsini asanlaşdırır."
+                    },
+                    {
+                        "heading": "YÜKSƏK ÜYÜTMƏ SÜRƏTİ",
+                        "paragraph": "Güclü mühərrik və polad burslar, hətta böyük miqdarda qəhvə hazırlayarkən belə, dənələrin ətirini və keyfiyyətini qoruyaraq, onların sürətli emalını təmin edir."
+                    },
+                    {
+                        "heading": "SOYUTMA SİSTEMİ",
+                        "paragraph": "İçindəki aktiv soyutma sistemi, qəhvə üyüdücünün uzun müddət işlədiyi zaman yüksək temperaturdan qorunmasını təmin edir və gün boyunca stabil iş rejimini zəmanət verir."
+                    },
+                    {
+                        "heading": "POLAD BURSLAR",
+                        "paragraph": "Möhkəm və sərtləşdirilmiş poladdan hazırlanmış burslar uzun müddət xidmət edir və yüksək dəqiqliklə üyütməyi təmin edir, bu da kafe və ya restoran kimi intensiv iş mühitlərində xüsusilə vacibdir."
+                    }
+                ]
+            }
+        },
+        
+        {
             "name": "SANREMO X-ONE",
             "az": {
                 "longDescriptions": [
-                    "Это передовая кофемолка, которая сочетает в себе новейшие технологии и инновационные функции для достижения идеального помола. Она разработана для бариста и профессиональных кофеен, где требуется высокая производительность и точность. С возможностью работы с несколькими бункерами для зерен, X-One предоставляет гибкость в использовании разных сортов кофе, а интеллектуальная система управления оптимизирует помол под каждый напиток. Элегантный дизайн и интуитивный интерфейс делают её удобной и стильной частью любого кофейного бара."
+                    "Bu, mükəmməl üyütmə əldə etmək üçün ən son texnologiyalar və innovativ funksiyaları birləşdirən qabaqcıl bir qəhvə üyüdəndir. Bu, baristalar və yüksək məhsuldarlıq və dəqiqlik tələb edən peşəkar kafelər üçün hazırlanmışdır. Müxtəlif qəhvə növləri ilə işləmək imkanı sayəsində X-One müxtəlif qəhvə növlərini istifadə etməyə çeviklik təqdim edir, eyni zamanda ağıllı idarəetmə sistemi hər içki üçün üyüdülməni optimallaşdırır. Zərif dizaynı və intuitiv interfeysi onu mükəmməl bir qəhvə üyüdənə çevirir."
                 ],
                 "body": [
                     {
                         "icon": "HighFilterIcon",
-                        "heading": "ПРЕДВАРИТЕЛЬНОЕ ВЗВЕШИВАНИЕ ЗЁРЕН",
-                        "paragraph": "X-One — единственная кофемолка, которая предварительно взвешивает зерна перед помолом, гарантируя точные порции для идеального эспрессо или фильтр-кофе."
+                        "heading": "QƏHVƏ DƏNƏLƏRİNİN ÖNCƏDƏN ÇƏKİLMƏSİ",
+                        "paragraph": "X-One — üyüdmədən əvvəl qəhvə dənələrini öncədən çəkən yeganə qəhvə üyüdən aparatdır və bu, ideal espresso və ya filtr qəhvəsi üçün dəqiq dozanı təmin edir."
                     },
                     {
                         "icon": "CicleIcon",
-                        "heading": "ОЧИСТКА ПОСЛЕ КАЖДОГО ПОМОЛА",
-                        "paragraph": "После каждой выдачи камера помола очищается, предотвращая скопление остатков кофе и минимизируя ретенцию, что особенно важно для поддержания свежести вкуса."
+                        "heading": "HƏR ÜYÜDMƏDƏN SONRA TƏMİZLƏNMƏ",
+                        "paragraph": "Hər üyüdülmədən sonra üyütmə kamerası təmizlənir, qəhvə qalıqlarının yığılmasının qarşısını alır və itkini minimuma endirir, bu da dadın təzəliyini qorumaq üçün xüsusilə vacibdir."
                     },
                     {
                         "icon": "FreezeIcon",
-                        "heading": "АВТОМАТИЧЕСКАЯ СИСТЕМА ОХЛАЖДЕНИЯ",
-                        "paragraph": "Добавленный автоматический вентилятор охлаждения делает кофемолку отличным выбором для заведений с высокой загрузкой, которые стремятся предложить высокое качество в больших объемах."
+                        "heading": "AVTOMATİK SOYUTMA SİSTEMİ",
+                        "paragraph": "Əlavə edilmiş avtomatik soyutma sistemi, böyük həcmdə yüksək keyfiyyət təqdim etməyə çalışan, yüklənməsi yüksək olan məkanlar üçün bu qəhvə üyüdəni mükəmməl seçimə çevirir."
                     },
                     {
                         "icon": "FreezeIcon",
-                        "heading": "ВЕРТИКАЛЬНАЯ ПЛОСКИЕ ЖЕРНОВА 98ММ",
-                        "paragraph": "Обеспечивают стабильный и высококачественный помол кофе, позволяя готовить идеальный эспрессо каждый раз."
+                        "heading": "VERTİKAL YASTI 98 MM ÖLÇÜLÜ BIÇAQLAR",
+                        "paragraph": "Sabit və yüksək keyfiyyətli üyüdülmə təmin edərək, hər dəfə ideal espresso hazırlamağa imkan verir."
                     },
                     {
                         "icon": "BoilerIcon",
-                        "heading": "МИКРОМЕТРИЧЕСКАЯ РЕГУЛИРОВКА",
-                        "paragraph": "Точная регулировка помола, которая позволяет получать максимальную отдачу от вашего кофе и обеспечивает стабильность вкуса каждый раз."
+                        "heading": "MİKROMETRİK TƏNZİMLƏMƏ",
+                        "paragraph": "Üyüdülmənin dəqiq tənzimlənməsi, qəhvənizdən maksimum fayda əldə etməyə və hər dəfə sabit dad təmin etməyə imkan verir."
                     },
                     {
                         "icon": "CapsenseIcon",
-                        "heading": "СЕНСОРНЫЙ ЭКРАН CAPSENSE",
-                        "paragraph": "Убедитесь, что всё под контролем: легко настраивайте параметры и отслеживайте температуру, влажность и срок службы лезвий."
+                        "heading": "SENSOR EKRAN CAPSENSE",
+                        "paragraph": "Hər şeyin nəzarət altında olduğundan əmin olun: parametrləri asanlıqla tənzimləyin,  temperaturu, rütubəti və bıçaqların xidmət müddətini izləyin."
                     },
                     {
                         "icon": "BluetoothIcon",
                         "heading": "BLUETOOTH",
-                        "paragraph": "Возможность подключения по Bluetooth для удобного управления и мониторинга."
+                        "paragraph": "Rahat idarəetmə və monitorinq üçün Bluetooth bağlantısı imkanı."
                     },
                     {
                         "icon": "EasyUseIcon",
-                        "heading": "ПРОСТОТА ОБСЛУЖИВАНИЯ",
-                        "paragraph": "Быстрый доступ к внутренним частям для легкого технического обслуживания."
+                        "heading": "ASAN TEXNİKİ XİDMƏT",
+                        "paragraph": "Daxili hissələrə sürətli və asan daxil olma, sürətli və rahat texniki xidmət üçün imkan yaradır."
                     },
                     {
                         "icon": "DisplayIcon",
-                        "heading": "СИСТЕМНЫЙ ДИСПЛЕЙ",
-                        "paragraph": "Обеспечивает видимость всех функций машины: температуры, давления и уровней."
+                        "heading": "SİSTEM EKRANI",
+                        "paragraph": "Aparatın bütün funksiyalarını: temperaturu, təzyiqi və səviyyələri görmə imkanı təmin edir."
                     }
                 ]
             },
