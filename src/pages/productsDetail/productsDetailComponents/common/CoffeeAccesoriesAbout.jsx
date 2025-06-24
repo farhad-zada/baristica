@@ -7,7 +7,7 @@ export default function CoffeeAccesoriesAbout({product}) {
     const [about, setAbout] = useState({})
 
     useEffect(() => {
-        if(JSON.stringify(product) !== '{}' && lang !=='en'){
+        if(JSON.stringify(product) !== '{}'){
             setAbout(product.about[lang])
         }
     },[product])
