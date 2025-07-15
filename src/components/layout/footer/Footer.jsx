@@ -64,7 +64,7 @@ export default function Footer() {
               {BaristicaLogo}
               <Link to="tel:+994 51 433 30 03" className={`${style.footer_num} f32 fw600 darkGrey_color`}>+994 51 433 30 03</Link>
               <div className={`${style.footer_socials} flex a-center`}>
-                <Link to="https://www.instagram.com/baristica.az/" target="_blank" className={`${style.footer_social} darkGray rounded`}>
+                <Link to="https://www.instagram.com/baristica.roastery/" target="_blank" className={`${style.footer_social} darkGray rounded`}>
                   {InstagramIcon}
                 </Link>
                 <Link to="https://api.whatsapp.com/send?phone=+994514333003" target="_blank" className={`${style.footer_social} darkGray rounded`}>

@@ -19,7 +19,7 @@ const HomeContact = () => {
             <div className={`${style.homeContact_top} flex a-center j-between`}>
               <h1 className='f48 fw700 black'>{body[lang].contact.subscribe.title}</h1>
               <div className={`${style.homeContact_socials} flex a-center`}>
-                <Link to="https://www.instagram.com/baristica.az/" target="_blank" className={`${style.homeContact_social} darkGray rounded`}>
+                <Link to="https://www.instagram.com/baristica.roastery/" target="_blank" className={`${style.homeContact_social} darkGray rounded`}>
                   {InstagramIcon}
                 </Link>
                 <Link target="_blank" to="https://www.youtube.com/@BaristicaLife" className={`${style.homeContact_social} darkGray rounded`}>
