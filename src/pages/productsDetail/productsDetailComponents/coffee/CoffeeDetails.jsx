@@ -27,7 +27,7 @@ export default function CoffeeDetails({ product }) {
 
     const getFilteredOptions = (category) => {
         if (category === 'espresso') {
-            return grindingOptions.filter(option => option.value === 'whole-bean'); // Только "dənli"
+            // return grindingOptions.filter(option => option.value === 'whole-bean'); // Только "dənli"
         }
         if (category === 'filter') {
             return grindingOptions.filter(option => option.value !== 'whole-bean'); // Все, кроме "dənli"
