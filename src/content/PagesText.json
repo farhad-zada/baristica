@@ -694,19 +694,6 @@
             "info": "Biz qəhvəni hər gün özümüz qovururuq, bu da onun təzəliyini və mükəmməl dadını təmin edir. Coffee shop-larımızda yalnız mükəmməl içkilərlə deyil, həm də rahat atmosfer sizi qarşılayır, burada məhsulumuzun bütün zənginliyini hiss edə və dadını qiymətləndirə bilərsiniz.\n\nQəhvə çeşidlərimizi aşağıdakı ünvanlarda sınaya bilərsiniz:",
             "contact": [
                 {
-                    "title": "SAHİL FİLİALI",
-                    "phone": "+994 50 833 52 55",
-                    "address": "Zərifə Əliyeva 12A",
-                    "workTime": {
-                        "title": "İş qrafiki:",
-                        "weekday": "Həftə içi:",
-                        "weekday_hours": "08:00 - 00:00",
-                        "saturday": "Həftə sonu:",
-                        "weekend_hours": "09:00 - 00:00"
-                    },
-                    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.788586767001!2d49.83824477621606!3d40.369211858529894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307dc35d7a0fa5%3A0x91aed66ca1d34cec!2sBARISTICA%20Specialty%20coffee%20and%20Pastry!5e0!3m2!1saz!2spl!4v1729427872633!5m2!1saz!2spl"
-                },
-                {
                     "title": "GƏNCLİK FİLİALI",
                     "phone": "+994 50 833 34 32",
                     "address": "Ceyhun Hacıbəyli 28B",
@@ -725,19 +712,6 @@
             "info": "Мы сами обжариваем кофе каждый день, чтобы гарантировать его свежесть и превосходный вкус. Наши кофешопы предлагают не только отличные напитки, но и уютную атмосферу, где вы можете насладиться ароматом и качеством нашей продукции.\n\nЖдём вас в наших кофешопах, чтобы вы могли ощутить на себе весь спектр наших кофе и оценить их неповторимый вкус!",
             "contact": [
                 {
-                    "title": "САХИЛЬ ФИЛИАЛ",
-                    "phone": "+994 50 833 52 55",
-                    "address": "Зарифа Алиева 12А",
-                    "workTime": {
-                        "title": "График работы:",
-                        "weekday": "Будние дни:",
-                        "weekday_hours": "08:00 - 00:00",
-                        "saturday": "Выходные:",
-                        "weekend_hours": "09:00 - 00:00"
-                    },
-                    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.788586767001!2d49.83824477621606!3d40.369211858529894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307dc35d7a0fa5%3A0x91aed66ca1d34cec!2sBARISTICA%20Specialty%20coffee%20and%20Pastry!5e0!3m2!1saz!2spl!4v1729427872633!5m2!1saz!2spl"
-                },
-                {
                     "title": "ГЯНДЖЛИК ФИЛИАЛ",
                     "phone": "+994 50 833 34 32",
                     "address": "Джейхун Гаджибейли 28Б",
@@ -755,19 +729,6 @@
         "en": {
             "info": "We roast our coffee ourselves every day to ensure its freshness and excellent taste. Our coffee shops offer not only excellent drinks, but also a cozy atmosphere where you can enjoy the aroma and quality of our products.\n\nWe are waiting for you in our coffee shops so that you can experience the full range of our coffees and appreciate their unique taste!",
             "contact": [
-                {
-                    "title": "SAHIL FILIAL",
-                    "phone": "+994 50 833 52 55",
-                    "address": "Zarifa Aliyeva 12A",
-                    "workTime": {
-                        "title": "Working Hours:",
-                        "weekday": "Weekdays:",
-                        "weekday_hours": "08:00 - 00:00",
-                        "saturday": "Saturday:",
-                        "weekend_hours": "09:00 - 00:00"
-                    },
-                    "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.788586767001!2d49.83824477621606!3d40.369211858529894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307dc35d7a0fa5%3A0x91aed66ca1d34cec!2sBARISTICA%20Specialty%20coffee%20and%20Pastry!5e0!3m2!1saz!2spl!4v1729427872633!5m2!1saz!2spl"
-                },
                 {
                     "title": "GANJLIK FILIAL",
                     "phone": "+994 50 833 34 32",

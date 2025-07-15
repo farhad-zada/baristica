@@ -42,7 +42,7 @@ const HomeContact = () => {
                 <p className='f24 darkGrey_color robotoFont'>{body[lang].contact.getInTouch.workTime.saturday} 10:00 - 14:00</p>
               </div>
               <div className={`${style.homeContact_socials} flex a-center`}>
-                <Link to="https://www.instagram.com/baristica.az/" target="_blank" className={`${style.homeContact_social} darkGray rounded`}>
+                <Link to="https://www.instagram.com/baristica.roastery/" target="_blank" className={`${style.homeContact_social} darkGray rounded`}>
                   {InstagramIcon}
                 </Link>
                 <Link to="https://api.whatsapp.com/send?phone=+994514333003" target="_blank" className={`${style.homeContact_social} darkGray rounded`}>
