@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import InputText from '../../../components/form/inputField/InputText'
 import PageText from '../../../content/PagesText.json'
 import { useSelector } from 'react-redux'
@@ -13,10 +13,11 @@ import Success from '../../../components/success/Success'
 const { order, profile } = PageText
 
 export default function OrderLeft({ content, delivery, setDelivery }) {
+
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
-        comment: ""
+        comment: "",
     })
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
@@ -55,6 +56,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                 },
                 deliveryMethod: delivery ? 'delivery' : 'pickup',
                 address: selectedAddress._id,
+                deliveryAddress: selectedAddress._id,
                 items: finalCart.map((product) => {
                     const { _id, cartCount, grindingOption } = product
                     return { product: _id, quantity: cartCount, grindingOption: grindingOption }
@@ -65,7 +67,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                 deliveryDate: formData.date
             }
         }
-
+        console.log(selectedAddress);
         setLoading(true)
         try {
             const response = await ordersService.createOrder(token, data)
@@ -86,17 +88,57 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
         setFormData((prev) => ({ ...prev, [name]: value }));
     }
 
+    const formatDate = (date) => {
+        return date.toISOString().split('T')[0]; // "2025-07-28"
+    };
+
+    const formatTime = (date) => {
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${hours}:${minutes}`; // "15:30"
+    };
 
     useEffect(() => {
+        const now = new Date();
+        const currentHour = now.getHours();
+        const currentMinutes = now.getMinutes();
+
+        let deliveryDate, deliveryTime;
+
+        if (currentHour < 15) {
+            // Round to next half-hour (e.g., 12:12 → 15:00, 12:32 → 15:30)
+            let roundedHours = currentHour + 3;
+            let roundedMinutes = 0;
+
+            if (currentMinutes >= 30) {
+            roundedMinutes = 30;
+            }
+
+            // Ensure time is in HH:MM format (e.g., 15:00, 15:30)
+            const roundedTime = new Date(now);
+            roundedTime.setHours(roundedHours, roundedMinutes, 0, 0);
+
+            deliveryDate = formatDate(roundedTime);
+            deliveryTime = formatTime(roundedTime);
+        } else {
+            // Tomorrow at 10:00
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(10, 0, 0, 0);
+            deliveryDate = formatDate(tomorrow);
+            deliveryTime = formatTime(tomorrow);
+        }
+
         if (JSON.stringify(user) !== '{}') {
-            setAddresses(user.addresses)
-            setFormData({ name: user.name, phone: user.phone, comment: "" })
+            setAddresses(user.addresses);
+            setFormData({ name: user.name, phone: user.phone, comment: "", time: deliveryTime, date: deliveryDate });
         }
     }, [user])
 
     useEffect(() => {
+        console.log("addresses: ", addresses);
         if (addresses.length) {
-            const mainAddress = addresses.find((address) => address.isMain === true) || addresses[0]
+            const mainAddress = addresses.find((address) => address.isPrimary === true) || addresses[0]
             setSelectedAddress(mainAddress)
         }
     }, [addresses])
