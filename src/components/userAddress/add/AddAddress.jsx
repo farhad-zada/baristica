@@ -33,7 +33,6 @@ export default function AddAddress({ setAddresses, setAdd }) {
             const data = {
                 "address": {
                     ...formData,
-                    "isPrimary": false
                 }
             }
             const response = await userService.addAddress(token, data)
@@ -50,6 +49,9 @@ export default function AddAddress({ setAddresses, setAdd }) {
     const onSubmit = async () => {
         await handleUpdateAddress(formData)
     }
+    const checkBoxChange = (bool) => {
+        setFormData({ ...formData, isPrimary: bool })
+    }
 
     useEffect(() => {
         return () => {
@@ -58,6 +60,7 @@ export default function AddAddress({ setAddresses, setAdd }) {
                 city: "",
                 street: "",
                 apartment: "",
+                isPrimary: false,
             })
         }
     }, [])
@@ -90,6 +93,18 @@ export default function AddAddress({ setAddresses, setAdd }) {
                     onChange={handleInputChange}
                     placeholder={lang ? profile[lang].addresses.houseInput : ''}
                 />
+
+                <div className="flex g10">
+                    <span className='f16 fw400 darkGrey_color'>{lang ? profile[lang].addresses.doMain : ''}</span>
+                    <div className="flex a-center g8 pointer">
+                        <input id='yes' name='main' type="radio" onChange={() => { checkBoxChange(true) }} />
+                        <label htmlFor='yes' className='f16 fw400 darkGrey_color'>{lang ? profile[lang].addresses.yes : ''}</label>
+                    </div>
+                    <div className="flex a-center g8 pointer">
+                        <input id='no' name='main' type="radio" onChange={() => { checkBoxChange(false) }} />
+                        <label htmlFor='no' className='f16 fw400 darkGrey_color'>{lang ? profile[lang].addresses.no : ''}</label>
+                    </div>
+                </div>
 
 
                 <button
