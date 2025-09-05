@@ -58,7 +58,7 @@ export default function ProductsDetailHeadRight({ product }) {
                 return <MachineDetails product={product} />
                 break;
             default:
-                <MachineDetails product={product} />
+                <CoffeeDetails product={product} />
                 break;
         }
     }
