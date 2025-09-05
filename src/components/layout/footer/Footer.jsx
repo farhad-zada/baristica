@@ -61,7 +61,6 @@ export default function Footer() {
               ))}
             </div>
             <div className={`${style.footer_topRight} flex column`}>
-              {BaristicaLogo}
               <Link to="tel:+994 51 433 30 03" className={`${style.footer_num} f32 fw600 darkGrey_color`}>+994 51 433 30 03</Link>
               <div className={`${style.footer_socials} flex a-center`}>
                 <Link to="https://www.instagram.com/baristica.roastery/" target="_blank" className={`${style.footer_social} darkGray rounded`}>
