@@ -10,7 +10,6 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      {/* <Route path="/coffeeshops" element={<ContactsPage />} /> */}
       <Route path="/products/:type" element={<ProductsPage />} />
       <Route path="/product/:id" element={<ProductDetailPage />} />
       <Route path="/wholesale" element={<WholesalePage />} />
