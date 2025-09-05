@@ -150,6 +150,12 @@ export default function CoffeeDetails({ product }) {
             <Counter count={cartCount} setCount={setCartCount} />
 
             <div className="flex j-between a-center mt20">
+                {
+                    console.log("123456789")
+                }
+                {
+                    console.log(product)
+                }
                 <span className='f32 fw400'>{product?.price ? (product.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
                 <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
                     {Bag}
