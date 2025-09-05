@@ -54,8 +54,10 @@ export default function ProductsDetailHeadRight({ product }) {
                 return <AccesoriesDetails product={product} />
             case 'Machine':
                 return <MachineDetails product={product} />
+            case 'Tea':
+                return <MachineDetails product={product}/>
             default:
-                return <CoffeeDetails product={product} />
+                return <MachineDetails product={product} />
         }
     }
     return (
