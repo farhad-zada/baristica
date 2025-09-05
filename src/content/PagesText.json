@@ -340,21 +340,6 @@
                 "info": {
                     "title": "PRODUCTION AND ONLINE STORE OF FRESHLY ROASTED COFFEE",
                     "description": "Baristica Coffee Roastery, founded in Azerbaijan in 2021, is engaged in the production and sale of freshly roasted coffee.\n\nWe specialize in roasting 100% premium arabica, selecting the best beans to achieve a rich flavor and aroma. Using advanced technologies such as the Loring machine, we ensure consistent roasting quality and preserve all the natural flavor notes of the beans.\n\nOur online store allows every coffee lover to easily order fresh batches, which are roasted daily to ensure maximum freshness. We offer a wide range of varieties and unique blends that satisfy the preferences of even the most demanding customers.\n\nBaristica Coffee Roastery not only engages in producing high-quality coffee but also actively supports the development of the coffee industry, offering innovative solutions. We strive to provide our partners with exceptional service, professional support, and a reliable product."
-                },
-                "contact": {
-                    "subscribe": {
-                        "title": "SUBSCRIBE TO US",
-                        "description": "Discover the world of coffee with us. We share the most interesting updates about stories, exclusive events, and unique coffee varieties!"
-                    },
-                    "getInTouch": {
-                        "title": "CONTACTS",
-                        "address": "Nigar Rafibayli 12/14, Passage 1901",
-                        "workTime": {
-                            "title": "Working Hours:",
-                            "weekday": "Weekdays:",
-                            "saturday": "Saturday:"
-                        }
-                    }
                 }
             }
         }
