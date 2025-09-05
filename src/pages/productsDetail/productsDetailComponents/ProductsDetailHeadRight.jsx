@@ -50,16 +50,12 @@ export default function ProductsDetailHeadRight({ product }) {
         switch (type) {
             case 'Coffee':
                 return <CoffeeDetails product={product} />
-                break;
             case 'Accessory':
                 return <AccesoriesDetails product={product} />
-                break;
             case 'Machine':
                 return <MachineDetails product={product} />
-                break;
             default:
-                <CoffeeDetails product={product} />
-                break;
+                return <CoffeeDetails product={product} />
         }
     }
     return (
