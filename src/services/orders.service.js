@@ -15,7 +15,7 @@ class OrdersService {
         httpRequest.headers = {
             Authorization: "Bearer " + token,
         };
-        return await httpRequest.getAll(`${this.#requestUrl}/?status=${status}&pg=${page}&lt=2`)
+        return await httpRequest.getAll(`${this.#requestUrl}/?status=${status}&pg=${page}&lt=20`)
     }
     
 }
