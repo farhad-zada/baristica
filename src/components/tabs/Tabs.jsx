@@ -36,9 +36,9 @@ const Tabs = ({ tabs, children, additionalHeadingStyles = '', additionalTabStyle
                     </div>
                 ))}
             </div>
-            {/* <div className={styles.tabContent}>
+            <div className={styles.tabContent}>
                 {children[selectedTab]}
-            </div> */}
+            </div>
         </div>
     );
 };
