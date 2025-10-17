@@ -60,7 +60,7 @@ const Orders = () => {
       <Error status={error} setStatus={setError} />
 
       <div className={style.tabs}>
-        <Tabs tabs={profile[lang]?.orders?.tabs?.map((tab) => tab.title)} children={content} />
+        <Tabs tabs={profile[lang]?.orders?.tabs?.map((tab) => "8")} children={content} />
       </div>
 
     </div>
