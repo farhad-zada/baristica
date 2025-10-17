@@ -39,6 +39,7 @@ const Orders = () => {
         ordersService.getOrders(token, 'active'),
         ordersService.getOrders(token, 'delivered')
       ]);
+      console.log("ACTIVE: ", active);
       // coffee
       setActiveOrders(active.data.orders);
       setDeliveredOrders(delivered.data.orders);
