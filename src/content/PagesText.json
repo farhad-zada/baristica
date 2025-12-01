@@ -67,11 +67,6 @@
                     "title": "Tez-tez verilən suallar",
                     "link": "#faq",
                     "list": []
-                },
-                {
-                    "title": "Bizim kofeşoplar",
-                    "link": "/coffeeshops",
-                    "list": []
                 }
             ],
             "ru": [
@@ -111,11 +106,6 @@
                     "title": "Частые вопросы",
                     "link": "#faq",
                     "list": []
-                },
-                {
-                    "title": "Наши кофейни",
-                    "link": "/coffeeshops",
-                    "list": []
                 }
             ],
             "en": [
@@ -154,11 +144,6 @@
                 {
                     "title": "FAQ",
                     "link": "#faq",
-                    "list": []
-                },
-                {
-                    "title": "Our coffee shops",
-                    "link": "/coffeeshops",
                     "list": []
                 }
             ]
