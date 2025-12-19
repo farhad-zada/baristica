@@ -27,3 +27,5 @@ export const useLocalStorage = (key) => {
 
     return {setItemToStorage, getItemFromStorage, removeItemFromStorage}
 }
+
+
