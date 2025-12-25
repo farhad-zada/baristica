@@ -20,6 +20,7 @@ const WholesaleForm = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [message, setMessage] = useState("Something went wrong.")
 
   const priceTableService = new PriceTableService()
 
@@ -36,6 +37,7 @@ const WholesaleForm = () => {
       setSuccess(true)
     } catch (error) {
       setError(true)
+      setMessage(error.message)
     } finally {
       setLoading(false)
     }
@@ -45,7 +47,7 @@ const WholesaleForm = () => {
   return (
     <div className={`${style.form} flex j-center`} id="price">
       <Loading status={loading} />
-      <Error status={error} setStatus={setError} />
+      <Error status={error} setStatus={setError} message={message} />
       <Success status={success} setStatus={setSuccess} />
 
       <div className="container">

@@ -20,6 +20,7 @@ export default function ReviewsHead({ getComments, product }) {
     const [uploadedPhotos, setUploadedPhotos] = useState([]);
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong.")
 
     const [submitted, setSubmitted] = useState(false)
 
@@ -41,6 +42,9 @@ export default function ReviewsHead({ getComments, product }) {
 
         try {
             const response = await productsService.rateProduct(token, product._id, formData)
+            if (response.status >= 400) {
+                throw new Error("Couldn't add rating: " + response.data.message);
+            }
             setCommentText('')
             setUploadedPhotos([])
             handleRatingChange(0)
@@ -48,6 +52,7 @@ export default function ReviewsHead({ getComments, product }) {
             await getComments()
         } catch (error) {
             setError(true)
+            setMessage(error.message);
         } finally {
             setLoading(false)
         }
@@ -66,10 +71,14 @@ export default function ReviewsHead({ getComments, product }) {
         setLoading(true)
         try {
             const response = await commentsService.createComment(token, formData)
+            if (response.status >= 400) {
+                throw new Error("Couldn't add comment: " + response.data.message);
+            }
             await addRating()
 
         } catch (error) {
-            setError(true)
+            setError(true)  
+            setMessage(error.message);
         } finally {
             setLoading(false)
         }
@@ -92,7 +101,7 @@ export default function ReviewsHead({ getComments, product }) {
     return (
         <div className={styles.reviewsHead}>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
 
             <h2 className="f28 darkGrey_color fw500">{lang ? productDetail[lang].reviews.headerHeading : ''} </h2>
 

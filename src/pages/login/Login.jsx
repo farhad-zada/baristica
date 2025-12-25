@@ -18,7 +18,8 @@ const { login } = PageText
 export default function Login() {
     const [formData, setFormData] = useState({ email: "", password: "" });
     const [loading, setLoading] = useState(false)
-    const [error,setError] = useState(false)
+    const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong.")
     const { lang } = useSelector((state) => state.baristica);
 
     const { setItemToStorage } = useLocalStorage('baristicaToken')
@@ -33,19 +34,26 @@ export default function Login() {
     const getFavorites = async (page, token) => {
         setLoading(true)
         try {
-          const response = await favoritesService.getFavorites(token, page)
-          dispatch(setFavoritesCount(response.data.length))
+            const response = await favoritesService.getFavorites(token, page)
+            if (response.status >= 400) {
+                throw new Error("Couldn't fetch favorites: Application backend is down.");
+            }
+            dispatch(setFavoritesCount(response.data.length))
         } catch (error) {
-          setError(true)
+            setError(true)
+            setMessage(error.message);
         } finally {
-          setLoading(false)
+            setLoading(false)
         }
-      }
+    }
 
     const onSubmit = async () => {
         setLoading(true)
         try {
             const response = await authService.login({ creds: { ...formData } })
+            if (response.status >= 400) {
+                throw new Error("Login failed: Application backend is down.");
+            }
             const token = response?.data?.token || true
             const user = response.data.user
             if (token) {
@@ -53,10 +61,11 @@ export default function Login() {
                 dispatch(setUser(user))
                 setItemToStorage(token)
                 navigate('/')
-                getFavorites(1,token)
+                getFavorites(1, token)
             }
         } catch (error) {
             setError(true)
+            setMessage(error.message);
         } finally {
             setLoading(false)
         }
@@ -66,7 +75,7 @@ export default function Login() {
     return (
         <div className={styles.login + ' flex j-center'}>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
 
             <div className="container">
                 <AuthorizationHeading

@@ -11,6 +11,7 @@ export default function ProductDetailsReviews({ product }) {
   const [reviews, setReviews] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [message, setMessage] = useState("Something went wrong.")
 
   const { token } = useSelector(state => state.baristica)
 
@@ -20,10 +21,14 @@ export default function ProductDetailsReviews({ product }) {
     setLoading(true)
     try {
       const response = await commentsService.getProductComments(token, product._id)
+      if (response.status >= 400) {
+        throw new Error("Couldn't fetch comments: " + response.data.message);
+      }
       const comments = response.data.comments
       setReviews(comments)
     } catch (error) {
       setError(true)
+      setMessage(error.message)
     } finally {
       setLoading(false)
     }
@@ -38,7 +43,7 @@ export default function ProductDetailsReviews({ product }) {
   return (
     <div className={styles.reviews}>
       <Loading status={loading} />
-      <Error status={error} setStatus={setError} />
+      <Error status={error} setStatus={setError} message={message} />
 
       <ReviewsHead product={product} getComments={getComments} />
       <ReviewsBody reviews={reviews} />

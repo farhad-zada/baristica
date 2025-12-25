@@ -16,6 +16,7 @@ export default function Favorites() {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong.")
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
 
@@ -40,9 +41,13 @@ export default function Favorites() {
         setLoading(true)
         try {
             const response = await favoritesService.getFavorites(token, page)
+             if (response.status >= 400) {
+                throw new Error("Couldn't fetch favorites: Application backend is down.");
+            }
             setProducts(response.data)
         } catch (error) {
             setError(true)
+            setMessage(error.message);
         } finally {
             setLoading(false)
         }
@@ -59,7 +64,7 @@ export default function Favorites() {
     return (
         <div className={styles.favorites + ' flex j-center'}>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
 
             <div className="container">
                 <AuthorizationHeading heading={lang ? favorites[lang].heading : ''} />

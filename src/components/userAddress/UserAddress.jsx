@@ -12,6 +12,7 @@ export default function UserAddress({ content,address, selectedAddress, setSelec
     const [edit, setEdit] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error,setError] = useState(false)
+    const [message,setMessage] = useState("Something went wrong")
 
     const userService = new UserService()
 
@@ -19,9 +20,13 @@ export default function UserAddress({ content,address, selectedAddress, setSelec
         setLoading(true)
         try {
             const response = await userService.deleteAddress(token, id)
+            if (response.status >= 400) {
+                throw new Error("Couldn't delete address: Application backend is down.");
+            }
             setAddresses((prevAddresses) => prevAddresses.filter((address) => address._id !== id));
         } catch (error) {
             setError(true)
+            setMessage(error.message);
         } finally {
             setLoading(false)
         }
@@ -40,7 +45,7 @@ export default function UserAddress({ content,address, selectedAddress, setSelec
     return (
         <div>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
 
             <div className={`${styles.address} flex a-center j-between`}>
                 {/* Индекс */}

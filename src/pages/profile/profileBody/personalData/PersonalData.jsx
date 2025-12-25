@@ -26,6 +26,7 @@ export default function PersonalData() {
     const [errorMessage, setErrorMessage] = useState(""); // Для вывода ошибки
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong.")
     const [success, setSuccess] = useState(false)
 
 
@@ -60,11 +61,16 @@ export default function PersonalData() {
         setLoading(true)
         try {
             const response = await authService.updatePassword(token, data)
+            if
+                (response.status >= 400) {
+                throw new Error("Couldn't change password: " + response.data.message);
+            }
             handleInputChange('oldPassword', '')
             handleInputChange('newPassword', '')
             handleInputChange('repeatPassword', '')
         } catch (error) {
             setError(true)
+            setMessage(error.message)
         } finally {
             setLoading(false)
         }
@@ -81,10 +87,14 @@ export default function PersonalData() {
         setLoading(true)
         try {
             const response = await userService.changePersonalData(token, data)
+            if (response.status >= 400) {
+                throw new Error("Couldn't update personal data: " + response.data.message);
+            }
             dispatch(setUser(response.data.user))
             setSuccess(true)
         } catch (error) {
             setError(true)
+            setMessage(error.message)
         } finally {
             setLoading(false)
         }
@@ -98,7 +108,7 @@ export default function PersonalData() {
     return (
         <div className={styles.personalData}>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
             <Success status={success} setStatus={setSuccess} navigateTo='no' />
 
             <form className={styles.form}>

@@ -24,6 +24,7 @@ export default function Products() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [message, setMessage] = useState("Something went wrong.")
   const [type, setType] = useState('')
 
   const { pathname } = useLocation();
@@ -59,6 +60,9 @@ export default function Products() {
   setProducts([]); // Очищаем старые продукты
   try {
     const response = await productsService.getProducts(token, type, page ? page : currentPage, query);
+    if (response.status >= 400) {
+      throw new Error("Couldn't fetch products: " + response.data.message);
+    }
     const products = response.data;
 
     setShowedProductsCount(products.length);
@@ -67,6 +71,7 @@ export default function Products() {
     setProducts(products);
   } catch (error) {
     setError(true);
+    setMessage(error.message);
   } finally {
     setLoading(false);
   }
@@ -175,7 +180,7 @@ export default function Products() {
   return (
     <div className={`${style.productsPage}  flex j-center`}>
       <Loading status={loading} />
-      <Error status={error} setStatus={setError} />
+      <Error status={error} setStatus={setError} message={message} />
 
       <div className="container">
         <ProductsHead heading={heading} />

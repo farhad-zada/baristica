@@ -13,6 +13,7 @@ export default function ProductsDetail() {
     const [product, setProduct] = useState({})
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong.")
     const { id } = useParams()
     const { pathname } = useLocation();
 
@@ -22,9 +23,13 @@ export default function ProductsDetail() {
         setLoading(true)
         try {
             const response = await productsService.getOneProduct(token, id)
+            if (response.status >= 400) {
+                throw new Error("Couldn't fetch product: " + response.data.message);
+            }
             setProduct(response?.data || {})
         } catch (error) {
             setError(true)
+            setMessage(error.message);
         } finally {
             setLoading(false)
         }
@@ -42,7 +47,7 @@ export default function ProductsDetail() {
     return (
         <div className='flex j-center'>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
 
             {
                 JSON.stringify(product) !== '{}'

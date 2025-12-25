@@ -18,6 +18,7 @@ export default function ProductsDetailHeadRight({ product }) {
 
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong.")
 
     const favoriteService = new FavoritesService()
     const navigate = useNavigate()
@@ -28,8 +29,13 @@ export default function ProductsDetailHeadRight({ product }) {
             setLoading(true)
         try {
             const response = await favoriteService.addFavorite(token, id)
+            if (response.status >= 400) {
+                throw new Error("Couldn't add to favorites: " + response.data.message);
+            }
+
         } catch (error) {
             setError(true)
+            setMessage(error.message);
         }
         finally {
             setLoading(false)
@@ -63,7 +69,7 @@ export default function ProductsDetailHeadRight({ product }) {
     return (
         <div className='w-100'>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
             <div className="flex g8">
 
                 <span className={style.favorited} onClick={() => addFavorite(product._id)}>

@@ -25,6 +25,7 @@ export default function Register() {
     const [errorMessage, setErrorMessage] = useState(""); // Для вывода ошибки
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong.")
 
     const { lang } = useSelector((state) => state.baristica);
 
@@ -56,6 +57,9 @@ export default function Register() {
         setLoading(true)
         try {
             const response = await authService.register({ creds: { ...formData } })
+            if (response.status >= 400) {
+                throw new Error("Couldn't register: " + response.data.message);
+            }
             const token = response.data.token
             const user = response.data.user
             if (token) {
@@ -66,6 +70,7 @@ export default function Register() {
             }
         } catch (error) {
             setError(true)
+            setMessage(error.message)
         } finally {
             setLoading(false)
         }
@@ -75,7 +80,7 @@ export default function Register() {
     return (
         <div className={styles.register + ' flex j-center'}>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
 
             <div className="container">
                 <AuthorizationHeading
