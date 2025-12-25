@@ -14,6 +14,7 @@ export default function EditAddress({ address, setAddresses, setEdit }) {
     const [formData, setFormData] = useState({})
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong")
 
     const userService = new UserService()
 
@@ -30,6 +31,9 @@ export default function EditAddress({ address, setAddresses, setEdit }) {
         setLoading(true)
         try {
             const response = await userService.editAddress(token, id, data)
+            if (response.status >= 400) {
+                throw new Error("Couldn't edit address: Application backend is down.");
+            }
             setAddresses((prevAddresses) =>
                 prevAddresses.map((address) =>
                     address._id === id ? { id: address._id, ...formData } : address
@@ -39,6 +43,7 @@ export default function EditAddress({ address, setAddresses, setEdit }) {
 
         } catch (error) {
             setError(true)
+            setMessage(error.message);
         } finally {
             setLoading(false)
         }
@@ -68,7 +73,7 @@ export default function EditAddress({ address, setAddresses, setEdit }) {
     return (
         <div className={styles.edit}>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
 
             <h2 className={styles.heading + " f28 fw600 darkGrey_color robotoFont"}>{lang ? profile[lang].addresses.changeAddress : ''}</h2>
 

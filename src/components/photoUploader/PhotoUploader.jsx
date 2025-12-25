@@ -6,10 +6,11 @@ import MediaService from "../../services/media.service";
 import { useSelector } from "react-redux";
 import Error from "../error/Error";
 
-const PhotoUploader = ({ photos, setPhotos ,onPhotosUpdate, text }) => {
+const PhotoUploader = ({ photos, setPhotos, onPhotosUpdate, text }) => {
   const [loading, setLoading] = useState(false)
-  const [error,setError] = useState(false)
-  const {token} = useSelector(state => state.baristica)
+  const [error, setError] = useState(false)
+  const [message, setMessage] = useState("Something went wrong");
+  const { token } = useSelector(state => state.baristica)
 
   const mediaService = new MediaService()
 
@@ -23,6 +24,9 @@ const PhotoUploader = ({ photos, setPhotos ,onPhotosUpdate, text }) => {
     setLoading(true)
     try {
       const response = await mediaService.createImg(token, formData)
+      if (response.status >= 400) {
+        throw new Error("Couldn't log out: application backend is down.")
+      }
       const newPhotoUrl = response.data[0].photourl;
 
 
@@ -34,7 +38,8 @@ const PhotoUploader = ({ photos, setPhotos ,onPhotosUpdate, text }) => {
         onPhotosUpdate(updatedPhotos);
       }
     } catch (error) {
-        setError(true)
+      setError(true)
+      setMessage(error.message);
     } finally {
       setLoading(false)
     }
@@ -52,7 +57,7 @@ const PhotoUploader = ({ photos, setPhotos ,onPhotosUpdate, text }) => {
   return (
     <div className={styles.photoUploader}>
       <Loading status={loading} />
-      <Error status={error} setStatus={setError} />
+      <Error status={error} setStatus={setError} message={message} />
 
       <label className={`${styles.uploadButton} robotoFont`}>
         <input

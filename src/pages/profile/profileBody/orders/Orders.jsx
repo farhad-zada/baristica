@@ -15,6 +15,7 @@ const Orders = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [message, setMessage] = useState("Something went wrong.")
   const [activeOrders, setActiveOrders] = useState([])
   const [deliveredOrders, setDeliveredOrders] = useState([])
   const totalPages = 5;
@@ -46,6 +47,7 @@ const Orders = () => {
 
     } catch (error) {
       setError(true)
+      setMessage(error.message)
     } finally {
       setLoading(false)
     }
@@ -57,7 +59,7 @@ const Orders = () => {
   return (
     <div className={style.orders}>
       <Loading status={loading} />
-      <Error status={error} setStatus={setError} />
+      <Error status={error} setStatus={setError} message={message} />
 
       <div className={style.tabs}>
         <Tabs tabs={profile[lang]?.orders?.tabs?.map((tab) => tab.title)} children={content} />

@@ -23,6 +23,7 @@ export default function HomeProducts({onLoad}) {
 
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong.")
 
     const sectionsContent = useMemo(() => [
         {
@@ -78,6 +79,7 @@ export default function HomeProducts({onLoad}) {
             setPopularMachines(popularMachines.data)
         } catch (error) {
             setError(true)
+            setMessage(error.message);
         } finally {
             setLoading(false)
             setTimeout(() => {
@@ -92,7 +94,7 @@ export default function HomeProducts({onLoad}) {
     return (
         <>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
             {sectionsContent.map((section, key) => (
                 <ProductsSection
                     key={key}

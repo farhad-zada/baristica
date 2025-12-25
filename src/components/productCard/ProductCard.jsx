@@ -30,6 +30,7 @@ const ProductCard = (props) => {
     // const [productAdded, setProductAdded] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong.")
     const [linked, setLinked] = useState()
 
     const [weightOptions, setWeightOptions] = useState([])
@@ -99,9 +100,13 @@ const ProductCard = (props) => {
         setLoading(true)
         try {
             const response = await productsService.getOneProduct(token, id)
+            if (response.status >= 400) {
+                throw new Error("Couldn't fetch product: " + response.data.message);
+            }
             setActiveProduct(response?.data || {})
         } catch (error) {
             setError(true)
+            setMessage(error.message);
         } finally {
             setLoading(false)
         }
@@ -233,7 +238,7 @@ const ProductCard = (props) => {
     return (
         <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${activeProduct?._id}`) }}>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
 
             <div className={style.productCard_head}>
                 <div className="flex j-between">

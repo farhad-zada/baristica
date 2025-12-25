@@ -20,6 +20,7 @@ export default function AddAddress({ setAddresses, setAdd }) {
     })
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong")
 
     const userService = new UserService()
 
@@ -36,11 +37,15 @@ export default function AddAddress({ setAddresses, setAdd }) {
                 }
             }
             const response = await userService.addAddress(token, data)
+            if (response.status >= 400) {
+                throw new Error("Couldn't add address: Application backend is down.");
+            }
             setAddresses((prevState) => [...prevState, formData]);
             setAdd(false)
 
         } catch (error) {
             setError(true)
+            setMessage(error.message);
         } finally {
             setLoading(false)
         }
@@ -68,7 +73,7 @@ export default function AddAddress({ setAddresses, setAdd }) {
     return (
         <div className={styles.add}>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} />
+            <Error status={error} setStatus={setError} message={message} />
 
             <h2 className={styles.heading + " f28 fw600 darkGrey_color robotoFont"}>{lang ? profile[lang].addresses.newAddress : ''}</h2>
 

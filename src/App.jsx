@@ -17,6 +17,7 @@ import FavoritesService from './services/favorites.service';
 const App = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [message, setMessage] = useState("Something went wrong.");
 
   const { cart, finalCart } = useSelector(state => state.baristica)
   const dispatch = useDispatch()
@@ -31,9 +32,14 @@ const App = () => {
     // setLoading(true)
     try {
       const response = await userService.getUser(token)
+      if (response.status >= 400) {
+        throw new Error("Application is down. Please reach out to us.");
+      }
       dispatch(setUser(response.data))
     } catch (error) {
       setError(true)
+      setMessage(error.message)
+
     }
     finally {
       setLoading(false)
@@ -45,8 +51,12 @@ const App = () => {
     try {
       const response = await favoritesService.getFavorites(token, page)
       dispatch(setFavoritesCount(response.data.length))
+        if (response.status >= 400) {
+        throw new Error("Couldn't fetch favorites: Application backend is down.");
+      }
     } catch (error) {
       setError(true)
+      setMessage(error.message);
     } finally {
       setLoading(false)
     }
@@ -104,7 +114,7 @@ const App = () => {
   return (
     <div>
       <Loading status={loading} />
-      <Error status={error} setStatus={setError} />
+      <Error status={error} setStatus={setError} message={message} />
       <SubHeader />
       <Header />
       <AppRoutes />

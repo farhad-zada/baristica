@@ -21,6 +21,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     })
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const [message, setMessage] = useState("Something went wrong")
     const [errorMessage, setErrorMessage] = useState({})
     const [success, setSuccess] = useState(false)
     const [byCard, setByCard] = useState(true)
@@ -39,11 +40,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     const onSubmit = async () => {
         if((delivery && !formData.time) || (delivery && !formData.date)){
 
-            setErrorMessage({
-                az:'Zəhmət olmasa çatdırılma vaxtını və tarixini qeyd edin',
-                ru:"Пожалуйста выберите  время и дату доставки",
-                en:"Please set up delivery time and date"
-            })
+            setMessage("Please set up delivery time and date")
             setError(true)
             return
         }
@@ -71,6 +68,9 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
         setLoading(true)
         try {
             const response = await ordersService.createOrder(token, data)
+            if (response.status >= 400) {
+                throw new Error("Couldn't create order: " + response.data.message);
+            }
             const url = response.data.redirect.redirect_url
             if (url) {
                 window.location.href = url
@@ -79,6 +79,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
 
         } catch (error) {
             setError(true)
+            setMessage(error.message);
         } finally {
             setLoading(false)
         }
@@ -146,7 +147,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     return (
         <div className={styles.orderLeft}>
             <Loading status={loading} />
-            <Error status={error} setStatus={setError} message={errorMessage} />
+            <Error status={error} setStatus={setError} message={message} />
             <Success status={success} setStatus={setSuccess} />
             <div className="orderInfo_component">
                 <h2 className='f32 fw700'>{content ? content.personalInfoHeading : ''}</h2>

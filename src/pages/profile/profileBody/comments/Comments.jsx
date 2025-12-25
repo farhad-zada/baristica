@@ -16,6 +16,7 @@ const Comments = () => {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [message, setMessage] = useState("Something went wrong.")
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -31,11 +32,15 @@ const Comments = () => {
     setLoading(true)
     try {
       const response = await userService.getComments(token, currentPage)
+      if (response.status >= 400) {
+        throw new Error("Couldn't fetch comments: " + response.data.message);
+      }
       setComments(response.data.comments)
       setProducts(response.data.products)
       setTotalPages(response.page_count ? response.page_count : 1)
     } catch (error) {
       setError(true)
+      setMessage(error.message)
     } finally {
       setLoading(false)
     }
@@ -50,7 +55,7 @@ const Comments = () => {
   return (
     <div className='comments'>
       <Loading status={loading} />
-      <Error status={error} setStatus={setError} />
+      <Error status={error} setStatus={setError} message={message} />
 
       <h1 className='robotoFont'>{profile[lang]?.comments?.title}:</h1>
       <div className='all_comments'>

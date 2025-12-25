@@ -24,6 +24,7 @@ export default function SubHeader() {
   const [searchInput, setSearchInput] = useState("");
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [message, setMessage] = useState("Something went wrong.")
 
   const searchRef = useRef(null); // Ref for click outside handling
   const dispatch = useDispatch();
@@ -52,6 +53,9 @@ export default function SubHeader() {
     setLoading(true)
     try {
       const response = await authService.logout(token)
+      if (response.status >= 400) {
+        throw new Error("Couldn't log out: application backend is down.")
+      }
       dispatch(setToken(false))
       dispatch(setUser({}))
       dispatch(setFavoritesCount(0))
@@ -59,6 +63,7 @@ export default function SubHeader() {
       navigate('/')
     } catch (error) {
       setError(true)
+      setMessage(error.message)
     } finally {
       setLoading(false)
     }
@@ -89,7 +94,7 @@ export default function SubHeader() {
   return (
     <div className={style.subHeader + " flex j-center"}>
       <Loading status={loading} />
-      <Error status={error} setStatus={setError} />
+      <Error status={error} setStatus={setError} message={message} />
 
       <div className="container flex">
         <div className={`${style.subHeader_section} flex a-center j-between w-100`}>
