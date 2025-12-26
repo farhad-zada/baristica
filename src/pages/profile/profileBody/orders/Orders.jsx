@@ -7,6 +7,7 @@ import OrdersService from '../../../../services/orders.service';
 import Error from '../../../../components/error/Error';
 import Loading from '../../../../components/loading/Loading';
 import OrderElements from './orderElements/OrderElements';
+import { handleApiReqRes } from '../../../../utils/handleApiReqRes.util';
 
 const { profile } = PagesText;
 
@@ -37,8 +38,8 @@ const Orders = () => {
     setLoading(true)
     try {
       const [active, delivered] = await Promise.all([
-        ordersService.getOrders(token, 'active'),
-        ordersService.getOrders(token, 'delivered')
+        handleApiReqRes(ordersService.getOrders(token, 'active')),
+        handleApiReqRes(ordersService.getOrders(token, 'delivered'))
       ]);
       console.log("ACTIVE: ", active);
       // coffee

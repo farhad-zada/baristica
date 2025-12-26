@@ -30,10 +30,9 @@ export default function EditAddress({ address, setAddresses, setEdit }) {
         }
         setLoading(true)
         try {
-            const response = await userService.editAddress(token, id, data)
-            if (response.status >= 400) {
-                throw new Error("Couldn't edit address: Application backend is down.");
-            }
+            const request = userService.editAddress(token, id, data)
+            const response = await handleApiReqRes(request);
+
             setAddresses((prevAddresses) =>
                 prevAddresses.map((address) =>
                     address._id === id ? { id: address._id, ...formData } : address

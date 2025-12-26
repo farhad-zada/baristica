@@ -34,10 +34,8 @@ export default function Login() {
     const getFavorites = async (page, token) => {
         setLoading(true)
         try {
-            const response = await favoritesService.getFavorites(token, page)
-            if (response.status >= 400) {
-                throw new Error("Couldn't fetch favorites: Application backend is down.");
-            }
+            const request = favoritesService.getFavorites(token, page)
+            const response = await handleApiReqRes(request);
             dispatch(setFavoritesCount(response.data.length))
         } catch (error) {
             setError(true)
@@ -50,10 +48,8 @@ export default function Login() {
     const onSubmit = async () => {
         setLoading(true)
         try {
-            const response = await authService.login({ creds: { ...formData } })
-            if (response.status >= 400) {
-                throw new Error("Login failed: Application backend is down.");
-            }
+            const request = authService.login({ creds: { ...formData } })
+            const response = await handleApiReqRes(request);
             const token = response?.data?.token || true
             const user = response.data.user
             if (token) {

@@ -52,10 +52,8 @@ export default function SubHeader() {
   const logout = async () => {
     setLoading(true)
     try {
-      const response = await authService.logout(token)
-      if (response.status >= 400) {
-        throw new Error("Couldn't log out: application backend is down.")
-      }
+      const request = authService.logout(token)
+      const response = await handleApiReqRes(request);
       dispatch(setToken(false))
       dispatch(setUser({}))
       dispatch(setFavoritesCount(0))
@@ -102,27 +100,6 @@ export default function SubHeader() {
 
           <div className="flex j-end w-100">
             <div className={`${style.subHeader_buttons} flex a-center j-end`} ref={searchRef}>
-              {/* {isSearchActive ? (
-              <div style={{ position: "relative" }}>
-                <input
-                  type="text"
-                  value={searchInput}
-                  className={`${style.searchInput} darkGray defaultBtn border32`}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  placeholder={subHeader && subHeader[lang].searchPlaceholder}
-                />
-                <button className={style.clear} onClick={() => setSearchInput("")}>
-                  <svg data-v-00e70212="" height="9" width="9" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M1.195.205a.7.7 0 1 0-.99.99l2.899 2.899L.206 6.99a.7.7 0 0 0 .99.99l2.898-2.897 2.898 2.898a.7.7 0 1 0 .99-.99L5.084 4.094 7.98 1.196a.7.7 0 1 0-.99-.99L4.094 3.104 1.195.205Z"></path></svg>
-                </button>
-              </div>
-            ) : (
-              <button
-                className={`${style.button} darkGray defaultBtn border32 flex a-center`}
-                onClick={handleSearchToggle}
-              >
-                {Search}
-              </button>
-            )} */}
               <span className={`${style.button} darkGray defaultBtn border32 flex a-center`} onClick={() => {
                 if (token) {
                   navigate('/favorites')

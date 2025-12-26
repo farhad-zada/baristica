@@ -23,10 +23,8 @@ const PhotoUploader = ({ photos, setPhotos, onPhotosUpdate, text }) => {
     formData.append("photos", file);
     setLoading(true)
     try {
-      const response = await mediaService.createImg(token, formData)
-      if (response.status >= 400) {
-        throw new Error("Couldn't log out: application backend is down.")
-      }
+      const request = mediaService.createImg(token, formData)
+      const response = await handleApiReqRes(request);
       const newPhotoUrl = response.data[0].photourl;
 
 

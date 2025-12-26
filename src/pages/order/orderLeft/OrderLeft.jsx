@@ -67,10 +67,8 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
         console.log(selectedAddress);
         setLoading(true)
         try {
-            const response = await ordersService.createOrder(token, data)
-            if (response.status >= 400) {
-                throw new Error("Couldn't create order: " + response.data.message);
-            }
+            const request = ordersService.createOrder(token, data)
+            const response = await handleApiReqRes(request);
             const url = response.data.redirect.redirect_url
             if (url) {
                 window.location.href = url

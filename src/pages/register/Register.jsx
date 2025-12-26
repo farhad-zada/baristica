@@ -56,10 +56,8 @@ export default function Register() {
         setErrorMessage("");
         setLoading(true)
         try {
-            const response = await authService.register({ creds: { ...formData } })
-            if (response.status >= 400) {
-                throw new Error("Couldn't register: " + response.data.message);
-            }
+            const request = authService.register({ creds: { ...formData } })
+            const response = await handleApiReqRes(request);
             const token = response.data.token
             const user = response.data.user
             if (token) {

@@ -31,10 +31,8 @@ const Comments = () => {
   const getComments = async (currentPage) => {
     setLoading(true)
     try {
-      const response = await userService.getComments(token, currentPage)
-      if (response.status >= 400) {
-        throw new Error("Couldn't fetch comments: " + response.data.message);
-      }
+      const request = userService.getComments(token, currentPage)
+      const response = await handleApiReqRes(request);
       setComments(response.data.comments)
       setProducts(response.data.products)
       setTotalPages(response.page_count ? response.page_count : 1)

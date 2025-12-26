@@ -20,10 +20,8 @@ export default function ProductDetailsReviews({ product }) {
   const getComments = async () => {
     setLoading(true)
     try {
-      const response = await commentsService.getProductComments(token, product._id)
-      if (response.status >= 400) {
-        throw new Error("Couldn't fetch comments: " + response.data.message);
-      }
+      const request = commentsService.getProductComments(token, product._id)
+      const response = await handleApiReqRes(request);
       const comments = response.data.comments
       setReviews(comments)
     } catch (error) {

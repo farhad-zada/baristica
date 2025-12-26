@@ -22,10 +22,8 @@ export default function ProductsDetail() {
     const getProduct = async (id) => {
         setLoading(true)
         try {
-            const response = await productsService.getOneProduct(token, id)
-            if (response.status >= 400) {
-                throw new Error("Couldn't fetch product: " + response.data.message);
-            }
+            const request = productsService.getOneProduct(token, id)
+            const response = await handleApiReqRes(request);
             setProduct(response?.data || {})
         } catch (error) {
             setError(true)

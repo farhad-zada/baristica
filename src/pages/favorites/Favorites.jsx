@@ -40,10 +40,8 @@ export default function Favorites() {
     const getFavorites = async (page) => {
         setLoading(true)
         try {
-            const response = await favoritesService.getFavorites(token, page)
-             if (response.status >= 400) {
-                throw new Error("Couldn't fetch favorites: Application backend is down.");
-            }
+            const request = favoritesService.getFavorites(token, page)
+            const response = await handleApiReqRes(request);
             setProducts(response.data)
         } catch (error) {
             setError(true)

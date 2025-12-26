@@ -31,10 +31,8 @@ const App = () => {
   const getUser = async (token) => {
     // setLoading(true)
     try {
-      const response = await userService.getUser(token)
-      if (response.status >= 400) {
-        throw new Error("Application is down. Please reach out to us.");
-      }
+      const request = userService.getUser(token)
+      const response = await handleApiReqRes(request);
       dispatch(setUser(response.data))
     } catch (error) {
       setError(true)
@@ -49,11 +47,9 @@ const App = () => {
   const getFavorites = async (page, token) => {
     setLoading(true)
     try {
-      const response = await favoritesService.getFavorites(token, page)
+      const request = favoritesService.getFavorites(token, page)
+      const response = await handleApiReqRes(request);
       dispatch(setFavoritesCount(response.data.length))
-        if (response.status >= 400) {
-        throw new Error("Couldn't fetch favorites: Application backend is down.");
-      }
     } catch (error) {
       setError(true)
       setMessage(error.message);
