@@ -6,6 +6,8 @@ import InputText from '../../form/inputField/InputText';
 import Loading from '../../loading/Loading';
 import UserService from '../../../services/user.service';
 import Error from '../../error/Error';
+import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
+
 const { profile } = pageText
 
 export default function EditAddress({ address, setAddresses, setEdit }) {

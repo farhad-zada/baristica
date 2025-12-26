@@ -9,6 +9,8 @@ import Loading from '../../components/loading/Loading'
 import { addProductToCart } from '../../redux/slice'
 import Error from '../../components/error/Error'
 import Pagination from '../../components/pagination/Pagination'
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+
 
 const { favorites } = PageText
 

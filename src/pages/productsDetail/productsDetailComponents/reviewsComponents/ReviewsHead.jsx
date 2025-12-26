@@ -10,6 +10,8 @@ import CommentsService from '../../../../services/comments.service'
 import Loading from '../../../../components/loading/Loading'
 import ProductsService from '../../../../services/products.service'
 import Error from '../../../../components/error/Error'
+import { handleApiReqRes } from '../../../../utils/handleApiReqRes.util';
+
 
 const { productDetail } = PageText
 

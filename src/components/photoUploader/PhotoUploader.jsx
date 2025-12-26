@@ -5,6 +5,8 @@ import Loading from "../loading/Loading";
 import MediaService from "../../services/media.service";
 import { useSelector } from "react-redux";
 import Error from "../error/Error";
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+
 
 const PhotoUploader = ({ photos, setPhotos, onPhotosUpdate, text }) => {
   const [loading, setLoading] = useState(false)

@@ -10,6 +10,8 @@ import OrdersService from '../../../services/orders.service'
 import Loading from '../../../components/loading/Loading'
 import Error from '../../../components/error/Error'
 import Success from '../../../components/success/Success'
+import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
+
 const { order, profile } = PageText
 
 export default function OrderLeft({ content, delivery, setDelivery }) {

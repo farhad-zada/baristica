@@ -13,6 +13,8 @@ import UserService from './services/user.service';
 import Loading from './components/loading/Loading';
 import Error from './components/error/Error';
 import FavoritesService from './services/favorites.service';
+import { handleApiReqRes } from './utils/handleApiReqRes.util';
+
 
 const App = () => {
   const [loading, setLoading] = useState(false)

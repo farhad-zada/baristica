@@ -6,6 +6,8 @@ import CommentsService from '../../../services/comments.service'
 import { useSelector } from 'react-redux'
 import Loading from '../../../components/loading/Loading'
 import Error from '../../../components/error/Error'
+import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
+
 
 export default function ProductDetailsReviews({ product }) {
   const [reviews, setReviews] = useState([])

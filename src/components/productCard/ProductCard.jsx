@@ -14,6 +14,8 @@ import FavoritesService from "../../services/favorites.service"
 import Loading from "../loading/Loading"
 import ProductsService from "../../services/products.service"
 import Error from "../error/Error"
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+
 const { productCard, categories, grindingOptionsTranslate } = pageText
 
 const dripCoffeeAdditional = {

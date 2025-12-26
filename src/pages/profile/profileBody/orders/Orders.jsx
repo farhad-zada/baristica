@@ -9,6 +9,7 @@ import Loading from '../../../../components/loading/Loading';
 import OrderElements from './orderElements/OrderElements';
 import { handleApiReqRes } from '../../../../utils/handleApiReqRes.util';
 
+
 const { profile } = PagesText;
 
 const Orders = () => {
@@ -37,10 +38,12 @@ const Orders = () => {
   const getOrders = async () => {
     setLoading(true)
     try {
-      const [active, delivered] = await Promise.all([
-        handleApiReqRes(ordersService.getOrders(token, 'active')),
-        handleApiReqRes(ordersService.getOrders(token, 'delivered'))
-      ]);
+      // await Promise.all([
+      //   ,
+      //   handleApiReqRes(ordersService.getOrders(token, 'delivered'))
+      // ]);
+      let active = await handleApiReqRes(ordersService.getOrders(token, 'active'));
+      let delivered = await handleApiReqRes(ordersService.getOrders(token, 'delivered'));
       console.log("ACTIVE: ", active);
       // coffee
       setActiveOrders(active.data.orders);

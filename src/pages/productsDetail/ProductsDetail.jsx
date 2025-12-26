@@ -7,6 +7,8 @@ import ProductsService from '../../services/products.service'
 import { useDispatch, useSelector } from 'react-redux'
 import Error from '../../components/error/Error'
 import { setTabIdx } from '../../redux/slice'
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+
 
 export default function ProductsDetail() {
     const { token } = useSelector(state => state.baristica)

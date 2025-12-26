@@ -11,6 +11,8 @@ import style from '../productDetailComponentsCss/productsDetailHeadRight.module.
 import { useNavigate } from 'react-router-dom'
 import pageText from '../../../content/PagesText.json'
 import { setTabIdx } from '../../../redux/slice'
+import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
+
 const { categories } = pageText
 
 export default function ProductsDetailHeadRight({ product }) {

@@ -12,6 +12,7 @@ import Loading from '../../components/loading/Loading';
 import Pagination from '../../components/pagination/Pagination';
 import Error from '../../components/error/Error';
 import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+
 const { productsPage } = pageText
 export default function Products() {
   const { lang, token } = useSelector((state) => state.baristica);

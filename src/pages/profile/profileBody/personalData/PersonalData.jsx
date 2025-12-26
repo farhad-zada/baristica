@@ -11,6 +11,8 @@ import Error from '../../../../components/error/Error';
 import UserService from '../../../../services/user.service';
 import Success from '../../../../components/success/Success';
 import { setUser } from '../../../../redux/slice';
+import { handleApiReqRes } from '../../../../utils/handleApiReqRes.util';
+
 
 const { profile, register } = PageText
 

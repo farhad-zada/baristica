@@ -13,6 +13,8 @@ import Loading from "../../loading/Loading";
 import { useRefClickOutside } from "../../../hooks/useRefClickOutside";
 import { calculateTotalPrice } from "../../../utils/price.util";
 import Error from "../../error/Error";
+import { handleApiReqRes } from "../../../utils/handleApiReqRes.util";
+
 
 const { header } = PagesText;
 const { subHeader } = header;
