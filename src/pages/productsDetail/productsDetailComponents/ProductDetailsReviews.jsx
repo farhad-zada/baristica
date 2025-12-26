@@ -6,6 +6,8 @@ import CommentsService from '../../../services/comments.service'
 import { useSelector } from 'react-redux'
 import Loading from '../../../components/loading/Loading'
 import Error from '../../../components/error/Error'
+import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
+
 
 export default function ProductDetailsReviews({ product }) {
   const [reviews, setReviews] = useState([])
@@ -20,10 +22,8 @@ export default function ProductDetailsReviews({ product }) {
   const getComments = async () => {
     setLoading(true)
     try {
-      const response = await commentsService.getProductComments(token, product._id)
-      if (response.status >= 400) {
-        throw new Error("Couldn't fetch comments: " + response.data.message);
-      }
+      const request = commentsService.getProductComments(token, product._id)
+      const response = await handleApiReqRes(request);
       const comments = response.data.comments
       setReviews(comments)
     } catch (error) {

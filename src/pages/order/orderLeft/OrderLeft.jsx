@@ -10,6 +10,8 @@ import OrdersService from '../../../services/orders.service'
 import Loading from '../../../components/loading/Loading'
 import Error from '../../../components/error/Error'
 import Success from '../../../components/success/Success'
+import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
+
 const { order, profile } = PageText
 
 export default function OrderLeft({ content, delivery, setDelivery }) {
@@ -67,10 +69,8 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
         console.log(selectedAddress);
         setLoading(true)
         try {
-            const response = await ordersService.createOrder(token, data)
-            if (response.status >= 400) {
-                throw new Error("Couldn't create order: " + response.data.message);
-            }
+            const request = ordersService.createOrder(token, data)
+            const response = await handleApiReqRes(request);
             const url = response.data.redirect.redirect_url
             if (url) {
                 window.location.href = url

@@ -10,6 +10,8 @@ import CommentsService from '../../../../services/comments.service'
 import Loading from '../../../../components/loading/Loading'
 import ProductsService from '../../../../services/products.service'
 import Error from '../../../../components/error/Error'
+import { handleApiReqRes } from '../../../../utils/handleApiReqRes.util';
+
 
 const { productDetail } = PageText
 
@@ -41,10 +43,8 @@ export default function ReviewsHead({ getComments, product }) {
         }
 
         try {
-            const response = await productsService.rateProduct(token, product._id, formData)
-            if (response.status >= 400) {
-                throw new Error("Couldn't add rating: " + response.data.message);
-            }
+            const request = productsService.rateProduct(token, product._id, formData)
+            const response = await handleApiReqRes(request);
             setCommentText('')
             setUploadedPhotos([])
             handleRatingChange(0)
@@ -70,10 +70,8 @@ export default function ReviewsHead({ getComments, product }) {
 
         setLoading(true)
         try {
-            const response = await commentsService.createComment(token, formData)
-            if (response.status >= 400) {
-                throw new Error("Couldn't add comment: " + response.data.message);
-            }
+            const request = commentsService.createComment(token, formData)
+            const response = await handleApiReqRes(request);
             await addRating()
 
         } catch (error) {

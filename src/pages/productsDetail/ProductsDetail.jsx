@@ -7,6 +7,8 @@ import ProductsService from '../../services/products.service'
 import { useDispatch, useSelector } from 'react-redux'
 import Error from '../../components/error/Error'
 import { setTabIdx } from '../../redux/slice'
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+
 
 export default function ProductsDetail() {
     const { token } = useSelector(state => state.baristica)
@@ -22,10 +24,8 @@ export default function ProductsDetail() {
     const getProduct = async (id) => {
         setLoading(true)
         try {
-            const response = await productsService.getOneProduct(token, id)
-            if (response.status >= 400) {
-                throw new Error("Couldn't fetch product: " + response.data.message);
-            }
+            const request = productsService.getOneProduct(token, id)
+            const response = await handleApiReqRes(request);
             setProduct(response?.data || {})
         } catch (error) {
             setError(true)

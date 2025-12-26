@@ -11,6 +11,8 @@ import style from '../productDetailComponentsCss/productsDetailHeadRight.module.
 import { useNavigate } from 'react-router-dom'
 import pageText from '../../../content/PagesText.json'
 import { setTabIdx } from '../../../redux/slice'
+import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
+
 const { categories } = pageText
 
 export default function ProductsDetailHeadRight({ product }) {
@@ -28,11 +30,8 @@ export default function ProductsDetailHeadRight({ product }) {
         if(token){
             setLoading(true)
         try {
-            const response = await favoriteService.addFavorite(token, id)
-            if (response.status >= 400) {
-                throw new Error("Couldn't add to favorites: " + response.data.message);
-            }
-
+            const request = favoriteService.addFavorite(token, id)
+            const response = await handleApiReqRes(request);
         } catch (error) {
             setError(true)
             setMessage(error.message);

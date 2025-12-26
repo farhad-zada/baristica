@@ -11,6 +11,8 @@ import ProductsService from '../../services/products.service';
 import Loading from '../../components/loading/Loading';
 import Pagination from '../../components/pagination/Pagination';
 import Error from '../../components/error/Error';
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+
 const { productsPage } = pageText
 export default function Products() {
   const { lang, token } = useSelector((state) => state.baristica);
@@ -59,10 +61,8 @@ export default function Products() {
   setLoading(true);
   setProducts([]); // Очищаем старые продукты
   try {
-    const response = await productsService.getProducts(token, type, page ? page : currentPage, query);
-    if (response.status >= 400) {
-      throw new Error("Couldn't fetch products: " + response.data.message);
-    }
+    const request = productsService.getProducts(token, type, page ? page : currentPage, query);
+    const response  = await handleApiReqRes(request);
     const products = response.data;
 
     setShowedProductsCount(products.length);
@@ -148,12 +148,6 @@ export default function Products() {
       setCurrentType('')
     }
   }, [pathname, token])
-
-  // we need this to change products list when the user change page
-  // useEffect(() => {
-  //   console.log('work', currentPage)
-  //   getProducts(type, filterQueryString)
-  // }, [currentPage])
 
   useEffect(() => {
     if (type && filterQueryString) {

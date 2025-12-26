@@ -11,6 +11,8 @@ import { setToken, setUser } from '../../redux/slice';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import Loading from '../../components/loading/Loading';
 import Error from '../../components/error/Error';
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+
 
 const { register } = PageText;
 
@@ -56,10 +58,8 @@ export default function Register() {
         setErrorMessage("");
         setLoading(true)
         try {
-            const response = await authService.register({ creds: { ...formData } })
-            if (response.status >= 400) {
-                throw new Error("Couldn't register: " + response.data.message);
-            }
+            const request = authService.register({ creds: { ...formData } })
+            const response = await handleApiReqRes(request);
             const token = response.data.token
             const user = response.data.user
             if (token) {

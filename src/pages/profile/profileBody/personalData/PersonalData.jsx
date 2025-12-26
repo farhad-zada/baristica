@@ -11,6 +11,8 @@ import Error from '../../../../components/error/Error';
 import UserService from '../../../../services/user.service';
 import Success from '../../../../components/success/Success';
 import { setUser } from '../../../../redux/slice';
+import { handleApiReqRes } from '../../../../utils/handleApiReqRes.util';
+
 
 const { profile, register } = PageText
 
@@ -86,10 +88,8 @@ export default function PersonalData() {
 
         setLoading(true)
         try {
-            const response = await userService.changePersonalData(token, data)
-            if (response.status >= 400) {
-                throw new Error("Couldn't update personal data: " + response.data.message);
-            }
+            const request = userService.changePersonalData(token, data)
+            const response = await handleApiReqRes(request);
             dispatch(setUser(response.data.user))
             setSuccess(true)
         } catch (error) {

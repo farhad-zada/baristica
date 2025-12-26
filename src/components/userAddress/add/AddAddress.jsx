@@ -6,6 +6,8 @@ import InputText from '../../form/inputField/InputText';
 import UserService from '../../../services/user.service';
 import Loading from '../../../components/loading/Loading'
 import Error from '../../error/Error';
+import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
+
 const { profile } = pageText
 
 export default function AddAddress({ setAddresses, setAdd }) {
@@ -36,10 +38,9 @@ export default function AddAddress({ setAddresses, setAdd }) {
                     ...formData,
                 }
             }
-            const response = await userService.addAddress(token, data)
-            if (response.status >= 400) {
-                throw new Error("Couldn't add address: Application backend is down.");
-            }
+            const request = userService.addAddress(token, data)
+            const response = await handleApiReqRes(request);
+
             setAddresses((prevState) => [...prevState, formData]);
             setAdd(false)
 

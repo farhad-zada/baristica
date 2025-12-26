@@ -6,6 +6,8 @@ import UserService from '../../services/user.service'
 import { useSelector } from 'react-redux'
 import Loading from '../loading/Loading'
 import Error from '../error/Error'
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+
 
 export default function UserAddress({ content,address, selectedAddress, setSelectedAddress, radio, index, setAddresses }) {
     const { token } = useSelector(state => state.baristica)
@@ -19,10 +21,8 @@ export default function UserAddress({ content,address, selectedAddress, setSelec
     const deleteAddress = async (id) => {
         setLoading(true)
         try {
-            const response = await userService.deleteAddress(token, id)
-            if (response.status >= 400) {
-                throw new Error("Couldn't delete address: Application backend is down.");
-            }
+            const request = userService.deleteAddress(token, id)
+            const response = await handleApiReqRes(request);
             setAddresses((prevAddresses) => prevAddresses.filter((address) => address._id !== id));
         } catch (error) {
             setError(true)

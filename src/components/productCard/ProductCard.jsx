@@ -14,6 +14,8 @@ import FavoritesService from "../../services/favorites.service"
 import Loading from "../loading/Loading"
 import ProductsService from "../../services/products.service"
 import Error from "../error/Error"
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+
 const { productCard, categories, grindingOptionsTranslate } = pageText
 
 const dripCoffeeAdditional = {
@@ -99,10 +101,8 @@ const ProductCard = (props) => {
     const getProduct = async (id) => {
         setLoading(true)
         try {
-            const response = await productsService.getOneProduct(token, id)
-            if (response.status >= 400) {
-                throw new Error("Couldn't fetch product: " + response.data.message);
-            }
+            const request = productsService.getOneProduct(token, id)
+            const response = await handleApiReqRes(request);
             setActiveProduct(response?.data || {})
         } catch (error) {
             setError(true)

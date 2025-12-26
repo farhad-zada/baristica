@@ -9,6 +9,8 @@ import Loading from '../../components/loading/Loading'
 import { addProductToCart } from '../../redux/slice'
 import Error from '../../components/error/Error'
 import Pagination from '../../components/pagination/Pagination'
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+
 
 const { favorites } = PageText
 
@@ -40,10 +42,8 @@ export default function Favorites() {
     const getFavorites = async (page) => {
         setLoading(true)
         try {
-            const response = await favoritesService.getFavorites(token, page)
-             if (response.status >= 400) {
-                throw new Error("Couldn't fetch favorites: Application backend is down.");
-            }
+            const request = favoritesService.getFavorites(token, page)
+            const response = await handleApiReqRes(request);
             setProducts(response.data)
         } catch (error) {
             setError(true)
