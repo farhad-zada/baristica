@@ -6,15 +6,15 @@ import UserService from '../../services/user.service'
 import { useSelector } from 'react-redux'
 import Loading from '../loading/Loading'
 import Error from '../error/Error'
-import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util'
 
-
-export default function UserAddress({ content,address, selectedAddress, setSelectedAddress, radio, index, setAddresses }) {
+export default function UserAddress({ content, address, index, dispatch }) {
     const { token } = useSelector(state => state.baristica)
+
     const [edit, setEdit] = useState(false)
     const [loading, setLoading] = useState(false)
-    const [error,setError] = useState(false)
-    const [message,setMessage] = useState("Something went wrong")
+    const [error, setError] = useState(false)
+    const [message, setMessage] = useState('Something went wrong')
 
     const userService = new UserService()
 
@@ -22,84 +22,65 @@ export default function UserAddress({ content,address, selectedAddress, setSelec
         setLoading(true)
         try {
             const request = userService.deleteAddress(token, id)
-            const response = await handleApiReqRes(request);
-            setAddresses((prevAddresses) => prevAddresses.filter((address) => address._id !== id));
-        } catch (error) {
+            await handleApiReqRes(request)
+            dispatch({ type: 'DELETE', payload: id })
+        } catch (err) {
             setError(true)
-            setMessage(error.message);
+            setMessage(err.message)
         } finally {
             setLoading(false)
         }
-    };
+    }
 
-
-    const changeSelected = (id) => {
-        setAddresses((prevAddresses) =>
-            prevAddresses.map((address) =>
-                address.id === id
-                    ? { ...address, selected: true }
-                    : { ...address, selected: false }
-            )
-        );
-    };
     return (
         <div>
             <Loading status={loading} />
             <Error status={error} setStatus={setError} message={message} />
 
-            <div className={`${styles.address} flex a-center j-between`}>
-                {/* Индекс */}
-                {index && <span className={`${styles.index} f20 fw400 robotoFont`}>{index}.</span>}
-                {radio &&
-                    <span className={styles.circle} onClick={() => setSelectedAddress(address)}>
-                        {
-                            address._id === selectedAddress._id
-                                ?
-                                <span className={styles.blueCircle}></span>
-                                :
-                                <></>
-                        }
-                    </span>
-                }
-                {/* Город */}
+            <div
+                className={`${styles.address} ${address.isPrimary ? styles.isPrimary : ''} flex a-center j-between`}
+            >
+                <span className={`${styles.index} f20 fw400 robotoFont`}>
+                    {index}.
+                </span>
+
                 <div className={`${styles.address_row} flex a-center j-around w-100`}>
                     <span className={`${styles.city} f20 fw400 robotoFont`}>
-                        {address?.city || "Baki"}
+                        {address.city}
                     </span>
 
-                    {/* Улица */}
                     <span className={`${styles.street} f20 fw400 robotoFont`}>
-                        {address?.street || "Ул. Зарифа Алиева 12"}
+                        {address.street}
                     </span>
 
-                    {/* Квартира */}
                     <span className={`${styles.home} f20 fw400 robotoFont`}>
-                        {content ? content.houseHint : ''} {address?.apartment || "кв. 14"}
+                        {content.houseHint} {address.apartment}
                     </span>
                 </div>
-                {/* Действия */}
+
                 <div className={styles.actions}>
                     <span
-                        className={`${edit ? styles.active : ""} pointer`}
-                        onClick={() => setEdit(!edit)}
+                        className={`${edit ? styles.active : ''} pointer`}
+                        onClick={() => setEdit(prev => !prev)}
                     >
                         {Edit}
                     </span>
-                    <span className="pointer" onClick={() => deleteAddress(address._id)}>
+                    <span
+                        className="pointer"
+                        onClick={() => deleteAddress(address._id)}
+                    >
                         {Delete}
                     </span>
                 </div>
             </div>
 
-            {/* Редактирование адреса */}
             {edit && (
                 <EditAddress
                     address={address}
-                    setAddresses={setAddresses}
+                    dispatch={dispatch}
                     setEdit={setEdit}
                 />
             )}
         </div>
-
     )
 }
