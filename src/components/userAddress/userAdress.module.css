@@ -8,6 +8,9 @@
     align-items: center;
     gap: 10px;
 }
+.isPrimary {
+    background: #61C4BF;
+}
 
 .index {
     text-align: center; /* Центрируем индекс */

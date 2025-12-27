@@ -1,72 +1,67 @@
 import React, { useEffect, useState } from 'react'
 import pageText from '../../../content/PagesText.json'
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 import styles from './addAddress.module.css'
-import InputText from '../../form/inputField/InputText';
-import UserService from '../../../services/user.service';
+import InputText from '../../form/inputField/InputText'
+import UserService from '../../../services/user.service'
 import Loading from '../../../components/loading/Loading'
-import Error from '../../error/Error';
-import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
+import Error from '../../error/Error'
+import { handleApiReqRes } from '../../../utils/handleApiReqRes.util'
 
 const { profile } = pageText
 
-export default function AddAddress({ setAddresses, setAdd }) {
-    const { lang, token } = useSelector((state) => state.baristica);
+export default function AddAddress({ dispatch, setAdd }) {
+    const { lang, token } = useSelector(state => state.baristica)
 
-    // ask Farhad to return me object or entire array in response of adding address to set live
     const [formData, setFormData] = useState({
-        id: 3,
-        city: "",
-        street: "",
-        apartment: "",
+        city: '',
+        street: '',
+        apartment: '',
+        isPrimary: false
     })
+
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
-    const [message, setMessage] = useState("Something went wrong")
+    const [message, setMessage] = useState('Something went wrong')
 
     const userService = new UserService()
 
     const handleInputChange = (name, value) => {
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    };
+        setFormData(prev => ({ ...prev, [name]: value }))
+    }
 
-    const handleUpdateAddress = async (formData) => {
+    const checkBoxChange = (bool) => {
+        setFormData(prev => ({ ...prev, isPrimary: bool }))
+    }
+
+    const onSubmit = async () => {
         setLoading(true)
         try {
-            const data = {
-                "address": {
-                    ...formData,
-                }
-            }
-            const request = userService.addAddress(token, data)
-            const response = await handleApiReqRes(request);
+            const request = userService.addAddress(token, {
+                address: formData
+            })
 
-            setAddresses((prevState) => [...prevState, formData]);
+            const response = await handleApiReqRes(request)
+            console.log("RESPONSE: ", response)
+            // IMPORTANT: use backend-returned addresses to update state
+            dispatch({ type: 'INIT', payload: response.data.addresses })
+
             setAdd(false)
-
-        } catch (error) {
+        } catch (err) {
             setError(true)
-            setMessage(error.message);
+            setMessage(err.message)
         } finally {
             setLoading(false)
         }
-    };
-
-    const onSubmit = async () => {
-        await handleUpdateAddress(formData)
-    }
-    const checkBoxChange = (bool) => {
-        setFormData({ ...formData, isPrimary: bool })
     }
 
     useEffect(() => {
         return () => {
             setFormData({
-                id: 3,
-                city: "",
-                street: "",
-                apartment: "",
-                isPrimary: false,
+                city: '',
+                street: '',
+                apartment: '',
+                isPrimary: false
             })
         }
     }, [])
@@ -76,9 +71,11 @@ export default function AddAddress({ setAddresses, setAdd }) {
             <Loading status={loading} />
             <Error status={error} setStatus={setError} message={message} />
 
-            <h2 className={styles.heading + " f28 fw600 darkGrey_color robotoFont"}>{lang ? profile[lang].addresses.newAddress : ''}</h2>
+            <h2 className={`${styles.heading} f28 fw600 darkGrey_color robotoFont`}>
+                {lang ? profile[lang].addresses.newAddress : ''}
+            </h2>
 
-            <form action="">
+            <form>
                 <InputText
                     name="city"
                     value={formData.city}
@@ -101,20 +98,31 @@ export default function AddAddress({ setAddresses, setAdd }) {
                 />
 
                 <div className="flex g10">
-                    <span className='f16 fw400 darkGrey_color'>{lang ? profile[lang].addresses.doMain : ''}</span>
-                    <div className="flex a-center g8 pointer">
-                        <input id='yes' name='main' type="radio" onChange={() => { checkBoxChange(true) }} />
-                        <label htmlFor='yes' className='f16 fw400 darkGrey_color'>{lang ? profile[lang].addresses.yes : ''}</label>
-                    </div>
-                    <div className="flex a-center g8 pointer">
-                        <input id='no' name='main' type="radio" onChange={() => { checkBoxChange(false) }} />
-                        <label htmlFor='no' className='f16 fw400 darkGrey_color'>{lang ? profile[lang].addresses.no : ''}</label>
-                    </div>
+                    <span className="f16 fw400 darkGrey_color">
+                        {lang ? profile[lang].addresses.doMain : ''}
+                    </span>
+
+                    <label className="flex a-center g8 pointer">
+                        <input
+                            type="radio"
+                            checked={formData.isPrimary === true}
+                            onChange={() => checkBoxChange(true)}
+                        />
+                        {lang ? profile[lang].addresses.yes : ''}
+                    </label>
+
+                    <label className="flex a-center g8 pointer">
+                        <input
+                            type="radio"
+                            checked={formData.isPrimary === false}
+                            onChange={() => checkBoxChange(false)}
+                        />
+                        {lang ? profile[lang].addresses.no : ''}
+                    </label>
                 </div>
 
-
                 <button
-                    type='button'
+                    type="button"
                     className={styles.saveBtn}
                     onClick={onSubmit}
                 >

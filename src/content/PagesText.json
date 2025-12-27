@@ -1680,21 +1680,25 @@
             "addresses": "Mənim ünvanlarım",
             "orders": "Sifarişlərim",
             "comments": "Mənim rəylərim",
-            "cart": "Mənim səbətim"
+            "cart": "Mənim səbətim",
+            "primaryAdress": "(Əsas)"
         },
         "ru": {
             "personalData": "Личные данные",
             "addresses": "Мои адреса",
             "orders": "Мои заказы",
             "comments": "Мои комментарии",
-            "cart": "Моя корзина"
+            "cart": "Моя корзина",
+            "primaryAdress": "(Основной)"
+
         },
         "en": {
             "personalData": "Personal Data",
             "addresses": "My Addresses",
             "orders": "My Orders",
             "comments": "My Comments",
-            "cart": "My Cart"
+            "cart": "My Cart",
+            "primaryAdress": "(Primary)"
         }
     },
     "profile": {
@@ -1732,7 +1736,8 @@
                 "saveBtn": "Yadda saxla",
                 "addBtn": "Ünvan əlavə et",
                 "newAddress": "Təzə ünvan:",
-                "houseHint": "ev"
+                "houseHint": "ev", 
+                "primaryAdress": "(Əsas)"
             },
             "orders": {
                 "tabs": [
@@ -1821,7 +1826,8 @@
                 "newPasswordInput": "Новый пароль",
                 "repeatPasswordInput": "Повторите пароль",
                 "submitBtn": "Сохранить изменения",
-                "changePassword": "Изменить пароль"
+                "changePassword": "Изменить пароль",
+                "primaryAdress": "(Основной)"
             },
             "cart": {
                 "cartHeading": "КОРЗИНА:",
@@ -1962,7 +1968,8 @@
                 "saveBtn": "Save",
                 "addBtn": "Add address",
                 "newAddress": "New address:",
-                "houseHint": "кв"
+                "houseHint": "кв",
+                "primaryAdress": "(Primary)"
             },
             "orders": {
                 "tabs": [
