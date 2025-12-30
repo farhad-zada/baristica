@@ -16,6 +16,7 @@
     "react-router-dom": "^6.23.1",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
+    "react-snowfall": "^2.4.0",
     "swiper": "^11.1.14",
     "web-vitals": "^2.1.4"
   },
