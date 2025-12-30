@@ -1,42 +1,52 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import Snowfall from 'react-snowfall'
+
+import Loading from '../../components/loading/Loading'
 import HomeAdvantages from './homeComponents/HomeAdvantages'
-import HomeBanner from './homeComponents/HomeBanner'
 import HomeContact from './homeComponents/HomeContact'
 import HomeInfo from './homeComponents/HomeInfo'
 import HomeProducts from './homeComponents/HomeProducts'
-import { useLocation } from 'react-router-dom'
-import Loading from '../../components/loading/Loading'
 import HomeVideoBanner from './homeComponents/HomeVideoBanner'
 
 const Home = () => {
-  const [isProductsLoaded, setIsProductsLoaded] = useState(false);
-  const [loading,setLoading] = useState(false)
-  const location = useLocation();
+  const location = useLocation()
 
-  // Выполняем скролл, если хеш присутствует в URL
+  const [isProductsLoaded, setIsProductsLoaded] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [snow, setSnow] = useState(true)
+
+  const isDesktop = window.innerWidth > 768
+
+  // Scroll to hash after products load
   useEffect(() => {
-    if(location.hash){
-      setLoading(true)
-    }
-    if (isProductsLoaded && location.hash) {
-      const element = document.querySelector(location.hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-      setLoading(false)
-      window.history.replaceState(null, '', window.location.pathname);
-    }
-  }, [isProductsLoaded, location.hash]);
+    if (location.hash) setLoading(true)
 
-  
+    if (isProductsLoaded && location.hash) {
+      const element = document.querySelector(location.hash)
+      if (element) element.scrollIntoView({ behavior: 'smooth' })
+
+      setLoading(false)
+      window.history.replaceState(null, '', window.location.pathname)
+    }
+  }, [isProductsLoaded, location.hash])
+
   return (
-    <div className='home'>
+    <div className="home" style={{ position: 'relative' }}>
+      {/* ❄️ Snowfall */}
+      {snow && isDesktop && (
+        <Snowfall
+          snowflakeCount={2500}
+          speed={[0.2, 1.2]}
+          wind={[-0.2, 2.4]}
+          radius={[0.9, 4.3]}
+        />
+      )}
+
       <Loading status={loading} />
+
       <HomeVideoBanner />
-      {/* <HomeBanner /> */}
-      <HomeProducts onLoad={() => {
-        setIsProductsLoaded(true)
-      }} />
+      <HomeProducts onLoad={() => setIsProductsLoaded(true)} />
       <HomeAdvantages />
       <HomeInfo />
       <HomeContact />

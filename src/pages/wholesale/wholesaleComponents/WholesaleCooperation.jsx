@@ -38,7 +38,7 @@ const WholesaleCooperation = () => {
                                 <Link className={style.linkTo + " f24 fw700 border40"} to={elem?.href}>{elem?.link}</Link>
                             }
                         </div>
-                        <img src={elem?.img == "coop" ? coop : coop2}></img>
+                        <img src={elem?.img === "coop" ? coop : coop2}></img>
                     </div>
                 ))}
             </div>
