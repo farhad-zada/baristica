@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <div className="home" style={{ position: 'relative' }}>
       {/* ❄️ Snowfall */}
-      {snow && isDesktop && (
+      {snow && (
         <Snowfall
           snowflakeCount={snowflakeCount}
           speed={[0.2, 1.2]}
