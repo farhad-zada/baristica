@@ -16,7 +16,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false)
   const [snow, setSnow] = useState(true)
 
-  const isDesktop = window.innerWidth > 768
+  const snowflakeCount = window.innerWidth > 768 ? 1000 : 250
 
   // Scroll to hash after products load
   useEffect(() => {
@@ -36,7 +36,7 @@ const Home = () => {
       {/* ❄️ Snowfall */}
       {snow && isDesktop && (
         <Snowfall
-          snowflakeCount={2500}
+          snowflakeCount={snowflakeCount}
           speed={[0.2, 1.2]}
           wind={[-0.2, 2.4]}
           radius={[0.9, 4.3]}
