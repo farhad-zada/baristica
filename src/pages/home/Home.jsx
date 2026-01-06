@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import Snowfall from 'react-snowfall'
 
 import Loading from '../../components/loading/Loading'
 import HomeAdvantages from './homeComponents/HomeAdvantages'
@@ -14,9 +13,6 @@ const Home = () => {
 
   const [isProductsLoaded, setIsProductsLoaded] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [snow, setSnow] = useState(true)
-
-  const snowflakeCount = window.innerWidth > 768 ? 1000 : 250
 
   // Scroll to hash after products load
   useEffect(() => {
@@ -33,16 +29,6 @@ const Home = () => {
 
   return (
     <div className="home" style={{ position: 'relative' }}>
-      {/* ❄️ Snowfall */}
-      {snow && (
-        <Snowfall
-          snowflakeCount={snowflakeCount}
-          speed={[0.2, 1.2]}
-          wind={[-0.2, 2.4]}
-          radius={[0.9, 4.3]}
-        />
-      )}
-
       <Loading status={loading} />
 
       <HomeVideoBanner />
