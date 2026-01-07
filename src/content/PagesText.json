@@ -933,6 +933,8 @@
     },
     "productsPage": {
         "az": {
+            "deleted_heading": "Bu məhsul artıq mövcud deyil",
+            "deleted_subheading": "Bu məhsul kataloqumuzdan silinmişdir və artıq satışda deyil. Daha çox məhsul üçün əsas səhifəyə qayıdın.",
             "coffee": "QƏHVƏ",
             "coffeeMachines": "QƏHVƏ APARATI VƏ QƏHVƏ ÜYÜDƏN",
             "accesories": "Qəhvə üçün aksesuarlar",
@@ -1075,6 +1077,8 @@
             }
         },
         "ru": {
+            "deleted_heading": "Этот продукт больше не доступен",
+            "deleted_subheading": "Этот продукт был удален из нашего каталога и больше не продается. Вернитесь на главную страницу, чтобы увидеть больше продуктов.",
             "coffee": "КОФЕ",
             "coffeeMachines": "КОФЕ АППАРАТЫ И ГРИНДЕРЫ",
             "accesories": "Аксессуары для кофе",
@@ -1217,6 +1221,8 @@
             }
         },
         "en": {
+            "deleted_heading": "This product is no longer available",
+            "deleted_subheading": "This product has been removed from our catalog and is no longer for sale. Return to the main page for more products.",
             "coffee": "Coffee",
             "coffeeMachines": "COFFEE MACHINES AND GRINDERS",
             "accesories": "Accessories for coffee",

@@ -1,9 +1,96 @@
-.productDetail_head{
-    padding: 60px 0;
-    gap: 20px;
+/* ../productDetailComponentsCss/productsDetailHead.module.css */
+.productDetail_head {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Or your existing layout */
+    gap: 2rem; /* Adjust as needed */
+    position: relative;
 }
-@media (max-width: 768px){
-    .productDetail_head{
+.marginTop {
+    margin-top: 2rem;
+}
+/* Left column with opacity effect when product is deleted */
+.leftColumn {
+    transition: opacity 0.3s ease;
+}
+
+.leftColumn.deletedProduct {
+    opacity: 0.6;
+}
+
+.leftColumn.deletedProduct:hover {
+    opacity: 0.8;
+}
+
+/* Deleted product warning banner */
+.deletedWarningBanner {
+    grid-column: 1 / -1; /* Span across all columns */
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #ffc107; /* Yellow accent border */
+    animation: fadeIn 0.3s ease;
+}
+
+.warningContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.warningIcon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    color: white;
+}
+
+.warningText {
+    flex: 1;
+}
+
+.warningTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.warningMessage {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .productDetail_head {
+        grid-template-columns: 1fr;
+    }
+    
+    .deletedWarningBanner {
+        grid-column: 1;
+    }
+    
+    .warningContent {
         flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .warningIcon {
+        width: 28px;
+        height: 28px;
     }
 }
