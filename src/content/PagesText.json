@@ -2211,6 +2211,7 @@
         "az": {
             "filter": "Filtr",
             "espresso": "Espresso",
+            "turkish": "Turkish",
             "drip":"Damcı",
             "1_group": "1-qruplu",
             "2_group": "2-qruplu",
@@ -2225,6 +2226,7 @@
         "ru": {
             "filter": "Фильтр",
             "espresso": "Эспрессо",
+            "turkish": "Турецкий",
             "drip":"Дрип-кофе",
             "1_group": "1-группажный",
             "2_group": "2-х группажный",
@@ -2239,6 +2241,7 @@
         "en": {
             "filter": "Filter",
             "espresso": "Espresso",
+            "turkish": "Turkish",
             "drip":"Drip",
             "1_group": "1-group",
             "2_group": "2-group",
