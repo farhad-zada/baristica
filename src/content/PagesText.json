@@ -1728,7 +1728,8 @@
                 "submitBtn": "SİFARİŞƏ KEÇ",
                 "grindity": "Üyüdülmə:",
                 "weight": "Çəki:",
-                "codeText": "Məhsulun kodu:"
+                "codeText": "Məhsulun kodu:",
+                "product_deleted_notice": "Bu məhsul artıq silinib"
             },
             "addresses": {
                 "heading": "Mənim ünvanlarım",
@@ -1841,7 +1842,8 @@
                 "submitBtn": "ПЕРЕЙТИ К ЗАКАЗУ",
                 "grindity": "Помол:",
                 "weight": "Вес:",
-                "codeText": "Код продукта:"
+                "codeText": "Код продукта:",
+                "product_deleted_notice": "Этот продукт удален"
             },
             "addresses": {
                 "heading": "Мои адреса",
@@ -1960,7 +1962,8 @@
                 "submitBtn": "GO TO ORDER",
                 "grindity": "Grinding:",
                 "weight": "Weight:",
-                "codeText": "Product code:"
+                "codeText": "Product code:",
+                "product_deleted_notice": "This product has been deleted"
             },
             "addresses": {
                 "heading": "My Addresses",
