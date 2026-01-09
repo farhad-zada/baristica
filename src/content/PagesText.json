@@ -1729,7 +1729,7 @@
                 "grindity": "Üyüdülmə:",
                 "weight": "Çəki:",
                 "codeText": "Məhsulun kodu:",
-                "product_deleted_notice": "Bu məhsul artıq silinib"
+                "product_deleted_notice": "Bu məhsul artıq mövcud deyil"
             },
             "addresses": {
                 "heading": "Mənim ünvanlarım",
@@ -1843,7 +1843,7 @@
                 "grindity": "Помол:",
                 "weight": "Вес:",
                 "codeText": "Код продукта:",
-                "product_deleted_notice": "Этот продукт удален"
+                "product_deleted_notice": "Этот продукт был удален"
             },
             "addresses": {
                 "heading": "Мои адреса",
@@ -1963,7 +1963,7 @@
                 "grindity": "Grinding:",
                 "weight": "Weight:",
                 "codeText": "Product code:",
-                "product_deleted_notice": "This product has been deleted"
+                "product_deleted_notice": "This product is no longer available"
             },
             "addresses": {
                 "heading": "My Addresses",

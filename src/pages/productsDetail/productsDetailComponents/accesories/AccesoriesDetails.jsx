@@ -26,7 +26,7 @@ export default function AccesoriesDetails({ product }) {
     const addToCart = () => {
         // setCartCount(1)
         // setProductAdded(true)
-        dispatch(addProductToCart({ ...product, cartCount: cartCount }))
+        dispatch(addProductToCart({ _id: product._id, price: product.price, cartCount: cartCount }))
         setCartCount(1)
     }
     return (

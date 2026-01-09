@@ -20,8 +20,6 @@ export default function CoffeeDetails({ product }) {
     const [cartCount, setCartCount] = useState(1)
     const [productAdded, setProductAdded] = useState(false)
     const [cartProduct, setCartProduct] = useState({})
-    console.log("123456789");
-    console.log(product);
     const [linked, setLinked] = useState([])
 
     const navigate = useNavigate()
