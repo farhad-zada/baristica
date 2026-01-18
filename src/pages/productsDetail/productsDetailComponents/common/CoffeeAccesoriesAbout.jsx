@@ -13,7 +13,7 @@ export default function CoffeeAccesoriesAbout({product}) {
     },[product])
     return (
         <div className={styles.detailSection}>
-            <h2 className='f20 fw400 darkGrey_color robotoFont'>{about.preface}</h2>
+            <h2 className={`${styles.preface} f20 fw400 darkGrey_color robotoFont`}>{about.preface}</h2>
 
             <div className={styles.detail}>
                 {

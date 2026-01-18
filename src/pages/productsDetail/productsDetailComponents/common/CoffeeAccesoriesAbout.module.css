@@ -7,3 +7,6 @@
 .detailSection p{
     margin-bottom: 24px;
 }
+.preface{
+    white-space: pre-wrap;
+}
