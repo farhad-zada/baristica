@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 import InputText from '../../../components/form/inputField/InputText'
 import PageText from '../../../content/PagesText.json'
 import { useSelector } from 'react-redux'
@@ -11,6 +11,7 @@ import Loading from '../../../components/loading/Loading'
 import Error from '../../../components/error/Error'
 import Success from '../../../components/success/Success'
 import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
+import { addressReducer } from '../../../utils/addressReducer';
 
 const { order, profile } = PageText
 
@@ -24,14 +25,9 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [message, setMessage] = useState("Something went wrong")
-    const [errorMessage, setErrorMessage] = useState({})
     const [success, setSuccess] = useState(false)
     const [byCard, setByCard] = useState(true)
-    const [selectedAddress, setSelectedAddress] = useState({})
-
-    const [addresses, setAddresses] = useState([
-
-    ])
+    const [addresses, dispatch] = useReducer(addressReducer, []);
 
     const [add, setAdd] = useState(false)
 
@@ -40,11 +36,21 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     const ordersService = new OrdersService()
 
     const onSubmit = async () => {
-        if((delivery && !formData.time) || (delivery && !formData.date)){
+        if ((delivery && !formData.time) || (delivery && !formData.date)) {
 
             setMessage("Please set up delivery time and date")
             setError(true)
             return
+        }
+
+        let selectedAddressId = null;
+        for (let addr of addresses) {
+            if (addr.selected) {
+                selectedAddressId = addr._id;
+                break;
+            } else if (addr.isPrimary) {
+                selectedAddressId = addr._id;
+            }
         }
         const data = {
             language: lang,
@@ -54,8 +60,8 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                     phone: formData.phone
                 },
                 deliveryMethod: delivery ? 'delivery' : 'pickup',
-                address: selectedAddress._id,
-                deliveryAddress: selectedAddress._id,
+                address: selectedAddressId,
+                deliveryAddress: selectedAddressId,
                 items: finalCart.map((product) => {
                     const { _id, cartCount, grindingOption } = product
                     return { product: _id, quantity: cartCount, grindingOption: grindingOption }
@@ -66,7 +72,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                 deliveryDate: formData.date
             }
         }
-        console.log(selectedAddress);
+        console.log(selectedAddressId);
         setLoading(true)
         try {
             const request = ordersService.createOrder(token, data)
@@ -112,7 +118,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
             let roundedMinutes = 0;
 
             if (currentMinutes >= 30) {
-            roundedMinutes = 30;
+                roundedMinutes = 30;
             }
 
             // Ensure time is in HH:MM format (e.g., 15:00, 15:30)
@@ -131,18 +137,26 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
         }
 
         if (JSON.stringify(user) !== '{}') {
-            setAddresses(user.addresses);
+            dispatch({ type: 'INIT', payload: user.addresses });
             setFormData({ name: user.name, phone: user.phone, comment: "", time: deliveryTime, date: deliveryDate });
         }
     }, [user])
 
-    useEffect(() => {
-        console.log("addresses: ", addresses);
-        if (addresses.length) {
-            const mainAddress = addresses.find((address) => address.isPrimary === true) || addresses[0]
-            setSelectedAddress(mainAddress)
-        }
-    }, [addresses])
+    // useEffect(() => {
+    //     if (!addresses.length) return
+
+    //     const alreadySelected = addresses.some(a => a.selected)
+    //     if (alreadySelected) return
+
+    //     const mainAddress =
+    //         addresses.find(a => a.isPrimary) || addresses[0]
+
+    //     dispatch({
+    //         type: 'SET_SELECTED',
+    //         payload: mainAddress._id
+    //     })
+    // }, [addresses])
+
 
     return (
         <div className={styles.orderLeft}>
@@ -219,7 +233,12 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                                 addresses.length
                                     ?
                                     addresses.map((address, index) => (
-                                        <UserAddress content={lang ? profile[lang].addresses : {}} address={address} selectedAddress={selectedAddress} setSelectedAddress={setSelectedAddress} radio={true} key={index} setAddresses={setAddresses} />
+                                        <UserAddress
+                                            content={lang ? profile[lang].addresses : {}}
+                                            address={address}
+                                            radio={true}
+                                            index={index + 1}
+                                            dispatch={dispatch} />
                                     ))
                                     :
                                     <></>
@@ -236,7 +255,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                             {
                                 add
                                     ?
-                                    <AddAddress setAddresses={setAddresses} setAdd={setAdd} />
+                                    <AddAddress dispatch={dispatch} setAdd={setAdd} />
                                     :
                                     <></>
                             }
