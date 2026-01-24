@@ -20,8 +20,6 @@ export default function CoffeeDetails({ product }) {
     const [cartCount, setCartCount] = useState(1)
     const [productAdded, setProductAdded] = useState(false)
     const [cartProduct, setCartProduct] = useState({})
-    console.log("123456789");
-    console.log(product);
     const [linked, setLinked] = useState([])
 
     const navigate = useNavigate()
@@ -76,7 +74,6 @@ export default function CoffeeDetails({ product }) {
             }
         }
     }, [lang, product])
-
     useEffect(() => {
         if (JSON.stringify(product) !== '{}') {
             setLinked(product.linked)
@@ -90,9 +87,6 @@ export default function CoffeeDetails({ product }) {
             setCartCount(1)
         }
     }, [product])
-
-    console.log(product);
-
     return (
         <div className='mt24'>
             <ProductAddedModal product={cartProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />
@@ -151,12 +145,6 @@ export default function CoffeeDetails({ product }) {
             <Counter count={cartCount} setCount={setCartCount} />
 
             <div className="flex j-between a-center mt20">
-                {
-                    console.log("123456789")
-                }
-                {
-                    console.log(product)
-                }
                 <span className='f32 fw400'>{product?.price ? (product.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
                 <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
                     {Bag}
