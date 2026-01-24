@@ -3,7 +3,6 @@
 export const addressReducer = (state, action) => {
     switch (action.type) {
         case 'INIT':
-
             const primary =
                 action.payload.find(a => a.isPrimary) || action.payload[0]
             return action.payload.map(addr => ({
@@ -21,8 +20,18 @@ export const addressReducer = (state, action) => {
                     : addr
             )
 
-        case 'DELETE':
-            return state.filter(addr => addr._id !== action.payload)
+        case 'DELETE': {
+            const nextState = state.filter(addr => addr._id !== action.payload)
+
+            const primary =
+                nextState.find(a => a.isPrimary) || nextState[0]
+
+            return nextState.map(addr => ({
+                ...addr,
+                selected: addr._id === primary?._id
+            }))
+        }
+
 
         case 'SET_PRIMARY':
             return state.map(addr => ({
@@ -33,7 +42,7 @@ export const addressReducer = (state, action) => {
         case 'SET_SELECTED':
             return state.map(addr => ({
                 ...addr,
-                selected: addr._id == action.payload
+                selected: addr._id === action.payload
             }))
 
         default:
