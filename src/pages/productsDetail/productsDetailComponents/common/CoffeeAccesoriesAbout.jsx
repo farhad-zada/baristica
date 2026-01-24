@@ -17,7 +17,7 @@ export default function CoffeeAccesoriesAbout({product}) {
 
             <div className={styles.detail}>
                 {
-                    about?.body?.length && about?.body?.map((section) => (
+                    about?.body?.length > 0 && about?.body?.map((section) => (
                         <div className="section">
                             <h3 className='f24 fw700 darkGrey_color'>{section?.header}</h3>
                             <p className='darkGrey_color f20 fw400'>{section?.paragraph}</p>
