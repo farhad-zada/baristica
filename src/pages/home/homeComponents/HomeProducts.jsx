@@ -15,8 +15,8 @@ export default function HomeProducts({onLoad}) {
     const [newCoffe, setNewCoffee] = useState([])
     const [popularCoffee, setPopularCoffee] = useState([])
 
-    const [newMachines, setNewMachines] = useState([])
-    const [popularMachines, setPopularMachines] = useState([])
+    const [machines, setMachines] = useState([])
+    const [grinders, setGrinders] = useState([])
 
     const [newAccesories, setNewAccesories] = useState([])
     const [popularAccesories, setPopularAccesories] = useState([])
@@ -40,8 +40,8 @@ export default function HomeProducts({onLoad}) {
             tabs: lang ? productsSection[lang].coffeeMachine : [],
             navigateTo: '/products/coffeeMachines',
             content: {
-                [productsSection[lang].coffeeMachine[0].label]: <HomeProductsList products={newMachines} />,
-                [productsSection[lang].coffeeMachine[1].label]: <HomeProductsList products={popularMachines} />
+                [productsSection[lang].coffeeMachine[0].label]: <HomeProductsList products={machines} />,
+                [productsSection[lang].coffeeMachine[1].label]: <HomeProductsList products={grinders} />
             }
         },
         {
@@ -53,19 +53,19 @@ export default function HomeProducts({onLoad}) {
                 [productsSection[lang].coffeeOrAccesories[1].label]: <HomeProductsList products={popularAccesories} />
             }
         }
-    ], [lang, newCoffe, popularCoffee, newMachines, popularMachines, newAccesories, popularAccesories])
+    ], [lang, newCoffe, popularCoffee, machines, grinders, newAccesories, popularAccesories])
 
     const productsService = new ProductsService()
 
     const setProducts = useCallback(async (token) => {
         setLoading(true)
         try {
-            const [newCoffe, popularCoffee, newAccesory, popularAccesory, newMachines, popularMachines] = await Promise.all([
+            const [newCoffe, popularCoffee, newAccesory, popularAccesory, machines, grinders] = await Promise.all([
                 productsService.getProductsByType(token,'key' ,'Coffee', 'new'),
                 productsService.getProductsByType(token,'key', 'Coffee', 'popular'),
                 productsService.getProductsByType(token,'key', 'Accessory', 'new'),
                 productsService.getProductsByType(token,'key', 'Accessory', 'popular'),
-                productsService.getProductsByType(token,'key', 'Machine', 'new'),
+                productsService.getProductsByType(token,'category', 'Machine', '1_group,2_group,3_group'),
                 productsService.getProductsByType(token,'category', 'Machine', 'grinder'),
             ]);
             // coffee
@@ -75,8 +75,8 @@ export default function HomeProducts({onLoad}) {
             setNewAccesories(newAccesory.data)
             setPopularAccesories(popularAccesory.data)
             // machines
-            setNewMachines(newMachines.data)
-            setPopularMachines(popularMachines.data)
+            setMachines(machines.data)
+            setGrinders(grinders.data)
         } catch (error) {
             setError(true)
             setMessage(error.message);
