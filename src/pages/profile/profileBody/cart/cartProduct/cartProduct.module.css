@@ -6,7 +6,8 @@
     background: #F2F2F2;
     margin-bottom: 20px;
     width: 100%;
-    gap: 20px; /* Пространство между блоками */
+    gap: 20px;
+    position: relative;
     @media (max-width: 960px){
         padding: 10px 20px !important;
         div{
@@ -19,10 +20,48 @@
     }
 }
 
+/* Deleted product styling */
+.product.deletedProduct {
+    background: #f8f9fa;
+    border: 1px dashed #dc3545;
+    opacity: 0.8;
+}
+
+.deletedBadge {
+    position: absolute;
+    top: -8px;
+    right: 10px;
+    background: #dc3545;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 2;
+}
+
+.deletedImage {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+.disabledDelete {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .left {
     display: flex;
     align-items: center;
-    gap: 20px; /* Пространство между чекбоксом, изображением и текстом */
+    gap: 20px;
     @media (max-width: 960px){
         gap: 10px !important
     }
@@ -30,8 +69,9 @@
 
 .left img {
     width: auto;
-    max-height: 120px; /* Установить фиксированную высоту */
-    object-fit: contain;
+    height: 120px;
+    width: 170px;
+    object-fit: cover;
     @media (max-width: 960px){
         padding: 10px 20px !important;
         height: 100px;
@@ -49,7 +89,7 @@
 .left div {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Расстояние между строками текста */
+    gap: 8px;
     @media (max-width: 960px){
         gap: 6px !important;
         h2, h3{
@@ -70,7 +110,7 @@
 
 .right {
     display: flex;
-    align-items: flex-end; /* Все элементы выровнены по правому краю */
+    align-items: flex-end;
     @media(max-width: 768px){
         flex-direction: column;
     }
@@ -78,9 +118,9 @@
 
 .right span {
     align-items: center;
-    white-space: nowrap; /* Предотвращает перенос текста на новую строку */
+    white-space: nowrap;
     font-size: 24px;
-    line-height: 1; /* Убирает лишние отступы */
+    line-height: 1;
     @media (max-width: 375px){
         font-size: 16px !important;
     }

@@ -8,7 +8,6 @@ const initialState = {
   user: {},
   cart: [],
   finalCart: [],
-   // for product detail tabs
   tabIdx: null,
   favoritesCount: 0
 };
@@ -17,6 +16,15 @@ const baristicaSlice = createSlice({
   name: "baristica",
   initialState,
   reducers: {
+    setToInitialState: (state) => {
+      state.pageHead = "";
+      state.lang = "az";
+      state.profileActiveTab = "personalData";
+      state.cart = [];
+      state.finalCart = [];
+      state.tabIdx = null;
+      state.favoritesCount = 0;
+    },
     setPageHead: (state, action) => {
       state.pageHead = action.payload;
     },
@@ -125,6 +133,7 @@ export const {
   setFinalCartArr,
   setUser,
   setTabIdx,
-  setFavoritesCount
+  setFavoritesCount,
+  setToInitialState
 } = baristicaSlice.actions;
 export default baristicaSlice.reducer;

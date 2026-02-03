@@ -25,9 +25,6 @@ export default function CoffeeDetails({ product }) {
     const navigate = useNavigate()
 
     const getFilteredOptions = (category) => {
-        if (category === 'espresso') {
-            // return grindingOptions.filter(option => option.value === 'whole-bean'); // Только "dənli"
-        }
         if (category === 'filter') {
             return grindingOptions.filter(option => option.value !== 'whole-bean'); // Все, кроме "dənli"
         }
@@ -35,11 +32,8 @@ export default function CoffeeDetails({ product }) {
     };
 
     const addToCart = () => {
-        // setCartCount(1)
         setProductAdded(true)
         setCartProduct({ ...product, cartCount: cartCount, grindingOption: selectedGrinding })
-        // dispatch(addProductToCart({ ...product, cartCount: cartCount, grindingOption: selectedGrinding }))
-        // setCartCount(1)
     }
 
     const changeProduct = (field, value) => {
@@ -142,15 +136,29 @@ export default function CoffeeDetails({ product }) {
             }
 
 
-            <Counter count={cartCount} setCount={setCartCount} />
+            {
+                <>
+                    <Counter count={cartCount} setCount={setCartCount} />
 
-            <div className="flex j-between a-center mt20">
-                <span className='f32 fw400'>{product?.price ? (product.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
-                <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
-                    {Bag}
-                    <span onClick={(e) => { addToCart(); e.stopPropagation() }}>{lang ? productCard[lang].buyBtn : ''}</span>
-                </button>
-            </div>
+                    <div className="flex j-between a-center mt20">
+                        <span className='f32 fw400'>{product?.price ? (product.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
+                        {
+                            // product.deleted ? (
+                            //     <button disabled className={styles.addToCartDisabled + " flex g8 a-center border8 f20 fw400 white"}>
+                            //         {Bag}
+                            //         <span>{lang ? productCard[lang].buyBtn : ''}</span>
+                            //     </button>
+                            // ) :
+                                (
+                                    <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
+                                        {Bag}
+                                        <span onClick={(e) => { addToCart(); e.stopPropagation() }}>{lang ? productCard[lang].buyBtn : ''}</span>
+                                    </button>
+                                )
+                        }
+                    </div>
+                </>
+            }
         </div>
     )
 }

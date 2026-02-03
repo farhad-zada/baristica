@@ -34,7 +34,7 @@ export default function Favorites() {
     const addAllToCart = () => {
         products.map((product) => {
             if (product.productType !== 'Machine') {
-                dispatch(addProductToCart({ ...product, cartCount: 1 }))
+                dispatch(addProductToCart({ _id: product._id, price: product.price, cartCount: 1 }))
             }
         })
     }

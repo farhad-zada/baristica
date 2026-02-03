@@ -35,7 +35,7 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
     }
 
     const add = () => {
-        dispatch(addProductToCart(product))
+        dispatch(addProductToCart({_id: product._id, price: product.price, cartCount: cartCount}))
         setStatus(false)
         setCartCount(1)
     }
