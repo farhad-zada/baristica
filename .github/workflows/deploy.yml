@@ -2,6 +2,7 @@ name: Deploy shop.baristica.az
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
