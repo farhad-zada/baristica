@@ -8,7 +8,6 @@ const initialState = {
   user: {},
   cart: [],
   finalCart: [],
-   // for product detail tabs
   tabIdx: null,
   favoritesCount: 0
 };
@@ -21,8 +20,6 @@ const baristicaSlice = createSlice({
       state.pageHead = "";
       state.lang = "az";
       state.profileActiveTab = "personalData";
-      // state.token = false;
-      // state.user = {};
       state.cart = [];
       state.finalCart = [];
       state.tabIdx = null;

@@ -1,74 +1,80 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import styles from './cart.module.css'
 import CartProduct from './cartProduct/CartProduct'
 import PageText from '../../../../content/PagesText.json'
-import { useNavigate } from 'react-router-dom'
 import ProductsService from '../../../../services/products.service'
 import Loading from '../../../../components/loading/Loading'
+import { deleteFromCart } from '../../../../redux/slice'
+
 const { profile, grindingOptionsTranslate } = PageText
 
 export default function Cart() {
   const { cart, lang, token } = useSelector((state) => state.baristica)
-  const state = useSelector((state) => state)
   const [loading, setLoading] = useState(false)
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [products, setProducts] = useState([])
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const productsServiceRef = useRef(new ProductsService())
+  const lastFetchKeyRef = useRef('')
 
-  const fetchProducts = useCallback(async (ids) => {
-    if (!ids.length) {
-      setProducts([])
-      return
-    }
+  const ids = useMemo(() => cart.map((item) => item._id), [cart])
+  const idsKey = useMemo(() => ids.join(','), [ids])
 
-    try {
-      if (isFirstLoad) {
-        console.log('First load, setting loading to true.')
-        setLoading(true)
-      }
-      console.log('Fetching products for IDs:', ids)
-      let responses = await Promise.all(
-        ids.map((id) => productsServiceRef.current.getOneProduct(token, id))
-      )
-      let productsData = responses.map((res) => {
-        let product = res.data;
-        const cartItem = cart.find((item) => item._id === product._id)
-        if (cartItem) {
-          product = { ...product, cartCount: cartItem.cartCount }
-        } else {
-          product = { ...product, cartCount: 0 }
-        }
-        return product;
-      });
-
-      console.log('Fetched products data:', productsData)
-      setProducts(productsData);
-      if (isFirstLoad) {
-        setIsFirstLoad(false);
-        setLoading(false)
-      }
-    } catch (error) {
-      console.error('Error fetching products:', error)
-      setProducts([])
-    } finally {
-      if (isFirstLoad) {
-        setIsFirstLoad(false);
-        setLoading(false)
-      }
-
-    }
-  }, [token, cart, setProducts, isFirstLoad, setIsFirstLoad]);
   useEffect(() => {
-    if (!token) {
-      console.log('No token available.')
-      setProducts([])
-      return
+    let isMounted = true
+
+    const loadProducts = async () => {
+      if (!token || !ids.length) {
+        setProducts([])
+        return
+      }
+
+      if (lastFetchKeyRef.current === idsKey) return
+      lastFetchKeyRef.current = idsKey
+
+      setLoading(true)
+      try {
+        const results = await Promise.allSettled(
+          ids.map((id) => productsServiceRef.current.getOneProduct(token, id))
+        )
+
+        const productsData = results
+          .filter((result) => result.status === 'fulfilled')
+          .map((result) => result.value.data)
+
+        productsData.forEach((p) => {
+          if (p?.deleted) {
+            dispatch(deleteFromCart(p._id))
+          }
+        })
+
+        const visibleProducts = productsData.filter((p) => !p?.deleted)
+
+        if (isMounted) setProducts(visibleProducts)
+      } catch (error) {
+        console.error('Error fetching products:', error)
+        if (isMounted) setProducts([])
+      } finally {
+        if (isMounted) setLoading(false)
+      }
     }
-    fetchProducts(cart.map(item => item._id))
-  }, [cart, token, fetchProducts, state])
+
+    loadProducts()
+
+    return () => {
+      isMounted = false
+    }
+  }, [token, idsKey, ids, dispatch])
+
+  const mergedProducts = useMemo(() => {
+    return products.map((p) => {
+      const item = cart.find((c) => c._id === p._id)
+      return { ...p, cartCount: item ? item.cartCount : 0, selectedForOrder: item?.selectedForOrder }
+    })
+  }, [products, cart])
 
   return (
     <div className={styles.cart}>
@@ -77,11 +83,11 @@ export default function Cart() {
         {lang ? profile[lang].cart.cartHeading : ''}
       </h2>
 
-      {products.length ? (
+      {mergedProducts.length ? (
         <div>
-          {products.map((product, index) => (
+          {mergedProducts.map((product) => (
             <CartProduct
-              key={index}
+              key={product._id}
               product={product}
               grindingOptionsTranslate={grindingOptionsTranslate}
               weightText={lang ? profile[lang].cart.weight : ''}
