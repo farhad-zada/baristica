@@ -74,7 +74,6 @@ export default function CoffeeDetails({ product }) {
             }
         }
     }, [lang, product])
-
     useEffect(() => {
         if (JSON.stringify(product) !== '{}') {
             setLinked(product.linked)
@@ -88,9 +87,6 @@ export default function CoffeeDetails({ product }) {
             setCartCount(1)
         }
     }, [product])
-
-    console.log(product);
-
     return (
         <div className='mt24'>
             <ProductAddedModal product={cartProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />

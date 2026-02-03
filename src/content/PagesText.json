@@ -11,22 +11,21 @@
                 "login": "Giriş",
                 "registration": "Qeydiyyat",
                 "logoutBtn": "Çıxış et",
-                "headText":"HƏR ŞEY QƏHVƏ NAMİNƏ!"
-
+                "headText": "HƏR ŞEY QƏHVƏ NAMİNƏ!"
             },
             "ru": {
                 "products": "товаров",
                 "login": "Вход",
                 "registration": "Регистрация",
                 "logoutBtn": "Выйти",
-                "headText":"ВСЁ ВО ИМЯ КОФЕ!"
+                "headText": "ВСЁ ВО ИМЯ КОФЕ!"
             },
             "en": {
                 "products": "products",
                 "login": "Login",
                 "registration": "Registration",
                 "logoutBtn": "Logout",
-                "headText":"ALL IN THE NAME OF COFFEE!"
+                "headText": "ALL IN THE NAME OF COFFEE!"
             }
         },
         "headerPageLinks": {
@@ -674,8 +673,7 @@
             }
         }
     },
-    "contacts": {
-    },
+    "contacts": {},
     "footer": {
         "az": {
             "menu": [
@@ -938,7 +936,7 @@
             "coffee": "QƏHVƏ",
             "coffeeMachines": "QƏHVƏ APARATI VƏ QƏHVƏ ÜYÜDƏN",
             "accesories": "Qəhvə üçün aksesuarlar",
-            "tea":"Çaylar",
+            "tea": "Çaylar",
             "subHeading": "Bölməni seçin:",
             "contactHeading": "KÖMƏK LAZIMDIR?",
             "contactSubHeading": "Qısa müddətdə geri dönəcəyik",
@@ -1082,7 +1080,7 @@
             "coffee": "КОФЕ",
             "coffeeMachines": "КОФЕ АППАРАТЫ И ГРИНДЕРЫ",
             "accesories": "Аксессуары для кофе",
-            "tea":"Чай",
+            "tea": "Чай",
             "subHeading": "Выберите раздел:",
             "contactHeading": "НУЖНА ПОМОЩЬ?",
             "contactSubHeading": "свяжемся в кратчайшие сроки",
@@ -1226,7 +1224,7 @@
             "coffee": "Coffee",
             "coffeeMachines": "COFFEE MACHINES AND GRINDERS",
             "accesories": "Accessories for coffee",
-            "tea":"Tea",
+            "tea": "Tea",
             "subHeading": "Select section:",
             "contactHeading": "NEED HELP?",
             "contactSubHeading": "We will contact you as soon as possible",
@@ -1497,17 +1495,7 @@
                     "value": "teapot"
                 }
             ],
-            "tea":[
-                {
-                    "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjYiIHZpZXdCb3g9IjAgMCA0MCAyNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMzLjc5ODggMy4yMzQzOEMzNC4wMjcxIDEuNTU2MTggMzQuMDkyNSAwLjUgMzQuMDkyNSAwLjVIMC44MTI1QzAuODEyNSAwLjUgMS41ODY0NSAyNS41IDE4LjIyNjQgMjUuNUMyNS42NTkyIDI1LjUgMjkuNjUwNiAxOC43NjMgMzEuNzcwNiAxMi4yODM2TTMzLjc5ODggMy4yMzQzOEMzMy43OTg4IDMuMjM0MzggMzcuNjI4IDEuNzc4NDcgMzguNzM2MiA0LjAxNTYyQzM5LjUxMDEgNS41NzgxMiAzNy45NjIyIDEwLjY1NjIgMzUuNjQwNCAxMS44MjgxQzM0LjA5MjUgMTIuNjA5NCAzMS43NzA2IDEyLjI4MzYgMzEuNzcwNiAxMi4yODM2TTMzLjc5ODggMy4yMzQzOEMzMy40OTMxIDUuNDgyNDkgMzIuODk1MSA4Ljg0NjgyIDMxLjc3MDYgMTIuMjgzNiIgc3Ryb2tlPSJibGFjayIvPgo8cGF0aCBkPSJNMjkuMTI0NSAxM0g2LjYyNDUxQzYuNjI0NTEgMTMgOC42MjQ1MSAyMyAxOC4zOTM3IDIzQzI2LjEyNDUgMjMgMjkuMTI0NSAxMyAyOS4xMjQ1IDEzWiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg==",
-                    "text": {
-                        "az": "Meyvəli çay",
-                        "ru": "Фруктовый чай",
-                        "en": "Fruit tea"
-                    },
-                    "value": "fruit tea"
-                }
-            ]
+            "tea": []
         }
     },
     "productDetail": {
@@ -1696,7 +1684,6 @@
             "comments": "Мои комментарии",
             "cart": "Моя корзина",
             "primaryAdress": "(Основной)"
-
         },
         "en": {
             "personalData": "Personal Data",
@@ -1743,18 +1730,18 @@
                 "saveBtn": "Yadda saxla",
                 "addBtn": "Ünvan əlavə et",
                 "newAddress": "Təzə ünvan:",
-                "houseHint": "ev", 
+                "houseHint": "ev",
                 "primaryAdress": "(Əsas)"
             },
             "orders": {
                 "tabs": [
                     {
                         "title": "Aktiv sifarişlər",
-                        "value":"active"
+                        "value": "active"
                     },
                     {
                         "title": "Çatdırılıb",
-                        "value":"delivered"
+                        "value": "delivered"
                     }
                 ],
                 "title": "Sifərişlər",
@@ -1863,11 +1850,11 @@
                 "tabs": [
                     {
                         "title": "Текущие заказы",
-                        "value":"active"
+                        "value": "active"
                     },
                     {
                         "title": "Доставлено",
-                        "value":"delivered"
+                        "value": "delivered"
                     }
                 ],
                 "title": "Заказы",
@@ -1984,11 +1971,11 @@
                 "tabs": [
                     {
                         "title": "Ordered",
-                        "value":"active"
+                        "value": "active"
                     },
                     {
                         "title": "Delivered",
-                        "value":"delivered"
+                        "value": "delivered"
                     }
                 ],
                 "title": "Orders",
@@ -2221,7 +2208,7 @@
             "filter": "Filtr",
             "espresso": "Espresso",
             "turkish": "Turkish",
-            "drip":"Damcı",
+            "drip": "Damcı",
             "1_group": "1-qruplu",
             "2_group": "2-qruplu",
             "3_group": "3-qruplu",
@@ -2236,7 +2223,7 @@
             "filter": "Фильтр",
             "espresso": "Эспрессо",
             "turkish": "Турецкий",
-            "drip":"Дрип-кофе",
+            "drip": "Дрип-кофе",
             "1_group": "1-группажный",
             "2_group": "2-х группажный",
             "3_group": "3-х группажный",
@@ -2251,7 +2238,7 @@
             "filter": "Filter",
             "espresso": "Espresso",
             "turkish": "Turkish",
-            "drip":"Drip",
+            "drip": "Drip",
             "1_group": "1-group",
             "2_group": "2-group",
             "3_group": "3-group",

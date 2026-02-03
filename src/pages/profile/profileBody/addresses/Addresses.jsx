@@ -4,37 +4,9 @@ import UserAddress from '../../../../components/userAddress/UserAddress'
 import AddAddress from '../../../../components/userAddress/add/AddAddress'
 import styles from './addresses.module.css'
 import { useSelector } from 'react-redux'
+import { addressReducer } from '../../../../utils/addressReducer';
 
 const { profile } = PageText
-
-const addressReducer = (state, action) => {
-    switch (action.type) {
-        case 'INIT':
-            return action.payload
-
-        case 'ADD':
-            return [...state, action.payload]
-
-        case 'UPDATE':
-            return state.map(addr =>
-                addr._id === action.payload._id
-                    ? { ...addr, ...action.payload }
-                    : addr
-            )
-
-        case 'DELETE':
-            return state.filter(addr => addr._id !== action.payload)
-
-        case 'SET_PRIMARY':
-            return state.map(addr => ({
-                ...addr,
-                isPrimary: addr._id === action.payload
-            }))
-
-        default:
-            return state
-    }
-}
 
 export default function Addresses() {
     const { lang, user } = useSelector(state => state.baristica)

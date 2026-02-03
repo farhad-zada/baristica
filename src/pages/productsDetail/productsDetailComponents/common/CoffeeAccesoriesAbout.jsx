@@ -13,11 +13,11 @@ export default function CoffeeAccesoriesAbout({product}) {
     },[product])
     return (
         <div className={styles.detailSection}>
-            <h2 className='f20 fw400 darkGrey_color robotoFont'>{about.preface}</h2>
+            <h2 className={`${styles.preface} f20 fw400 darkGrey_color robotoFont`}>{about.preface}</h2>
 
             <div className={styles.detail}>
                 {
-                    about?.body?.length && about?.body?.map((section) => (
+                    about?.body?.length > 0 && about?.body?.map((section) => (
                         <div className="section">
                             <h3 className='f24 fw700 darkGrey_color'>{section?.header}</h3>
                             <p className='darkGrey_color f20 fw400'>{section?.paragraph}</p>
