@@ -143,12 +143,12 @@ export default function CoffeeDetails({ product }) {
                     <div className="flex j-between a-center mt20">
                         <span className='f32 fw400'>{product?.price ? (product.price / 100 * cartCount).toFixed(2) : 20} ₼</span>
                         {
-                            // product.deleted ? (
-                            //     <button disabled className={styles.addToCartDisabled + " flex g8 a-center border8 f20 fw400 white"}>
-                            //         {Bag}
-                            //         <span>{lang ? productCard[lang].buyBtn : ''}</span>
-                            //     </button>
-                            // ) :
+                            product.deleted ? (
+                                <button disabled className={styles.addToCartDisabled + " flex g8 a-center border8 f20 fw400 white"}>
+                                    {Bag}
+                                    <span>{lang ? productCard[lang].buyBtn : ''}</span>
+                                </button>
+                            ) :
                                 (
                                     <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
                                         {Bag}
