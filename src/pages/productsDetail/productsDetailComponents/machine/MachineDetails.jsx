@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import ColorPicker from '../../../../components/colorPicker/ColorPicker';
 import styles from '../coffee/coffeeDetails.module.css'
@@ -7,10 +7,13 @@ import { Bag } from '../../../../icons';
 import pageText from '../../../../content/PagesText.json'
 import { useNavigate } from 'react-router-dom';
 import { getButtonText } from '../../../../utils/productCartButtonText';
+import { handleCartButtonClick } from '../../../../utils/handleCartButtonClick';
+import { addProductToCart } from '../../../../redux/slice';
 const { productCard, categories } = pageText
 
 export default function MachineDetails({ product }) {
     const { lang } = useSelector(state => state.baristica)
+    const dispatch = useDispatch()
     const [selectedGroup, setSelectedGroup] = useState(product?.category ? product.category : 2)
     const [linked, setLinked] = useState([])
     const [colors, setColors] = useState([]);
@@ -37,6 +40,10 @@ export default function MachineDetails({ product }) {
                 navigate(`/product/${newProduct.product}`)
             }
         }
+    }
+
+    const addToCart = () => {
+        dispatch(addProductToCart({ _id: product._id, price: product.price, cartCount: 1 }))
     }
 
 
@@ -97,9 +104,15 @@ export default function MachineDetails({ product }) {
 
             <div className="flex j-between a-center mt20">
                 <span className='f32 fw400'>{product?.price ? product.price / 100 : 20} ₼</span>
-                <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
+                <button
+                    className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}
+                    onClick={(e) => {
+                        e.stopPropagation()
+                        handleCartButtonClick(product, addToCart)
+                    }}
+                >
                     {Bag}
-                    <span onClick={(e) => e.stopPropagation()}>{getButtonText(product, productCard, lang)}</span>
+                    <span>{getButtonText(product, productCard, lang)}</span>
                 </button>
             </div>
 

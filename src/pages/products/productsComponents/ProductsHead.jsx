@@ -4,14 +4,10 @@ import styles from '../productsCss/productsHead.module.css'
 
 import pageText from '../../../content/PagesText.json'
 import { Phone } from '../../../icons';
+import { openWhatsApp } from '../../../utils/openWhatsApp';
 const {productsPage} = pageText
 export default function ProductsHead({heading}) {
   const { lang } = useSelector((state) => state.baristica);
-
-  const openWhatsApp = () => {
-    const whatsappUrl = 'https://wa.me/+994514333003';
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-  };
 
   return (
     <div className='flex j-between a-center'>

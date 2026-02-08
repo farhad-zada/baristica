@@ -17,6 +17,7 @@ import Error from "../error/Error"
 import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
 import { getButtonText } from "../../utils/productCartButtonText"
 import { showNewBadge } from "../../utils/showNewBadge"
+import { handleCartButtonClick } from "../../utils/handleCartButtonClick"
 
 const { productCard, categories, grindingOptionsTranslate } = pageText
 
@@ -112,11 +113,6 @@ const ProductCard = (props) => {
             setLoading(false)
         }
     }
-
-    const openWhatsApp = () => {
-        const whatsappUrl = 'https://wa.me/+994514333003';
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    };
 
     const getFilteredOptions = (category) => {
         // if (category === 'espresso') {
@@ -334,13 +330,7 @@ const ProductCard = (props) => {
                     <button
                         onClick={(e) => {
                             e.stopPropagation()
-
-                            if (activeProduct?.productType !== 'Machine') {
-                                addToCart();
-                            } else {
-                                openWhatsApp();
-                            }
-
+                            handleCartButtonClick(activeProduct, addToCart)
                         }}
                         className={style.addToCart + " flex g8 a-center border8 f20 fw400 white"}
                     >

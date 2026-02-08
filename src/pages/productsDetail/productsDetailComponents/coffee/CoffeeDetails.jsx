@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import ProductAddedModal from '../../../../components/productAddedModal/ProductAddedModal'
 import { getButtonText } from '../../../../utils/productCartButtonText'
 import { setToInitialState } from '../../../../redux/slice'
+import { handleCartButtonClick } from '../../../../utils/handleCartButtonClick'
 const { productCard, grindingOptionsTranslate } = pageText
 
 export default function CoffeeDetails({ product }) {
@@ -152,9 +153,16 @@ export default function CoffeeDetails({ product }) {
                                 </button>
                             ) :
                                 (
-                                    <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
+                                    <button
+                                        className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}
+                                        onClick={(e) => {
+                                            e.stopPropagation()
+                                            setToInitialState()
+                                            handleCartButtonClick(product, addToCart)
+                                        }}
+                                    >
                                         {Bag}
-                                        <span onClick={(e) => { setToInitialState(); e.stopPropagation() }}>{getButtonText(product, productCard, lang)}</span>
+                                        <span>{getButtonText(product, productCard, lang)}</span>
                                     </button>
                                 )
                         }

@@ -8,6 +8,7 @@ import { Bag } from '../../../../icons';
 import pageText from '../../../../content/PagesText.json'
 import { addProductToCart } from '../../../../redux/slice';
 import { getButtonText } from '../../../../utils/productCartButtonText';
+import { handleCartButtonClick } from '../../../../utils/handleCartButtonClick';
 const { productCard } = pageText
 
 export default function AccesoriesDetails({ product }) {
@@ -28,6 +29,7 @@ export default function AccesoriesDetails({ product }) {
         dispatch(addProductToCart({ _id: product._id, price: product.price, cartCount: cartCount }))
         setCartCount(1)
     }
+
     return (
         <div>
             {
@@ -45,12 +47,18 @@ export default function AccesoriesDetails({ product }) {
                         {product?.deleted ? (
                             <button disabled className={styles.addToCartDisabled + " flex g8 a-center border8 f20 fw400 white"}>
                                 {Bag}
-                                <span>{lang ? productCard[lang].buyBtn : ''}</span>
+                                <span>{getButtonText(product, productCard, lang)}</span>
                             </button>
                         ) : (
-                            <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
+                            <button
+                                className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}
+                                onClick={(e) => {
+                                    e.stopPropagation()
+                                    handleCartButtonClick(product, addToCart)
+                                }}
+                            >
                                 {Bag}
-                                <span onClick={(e) => { addToCart(); e.stopPropagation() }}>{getButtonText(product, productCard, lang)}</span>
+                                <span>{getButtonText(product, productCard, lang)}</span>
                             </button>
                         )}
                     </div>

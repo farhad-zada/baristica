@@ -7,6 +7,8 @@ import styles from './teaDetails.module.css'
 import { Bag } from '../../../../icons'
 import { useNavigate } from 'react-router-dom'
 import ProductAddedModal from '../../../../components/productAddedModal/ProductAddedModal'
+import { getButtonText } from '../../../../utils/productCartButtonText'
+import { handleCartButtonClick } from '../../../../utils/handleCartButtonClick'
 const { productCard } = pageText
 
 export default function CoffeeDetails({ product }) {
@@ -93,12 +95,18 @@ export default function CoffeeDetails({ product }) {
                         {product?.deleted ? (
                             <button disabled className={styles.addToCartDisabled + " flex g8 a-center border8 f20 fw400 white"}>
                                 {Bag}
-                                <span>{lang ? productCard[lang].buyBtn : ''}</span>
+                                <span>{getButtonText(product, productCard, lang)}</span>
                             </button>
                         ) : (
-                            <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
+                            <button
+                                className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}
+                                onClick={(e) => {
+                                    e.stopPropagation()
+                                    handleCartButtonClick(product, addToCart)
+                                }}
+                            >
                                 {Bag}
-                                <span onClick={(e) => { addToCart(); e.stopPropagation() }}>{lang ? productCard[lang].buyBtn : ''}</span>
+                                <span>{getButtonText(product, productCard, lang)}</span>
                             </button>
                         )}
                     </div></>
