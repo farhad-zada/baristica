@@ -16,6 +16,7 @@ import ProductsService from "../../services/products.service"
 import Error from "../error/Error"
 import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
 import { getButtonText } from "../../utils/productCartButtonText"
+import { showNewBadge } from "../../utils/showNewBadge"
 
 const { productCard, categories, grindingOptionsTranslate } = pageText
 
@@ -264,12 +265,16 @@ const ProductCard = (props) => {
                             <span>{activeProduct?.feedbacks ? activeProduct.feedbacks : 0}</span>
                         </span>
                     </div>
-                    <span className={style.productCard_head_right + " f14 blueAccent fw400 text-upperCase"}>
-                        {
-                            activeProduct?.category ? categories[lang][activeProduct.category] : ''
-
-                        }
-                    </span>
+                    <div className={style.productCard_head_rightWrap}>
+                        <span className={style.productCard_head_right + " f14 blueAccent fw400 text-upperCase"}>
+                            {
+                                activeProduct?.category ? categories[lang][activeProduct.category] : ''
+                            }
+                        </span>
+                        {showNewBadge(activeProduct) ? (
+                            <span className={style.newBadge + " f12 fw600 text-upperCase"}>New</span>
+                        ) : null}
+                    </div>
                 </div>
                 <h3 className="text-center darkGrey_color f16 fw400 mt20">{activeProduct?.code ? activeProduct.code : ''}</h3>
                 <h2 className="text-center darkGrey_color f24 fw600 text-upperCase">{activeProduct?.name ? activeProduct.name[lang] : ''}</h2>

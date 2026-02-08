@@ -22,3 +22,17 @@
 .feedback:hover svg path{
     fill: #61C4BF;
 }
+.metaRight{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+.newBadge{
+    background: #61C4BF;
+    color: #FFFFFF;
+    padding: 3px 8px;
+    border-radius: 2px;
+    line-height: 1;
+    letter-spacing: 0.4px;
+}

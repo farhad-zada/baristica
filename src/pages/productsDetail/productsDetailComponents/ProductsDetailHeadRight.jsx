@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom'
 import pageText from '../../../content/PagesText.json'
 import { setTabIdx } from '../../../redux/slice'
 import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
+import { showNewBadge } from '../../../utils/showNewBadge';
 
 const { categories } = pageText
 
@@ -89,7 +90,12 @@ export default function ProductsDetailHeadRight({ product }) {
 
             <div className="flex j-between mt36">
                 <span className="f16 darkGrey_color fw400 robotoFont">{product?.category ? categories[lang][product.category] : ''}</span>
-                <span className="f16 darkGrey_color fw400 robotoFont">{product?.code ? product.code : 'E10001'}</span>
+                <div className={style.metaRight}>
+                    <span className="f16 darkGrey_color fw400 robotoFont">{product?.code ? product.code : 'E10001'}</span>
+                    {showNewBadge(product) ? (
+                        <span className={style.newBadge + " f12 fw600 text-upperCase"}>New</span>
+                    ) : null}
+                </div>
             </div>
 
             <h2 className="darkGrey_color fw600 f36">{product?.name ? product.name[lang] || product.name['az'] : 'BLEND NIGHTHAWK'}</h2>

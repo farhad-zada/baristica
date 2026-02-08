@@ -18,6 +18,12 @@
 .productCard_head{
     margin-bottom: 20px;
 }
+.productCard_head_rightWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
 .productCard_img{
     margin: 17px 0;
     /* padding: 0px 50px; */
@@ -43,6 +49,14 @@
 }
 .productCard_head_right{
     
+}
+.newBadge{
+    background: #61C4BF;
+    color: #FFFFFF;
+    padding: 3px 8px;
+    border-radius: 2px;
+    line-height: 1;
+    letter-spacing: 0.4px;
 }
 .addToCart{
     padding: 2px 15px;
