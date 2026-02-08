@@ -7,6 +7,7 @@ import styles from '../coffee/coffeeDetails.module.css'
 import { Bag } from '../../../../icons';
 import pageText from '../../../../content/PagesText.json'
 import { addProductToCart } from '../../../../redux/slice';
+import { getButtonText } from '../../../../utils/productCartButtonText';
 const { productCard } = pageText
 
 export default function AccesoriesDetails({ product }) {
@@ -24,8 +25,6 @@ export default function AccesoriesDetails({ product }) {
     };
 
     const addToCart = () => {
-        // setCartCount(1)
-        // setProductAdded(true)
         dispatch(addProductToCart({ _id: product._id, price: product.price, cartCount: cartCount }))
         setCartCount(1)
     }
@@ -51,7 +50,7 @@ export default function AccesoriesDetails({ product }) {
                         ) : (
                             <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
                                 {Bag}
-                                <span onClick={(e) => { addToCart(); e.stopPropagation() }}>{lang ? productCard[lang].buyBtn : ''}</span>
+                                <span onClick={(e) => { addToCart(); e.stopPropagation() }}>{getButtonText(product, productCard, lang)}</span>
                             </button>
                         )}
                     </div>

@@ -6,6 +6,7 @@ import styles from '../coffee/coffeeDetails.module.css'
 import { Bag } from '../../../../icons';
 import pageText from '../../../../content/PagesText.json'
 import { useNavigate } from 'react-router-dom';
+import { getButtonText } from '../../../../utils/productCartButtonText';
 const { productCard, categories } = pageText
 
 export default function MachineDetails({ product }) {
@@ -98,7 +99,7 @@ export default function MachineDetails({ product }) {
                 <span className='f32 fw400'>{product?.price ? product.price / 100 : 20} ₼</span>
                 <button className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}>
                     {Bag}
-                    <span onClick={(e) => e.stopPropagation()}>{lang ? productCard[lang].machineBuy : ''}</span>
+                    <span onClick={(e) => e.stopPropagation()}>{getButtonText(product, productCard, lang)}</span>
                 </button>
             </div>
 

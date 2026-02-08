@@ -15,6 +15,7 @@ import Loading from "../loading/Loading"
 import ProductsService from "../../services/products.service"
 import Error from "../error/Error"
 import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
+import { getButtonText } from "../../utils/productCartButtonText"
 
 const { productCard, categories, grindingOptionsTranslate } = pageText
 
@@ -29,7 +30,6 @@ const ProductCard = (props) => {
     const { token, lang } = useSelector(state => state.baristica)
 
     const [activeProduct, setActiveProduct] = useState({})
-    // const [productAdded, setProductAdded] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [message, setMessage] = useState("Something went wrong.")
@@ -237,7 +237,7 @@ const ProductCard = (props) => {
 
     return (
         <div className={style.productCard + ' pointer'} style={{ width: width }} onClick={() => { navigate(`/product/${activeProduct?._id}`) }}>
-            
+
             <Loading status={loading} />
             <Error status={error} setStatus={setError} message={message} />
             <div className={style.productCard_head}>
@@ -332,6 +332,8 @@ const ProductCard = (props) => {
 
                             if (activeProduct?.productType !== 'Machine') {
                                 addToCart();
+                            } else {
+                                openWhatsApp();
                             }
 
                         }}
@@ -339,11 +341,7 @@ const ProductCard = (props) => {
                     >
                         {Bag}
                         {
-                            product.productType === 'Machine'
-                                ?
-                                <span onClick={openWhatsApp}>{lang ? productCard[lang].machineBuy : ''}</span>
-                                :
-                                <span >{lang ? productCard[lang].buyBtn : ''}</span>
+                            <span> {getButtonText(activeProduct, productCard, lang)} </span>
                         }
                     </button>
                 </div>
