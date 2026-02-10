@@ -41,19 +41,36 @@ export default function Cart() {
           ids.map((id) => productsServiceRef.current.getOneProduct(token, id))
         )
 
-        const productsData = results
-          .filter((result) => result.status === 'fulfilled')
-          .map((result) => result.value.data)
+        const productsData = []
+        const missingIds = []
 
-        productsData.forEach((p) => {
-          if (p?.deleted) {
-            dispatch(deleteFromCart(p._id))
+        results.forEach((result, index) => {
+          if (result.status === 'fulfilled') {
+            const product = result.value?.data
+            if (!product) {
+              missingIds.push(ids[index])
+              return
+            }
+            if (product?.deleted) {
+              missingIds.push(product._id)
+              return
+            }
+            productsData.push(product)
+            return
+          }
+
+          const status = result.reason?.response?.status
+          if (status === 404 || status === 410) {
+            missingIds.push(ids[index])
           }
         })
 
-        const visibleProducts = productsData.filter((p) => !p?.deleted)
+        if (missingIds.length) {
+          const uniqueIds = [...new Set(missingIds)]
+          uniqueIds.forEach((id) => dispatch(deleteFromCart(id)))
+        }
 
-        if (isMounted) setProducts(visibleProducts)
+        if (isMounted) setProducts(productsData)
       } catch (error) {
         console.error('Error fetching products:', error)
         if (isMounted) setProducts([])
