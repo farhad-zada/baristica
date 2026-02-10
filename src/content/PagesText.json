@@ -49,6 +49,10 @@
                         {
                             "title": "Çaylar",
                             "link": "/products/tea"
+                        },
+                        {
+                            "title": "Qarışıqlar",
+                            "link": "/products/mixeds"
                         }
                     ]
                 },
@@ -88,6 +92,10 @@
                         {
                             "title": "Чай",
                             "link": "/products/tea"
+                        },
+                        {
+                            "title": "Смеси",
+                            "link": "/products/mixeds"
                         }
                     ]
                 },
@@ -127,6 +135,10 @@
                         {
                             "title": "Tea",
                             "link": "/products/tea"
+                        },
+                        {
+                            "title": "Mixeds",
+                            "link": "/products/mixeds"
                         }
                     ]
                 },
@@ -940,6 +952,7 @@
             "coffeeMachines": "QƏHVƏ APARATI VƏ QƏHVƏ ÜYÜDƏN",
             "accesories": "Qəhvə üçün aksesuarlar",
             "tea": "Çaylar",
+            "mixeds": "QARIŞIQLAR",
             "subHeading": "Bölməni seçin:",
             "contactHeading": "KÖMƏK LAZIMDIR?",
             "contactSubHeading": "Qısa müddətdə geri dönəcəyik",
@@ -1082,8 +1095,9 @@
             "deleted_subheading": "Этот продукт был удален из нашего каталога и больше не продается. Вернитесь на главную страницу, чтобы увидеть больше продуктов.",
             "coffee": "КОФЕ",
             "coffeeMachines": "КОФЕ АППАРАТЫ И ГРИНДЕРЫ",
-            "accesories": "Аксессуары для кофе",
+            "accesories": "Аксессуары для кофе",
             "tea": "Чай",
+            "mixeds": "СМЕСИ",
             "subHeading": "Выберите раздел:",
             "contactHeading": "НУЖНА ПОМОЩЬ?",
             "contactSubHeading": "свяжемся в кратчайшие сроки",
@@ -1228,6 +1242,7 @@
             "coffeeMachines": "COFFEE MACHINES AND GRINDERS",
             "accesories": "Accessories for coffee",
             "tea": "Tea",
+            "mixeds": "MIXEDS",
             "subHeading": "Select section:",
             "contactHeading": "NEED HELP?",
             "contactSubHeading": "We will contact you as soon as possible",
@@ -1498,7 +1513,8 @@
                     "value": "teapot"
                 }
             ],
-            "tea": []
+            "tea": [],
+            "mixeds": []
         }
     },
     "productDetail": {

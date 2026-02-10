@@ -14,6 +14,7 @@ const { productAdded, profile, grindingOptionsTranslate } = pageText
 export default function ProductAddedModal({ status, setStatus, product, cartCount, setCartCount }) {
     const { lang, cart, token } = useSelector(state => state.baristica)
     const { getItemFromStorage, setItemToStorage } = useLocalStorage('baristica')
+    const showWeight = ['Coffee', 'Tea', 'Mixed'].includes(product?.productType)
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -73,13 +74,11 @@ export default function ProductAddedModal({ status, setStatus, product, cartCoun
                                 <></>
                         }
                         <div className={`${styles.weights} flex g8`}>
-                            {
-                                product.productType === 'Coffee'
-                                    ?
-                                    <span>{product?.weight ? product.weight : '1000'} {lang ? productAdded[lang].weightAdding : ''}</span>
-                                    :
-                                    <></>
-                            }
+                            {showWeight ? (
+                                <span>{product?.weight ? product.weight : '1000'} {lang ? productAdded[lang].weightAdding : ''}</span>
+                            ) : (
+                                <></>
+                            )}
                             <span>{cartCount ? cartCount : '2'} {lang ? productAdded[lang].countAdding : ''}</span>
                         </div>
                     </div>

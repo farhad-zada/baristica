@@ -62,15 +62,6 @@ export default function CoffeeDetails({ product }) {
         <div className='mt24'>
             <ProductAddedModal product={cartProduct} status={productAdded} setStatus={setProductAdded} cartCount={cartCount} setCartCount={setCartCount} />
 
-            <h3 className='f16 fw700 darkGrey_color'>{lang ? productCard[lang].profile : ''}</h3>
-            <p className='f20 fw400 darkGrey_color'>{product?.profile[lang] ? product.profile[lang] || product.profile['az'] : 'ТЁМНЫЙ ШОКОЛАД - МЁД - СЛИВА - СПЕЦИИ'}</p>
-
-            <div className="productCard_characteristics flex j-between mt24">
-                <Characteristic content={{ text: lang ? productCard[lang].density : '', progress: product?.viscosity * 20 }} />
-                <Characteristic content={{ text: lang ? productCard[lang].acidity : '', progress: product?.acidity * 20 }} />
-                <Characteristic content={{ text: lang ? productCard[lang].sweetness : '', progress: product?.sweetness * 20 }} />
-            </div>
-
 
             <h2 className="f16 fw700 mt20 darkGrey_color">
                 {lang ? productCard[lang].weight : ''}

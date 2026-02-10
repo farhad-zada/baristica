@@ -177,6 +177,13 @@ const ProductCard = (props) => {
                     <Counter count={cartCount} setCount={setCartCount} />
                 </div>
             )
+        } else if (type === 'Mixed') {
+            return (
+                <div className={style.productCard_selects + " flex j-between a-center"} onClick={(e) => e.stopPropagation()}>
+                    <CustomSelect field={'weight'} options={weightOptions} defaultValue={defaultWeight} additionalText={productCard[lang].weightValue} callBack={changeProduct} />
+                    <Counter count={cartCount} setCount={setCartCount} />
+                </div>
+            )
         }
     }
 
@@ -285,7 +292,7 @@ const ProductCard = (props) => {
                     <img src={activeProduct?.profileImage || ''} alt="" />
                 </div>
 
-                {activeProduct.productType === 'Accessory' || activeProduct.productType === 'Tea'
+                {activeProduct.productType === 'Accessory' || activeProduct.productType === 'Tea' || activeProduct.productType === 'Mixed'
                     ?
                     <h2 className="text-center darkGrey_color fw400  limited-text">{activeProduct?.description ? activeProduct.description[lang] : ''}</h2>
                     :

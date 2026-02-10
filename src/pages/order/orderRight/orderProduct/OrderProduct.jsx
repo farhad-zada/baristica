@@ -40,16 +40,12 @@ export default function OrderProduct({ product, grindityText, grindingOptionsTra
                 <h2 className="f20 fw700">
                     {product?.name ? product.name[lang] || product.name['az'] : 'COLOMBIA GESHA ANCESTRO'}
                 </h2>
-                {
-                    product.productType === 'Coffee'
-                        ?
-                        <>
-                            <h3 className="f16 fw400 mt4 darkGrey_color">{grindityText} {product?.grindingOption ? findGrindingTranslation(product.grindingOption) : 'эспрессо'}</h3>
-                            <h3 className="f16 fw400 mt4 darkGrey_color">{weightText} {product?.weight ? product.weight : '1000'} g</h3>
-                        </>
-                        :
-                        <></>
-                }
+                {product.productType === 'Coffee' && (
+                    <h3 className="f16 fw400 mt4 darkGrey_color">{grindityText} {product?.grindingOption ? findGrindingTranslation(product.grindingOption) : 'эспрессо'}</h3>
+                )}
+                {['Coffee', 'Tea', 'Mixed'].includes(product.productType) && (
+                    <h3 className="f16 fw400 mt4 darkGrey_color">{weightText} {product?.weight ? product.weight : '1000'} g</h3>
+                )}
 
             </div>
 

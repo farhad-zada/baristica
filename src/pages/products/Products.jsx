@@ -138,6 +138,18 @@ export default function Products() {
       getProducts('Tea', '', 1)
       setType('Tea')
       localStorage.setItem('productsPagination', JSON.stringify({ type: 'Tea', page: 1 }))
+    } else if (window.location.href.includes('/mixeds')) {
+      changePageType('mixeds')
+      const productsPagination = JSON.parse(localStorage.getItem('productsPagination'))
+      if (productsPagination && 'Mixeds' === productsPagination?.type) {
+        setType('Mixeds')
+        return;
+      }
+      setCurrentPage(1)
+
+      getProducts('Mixed', '', 1)
+      setType('Mixed')
+      localStorage.setItem('productsPagination', JSON.stringify({ type: 'Mixed', page: 1 }))
     }
     else {
       navigate('/')

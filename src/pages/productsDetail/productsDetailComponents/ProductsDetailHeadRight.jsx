@@ -4,6 +4,7 @@ import { Favorited, Feedback, Star } from '../../../icons'
 import CoffeeDetails from './coffee/CoffeeDetails'
 import AccesoriesDetails from './accesories/AccesoriesDetails'
 import MachineDetails from './machine/MachineDetails'
+import TeaDetails from './tea/TeaDetails'
 import FavoritesService from '../../../services/favorites.service'
 import Loading from '../../../components/loading/Loading'
 import Error from '../../../components/error/Error'
@@ -61,7 +62,9 @@ export default function ProductsDetailHeadRight({ product }) {
             case 'Machine':
                 return <MachineDetails product={product} />
             case 'Tea':
-                return <MachineDetails product={product}/>
+                return <TeaDetails product={product} />
+            case 'Mixed':
+                return <TeaDetails product={product} />
             default:
                 return <MachineDetails product={product} />
         }
