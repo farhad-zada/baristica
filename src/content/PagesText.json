@@ -842,7 +842,9 @@
                     "value": "grinders"
                 }
             ],
-            "seeAll": "Hamısına bax"
+            "seeAll": "Hamısına bax",
+            "gram": "q",
+            "quantity": "əd"
         },
         "ru": {
             "coffeeHeading": "Кофе",
@@ -868,7 +870,9 @@
                     "value": "grinders"
                 }
             ],
-            "seeAll": "Посмотреть все"
+            "seeAll": "Посмотреть все",
+            "gram": "г",
+            "quantity": "шт"
         },
         "en": {
             "coffeeHeading": "COFFEE",
@@ -894,7 +898,9 @@
                     "value": "grinders"
                 }
             ],
-            "seeAll": "See all"
+            "seeAll": "See all",
+            "gram": "g",
+            "quantity": "pcs"
         }
     },
     "productCard": {

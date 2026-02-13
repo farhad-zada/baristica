@@ -8,6 +8,7 @@ import { useLocalStorage } from '../../../../../hooks/useLocalStorage'
 import PageText from '../../../../../content/PagesText.json'
 
 const { profile } = PageText
+const { productsSection } = PageText;
 
 export default function CartProduct({ product, grindingOptionsTranslate, weightText, grindityText }) {
     const { lang, cart } = useSelector(state => state.baristica)
@@ -57,7 +58,7 @@ export default function CartProduct({ product, grindingOptionsTranslate, weightT
                     )}
                     {['Coffee', 'Tea', 'Mixed'].includes(product.productType) && (
                         <h3 className="robotoFont f16 fw400 mt4 darkGrey_color">
-                            {weightText} {product?.weight ? product.weight : '1000'} g
+                            {weightText} {product?.weight ? product.weight : '1000'} {product.category === "drip" ? productsSection[lang]?.quantity : productsSection[lang]?.gram}
                         </h3>
                     )}
                 </div>

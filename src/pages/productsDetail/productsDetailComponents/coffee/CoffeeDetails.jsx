@@ -157,7 +157,6 @@ export default function CoffeeDetails({ product }) {
                                         className={styles.addToCart + " flex g8 a-center border8 f20 fw400 white"}
                                         onClick={(e) => {
                                             e.stopPropagation()
-                                            setToInitialState()
                                             handleCartButtonClick(product, addToCart)
                                         }}
                                     >
