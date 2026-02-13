@@ -25,6 +25,17 @@ export default function Header() {
   const dispatch = useDispatch()
 
   const { removeItemFromStorage } = useLocalStorage('baristicaToken')
+  const createdAtDate = user?.createdAt ? new Date(user.createdAt) : null
+  const isNewUser =
+    token &&
+    createdAtDate instanceof Date &&
+    !Number.isNaN(createdAtDate.getTime()) &&
+    Math.ceil(Math.abs(new Date() - createdAtDate) / (1000 * 60 * 60 * 24)) <= 30
+  const discountBannerText = {
+    az: "Qeydiyyatdan keçən yeni istifadəçiyə 10% endirim tətbiq olundu",
+    en: "10% discount is applied for new users",
+    ru: "Для новых пользователей действует скидка 10%",
+  }
 
   const changeLang = (newLang) => {
     localStorage.setItem("lang", newLang);
@@ -32,7 +43,7 @@ export default function Header() {
   };
 
   const logout = async () => {
-    const response = await authService.logout(token)
+    await authService.logout(token)
     dispatch(setToken(false))
     dispatch(setUser({}))
     removeItemFromStorage()
@@ -74,6 +85,11 @@ export default function Header() {
     <header className="flex j-center" style={{ backgroundColor: "#F2F2F2" }}>
       <div className="container flex j-between a-center">
         <div className={`${style.header_section} flex a-center j-between w-100`}>
+          {isNewUser ? (
+            <div className={style.discount_banner}>
+              {discountBannerText[lang] || discountBannerText.en}
+            </div>
+          ) : null}
           <Link to="/" className={`${style.header_logo}`}>
             {Logo}
           </Link>

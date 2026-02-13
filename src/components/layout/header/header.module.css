@@ -1,5 +1,17 @@
 .header_section{
     padding: 20px 0;
+    flex-wrap: wrap;
+    row-gap: 12px;
+}
+.discount_banner{
+    width: 100%;
+    background-color: #61C4BF;
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
 }
 .menu{
     gap: 25px;
@@ -119,6 +131,10 @@
 }
 
 @media (max-width: 960px){
+    .discount_banner{
+        font-size: 12px;
+        padding: 7px 10px;
+    }
     .menu_item svg path{
         fill: white;
     }
