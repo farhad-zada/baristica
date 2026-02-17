@@ -2062,6 +2062,12 @@
     "order": {
         "az": {
             "heading": "SİFARIŞİN TƏSDİQİ",
+            "shippingNoticeTitle": "Çatdırılma qaydaları",
+            "shippingNoticeLines": [
+                "Çatdırılma vaxtları: B.e.-C. 09:00-18:00, Şənbə 10:00-14:00.",
+                "Çatdırılma vaxtını yalnız növbəti iş gününün sonuna qədər seçə bilərsiniz.",
+                "Məsələn: Çərşənbə axşamı üçün Çərşənbə 18:00-a qədər, Cümə üçün Şənbə 14:00-a qədər, Şənbə üçün B.e. 18:00-a qədər."
+            ],
             "nameInput": "Adınız",
             "phoneInput": "Telefon nomrəniz",
             "personalInfoHeading": "ŞƏXSİ MƏLUMATLAR:",
@@ -2070,6 +2076,8 @@
             "commentHeading": "QEYDİNİZİ BİLDİRİN:",
             "paymentHeading": "ÖDƏNİŞ:",
             "commentInput": "Şərh",
+            "deliveryDateTimeRequired": "Zəhmət olmasa çatdırılma tarixi və saatını seçin",
+            "deliveryScheduleError": "Seçilmiş çatdırılma vaxtı göndəriş saatlarından kənardadır",
             "deliveryInput": "ÜNVANA ÇATDIRILMA",
             "pickupInput": "Sifarişin götürülməsi",
             "byCash": "Nəğd",
@@ -2084,6 +2092,12 @@
         },
         "ru": {
             "heading": "ОФОРМЛЕНИЕ ЗАКАЗА",
+            "shippingNoticeTitle": "Правила доставки",
+            "shippingNoticeLines": [
+                "Время доставки: Пн-Пт 09:00-18:00, Сб 10:00-14:00.",
+                "Выбрать время доставки можно только до конца следующего рабочего дня.",
+                "Например: во вторник до среды 18:00, в пятницу до субботы 14:00, в субботу до понедельника 18:00."
+            ],
             "nameInput": "Ваше имя",
             "phoneInput": "Телефон",
             "personalInfoHeading": "ЛИЧНЫЕ ДАННЫЕ:",
@@ -2092,6 +2106,8 @@
             "commentHeading": "ДОБАВИТЬ КОММЕНТАРИЙ:",
             "paymentHeading": "ОПЛАТА:",
             "commentInput": "Комментарий",
+            "deliveryDateTimeRequired": "Пожалуйста, укажите дату и время доставки",
+            "deliveryScheduleError": "Выбранное время доставки вне графика отправки",
             "deliveryInput": "ДОСТАВКА ПО АДРЕСУ",
             "pickupInput": "САМОВЫЗОВ",
             "byCash": "Наличными",
@@ -2106,6 +2122,12 @@
         },
         "en": {
             "heading": "PLACE YOUR ORDER",
+            "shippingNoticeTitle": "Delivery Schedule",
+            "shippingNoticeLines": [
+                "Delivery hours: Mon-Fri 09:00-18:00, Sat 10:00-14:00.",
+                "You can choose delivery time only until the end of the next working day.",
+                "For example: Tuesday -> Wednesday 18:00, Friday -> Saturday 14:00, Saturday -> Monday 18:00."
+            ],
             "nameInput": "Your name",
             "phoneInput": "Phone number",
             "personalInfoHeading": "PERSONAL INFORMATION:",
@@ -2114,6 +2136,8 @@
             "commentHeading": "ADD COMMENT:",
             "paymentHeading": "PAYMENT:",
             "commentInput": "Comment",
+            "deliveryDateTimeRequired": "Please set delivery date and time",
+            "deliveryScheduleError": "Selected delivery time is outside shipping hours",
             "deliveryInput": "DELIVERY TO ADDRESS",
             "pickupInput": "PICK UP",
             "byCash": "By cash",

@@ -45,6 +45,16 @@ export default function Order() {
                 <div className={styles.order_title}>
                     <AuthorizationHeading heading={lang ? order[lang].heading : ''} />
                 </div>
+                <div className={styles.notice}>
+                    <h3 className="f22 fw600 darkGrey_color">
+                        {lang ? order[lang].shippingNoticeTitle : ''}
+                    </h3>
+                    <ul className={styles.noticeList}>
+                        {(lang ? order[lang].shippingNoticeLines : []).map((line) => (
+                            <li className="f18 fw400 darkGrey_color" key={line}>{line}</li>
+                        ))}
+                    </ul>
+                </div>
                 {
                     finalCart.length
                         ?
