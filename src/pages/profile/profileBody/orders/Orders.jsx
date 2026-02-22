@@ -20,6 +20,7 @@ const Orders = () => {
   const [message, setMessage] = useState("Something went wrong.")
   const [activeOrders, setActiveOrders] = useState([])
   const [deliveredOrders, setDeliveredOrders] = useState([])
+  const [firstOrderId, setFirstOrderId] = useState(null)
   const totalPages = 5;
 
   const handlePageChange = (page) => {
@@ -27,8 +28,8 @@ const Orders = () => {
   };
 
   const content = {
-    [profile[lang].orders.tabs[0].title]: <OrderElements type='active' orders={activeOrders} currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} />,
-    [profile[lang].orders.tabs[1].title]: <OrderElements type='delivered' orders={deliveredOrders} currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} />
+    [profile[lang].orders.tabs[0].title]: <OrderElements type='active' orders={activeOrders} firstOrderId={firstOrderId} currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} />,
+    [profile[lang].orders.tabs[1].title]: <OrderElements type='delivered' orders={deliveredOrders} firstOrderId={firstOrderId} currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} />
   }
 
 
@@ -48,6 +49,16 @@ const Orders = () => {
       // coffee
       setActiveOrders(active.data.orders);
       setDeliveredOrders(delivered.data.orders);
+      const allOrders = [...(active?.data?.orders || []), ...(delivered?.data?.orders || [])];
+      if (allOrders.length) {
+        const oldestOrder = allOrders.reduce((oldest, current) => {
+          if (!oldest) return current;
+          return new Date(current.createdAt) < new Date(oldest.createdAt) ? current : oldest;
+        }, null);
+        setFirstOrderId(oldestOrder?._id || null);
+      } else {
+        setFirstOrderId(null);
+      }
 
     } catch (error) {
       setError(true)

@@ -4,38 +4,49 @@ import { setLang } from "../../../redux/slice";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import AuthService from "../../../services/auth.service";
+import OrdersService from "../../../services/orders.service";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import useBodyScrollLock from "../../../hooks/useBodyScrollLock";
 import style from "./header.module.css";
 
 import PagesText from "../../../content/PagesText.json";
 import { DownHeader, Logo } from "../../../icons";
+import coopImage from "../../../assets/img/coop.jpeg";
 
 import { setToken, setUser } from "../../../redux/slice";
+import { handleApiReqRes } from "../../../utils/handleApiReqRes.util";
 
 const { header } = PagesText;
 const { headerPageLinks } = header;
+const promoModalText = {
+  az: {
+    heading: "İlk sifarişinizə 15% endirim əldə edin!",
+    description: "Endirim yalnız seçilmiş kateqoriyalar üzrə məhsullara aid edilir.",
+    button: "Məhsullara bax",
+  },
+  en: {
+    heading: "Get 15% off your first order!",
+    description: "The discount applies to selected items in selected categories.",
+    button: "View products",
+  },
+  ru: {
+    heading: "Получите 15% скидку на первый заказ!",
+    description: "Скидка действует на отдельные товары из выбранных категорий.",
+    button: "Смотреть товары",
+  },
+};
 
 export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false)
   const [size, setSize] = useState("")
   const [menu, setMenu] = useState(false)
+  const [showFirstOrderPromo, setShowFirstOrderPromo] = useState(false)
   const { lang, user, token } = useSelector((state) => state.baristica)
   const navigate = useNavigate();
   const authService = new AuthService()
   const dispatch = useDispatch()
 
   const { removeItemFromStorage } = useLocalStorage('baristicaToken')
-  const createdAtDate = user?.createdAt ? new Date(user.createdAt) : null
-  const isNewUser =
-    token &&
-    createdAtDate instanceof Date &&
-    !Number.isNaN(createdAtDate.getTime()) &&
-    Math.ceil(Math.abs(new Date() - createdAtDate) / (1000 * 60 * 60 * 24)) <= 30
-  const discountBannerText = {
-    az: "Qeydiyyatdan keçən yeni istifadəçiyə 10% endirim tətbiq olundu",
-    en: "10% discount is applied for new users",
-    ru: "Для новых пользователей действует скидка 10%",
-  }
 
   const changeLang = (newLang) => {
     localStorage.setItem("lang", newLang);
@@ -81,15 +92,78 @@ export default function Header() {
     size > 960 && setMobileMenu(false)
   }, [size])
 
+  useEffect(() => {
+    const shouldShowFirstOrderPromo = async () => {
+      const seenAt = Number(localStorage.getItem("firstOrderPromoSeenAt"))
+      const hasSeenInLast24Hours =
+        !Number.isNaN(seenAt) && Date.now() - seenAt < 24 * 60 * 60 * 1000
+
+      if (hasSeenInLast24Hours) {
+        setShowFirstOrderPromo(false)
+        return
+      }
+
+      if (!token) {
+        setShowFirstOrderPromo(true)
+        localStorage.setItem("firstOrderPromoSeenAt", Date.now().toString())
+        return
+      }
+
+      try {
+        const ordersService = new OrdersService()
+        const [active, delivered] = await Promise.all([
+          handleApiReqRes(ordersService.getOrders(token, "active")),
+          handleApiReqRes(ordersService.getOrders(token, "delivered")),
+        ])
+
+        const activeOrders = active?.data?.orders || []
+        const deliveredOrders = delivered?.data?.orders || []
+        const hasNoOrders = activeOrders.length + deliveredOrders.length === 0
+
+        if (hasNoOrders) {
+          setShowFirstOrderPromo(true)
+          localStorage.setItem("firstOrderPromoSeenAt", Date.now().toString())
+        }
+      } catch (error) {
+        setShowFirstOrderPromo(false)
+      }
+    }
+
+    shouldShowFirstOrderPromo()
+  }, [token])
+
+  useBodyScrollLock(showFirstOrderPromo);
+
   return (
     <header className="flex j-center" style={{ backgroundColor: "#F2F2F2" }}>
+      {showFirstOrderPromo ? (
+        <div className="modal active" onClick={() => setShowFirstOrderPromo(false)}>
+          <div className={style.firstOrderPromo} onClick={(e) => e.stopPropagation()}>
+            <span className={`${style.firstOrderPromoClose} pointer`} onClick={() => setShowFirstOrderPromo(false)}>
+              X
+            </span>
+            <div className={style.firstOrderPromoLeft}>
+              <h2>{promoModalText[lang]?.heading || promoModalText.az.heading}</h2>
+              <p>{promoModalText[lang]?.description || promoModalText.az.description}</p>
+              <button
+                type="button"
+                className={style.firstOrderPromoBtn}
+                onClick={() => {
+                  setShowFirstOrderPromo(false)
+                  navigate("/products/coffee")
+                }}
+              >
+                {promoModalText[lang]?.button || promoModalText.az.button}
+              </button>
+            </div>
+            <div className={style.firstOrderPromoImageWrap}>
+              <img src={coopImage} alt="First order promo" />
+            </div>
+          </div>
+        </div>
+      ) : null}
       <div className="container flex j-between a-center">
         <div className={`${style.header_section} flex a-center j-between w-100`}>
-          {isNewUser ? (
-            <div className={style.discount_banner}>
-              {discountBannerText[lang] || discountBannerText.en}
-            </div>
-          ) : null}
           <Link to="/" className={`${style.header_logo}`}>
             {Logo}
           </Link>

@@ -1,23 +1,25 @@
 import React from 'react'
 import styles from './orderPrice.module.css'
 import { calculateTotalPrice } from '../../../../utils/price.util'
+import { getDiscountAmount } from '../../../../utils/discount.util'
 
-export default function OrderPrice({ finalCart, delivery, text, lang, fee }) {
+export default function OrderPrice({ finalCart, delivery, text, lang, fee, isFirstOrderDiscountActive }) {
 
 
     const calculateProductPrice = (product) => {
         return (product.price / 100 * product.cartCount)
     }
 
-    const calculateTotal = (products, fee) => {
-        return calculateTotalPrice(products) + fee/100
-    }
+    const subtotal = calculateTotalPrice(finalCart)
+    const discountAmount = isFirstOrderDiscountActive ? getDiscountAmount(subtotal) : 0
+    const deliveryAmount = delivery ? fee / 100 : 0
+    const total = subtotal - discountAmount + deliveryAmount
 
     return (
         <div className={styles.priceComponent}>
             <div className="flex j-between a-center">
                 <h2 className="f24 fw700">{lang ? text[lang].priceHeading : ''}</h2>
-                <span className='f24 fw400 darkGrey_color'>{calculateTotalPrice(finalCart).toFixed(2)} ₼</span>
+                <span className='f24 fw400 darkGrey_color'>{subtotal.toFixed(2)} ₼</span>
             </div>
 
             <div className={styles.products}>
@@ -60,7 +62,7 @@ export default function OrderPrice({ finalCart, delivery, text, lang, fee }) {
                     {lang ? text[lang].discountHeading : ''}
                 </h2>
                 <p className="f24 fw400 darkGrey_color">
-                    0 ₼
+                    -{discountAmount.toFixed(2)} ₼
                 </p>
             </div>
 
@@ -69,7 +71,7 @@ export default function OrderPrice({ finalCart, delivery, text, lang, fee }) {
                     {lang ? text[lang].total : ''}
                 </h2>
                 <p className="f24 fw400 darkGrey_color">
-                    {calculateTotal(finalCart, delivery ? fee : 0).toFixed(2)} ₼
+                    {total.toFixed(2)} ₼
                 </p>
             </div>
         </div>

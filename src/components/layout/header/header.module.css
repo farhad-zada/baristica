@@ -1,3 +1,87 @@
+.top_banner{
+    width: 100%;
+    background-color: #7DC7C4;
+    color: #111418;
+    text-align: center;
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.4px;
+    padding: 16px 12px;
+    text-transform: uppercase;
+}
+
+.firstOrderPromo{
+    width: min(1100px, calc(100vw - 32px));
+    max-width: 1100px !important;
+    min-width: auto !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    background: #2E3138 !important;
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    position: relative;
+    overflow: hidden;
+}
+
+.firstOrderPromoClose{
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1;
+    z-index: 2;
+}
+
+.firstOrderPromoLeft{
+    color: #fff;
+    padding: 56px 44px;
+}
+
+.firstOrderPromoLeft h2{
+    max-width: 420px;
+    font-family: "Roboto Condensed", "Oswald", sans-serif;
+    font-size: clamp(46px, 3vw, 56px);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    text-wrap: balance;
+}
+
+.firstOrderPromoLeft p{
+    max-width: 420px;
+    font-size: 16px;
+    font-family: "Roboto Condensed", "Oswald", sans-serif;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    color: #D7D7D7;
+}
+
+.firstOrderPromoBtn{
+    margin-top: 42px;
+    background: #61C4BF;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.firstOrderPromoImageWrap img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
 .header_section{
     padding: 20px 0;
     flex-wrap: wrap;
@@ -131,6 +215,34 @@
 }
 
 @media (max-width: 960px){
+    .firstOrderPromo{
+        grid-template-columns: 1fr;
+    }
+    .firstOrderPromoClose{
+        font-size: 30px;
+    }
+    .firstOrderPromoLeft{
+        padding: 38px 24px 26px;
+    }
+    .firstOrderPromoLeft h2{
+        font-size: 40px;
+        margin-bottom: 16px;
+    }
+    .firstOrderPromoLeft p{
+        font-size: 15px;
+    }
+    .firstOrderPromoBtn{
+        margin-top: 24px;
+        font-size: 22px;
+        padding: 10px 22px;
+    }
+    .firstOrderPromoImageWrap{
+        max-height: 360px;
+    }
+    .top_banner{
+        font-size: 20px;
+        padding: 12px 10px;
+    }
     .discount_banner{
         font-size: 12px;
         padding: 7px 10px;
@@ -186,5 +298,33 @@
     .header_logo svg{
         width: 45px;
         height: 45px;
+    }
+}
+
+@media (max-width: 600px){
+    .firstOrderPromo{
+        width: calc(100vw - 20px);
+    }
+    .firstOrderPromoLeft{
+        padding: 34px 16px 20px;
+    }
+    .firstOrderPromoLeft h2{
+        font-size: 34px;
+    }
+    .firstOrderPromoLeft p{
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+    .firstOrderPromoBtn{
+        font-size: 18px;
+        width: 100%;
+        padding: 10px 14px;
+    }
+    .firstOrderPromoImageWrap{
+        max-height: 250px;
+    }
+    .top_banner{
+        font-size: 14px;
+        padding: 10px 8px;
     }
 }
