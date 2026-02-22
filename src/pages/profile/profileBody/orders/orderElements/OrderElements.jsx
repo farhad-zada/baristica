@@ -6,15 +6,15 @@ import Pagination from '../../../../../components/pagination/Pagination';
 import { useSelector } from 'react-redux';
 import ProductsService from '../../../../../services/products.service';
 import Loading from '../../../../../components/loading/Loading';
+import { getDiscountAmount } from '../../../../../utils/discount.util';
 
 const { profile, grindingOptionsTranslate } = PagesText;
 
-export default function OrderElements({ orders, currentPage, totalPages, handlePageChange }) {
+export default function OrderElements({ orders, firstOrderId, currentPage, totalPages, handlePageChange }) {
     const [visibleCoffees, setVisibleCoffees] = useState({}); // Manage visibility of coffees by order ID
     const { lang, token } = useSelector((state) => state.baristica);
     const [loading, setLoading] = useState(false)
     const [products, setProducts] = useState({});
-    const [activeOrders, setActiveOrders] = useState([])
     const productsService = useMemo(() => new ProductsService(), []);
 
     // Format date without moment
@@ -63,6 +63,12 @@ export default function OrderElements({ orders, currentPage, totalPages, handleP
         }
     }, [orders, getProducts]);
 
+    const getDiscountedOrderTotal = (order) => {
+        const total = (order?.totalCost || 0) / 100;
+        if (order?._id !== firstOrderId) return { total, discount: 0 };
+        const discount = getDiscountAmount(total);
+        return { total: total - discount, discount };
+    }
 
     return (
         <div>
@@ -73,7 +79,9 @@ export default function OrderElements({ orders, currentPage, totalPages, handleP
                 <>
                     <h1 className="f28 fw600 robotoFont">{profile[lang]?.orders?.title}:</h1>
                     <div className={style.all_orders}>
-                        {orders.map((elem, i) => (
+                        {orders.map((elem, i) => {
+                            const discountedOrder = getDiscountedOrderTotal(elem);
+                            return (
                             <div key={`${elem?._id}_${i}`}>
                                 <div className={`${style.order} flex a-center j-between border8`}>
                                     <div className={`${style.order_row} flex a-center j-between w-100`}>
@@ -85,7 +93,10 @@ export default function OrderElements({ orders, currentPage, totalPages, handleP
                                         </p>
                                         <p className={`robotoFont f16 fw400 a-center j-center flex ${style.center}`}>{elem?.location}</p>
                                         <p className={`robotoFont f24 fw400 a-center j-center flex ${style.center} ${style.price}`}>
-                                            {elem?.totalCost / 100} ₼
+                                            {discountedOrder.total.toFixed(2)} ₼
+                                            {discountedOrder.discount > 0 ? (
+                                                <span className={style.discountBadge}>-15%</span>
+                                            ) : null}
                                         </p>
                                         <button
                                             className={`${style.button} ${style.mobile_button} ${
@@ -96,7 +107,7 @@ export default function OrderElements({ orders, currentPage, totalPages, handleP
                                             {profile[lang]?.orders?.button}
                                         </button>
                                     </div>
-                                    <p className={`f24 fw400 ${style.mobile_price}`}>{elem?.price}</p>
+                                    <p className={`f24 fw400 ${style.mobile_price}`}>{discountedOrder.total.toFixed(2)} ₼</p>
                                 </div>
                                 <div
                                     className={`${style.coffees} ${visibleCoffees[elem?._id] ? style.visible : ''}`}
@@ -149,7 +160,7 @@ export default function OrderElements({ orders, currentPage, totalPages, handleP
                                     })}
                                 </div>
                             </div>
-                        ))}
+                        )})}
                     </div>
                     <Pagination
                         currentPage={currentPage}

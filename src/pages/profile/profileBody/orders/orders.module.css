@@ -90,6 +90,13 @@
     text-align: center;
 }
 
+.discountBadge{
+    margin-left: 8px;
+    color: #61C4BF;
+    font-size: 14px;
+    font-weight: 700;
+}
+
 
 @media (max-width: 768px){
     .order{

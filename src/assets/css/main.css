@@ -70,6 +70,19 @@ input {
     padding: 0 !important;
 }
 
+.top_header_promo{
+    width: 100%;
+    background-color: #7DC7C4;
+    color: #111418;
+    text-align: center;
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.4px;
+    padding: 16px 12px;
+    text-transform: uppercase;
+}
+
 .italic{
     font-style: italic !important;
 }
@@ -567,10 +580,21 @@ input {
     font-size: 24px;
 }
 @media (max-width: 768px){
+    .top_header_promo{
+        font-size: 20px;
+        padding: 12px 10px;
+    }
     body{
         overflow-x: hidden;
     }
     .orderInfo_component h2{
         font-size: 24px !important;
+    }
+}
+
+@media (max-width: 600px){
+    .top_header_promo{
+        font-size: 14px;
+        padding: 10px 8px;
     }
 }

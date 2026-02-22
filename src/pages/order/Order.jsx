@@ -7,6 +7,8 @@ import OrderLeft from './orderLeft/OrderLeft';
 import OrderRight from './orderRight/OrderRight';
 import DeliveryService from '../../services/delivery.service';
 import Loading from '../../components/loading/Loading';
+import OrdersService from '../../services/orders.service';
+import { handleApiReqRes } from '../../utils/handleApiReqRes.util';
 
 const { order } = PageText
 
@@ -16,6 +18,7 @@ export default function Order() {
     const [deliveryFee, setDeliveryFee] = useState(0)
     const [loading, setLoading] = useState(false)
     const [delivery, setDelivery] = useState(false)
+    const [isFirstOrderDiscountActive, setIsFirstOrderDiscountActive] = useState(true)
 
     
     const deliveryService = new DeliveryService()
@@ -33,7 +36,28 @@ export default function Order() {
         }
     }
 
+    const getDiscountEligibility = async () => {
+        if (!token) {
+            setIsFirstOrderDiscountActive(true)
+            return
+        }
+
+        try {
+            const ordersService = new OrdersService()
+            const [active, delivered] = await Promise.all([
+                handleApiReqRes(ordersService.getOrders(token, 'active')),
+                handleApiReqRes(ordersService.getOrders(token, 'delivered')),
+            ])
+            const activeOrders = active?.data?.orders || []
+            const deliveredOrders = delivered?.data?.orders || []
+            setIsFirstOrderDiscountActive(activeOrders.length + deliveredOrders.length === 0)
+        } catch (error) {
+            setIsFirstOrderDiscountActive(false)
+        }
+    }
+
     useEffect(() => {
+        getDiscountEligibility()
         if (token) {
             getDeliveryFee()
         }
@@ -60,7 +84,7 @@ export default function Order() {
                         ?
                         <div className={`${styles.order_row} flex mt50 j-between g20`}>
                             <OrderLeft delivery={delivery} setDelivery={setDelivery} content={lang ? order[lang] : {}} />
-                            <OrderRight delivery={delivery} fee={deliveryFee} />
+                            <OrderRight delivery={delivery} fee={deliveryFee} isFirstOrderDiscountActive={isFirstOrderDiscountActive} />
                         </div>
                         :
                         <p className="f24 fw400 darkGrey_color mt50">{lang ? order[lang].zeroProducts : ''}</p>

@@ -14,14 +14,17 @@ import Loading from './components/loading/Loading';
 import Error from './components/error/Error';
 import FavoritesService from './services/favorites.service';
 import { handleApiReqRes } from './utils/handleApiReqRes.util';
+import PagesText from './content/PagesText.json';
 
+const { header } = PagesText;
+const { headerIntroText } = header;
 
 const App = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [message, setMessage] = useState("Something went wrong.");
 
-  const { cart, finalCart } = useSelector(state => state.baristica)
+  const { cart, finalCart, lang, token } = useSelector(state => state.baristica)
   const dispatch = useDispatch()
   const { setItemToStorage, getItemFromStorage } = useLocalStorage('lang');
   const { getItemFromStorage: getTokenFromStorage } = useLocalStorage('baristicaToken'); // Для токена
@@ -83,29 +86,29 @@ const App = () => {
   }, [finalCart]);
 
   useEffect(() => {
-    const lang = getItemFromStorage(); // Получаем язык из локального хранилища
-    const token = getTokenFromStorage(); // Получаем токен
+    const storedLang = getItemFromStorage(); // Получаем язык из локального хранилища
+    const storedToken = getTokenFromStorage(); // Получаем токен
 
-    if (!lang) {
+    if (!storedLang) {
       setItemToStorage('az'); // Устанавливаем язык по умолчанию
       dispatch(setLang('az'));
       return;
     }
 
-    dispatch(setLang(lang)); // Устанавливаем язык в redux store
+    dispatch(setLang(storedLang)); // Устанавливаем язык в redux store
     const baristicaObj = getObjectFromStorage();
-    if (baristicaObj?.cart?.length && token) {
+    if (baristicaObj?.cart?.length && storedToken) {
       dispatch(setCart(baristicaObj.cart))
     }
 
-    if (baristicaObj?.finalCart?.length && token) {
+    if (baristicaObj?.finalCart?.length && storedToken) {
       dispatch(setFinalCartArr(baristicaObj.finalCart))
     }
 
-    if (token) {
-      getUser(token)
-      dispatch(setToken(token))
-      getFavorites(1, token)
+    if (storedToken) {
+      getUser(storedToken)
+      dispatch(setToken(storedToken))
+      getFavorites(1, storedToken)
     }
   }, []);
 
@@ -114,6 +117,11 @@ const App = () => {
       <Loading status={loading} />
       <Error status={error} setStatus={setError} message={message} />
       <SubHeader />
+      {!token ? (
+        <div className="top_header_promo">
+          {headerIntroText[lang] || headerIntroText.az}
+        </div>
+      ) : null}
       <Header />
       <AppRoutes />
       <Footer />
