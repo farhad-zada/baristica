@@ -75,11 +75,11 @@ input {
     background-color: #7DC7C4;
     color: #111418;
     text-align: center;
-    font-size: 38px;
+    font-size: 32px;
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: 0.4px;
-    padding: 16px 12px;
+    padding: 12px 10px;
     text-transform: uppercase;
 }
 
@@ -581,8 +581,8 @@ input {
 }
 @media (max-width: 768px){
     .top_header_promo{
-        font-size: 20px;
-        padding: 12px 10px;
+        font-size: 18px;
+        padding: 10px 8px;
     }
     body{
         overflow-x: hidden;
@@ -594,7 +594,7 @@ input {
 
 @media (max-width: 600px){
     .top_header_promo{
-        font-size: 14px;
-        padding: 10px 8px;
+        font-size: 13px;
+        padding: 8px 6px;
     }
 }
