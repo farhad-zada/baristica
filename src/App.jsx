@@ -116,12 +116,12 @@ const App = () => {
     <div>
       <Loading status={loading} />
       <Error status={error} setStatus={setError} message={message} />
-      <SubHeader />
       {!token ? (
         <div className="top_header_promo">
           {headerIntroText[lang] || headerIntroText.az}
         </div>
       ) : null}
+      <SubHeader />
       <Header />
       <AppRoutes />
       <Footer />

@@ -12,8 +12,8 @@
 }
 
 .firstOrderPromo{
-    width: min(1100px, calc(100vw - 32px));
-    max-width: 1100px !important;
+    width: min(980px, calc(100vw - 48px));
+    max-width: 980px !important;
     min-width: auto !important;
     border-radius: 0 !important;
     padding: 0 !important;
@@ -21,6 +21,7 @@
     display: grid;
     grid-template-columns: 1fr 1.15fr;
     position: relative;
+    max-height: calc(100vh - 48px);
     overflow: hidden;
 }
 
@@ -28,22 +29,31 @@
     position: absolute;
     top: 12px;
     right: 14px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: 300;
-    line-height: 1;
     z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.firstOrderPromoClose svg{
+    width: 28px;
+    height: 28px;
+}
+
+.firstOrderPromoClose svg path{
+    stroke: #FFFFFF;
 }
 
 .firstOrderPromoLeft{
     color: #fff;
-    padding: 56px 44px;
+    padding: 44px 36px;
+    overflow: auto;
 }
 
 .firstOrderPromoLeft h2{
     max-width: 420px;
     font-family: "Roboto Condensed", "Oswald", sans-serif;
-    font-size: clamp(46px, 3vw, 56px);
+    font-size: clamp(40px, 2.6vw, 50px);
     font-weight: 700;
     line-height: 1.02;
     letter-spacing: 0.3px;
@@ -62,7 +72,7 @@
 }
 
 .firstOrderPromoBtn{
-    margin-top: 42px;
+    margin-top: 30px;
     background: #61C4BF;
     border: none;
     color: #fff;
@@ -216,6 +226,8 @@
 
 @media (max-width: 960px){
     .firstOrderPromo{
+        width: min(760px, calc(100vw - 32px));
+        max-height: calc(100vh - 32px);
         grid-template-columns: 1fr;
     }
     .firstOrderPromoClose{
@@ -303,7 +315,8 @@
 
 @media (max-width: 600px){
     .firstOrderPromo{
-        width: calc(100vw - 20px);
+        width: calc(100vw - 24px);
+        max-height: calc(100vh - 24px);
     }
     .firstOrderPromoLeft{
         padding: 34px 16px 20px;

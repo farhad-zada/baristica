@@ -10,7 +10,7 @@ import useBodyScrollLock from "../../../hooks/useBodyScrollLock";
 import style from "./header.module.css";
 
 import PagesText from "../../../content/PagesText.json";
-import { DownHeader, Logo } from "../../../icons";
+import { Close, DownHeader, Logo } from "../../../icons";
 import coopImage from "../../../assets/img/coop.jpeg";
 
 import { setToken, setUser } from "../../../redux/slice";
@@ -94,18 +94,8 @@ export default function Header() {
 
   useEffect(() => {
     const shouldShowFirstOrderPromo = async () => {
-      const seenAt = Number(localStorage.getItem("firstOrderPromoSeenAt"))
-      const hasSeenInLast24Hours =
-        !Number.isNaN(seenAt) && Date.now() - seenAt < 24 * 60 * 60 * 1000
-
-      if (hasSeenInLast24Hours) {
-        setShowFirstOrderPromo(false)
-        return
-      }
-
       if (!token) {
         setShowFirstOrderPromo(true)
-        localStorage.setItem("firstOrderPromoSeenAt", Date.now().toString())
         return
       }
 
@@ -122,7 +112,8 @@ export default function Header() {
 
         if (hasNoOrders) {
           setShowFirstOrderPromo(true)
-          localStorage.setItem("firstOrderPromoSeenAt", Date.now().toString())
+        } else {
+          setShowFirstOrderPromo(false)
         }
       } catch (error) {
         setShowFirstOrderPromo(false)
@@ -140,7 +131,7 @@ export default function Header() {
         <div className="modal active" onClick={() => setShowFirstOrderPromo(false)}>
           <div className={style.firstOrderPromo} onClick={(e) => e.stopPropagation()}>
             <span className={`${style.firstOrderPromoClose} pointer`} onClick={() => setShowFirstOrderPromo(false)}>
-              X
+              {Close}
             </span>
             <div className={style.firstOrderPromoLeft}>
               <h2>{promoModalText[lang]?.heading || promoModalText.az.heading}</h2>
