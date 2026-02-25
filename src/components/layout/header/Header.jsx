@@ -20,18 +20,15 @@ const { header } = PagesText;
 const { headerPageLinks } = header;
 const promoModalText = {
   az: {
-    heading: "İlk sifarişinizə 15% endirim əldə edin!",
-    description: "Endirim yalnız seçilmiş kateqoriyalar üzrə məhsullara aid edilir.",
+    heading: "İLK SİFARİŞİNİZƏ 15% ENDİRİM ƏLDƏ EDİN!",
     button: "Məhsullara bax",
   },
   en: {
     heading: "Get 15% off your first order!",
-    description: "The discount applies to selected items in selected categories.",
     button: "View products",
   },
   ru: {
     heading: "Получите 15% скидку на первый заказ!",
-    description: "Скидка действует на отдельные товары из выбранных категорий.",
     button: "Смотреть товары",
   },
 };
@@ -135,7 +132,6 @@ export default function Header() {
             </span>
             <div className={style.firstOrderPromoLeft}>
               <h2>{promoModalText[lang]?.heading || promoModalText.az.heading}</h2>
-              <p>{promoModalText[lang]?.description || promoModalText.az.description}</p>
               <button
                 type="button"
                 className={style.firstOrderPromoBtn}
