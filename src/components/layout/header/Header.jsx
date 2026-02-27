@@ -18,23 +18,6 @@ import { handleApiReqRes } from "../../../utils/handleApiReqRes.util";
 
 const { header } = PagesText;
 const { headerPageLinks } = header;
-const promoModalText = {
-  az: {
-    heading: "İlk sifarişinizə 15% endirim əldə edin!",
-    description: "Endirim yalnız seçilmiş kateqoriyalar üzrə məhsullara aid edilir.",
-    button: "Məhsullara bax",
-  },
-  en: {
-    heading: "Get 15% off your first order!",
-    description: "The discount applies to selected items in selected categories.",
-    button: "View products",
-  },
-  ru: {
-    heading: "Получите 15% скидку на первый заказ!",
-    description: "Скидка действует на отдельные товары из выбранных категорий.",
-    button: "Смотреть товары",
-  },
-};
 
 export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -134,8 +117,23 @@ export default function Header() {
               {Close}
             </span>
             <div className={style.firstOrderPromoLeft}>
-              <h2>{promoModalText[lang]?.heading || promoModalText.az.heading}</h2>
-              <p>{promoModalText[lang]?.description || promoModalText.az.description}</p>
+              {
+                (lang === "az" &&
+                  <><h2>İLK SİFARİŞİNİZƏ</h2>
+                    <h2><strong>15% ENDİRİM</strong></h2>
+                    <h2>ƏLDƏ EDİN</h2>
+                  </>
+                ) || (lang === "ru" &&
+                  <><h2>ПОЛУЧИТЕ</h2>
+                    <h2><strong>15% СКИДКУ</strong></h2>
+                    <h2>НА ПЕРВЫЙ ЗАКАЗ!</h2></>
+                ) ||
+                (lang === "en" &&
+                  <><h2>ENJOY</h2>
+                    <h2><strong>15% OFF</strong></h2>
+                    <h2>YOUR FIRST ORDER!</h2></>
+                )
+              }
               <button
                 type="button"
                 className={style.firstOrderPromoBtn}
@@ -144,7 +142,7 @@ export default function Header() {
                   navigate("/products/coffee")
                 }}
               >
-                {promoModalText[lang]?.button || promoModalText.az.button}
+                {header.promoText[lang]?.button}
               </button>
             </div>
             <div className={style.firstOrderPromoImageWrap}>

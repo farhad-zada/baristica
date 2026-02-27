@@ -5,6 +5,17 @@
             "ru": "ЗАРЕГИСТРИРУЙТЕСЬ ПРЯМО СЕЙЧАС И ПОЛУЧИТЕ 15% СКИДКУ НА ВАШ ПЕРВЫЙ ЗАКАЗ!",
             "en": "REGİSTER NOW AND ENJOY 15% OFF YOUR FIRST ORDER!"
         },
+        "promoText": {
+            "az": {
+                "button": "MƏHSULLARA BAX"
+            },
+            "ru": {
+                "button": "ПЕРЕЙТИ К КАТАЛОГУ"
+            },
+            "en": {
+                "button": "VIEW PRODUCTS"
+            }
+        },
         "subHeader": {
             "az": {
                 "products": "məhsul",
@@ -2064,9 +2075,9 @@
             "heading": "SİFARIŞİN TƏSDİQİ",
             "shippingNoticeTitle": "Çatdırılma qaydaları",
             "shippingNoticeLines": [
-                "Çatdırılma vaxtları: B.e.-C. 09:00-18:00, Şənbə 10:00-14:00.",
-                "Çatdırılma vaxtını yalnız növbəti iş gününün sonuna qədər seçə bilərsiniz.",
-                "Məsələn: Çərşənbə axşamı üçün Çərşənbə 18:00-a qədər, Cümə üçün Şənbə 14:00-a qədər, Şənbə üçün B.e. 18:00-a qədər."
+                "Çatdırılma vaxtları: B.e.-C. 09:00-18:00.",
+                "Çatdırılma üçün yalnız iş günlərini seçmək olar.",
+                "Çatdırılma tarixi bu gündən etibarən növbəti 3 gün daxilində seçilə bilər."
             ],
             "nameInput": "Adınız",
             "phoneInput": "Telefon nomrəniz",
@@ -2094,9 +2105,9 @@
             "heading": "ОФОРМЛЕНИЕ ЗАКАЗА",
             "shippingNoticeTitle": "Правила доставки",
             "shippingNoticeLines": [
-                "Время доставки: Пн-Пт 09:00-18:00, Сб 10:00-14:00.",
-                "Выбрать время доставки можно только до конца следующего рабочего дня.",
-                "Например: во вторник до среды 18:00, в пятницу до субботы 14:00, в субботу до понедельника 18:00."
+                "Время доставки: Пн-Пт 09:00-18:00.",
+                "Для доставки можно выбрать только будние дни.",
+                "Дата доставки доступна только в пределах следующих 3 дней, начиная с сегодняшнего."
             ],
             "nameInput": "Ваше имя",
             "phoneInput": "Телефон",
@@ -2124,9 +2135,9 @@
             "heading": "PLACE YOUR ORDER",
             "shippingNoticeTitle": "Delivery Schedule",
             "shippingNoticeLines": [
-                "Delivery hours: Mon-Fri 09:00-18:00, Sat 10:00-14:00.",
-                "You can choose delivery time only until the end of the next working day.",
-                "For example: Tuesday -> Wednesday 18:00, Friday -> Saturday 14:00, Saturday -> Monday 18:00."
+                "Delivery hours: Mon-Fri 09:00-18:00.",
+                "Only weekdays are available for delivery.",
+                "Delivery date can be selected only within the next 3 days starting from today."
             ],
             "nameInput": "Your name",
             "phoneInput": "Phone number",

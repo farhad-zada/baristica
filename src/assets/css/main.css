@@ -75,11 +75,11 @@ input {
     background-color: #7DC7C4;
     color: #111418;
     text-align: center;
-    font-size: 32px;
-    font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: 0.4px;
-    padding: 12px 10px;
+    font-size: 21px;
+    font-weight: 370;
+    line-height: 0.8;
+    letter-spacing: 0.5px;
+    padding: 12px 12px;
     text-transform: uppercase;
 }
 
@@ -561,6 +561,7 @@ input {
 .limited-text {
     display: -webkit-box;
     -webkit-line-clamp: 2; /* Ограничение на 2 строки */
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden; 
     text-overflow: ellipsis; /* Добавляет троеточие, если текст не помещается */
@@ -581,7 +582,7 @@ input {
 }
 @media (max-width: 768px){
     .top_header_promo{
-        font-size: 18px;
+        font-size: 17px;
         padding: 10px 8px;
     }
     body{
@@ -594,7 +595,7 @@ input {
 
 @media (max-width: 600px){
     .top_header_promo{
-        font-size: 13px;
+        font-size: 12px;
         padding: 8px 6px;
     }
 }

@@ -85,8 +85,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     };
 
     const getWorkingHours = (day) => {
-        if (day === 0) return null;
-        if (day === 6) return { start: '10:00', end: '14:00' };
+        if (day === 0 || day === 6) return null;
         return { start: '09:00', end: '18:00' };
     };
 
@@ -106,28 +105,10 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
         return rounded;
     };
 
-    const getNextWorkingDay = (fromDate, includeToday = false) => {
-        const cursor = new Date(fromDate);
-        cursor.setHours(0, 0, 0, 0);
-        if (!includeToday) {
-            cursor.setDate(cursor.getDate() + 1);
-        }
-
-        while (!getWorkingHours(cursor.getDay())) {
-            cursor.setDate(cursor.getDate() + 1);
-        }
-
-        return cursor;
-    };
-
     const getSelectionWindowEnd = (fromDate = selectionStart) => {
-        const includeToday = !getWorkingHours(fromDate.getDay());
-        const targetDay = getNextWorkingDay(fromDate, includeToday);
-        const targetHours = getWorkingHours(targetDay.getDay());
-        const [endHour, endMinute] = targetHours.end.split(':').map(Number);
-
-        const end = new Date(targetDay);
-        end.setHours(endHour, endMinute, 0, 0);
+        const end = new Date(fromDate);
+        end.setHours(23, 59, 59, 999);
+        end.setDate(end.getDate() + 4);
         return end;
     };
 
@@ -206,7 +187,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
         tomorrow.setDate(tomorrow.getDate() + 1);
 
         while (cursor <= endDate) {
-            if (cursor.getDay() !== 0) {
+            if (getWorkingHours(cursor.getDay())) {
                 const value = formatDate(cursor);
                 if (getTimeOptionsForDate(value, fromDate).length) {
                     let label = cursor.toLocaleDateString(localeByLang[lang] || 'en-US', {

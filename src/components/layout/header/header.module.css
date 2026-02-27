@@ -2,6 +2,7 @@
     width: 100%;
     background-color: #7DC7C4;
     color: #111418;
+    /* text align vertical -> center, horizontal -> left */
     text-align: center;
     font-size: 38px;
     font-weight: 800;
@@ -12,8 +13,8 @@
 }
 
 .firstOrderPromo{
-    width: min(980px, calc(100vw - 48px));
-    max-width: 980px !important;
+    width: min(700px, calc(100vw - 48px));
+    max-width: 700px !important;
     min-width: auto !important;
     border-radius: 0 !important;
     padding: 0 !important;
@@ -47,19 +48,21 @@
 .firstOrderPromoLeft{
     color: #fff;
     padding: 44px 36px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-content: center;
 }
 
 .firstOrderPromoLeft h2{
-    max-width: 420px;
+    max-width: 400px;
     font-family: "Roboto Condensed", "Oswald", sans-serif;
-    font-size: clamp(40px, 2.6vw, 50px);
-    font-weight: 700;
-    line-height: 1.02;
+    font-size: clamp(40px, 4.4vw, 0px);
+    font-weight: 370;
+    line-height: 1.05;
     letter-spacing: 0.3px;
     text-transform: uppercase;
     margin-bottom: 22px;
-    text-wrap: balance;
+    white-space: nowrap;
 }
 
 .firstOrderPromoLeft p{
@@ -228,7 +231,7 @@
     .firstOrderPromo{
         width: min(760px, calc(100vw - 32px));
         max-height: calc(100vh - 32px);
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
     }
     .firstOrderPromoClose{
         font-size: 30px;
@@ -237,7 +240,7 @@
         padding: 38px 24px 26px;
     }
     .firstOrderPromoLeft h2{
-        font-size: 40px;
+        font-size: clamp(16px, 6vw, 25px);
         margin-bottom: 16px;
     }
     .firstOrderPromoLeft p{
@@ -249,7 +252,7 @@
         padding: 10px 22px;
     }
     .firstOrderPromoImageWrap{
-        max-height: 360px;
+        max-height: none;
     }
     .top_banner{
         font-size: 20px;
@@ -317,12 +320,14 @@
     .firstOrderPromo{
         width: calc(100vw - 24px);
         max-height: calc(100vh - 24px);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
     .firstOrderPromoLeft{
         padding: 34px 16px 20px;
     }
     .firstOrderPromoLeft h2{
-        font-size: 34px;
+        font-size: clamp(14px, 5.7vw, 22px);
+        margin-bottom: 14px;
     }
     .firstOrderPromoLeft p{
         font-size: 14px;
@@ -334,7 +339,7 @@
         padding: 10px 14px;
     }
     .firstOrderPromoImageWrap{
-        max-height: 250px;
+        max-height: none;
     }
     .top_banner{
         font-size: 14px;
