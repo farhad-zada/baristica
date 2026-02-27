@@ -5,6 +5,17 @@
             "ru": "ЗАРЕГИСТРИРУЙТЕСЬ ПРЯМО СЕЙЧАС И ПОЛУЧИТЕ 15% СКИДКУ НА ВАШ ПЕРВЫЙ ЗАКАЗ!",
             "en": "REGİSTER NOW AND ENJOY 15% OFF YOUR FIRST ORDER!"
         },
+        "promoText": {
+            "az": {
+                "button": "MƏHSULLARA BAX"
+            },
+            "ru": {
+                "button": "ПЕРЕЙТИ К КАТАЛОГУ"
+            },
+            "en": {
+                "button": "VIEW PRODUCTS"
+            }
+        },
         "subHeader": {
             "az": {
                 "products": "məhsul",

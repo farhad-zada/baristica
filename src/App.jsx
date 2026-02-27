@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { setCart, setFavoritesCount, setFinalCart, setFinalCartArr, setLang, setToken, setUser } from './redux/slice';
 import { useDispatch, UseDispatch, useSelector } from 'react-redux';
-import HeadBanner from "./components/layout/headBanner/HeadBanner"
 import SubHeader from "./components/layout/subHeader/SubHeader"
 import Header from './components/layout/header/Header';
 import AppRoutes from './AppRoutes';
@@ -15,9 +14,6 @@ import Error from './components/error/Error';
 import FavoritesService from './services/favorites.service';
 import { handleApiReqRes } from './utils/handleApiReqRes.util';
 import PagesText from './content/PagesText.json';
-
-const { header } = PagesText;
-const { headerIntroText } = header;
 
 const App = () => {
   const [loading, setLoading] = useState(false)
@@ -34,7 +30,6 @@ const App = () => {
   const favoritesService = new FavoritesService()
 
   const getUser = async (token) => {
-    // setLoading(true)
     try {
       const request = userService.getUser(token)
       const response = await handleApiReqRes(request);
@@ -118,7 +113,18 @@ const App = () => {
       <Error status={error} setStatus={setError} message={message} />
       {!token ? (
         <div className="top_header_promo">
-          {headerIntroText[lang] || headerIntroText.az}
+          {(
+            lang === "az" && <>
+              İNDİ QEYDİYYATDAN KEÇİN VƏ İLK SİFARİŞİNİZƏ <strong style={{ fontWeight: 900 }}>15% ENDİRİM</strong> QAZANIN!
+            </>
+            || lang === "en" && <>
+              REGISTER NOW AND GET <strong style={{ fontWeight: 900 }}>15% OFF</strong> YOUR FIRST ORDER!
+            </>
+            ||
+            lang === "ru" && <>
+              РЕГИСТРИРУЙТЕСЬ И ПОЛУЧИТЕ <strong style={{ fontWeight: 900 }}>15% СКИДКУ</strong> НА ПЕРВЫЙ ЗАКАЗ!
+            </>
+          )}
         </div>
       ) : null}
       <SubHeader />
