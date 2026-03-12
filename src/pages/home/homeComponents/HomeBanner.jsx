@@ -1,13 +1,13 @@
 import React from 'react'
 import style from '../homeCss/homeBanner.module.css'
-import bannerImage from '../../../assets/img/banner.jpeg'
+import bannerImage from '../../../assets/img/banner.jpg'
 import { useSelector } from 'react-redux'
 
 import PagesText from '../../../content/PagesText.json';
 import { Link } from 'react-router-dom';
 
 // Import your icons here or define them as components
-import { Accessories, CoffeeDevice, CoffeeIcon, Present } from '../../../icons';
+import { Accessories, CoffeeDevice, CoffeeIcon, Present, Prize } from '../../../icons';
 import Loading from '../../../components/loading/Loading';
 // You can import other icons similarly
 
@@ -37,10 +37,11 @@ const HomeBanner = () => {
       case 'Accessories':
         return Accessories;
       case 'CoffeeDevice':
-          return CoffeeDevice;
+        return CoffeeDevice;
       case 'Present':
-          return Present;
-      // Add more cases here for other icons
+        return Present;
+      case 'Prize':
+        return Prize;
       default:
         return null;
     }
@@ -54,8 +55,8 @@ const HomeBanner = () => {
           <h1 className='white f96 fw700'>{head[lang].title}</h1>
           <div className={`${style.menu} flex a-center`}>
             {head[lang].links?.map((link) => (
-              <Link to={link.link} className={`${style.menu_elem} flex a-center rounded white`} key={link.title}>
-                {getIcon(link.icon)} 
+              <Link to={link.link} className={`${style.menu_elem} flex a-center rounded`} key={link.title}>
+                {getIcon(link.icon)}
                 <span className="f32 fw400 robotoFont">{link.title}</span>
               </Link>
             ))}

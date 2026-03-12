@@ -4,25 +4,30 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 0;  
 }
 .homeBanner_section{
     position: relative;
     height: 100%;
     z-index: 2;
+    width: 1360px;
+    padding: 50px;
 }
 .menu{
     gap: 20px;
     padding-top: 100px;
 }
 .menu_elem{
+    color: white;
     padding: 16px 32px;
     border: 1px solid white;
     transition: .2s ease-in-out;
 }
 .menu_elem:hover{
-    background: #61C4BF;
+    background: #D9D8D6;
+    border: 1px solid #54565A;
+    color: black;
 }
 .menu_elem svg{
     width: 40px;

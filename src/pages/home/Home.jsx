@@ -7,6 +7,7 @@ import HomeContact from './homeComponents/HomeContact'
 import HomeInfo from './homeComponents/HomeInfo'
 import HomeProducts from './homeComponents/HomeProducts'
 import HomeVideoBanner from './homeComponents/HomeVideoBanner'
+import HomeBanner from './homeComponents/HomeBanner'
 
 const Home = () => {
   const location = useLocation()
@@ -30,8 +31,7 @@ const Home = () => {
   return (
     <div className="home" style={{ position: 'relative' }}>
       <Loading status={loading} />
-
-      <HomeVideoBanner />
+      <HomeBanner />
       <HomeProducts onLoad={() => setIsProductsLoaded(true)} />
       <HomeAdvantages />
       <HomeInfo />
