@@ -1,7 +1,7 @@
 name: Deploy shop.baristica.az
 on:
   push:
-    branches: [main]
+    branches: [main, staging]
   workflow_dispatch:
 
 jobs:
@@ -40,6 +40,7 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
