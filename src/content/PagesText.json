@@ -182,14 +182,19 @@
                         "icon": "CoffeeIcon"
                     },
                     {
-                        "title": "Aksesuarlar",
+                        "title": "Aksesuar",
                         "link": "/products/accesories",
                         "icon": "Accessories"
                     },
                     {
-                        "title": "Aparatlar",
+                        "title": "Aparat",
                         "link": "/products/coffeeMachines",
                         "icon": "CoffeeDevice"
+                    },
+                    {
+                        "title": "Hədiyyə qutuları",
+                        "link": "/products/presentBoxes",
+                        "icon": "Present"
                     }
                 ]
             },
@@ -202,14 +207,19 @@
                         "icon": "CoffeeIcon"
                     },
                     {
-                        "title": "Аксессуары",
+                        "title": "Аксессуар",
                         "link": "/products/accesories",
                         "icon": "Accessories"
                     },
                     {
-                        "title": "Аппараты",
+                        "title": "Аппарат",
                         "link": "/products/coffeeMachines",
                         "icon": "CoffeeDevice"
+                    },
+                    {
+                        "title": "Подарочные коробки",
+                        "link": "/products/presentBoxes",
+                        "icon": "Present"
                     }
                 ]
             },
@@ -222,14 +232,19 @@
                         "icon": "CoffeeIcon"
                     },
                     {
-                        "title": "Accessories",
+                        "title": "Accessory",
                         "link": "/products/accesories",
                         "icon": "Accessories"
                     },
                     {
-                        "title": "Devices",
+                        "title": "Device",
                         "link": "/products/coffeeMachines",
                         "icon": "CoffeeDevice"
+                    },
+                    {
+                        "title": "Present Boxes",
+                        "link": "/products/presentBoxes",
+                        "icon": "Present"
                     }
                 ]
             }
