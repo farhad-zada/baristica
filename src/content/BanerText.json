@@ -1,0 +1,67 @@
+{
+    "bigAttentionPart": {
+        "en": [
+            {
+                "value": "We ",
+                "weight": "normal"
+            },
+            {
+                "value": "roast coffee ",
+                "weight": "strong"
+            },
+            {
+                "value": "and ",
+                "weight": "normal"
+            }, 
+            {
+                "value": "select finest coffee beans ",
+                "weight": "strong"
+            },
+            {
+                "value": "around the world.",
+                "weight": "normal"
+            }
+        ],
+        "az": [
+            {
+                "value": "BİZ ",
+                "weight": "normal"
+            },
+            {
+                "value": "QƏHVƏ QOVURUR ",
+                "weight": "strong"
+            },
+            {
+                "value": "VƏ ",
+                "weight": "normal"
+            }, 
+            {
+                "value": "DÜNYANIN ƏN YAXŞI QƏHVƏ DƏNƏLƏRİNİ SEÇİRİK.",
+                "weight": "strong"
+            }
+        ],
+        "ru": [
+            {
+                "value": "Мы ",
+                "weight": "normal"
+            },
+            {
+                "value": "обжариваем кофе ",
+                "weight": "strong"
+            },
+            {
+                "value": "и отбираем ",
+                "weight": "normal"
+            },
+            {
+                "value": "лучшие зерна со всего мира.",
+                "weight": "strong"
+            }
+        ]
+    },
+    "secondary": {
+        "en": "In our store you’ll find fresh roasts, accessories, and everything you need to brew the perfect cup.",
+        "az": "Mağazamızda taze kavurmalar, aksesuarlar ve mükemmel bir fincan demlemek için ihtiyacınız olan her şeyi bulacaksınız.",
+        "ru": "В нашем магазине вы найдете свежие обжарки, аксессуары и все, что нужно для приготовления идеальной чашки."
+    }
+}

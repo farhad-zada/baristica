@@ -4,18 +4,16 @@ import bannerImage from '../../../assets/img/banner.jpg'
 import { useSelector } from 'react-redux'
 
 import PagesText from '../../../content/PagesText.json';
-import { Link } from 'react-router-dom';
+import BanerText from "../../../content/BanerText.json";
 
 // Import your icons here or define them as components
 import { Accessories, CoffeeDevice, CoffeeIcon, Present, Prize } from '../../../icons';
-import Loading from '../../../components/loading/Loading';
 // You can import other icons similarly
 
-const { home } = PagesText;
-const { head } = home;
 
 const HomeBanner = () => {
   const { lang } = useSelector((state) => state.baristica);
+  const bigAttentionPart = BanerText.bigAttentionPart;
 
   const bannerStyle = {
     position: 'relative',
@@ -26,6 +24,8 @@ const HomeBanner = () => {
     maxHeight: '684px',
     height: '684px',
     width: '100%',
+    fontFamily: 'Oswald, sans-serif',
+    fontSize: '12px',
     zIndex: 1,  // Ensure the content is above the overlay
   };
 
@@ -50,16 +50,19 @@ const HomeBanner = () => {
   return (
     <div className={style.homeBanner + ' flex j-center'} style={bannerStyle} id="homestore">
       <div className={`${style.homeBanner_dark}`}></div>
-      <div className='container h-100'>
+      <div className={style.homeBanner_container + ' flex j-center a-center'}>
         <div className={`${style.homeBanner_section} flex column a-start j-center`}>
-          <h1 className='white f96 fw700'>{head[lang].title}</h1>
-          <div className={`${style.menu} flex a-center`}>
-            {head[lang].links?.map((link) => (
-              <Link to={link.link} className={`${style.menu_elem} flex a-center rounded`} key={link.title}>
-                {getIcon(link.icon)}
-                <span className="f32 fw400 robotoFont">{link.title}</span>
-              </Link>
+          <h1 className={style.homeBanner_h1}>
+            {bigAttentionPart[lang]?.map((part, index) => (
+              part.weight === 'strong'
+                ? <strong key={index}>{part.value}</strong>
+                : <span key={index}>{part.value}</span>
             ))}
+          </h1>
+          <h2 className={style.homeBanner_h2}>
+            {BanerText.secondary[lang]}
+          </h2>
+          <div className={`${style.menu} flex a-center`}>
           </div>
         </div>
       </div>
