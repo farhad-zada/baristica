@@ -1,70 +1,130 @@
-.homeBanner_dark{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 0;  
+.homeBanner {
+    height: 684px !important;
+    max-height: none !important;
+    min-height: 684px;
 }
-.homeBanner_section{
+
+.homeBanner_container {
     position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1360px;
     height: 100%;
+    padding: 0 24px;
+}
+
+.homeBanner_dark {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.homeBanner_section {
+    position: relative;
     z-index: 2;
-    width: 1360px;
-    padding: 50px;
-}
-.menu{
+    width: 100%;
+    max-width: 980px;
+    height: 100%;
+    padding: 48px 0;
     gap: 20px;
-    padding-top: 100px;
 }
-.menu_elem{
+
+.homeBanner_h1 {
+    margin: 0;
     color: white;
-    padding: 16px 32px;
-    border: 1px solid white;
-    transition: .2s ease-in-out;
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
-.menu_elem:hover{
-    background: #D9D8D6;
-    border: 1px solid #54565A;
-    color: black;
+
+.homeBanner_h1 strong {
+    font-weight: 600;
 }
-.menu_elem svg{
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+
+.homeBanner_h2 {
+    margin: 0;
+    width: min(100%, 760px);
+    color: white;
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
-@media (max-width: 960px){
-    .homeBanner_section h1{
-        font-size: 72px !important;
-    }
+
+.menu {
+    width: 100%;
 }
-@media (max-width: 768px){
-    .menu{
-        flex-direction: column;
-        align-items: flex-start !important;
-        gap: 10px;
-    }
+
+.menu:empty {
+    display: none;
 }
-@media (max-width: 480px){
-    .homeBanner_section h1{
-        font-size: 48px !important;
+
+@media (max-width: 960px) {
+    .homeBanner {
+        height: 620px !important;
+        min-height: 620px;
     }
-    .menu{
-        padding-top: 70px;
-    }
-    .menu_elem{
-        padding: 8px 18px;
-    }
-    .menu_elem span{
-        font-size: 20px !important;
-    }
-    .homeBanner{
-        height: 532px !important;
+
+    .homeBanner_section {
+        max-width: 720px;
+        padding: 40px 0;
+        gap: 16px;
     }
 }
-@media (max-width: 360px){
-    .homeBanner{
-        height: 485px !important;
+
+@media (max-width: 768px) {
+    .homeBanner {
+        height: 560px !important;
+        min-height: 560px;
+    }
+
+    .homeBanner_container {
+        padding: 0 20px;
+    }
+
+    .homeBanner_section {
+        padding: 32px 0;
+    }
+
+    .homeBanner_h1 {
+        font-size: clamp(2.5rem, 10vw, 4.25rem);
+    }
+
+    .homeBanner_h2 {
+        width: 100%;
+        font-size: clamp(1.25rem, 5vw, 1.875rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .homeBanner {
+        height: 500px !important;
+        min-height: 500px;
+    }
+
+    .homeBanner_container {
+        padding: 0 16px;
+    }
+
+    .homeBanner_section {
+        padding: 24px 0;
+        gap: 14px;
+    }
+
+    .homeBanner_h1 {
+        line-height: 1;
+    }
+}
+
+@media (max-width: 360px) {
+    .homeBanner {
+        height: 460px !important;
+        min-height: 460px;
     }
 }
