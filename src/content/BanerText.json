@@ -12,7 +12,7 @@
             {
                 "value": "and ",
                 "weight": "normal"
-            }, 
+            },
             {
                 "value": "select finest coffee beans ",
                 "weight": "strong"
@@ -34,7 +34,7 @@
             {
                 "value": "VƏ ",
                 "weight": "normal"
-            }, 
+            },
             {
                 "value": "DÜNYANIN ƏN YAXŞI QƏHVƏ DƏNƏLƏRİNİ SEÇİRİK.",
                 "weight": "strong"
@@ -61,7 +61,7 @@
     },
     "secondary": {
         "en": "In our store you’ll find fresh roasts, accessories, and everything you need to brew the perfect cup.",
-        "az": "Mağazamızda taze kavurmalar, aksesuarlar ve mükemmel bir fincan demlemek için ihtiyacınız olan her şeyi bulacaksınız.",
-        "ru": "В нашем магазине вы найдете свежие обжарки, аксессуары и все, что нужно для приготовления идеальной чашки."
+        "az": "Mağazamızda təzə qovrulmuş qəhvə, aksesuarlar və mükəmməl bir fincan qəhvə hazırlamaq üçün lazım olan hər şeyi tapa bilərsiniz.",
+        "ru": "В нашем магазине — свежая обжарка, аксессуары и всё для приготовления идеальной чашки."
     }
 }
