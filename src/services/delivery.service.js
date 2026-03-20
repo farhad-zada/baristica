@@ -10,6 +10,10 @@ class DeliveryService {
         };
         return await httpRequest.getAll(`${this.#requestUrl}/fee`)
     }
+
+    getTimeOptions = async () => {
+        return await httpRequest.getAll("delivery-time-options")
+    }
 }
 
 export default DeliveryService;
