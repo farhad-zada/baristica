@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import InputText from '../../../components/form/inputField/InputText'
 import PageText from '../../../content/PagesText.json'
 import { useSelector } from 'react-redux'
@@ -7,6 +7,7 @@ import UserAddress from '../../../components/userAddress/UserAddress'
 import AddAddress from '../../../components/userAddress/add/AddAddress'
 import AuthButton from '../../../components/form/button/AuthButton'
 import OrdersService from '../../../services/orders.service'
+import DeliveryService from '../../../services/delivery.service'
 import Loading from '../../../components/loading/Loading'
 import Error from '../../../components/error/Error'
 import Success from '../../../components/success/Success'
@@ -15,6 +16,69 @@ import { handleApiReqRes } from '../../../utils/handleApiReqRes.util';
 import { addressReducer } from '../../../utils/addressReducer';
 
 const { order, profile } = PageText
+const localeByLang = {
+    az: 'az-AZ',
+    ru: 'ru-RU',
+    en: 'en-US'
+};
+const deliveryTimeZone = 'Asia/Baku';
+
+const relativeDayLabels = {
+    az: { today: 'Bu gün', tomorrow: 'Sabah' },
+    ru: { today: 'Сегодня', tomorrow: 'Завтра' },
+    en: { today: 'Today', tomorrow: 'Tomorrow' }
+};
+
+const getDateFromIso = (dateString) => {
+    const [year, month, day] = dateString.split('-').map(Number);
+    return new Date(year, month - 1, day);
+};
+
+const isSameDate = (left, right) => {
+    return left.getFullYear() === right.getFullYear()
+        && left.getMonth() === right.getMonth()
+        && left.getDate() === right.getDate();
+};
+
+const formatTimeOptionLabel = (timeOption, lang) => {
+    if (!timeOption) return '';
+
+    const date = new Date(timeOption);
+    if (Number.isNaN(date.getTime())) return '';
+
+    return date.toLocaleTimeString(localeByLang[lang] || 'en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: deliveryTimeZone
+    });
+};
+
+const formatDateOptionLabel = (dateString, lang) => {
+    if (!dateString) return '';
+
+    const date = getDateFromIso(dateString);
+    if (Number.isNaN(date.getTime())) return '';
+
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    if (isSameDate(date, today)) {
+        return relativeDayLabels[lang]?.today || 'Today';
+    }
+
+    if (isSameDate(date, tomorrow)) {
+        return relativeDayLabels[lang]?.tomorrow || 'Tomorrow';
+    }
+
+    return date.toLocaleDateString(localeByLang[lang] || 'en-US', {
+        weekday: 'short',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+};
 
 export default function OrderLeft({ content, delivery, setDelivery }) {
     const [formData, setFormData] = useState({
@@ -34,193 +98,35 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     const [submitAttempted, setSubmitAttempted] = useState(false)
     const [fieldErrors, setFieldErrors] = useState({ name: '', phone: '', date: '', time: '', address: '' })
     const [openPicker, setOpenPicker] = useState({ date: false, time: false })
+    const [deliveryDateTimeOptions, setDeliveryDateTimeOptions] = useState([])
     const datePickerRef = useRef(null)
     const timePickerRef = useRef(null)
 
     const { lang, finalCart, user, token } = useSelector((state) => state.baristica);
 
-    const ordersService = new OrdersService()
+    const ordersService = useMemo(() => new OrdersService(), [])
+    const deliveryService = useMemo(() => new DeliveryService(), [])
 
-    const localeByLang = {
-        az: 'az-AZ',
-        ru: 'ru-RU',
-        en: 'en-US'
-    };
-
-    const relativeDayLabels = {
-        az: { today: 'Bu gün', tomorrow: 'Sabah' },
-        ru: { today: 'Сегодня', tomorrow: 'Завтра' },
-        en: { today: 'Today', tomorrow: 'Tomorrow' }
-    };
-
-    const [selectionStart] = useState(() => new Date());
-
-    const formatDate = (date) => {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        return `${year}-${month}-${day}`;
-    };
-
-    const formatTime = (date) => {
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
-        return `${hours}:${minutes}`;
-    };
-
-    const toMinutes = (timeString) => {
-        const [hours, minutes] = timeString.split(':').map(Number);
-        return (hours * 60) + minutes;
-    };
-
-    const getDateFromIso = (dateString) => {
-        const [year, month, day] = dateString.split('-').map(Number);
-        return new Date(year, month - 1, day);
-    };
-
-    const isSameDate = (left, right) => {
-        return left.getFullYear() === right.getFullYear()
-            && left.getMonth() === right.getMonth()
-            && left.getDate() === right.getDate();
-    };
-
-    const getWorkingHours = (day) => {
-        if (day === 0 || day === 6) return null;
-        return { start: '09:00', end: '18:00' };
-    };
-
-    const roundToNextHalfHour = (date) => {
-        const rounded = new Date(date);
-        rounded.setSeconds(0, 0);
-        const minutes = rounded.getMinutes();
-
-        if (minutes === 0 || minutes === 30) return rounded;
-        if (minutes < 30) {
-            rounded.setMinutes(30);
-            return rounded;
-        }
-
-        rounded.setHours(rounded.getHours() + 1);
-        rounded.setMinutes(0);
-        return rounded;
-    };
-
-    const getSelectionWindowEnd = (fromDate = selectionStart) => {
-        const end = new Date(fromDate);
-        end.setHours(23, 59, 59, 999);
-        end.setDate(end.getDate() + 4);
-        return end;
-    };
-
-    const selectionWindowEnd = getSelectionWindowEnd(selectionStart);
-
-    const isDeliverySlotAllowed = (dateString, timeString) => {
-        if (!dateString || !timeString) return false;
-
-        const date = getDateFromIso(dateString);
-        if (Number.isNaN(date.getTime())) return false;
-
-        const workingHours = getWorkingHours(date.getDay());
-        if (!workingHours) return false;
-
-        const selected = toMinutes(timeString);
-        const inDailyRange = selected >= toMinutes(workingHours.start) && selected <= toMinutes(workingHours.end);
-        if (!inDailyRange) return false;
-
-        const [hour, minute] = timeString.split(':').map(Number);
-        const selectedDateTime = new Date(date);
-        selectedDateTime.setHours(hour, minute, 0, 0);
-
-        const roundedStart = roundToNextHalfHour(selectionStart);
-        return selectedDateTime >= roundedStart && selectedDateTime <= selectionWindowEnd;
-    };
-
-    const getTimeOptionsForDate = (dateString, fromDate = selectionStart) => {
+    const getTimeOptionsForDate = useCallback((dateString) => {
         if (!dateString) return [];
 
-        const selectedDate = getDateFromIso(dateString);
-        if (Number.isNaN(selectedDate.getTime())) return [];
+        const selectedOption = deliveryDateTimeOptions.find((option) => option?.date === dateString);
+        return Array.isArray(selectedOption?.timeOptions) ? selectedOption.timeOptions : [];
+    }, [deliveryDateTimeOptions]);
 
-        const workingHours = getWorkingHours(selectedDate.getDay());
-        if (!workingHours) return [];
-
-        const [startHour, startMinute] = workingHours.start.split(':').map(Number);
-        const [endHour, endMinute] = workingHours.end.split(':').map(Number);
-
-        const start = new Date(selectedDate);
-        start.setHours(startHour, startMinute, 0, 0);
-
-        const end = new Date(selectedDate);
-        end.setHours(endHour, endMinute, 0, 0);
-
-        let current = new Date(start);
-        if (isSameDate(selectedDate, fromDate)) {
-            const sameDayStart = roundToNextHalfHour(fromDate);
-            if (sameDayStart > current) current = sameDayStart;
-        }
-
-        if (selectedDate > selectionWindowEnd) return [];
-        if (isSameDate(selectedDate, selectionWindowEnd) && end > selectionWindowEnd) {
-            end.setHours(selectionWindowEnd.getHours(), selectionWindowEnd.getMinutes(), 0, 0);
-        }
-
-        if (current > end) return [];
-
-        const slots = [];
-        while (current <= end) {
-            slots.push(formatTime(current));
-            current = new Date(current.getTime() + 30 * 60 * 1000);
-        }
-
-        return slots;
-    };
-
-    const buildDateOptions = (fromDate = selectionStart) => {
-        const options = [];
-        const cursor = new Date(fromDate);
-        cursor.setHours(0, 0, 0, 0);
-        const endDate = new Date(selectionWindowEnd);
-        endDate.setHours(0, 0, 0, 0);
-        const today = new Date(fromDate);
-        today.setHours(0, 0, 0, 0);
-        const tomorrow = new Date(today);
-        tomorrow.setDate(tomorrow.getDate() + 1);
-
-        while (cursor <= endDate) {
-            if (getWorkingHours(cursor.getDay())) {
-                const value = formatDate(cursor);
-                if (getTimeOptionsForDate(value, fromDate).length) {
-                    let label = cursor.toLocaleDateString(localeByLang[lang] || 'en-US', {
-                        weekday: 'short',
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric'
-                    });
-
-                    if (isSameDate(cursor, today)) {
-                        label = relativeDayLabels[lang]?.today || 'Today';
-                    } else if (isSameDate(cursor, tomorrow)) {
-                        label = relativeDayLabels[lang]?.tomorrow || 'Tomorrow';
-                    }
-
-                    options.push({
-                        value,
-                        label
-                    });
-                }
-            }
-            cursor.setDate(cursor.getDate() + 1);
-        }
-
-        return options;
-    };
-
-    const dateOptions = buildDateOptions(selectionStart);
-    const timeOptions = getTimeOptionsForDate(formData.date, selectionStart);
+    const dateOptions = useMemo(() => {
+        return deliveryDateTimeOptions
+            .filter((option) => option?.date && Array.isArray(option?.timeOptions) && option.timeOptions.length)
+            .map((option) => ({
+                value: option.date,
+                label: formatDateOptionLabel(option.date, lang)
+            }));
+    }, [deliveryDateTimeOptions, lang]);
+    const timeOptions = useMemo(() => getTimeOptionsForDate(formData.date), [formData.date, getTimeOptionsForDate]);
     const selectedDateLabel = dateOptions.find((option) => option.value === formData.date)?.label || '';
-    const selectedTimeLabel = formData.time || '';
+    const selectedTimeLabel = useMemo(() => formatTimeOptionLabel(formData.time, lang), [formData.time, lang]);
 
-    const getSelectedAddressId = () => {
+    const getSelectedAddressId = useCallback(() => {
         let selectedAddressId = null;
         for (let addr of addresses) {
             if (addr.selected) {
@@ -231,9 +137,9 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
             }
         }
         return selectedAddressId;
-    };
+    }, [addresses]);
 
-    const validateDeliveryFields = (dateValue, timeValue) => {
+    const validateDeliveryFields = useCallback((dateValue, timeValue) => {
         const errors = { date: '', time: '' };
 
         if (!dateValue) {
@@ -251,16 +157,16 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
             return errors;
         }
 
-        const timesForDate = getTimeOptionsForDate(dateValue, selectionStart);
+        const timesForDate = getTimeOptionsForDate(dateValue);
         const timeIsAvailable = timesForDate.includes(timeValue);
-        if (!timeIsAvailable || !isDeliverySlotAllowed(dateValue, timeValue)) {
+        if (!timeIsAvailable) {
             errors.time = content?.deliveryTimeInvalidError || 'Selected time is outside delivery hours';
         }
 
         return errors;
-    };
+    }, [content, dateOptions, getTimeOptionsForDate]);
 
-    const validateOrderFields = (nextFormData, isDelivery, selectedAddressId) => {
+    const validateOrderFields = useCallback((nextFormData, isDelivery, selectedAddressId) => {
         const errors = { name: '', phone: '', date: '', time: '', address: '' };
 
         if (!nextFormData.name?.trim()) {
@@ -286,7 +192,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
         }
 
         return errors;
-    };
+    }, [content, validateDeliveryFields]);
 
     const onSubmit = async () => {
         setSubmitAttempted(true);
@@ -316,7 +222,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                 }),
                 paymentMethod: byCard ? 'card' : "cash",
                 notes: formData.comment,
-                deliveryHour: formData.time,
+                deliveryHour: delivery ? formatTimeOptionLabel(formData.time, 'en') : formData.time,
                 deliveryDate: formData.date
             }
         }
@@ -353,8 +259,34 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
     }
 
     useEffect(() => {
+        let isActive = true;
+
+        const loadDeliveryDateTimeOptions = async () => {
+            try {
+                const request = deliveryService.getTimeOptions();
+                const response = await handleApiReqRes(request);
+                const options = response?.data?.deliveryDateTimeOptions;
+
+                if (isActive) {
+                    setDeliveryDateTimeOptions(Array.isArray(options) ? options : []);
+                }
+            } catch (error) {
+                if (isActive) {
+                    setDeliveryDateTimeOptions([]);
+                }
+            }
+        };
+
+        loadDeliveryDateTimeOptions();
+
+        return () => {
+            isActive = false;
+        };
+    }, [deliveryService])
+
+    useEffect(() => {
         const defaultDate = dateOptions[0]?.value || '';
-        const defaultTime = defaultDate ? (getTimeOptionsForDate(defaultDate, selectionStart)[0] || '') : '';
+        const defaultTime = defaultDate ? (getTimeOptionsForDate(defaultDate)[0] || '') : '';
         const hasUser = user && Object.keys(user).length > 0;
 
         dispatch({ type: 'INIT', payload: hasUser ? (user.addresses || []) : [] });
@@ -366,26 +298,49 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
             date: prev.date || defaultDate,
             time: prev.time || defaultTime
         }));
-    }, [user])
+    }, [dateOptions, getTimeOptionsForDate, user])
 
     useEffect(() => {
         if (!delivery) {
-            setFieldErrors((prev) => ({ ...prev, date: '', time: '', address: '' }));
-            setSubmitAttempted(false);
+            setFieldErrors((prev) => {
+                if (!prev.date && !prev.time && !prev.address) return prev;
+                return { ...prev, date: '', time: '', address: '' };
+            });
+            if (submitAttempted) {
+                setSubmitAttempted(false);
+            }
             return;
         }
 
-        if (!formData.date || !timeOptions.length) return;
+        if (!dateOptions.length) {
+            if (formData.date || formData.time) {
+                setFormData((prev) => ({ ...prev, date: '', time: '' }));
+            }
+            return;
+        }
+
+        const dateIsAvailable = dateOptions.some((option) => option.value === formData.date);
+        if (!dateIsAvailable) {
+            const nextDate = dateOptions[0]?.value || '';
+            const nextTime = nextDate ? (getTimeOptionsForDate(nextDate)[0] || '') : '';
+            setFormData((prev) => ({ ...prev, date: nextDate, time: nextTime }));
+            return;
+        }
+
+        if (!formData.date || !timeOptions.length) {
+            if (formData.time) setFormData((prev) => ({ ...prev, time: '' }));
+            return;
+        }
         if (timeOptions.includes(formData.time)) return;
 
         setFormData((prev) => ({ ...prev, time: timeOptions[0] }));
-    }, [delivery, formData.date, formData.time, timeOptions])
+    }, [dateOptions, delivery, formData.date, formData.time, getTimeOptionsForDate, submitAttempted, timeOptions])
 
     useEffect(() => {
         if (!submitAttempted) return;
         const selectedAddressId = getSelectedAddressId();
         setFieldErrors(validateOrderFields(formData, delivery, selectedAddressId));
-    }, [addresses, delivery, formData, submitAttempted])
+    }, [delivery, formData, getSelectedAddressId, submitAttempted, validateOrderFields])
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -454,7 +409,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                                                     className={`${styles.dropdownItem} ${option.value === formData.date ? styles.dropdownItemActive : ''}`}
                                                     onClick={() => {
                                                         const selectedDate = option.value;
-                                                        const nextTimeOptions = getTimeOptionsForDate(selectedDate, selectionStart);
+                                                        const nextTimeOptions = getTimeOptionsForDate(selectedDate);
                                                         const nextTime = nextTimeOptions.includes(formData.time) ? formData.time : (nextTimeOptions[0] || '');
 
                                                         const nextFormData = {
@@ -516,7 +471,7 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                                                         }
                                                     }}
                                                 >
-                                                    {timeOption}
+                                                    {formatTimeOptionLabel(timeOption, lang)}
                                                 </button>
                                             </li>
                                         ))}
