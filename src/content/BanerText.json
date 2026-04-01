@@ -2,59 +2,19 @@
     "bigAttentionPart": {
         "en": [
             {
-                "value": "We ",
-                "weight": "normal"
-            },
-            {
-                "value": "roast coffee ",
-                "weight": "strong"
-            },
-            {
-                "value": "and ",
-                "weight": "normal"
-            },
-            {
-                "value": "select finest coffee beans ",
-                "weight": "strong"
-            },
-            {
-                "value": "around the world.",
-                "weight": "normal"
-            }
-        ],
-        "az": [
-            {
-                "value": "BİZ ",
-                "weight": "normal"
-            },
-            {
-                "value": "QƏHVƏ QOVURUR ",
-                "weight": "strong"
-            },
-            {
-                "value": "VƏ ",
-                "weight": "normal"
-            },
-            {
-                "value": "DÜNYANIN ƏN YAXŞI QƏHVƏ DƏNƏLƏRİNİ SEÇİRİK.",
+                "value": "We select the finest coffee beans and roast them",
                 "weight": "strong"
             }
         ],
         "ru": [
             {
-                "value": "Мы ",
-                "weight": "normal"
-            },
-            {
-                "value": "обжариваем кофе ",
+                "value": "Biz ən yaxşı qəhvə dənələrini seçirik və onları qovururuq",
                 "weight": "strong"
-            },
+            }
+        ],
+        "az": [
             {
-                "value": "и отбираем ",
-                "weight": "normal"
-            },
-            {
-                "value": "лучшие зерна со всего мира.",
+                "value": "Мы отбираем лучшие кофейные зерна и обжариваем их",
                 "weight": "strong"
             }
         ]

@@ -222,8 +222,10 @@ export default function OrderLeft({ content, delivery, setDelivery }) {
                 }),
                 paymentMethod: byCard ? 'card' : "cash",
                 notes: formData.comment,
-                deliveryHour: delivery ? formatTimeOptionLabel(formData.time, 'en') : formData.time,
-                deliveryDate: formData.date
+                ...(delivery ? {
+                    deliveryHour: formatTimeOptionLabel(formData.time, 'en'),
+                    deliveryDate: formData.date
+                } : {})
             }
         }
 
